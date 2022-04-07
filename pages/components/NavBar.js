@@ -76,7 +76,7 @@ const NavBar = () => {
               
               <li><Button link="/" text="Open Sea"></Button></li> 
               <li><Button link="https://twitter.com/SerpentaNFT"  text="Twitter"></Button></li>
-              <li><Button link="https://discord.gg/Qc3xWhaNru" style="gold" text="Discord"></Button></li>
+              <li><Button link="https://discord.gg/serpentaNFT" style="gold" text="Discord"></Button></li>
               {/* <li><Button text="connect" style="gold"></Button></li> */}
               
           </ul>
