@@ -1,0 +1,32 @@
+.button {
+    color: white;
+    position:relative;
+    display: inline-block;
+    text-align: center;
+    width: 150px;
+    &__text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        text-transform: uppercase;
+        line-height: 0;
+        height: 15px;
+        width: 100%;
+    }  
+
+    &--clicked {
+        .button__text {
+            height: auto;
+        }
+    }
+}
+
+.button-container {
+    &.gold {
+        .button {
+            color: black;
+        }
+    }
+}

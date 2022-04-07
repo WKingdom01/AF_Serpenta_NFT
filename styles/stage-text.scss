@@ -1,0 +1,47 @@
+.stage-text {
+    color: $darker-gray;
+    
+    position: relative;
+    font-size: 36px;
+    font-family: cc;
+    width: 100%;
+    line-height: .7;
+    text-align: center;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+    background: $darkslategray;
+    padding: 20px;
+    align-self: flex-start;
+    max-width: 400px;
+
+    &--open {
+        .stage-text__body {
+            padding-top: 20px;
+            max-height: 100vh;
+        }
+    }
+
+    &__body {
+        font-size: 16px;
+        max-height: 0vh;
+        font-family: vp;
+        line-height: 1;
+        overflow: hidden;
+        transition: max-height .3s ease-in, padding .3s ease-in;
+    }
+
+    &__header {
+        text-transform: uppercase;
+    }
+
+    @media screen and (min-width: $tablet) {
+        align-self: center;
+        left: auto;
+        transform: none;
+
+        &__body {
+            font-size: 24px;
+        }
+    }
+}

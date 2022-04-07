@@ -1,0 +1,32 @@
+.question {
+
+    background: $darkslategray;
+    padding: 20px;
+    margin-bottom: 24px;
+    border-radius: 5px;
+    color: $darker-gray;
+    font-family: vp;
+    font-size: 24px;
+    cursor: pointer;
+    
+    
+
+    &__title {
+       
+        font-weight:600;
+        text-transform: uppercase;
+        // padding: 23;
+    }
+
+    &__answer {
+        max-height: 0px;
+        transition: max-height .3s ease-in;
+        overflow: hidden;
+    }
+
+    &--open {
+        .question__answer {
+            max-height: 250px;
+        }
+    }
+}

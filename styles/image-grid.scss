@@ -1,0 +1,16 @@
+.image-grid {
+    display: block;
+    // flex-wrap: wrap;
+    // opacity: 0;
+    overflow: hidden;
+    background: #3f3145;
+    @media screen and (min-width: $tablet) {
+        display: block;
+        &__image {
+            width: 25%;
+        }
+    }
+
+   
+}
+

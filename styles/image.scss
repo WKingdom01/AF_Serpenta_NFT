@@ -1,0 +1,34 @@
+.image {
+    // width: auto;
+    position: relative;
+    
+    // width: 150px;
+    // height: 150px;
+    width: 100%;
+
+    img {
+        width: 100%;
+    }
+    
+    .image__front, .image__back {
+        // position:absolute;
+        backface-visibility: hidden;
+        // width: 150px;
+        // height: 150px;
+    }
+    
+    .image__front {
+        transform: rotateY(0deg);
+        // position: absolute;
+    }
+    
+    .image__back {
+        transform: rotateY(180deg);
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+    }
+    
+}
+

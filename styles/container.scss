@@ -1,0 +1,29 @@
+.container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.component {
+    margin-bottom: 48px;
+
+
+    @media screen and (min-width: $tablet) {
+        margin-bottom: 64px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        margin-bottom: 128px;
+    }
+}
+
+.roadmap {
+  
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: $tablet) {
+        // width: 75%;
+    }
+}
