@@ -31,7 +31,6 @@ const Roadmap = () =>  {
      }
 
     useEffect(() => {
-        // const tl = new gsap.timeline()
         gsap.registerPlugin(ScrollTrigger);
         gsap.registerPlugin(TextPlugin);
         const stages = [{selector: '.stage--one', text: 'The Hatchery'}, {selector: '.stage--two', text: 'Quest for treasure'}, {selector: '.stage--three', text: 'Breeding Grounds'}, {selector: '.stage--four', text: 'The Great Void'}]

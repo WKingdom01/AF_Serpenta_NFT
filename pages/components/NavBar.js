@@ -14,7 +14,6 @@ const NavBar = () => {
   const [open, setOpen] = useState(false)
   const [fixed, setFixed] = useState(false)
   const [hide, setHide] = useState(false)
-  // const [lastScrollTop, setLastScrollTop] = useState(0)
  
 
   const handleScroll = () => {
@@ -32,7 +31,6 @@ const NavBar = () => {
 
 
     if (window.pageYOffset > 0) {
-      // document.querySelector('.navbar--static').addClass('navbar-fixed');
       setFixed(true)
     } else {
       setFixed(false)
@@ -60,18 +58,6 @@ const NavBar = () => {
         setHide(false)
       }
     }
-      // window.addEventListener('resize', (event) => {  
-      //   if(window.innerWidth >= 992) {
-
-      //       desktop();
-          
-            
-      //   } 
-      //   else {
-      //       mobile()
-            
-      //   }
-      // });
       document.addEventListener('keydown', keyDown);
 
       window.addEventListener('scroll', handleScroll);
@@ -86,14 +72,14 @@ const NavBar = () => {
             <FontAwesomeIcon className="navbar__icon icon" icon={open ? faClose : faBars} />
           </button>
           </div>
-          <div className="navbar__list">
+          <ul className="navbar__list">
               
               <li><Button link="/" text="Open Sea"></Button></li> 
               <li><Button link="https://twitter.com/SerpentaNFT"  text="Twitter"></Button></li>
               <li><Button link="https://discord.gg/Qc3xWhaNru" style="gold" text="Discord"></Button></li>
               {/* <li><Button text="connect" style="gold"></Button></li> */}
               
-          </div>
+          </ul>
       </div>
     
     </nav>
