@@ -19,7 +19,7 @@ export default function Home() {
            
       <Head>
         <title>Sepenta</title>
-        <meta name="description" content="5555 Legendary Genesis Dragons, their true natures concealed until they hatch at mint." />
+        <meta name="description" content="5555 Genesis Kaiju Dragon NFTs, their true natures concealed until they hatch at mint." />
         <title>Serpenta NFT Collection</title>
         <link rel="icon" href="/favicon.ico" />
 
