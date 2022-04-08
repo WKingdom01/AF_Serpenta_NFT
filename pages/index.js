@@ -54,10 +54,10 @@ export default function Home() {
 
         <meta charSet="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta property="og:title" content="Serpenta Dragons | NFTs" />
+        <meta property="og:title" content="Serpenta Kaiju Dragons | NFTs" />
         <meta property="og:url" content="https://serpenta.io" />
         <meta property="og:type" content="Website" />
-        <meta property="og:description" content="5555 Genesis Dragons Unleashed on the Metaverse" />
+        <meta property="og:description" content="5555 Genesis Kaiju Dragons Unleashed on the Metaverse" />
         <meta property="og:image" content="/king-kaiju-city-attack-1200-630.jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -65,7 +65,7 @@ export default function Home() {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:creator" content="@serpentaNFT" />
         <meta property="twitter:title" content="Serpenta Dragons | NFTs" />
-        <meta property="twitter:description" content="5555 Genesis Dragons Unleashed on the Metaverse" />
+        <meta property="twitter:description" content="5555 Genesis Kaiju Dragons Unleashed on the Metaverse" />
         <meta property="twitter:image" content="/king-kaiju-city-attack-1200-630.jpeg" />
         {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
        
@@ -80,7 +80,7 @@ export default function Home() {
           </Background>
         </section>
         <div className="components">
-          <h1 className="tagline">5555 Genesis Dragons hatching soon!</h1>
+          <h1 className="tagline">5555 Kaiju Dragons hatching soon!</h1>
           <Grid></Grid>
           <div className="container">
             <GrayFrame></GrayFrame> 
