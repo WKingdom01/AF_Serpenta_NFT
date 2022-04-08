@@ -11,7 +11,7 @@ const Team = () => (
         <div className="team__image">
             <Image
                 alt="dragon"
-                src="/1.png"
+                src="/2.png"
                 layout="intrinsic"
                 width="200"
                 height="200"
@@ -40,7 +40,7 @@ const Team = () => (
         <div className="team__image">
             <Image
                 alt="dragon"
-                src="/2.png"
+                src="/1.png"
                 layout="intrinsic"
                 width="200"
                 height="200"
