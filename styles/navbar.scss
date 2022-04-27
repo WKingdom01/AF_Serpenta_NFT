@@ -8,8 +8,6 @@
     z-index: 11;
     transition: background .3s ease-in, transform .3s ease-in, top .3s ease-in;
 
-   
-
     &--static {
         height: 100px;
     }
@@ -110,5 +108,12 @@
             width: 75%;
             margin: 0 auto;
         }
+      }
+
+      &__language-toggle {
+        position: absolute;
+        top: 50%;
+        left: 24px;
+        transform: translate(0, -50%);
       }
 }

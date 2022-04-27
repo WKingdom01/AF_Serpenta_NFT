@@ -6,6 +6,9 @@ import React, { useState, useEffect } from 'react';
 import throttle from 'lodash/throttle';
 import { faBars, faClose } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useTranslation } from 'next-i18next';
+
+const LanguageSelect  = dynamic(() =>  import('./LanguageSelect'))
 
 var lastScrollTop = 0;
 
@@ -15,7 +18,7 @@ const NavBar = () => {
   const [fixed, setFixed] = useState(false)
   const [hide, setHide] = useState(false)
   // const [lastScrollTop, setLastScrollTop] = useState(0)
- 
+  const {t} = useTranslation('common')
 
   const handleScroll = () => {
    
@@ -77,23 +80,29 @@ const NavBar = () => {
       window.addEventListener('scroll', handleScroll);
       return () => {window.removeEventListener('scroll', handleScroll); document.removeEventListener('keydown', keyDown)};
     });
+
   
   return (
     <nav>
       <div className={`navbar ${hide ? 'navbar--hide' :'' } ${fixed ? 'navbar--fixed' :'' } ${open ? 'navbar--open' : ''}`}>
           <div className="navbar__toggle">
-          <button onClick={()=>setOpen(!open)}>
-            <FontAwesomeIcon className="navbar__icon icon" icon={open ? faClose : faBars} />
-          </button>
+            <button onClick={()=>setOpen(!open)}>
+              <FontAwesomeIcon className="navbar__icon icon" icon={open ? faClose : faBars} />
+            </button>
           </div>
+          <div className="navbar__language-toggle">
+              <LanguageSelect></LanguageSelect>
+            </div>
           <div className="navbar__list">
+             
               
-              <li><Button link="/" text="Open Sea"></Button></li> 
-              <li><Button link="https://twitter.com/SerpentaNFT"  text="Twitter"></Button></li>
-              <li><Button link="https://discord.gg/Qc3xWhaNru" style="gold" text="Discord"></Button></li>
+              <li><Button link="/" text={t('navbar.linkOneText')}></Button></li> 
+              <li><Button link="https://twitter.com/SerpentaNFT"  text={t('navbar.linkTwoText')}></Button></li>
+              <li><Button link="https://discord.gg/Qc3xWhaNru" style="gold" text={t('navbar.linkThreeText')}></Button></li>
               {/* <li><Button text="connect" style="gold"></Button></li> */}
               
           </div>
+         
       </div>
     
     </nav>
