@@ -50,15 +50,15 @@ const HeadComponent =() => {
         <meta property="og:url" content="https://serpenta.io" />
         <meta property="og:type" content="Website" />
         <meta property="og:description" content={t('tagline')}/>
-        <meta property="og:image" content="/bare_dragon_transparent_bg.png" />
-        <meta property="og:image:width" content="200" />
-        <meta property="og:image:height" content="200" />
+        <meta property="og:image" content="/king-kaiju-city-attack-1200-630.jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Serpenta" />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:creator" content="@serpentaNFT" />
         <meta property="twitter:title" content={t('title')} />
         <meta property="twitter:description" content={t('tagline')} />
-        <meta property="twitter:image" content="/bare_dragon_transparent_bg.png" />
+        <meta property="twitter:image" content="/king-kaiju-city-attack-1200-630.jpeg" />
       {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
      
       <GoogleAnalytics strategy="afterInteractive"></GoogleAnalytics>
