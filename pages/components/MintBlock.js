@@ -17,7 +17,7 @@ const MintBlock =() => {
       <GrayFrame title="mint">
         <div className="mint-block__block">
           {
-            walletConnected ? 
+            false ? 
               <div className="mint-block__container">
                 <div className="mint-block__score">
                     300/3000 Minted
