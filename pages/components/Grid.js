@@ -121,18 +121,7 @@ const Grid = () => {
         function mobile() {
             createImage(document.querySelector('.main-image'))
             setInterval(rotateImage, 3000);
-            // var image = document.querySelector('.main-image')
-            // image.animation.play()
-            // rotateImage()
-
         }
-
-        // if(window.innerWidth >= 992) {
-        //     desktop()
-        // } 
-        // else {
-        //     mobile()
-        // }
    
 
     })
@@ -140,8 +129,6 @@ return (
     <section className="image-grid component">
          <Slider {...settings}>
         {imgs.map((image, j) => {
-    //   const i = Math.floor(Math.random() * imgs.length);
-    //   const q = Math.floor(Math.random() * imgs.length);
       
         return  <div className="slide" key={`image--${j}`}>
                     <div className="image-grid__image image" key={j}>

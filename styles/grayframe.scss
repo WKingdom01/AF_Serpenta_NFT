@@ -1,38 +1,19 @@
 .grayframe {
-    // border: 80px solid transparent;
-    // border-color: white;
-    // padding: 15px;
-    // border-image: url(/gray_frame.png);
-    // border-image-slice: 225;
-    // border-image-repeat: round;
-    // background: white;
     position: relative;
     // width: 75%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 100px;
 
-    // &:after {
-    //     content: '';
-    //     position: absolute;
-    //     z-index: 0;
-    //     top: -40px;
-    //     left: -40px;
-    //     height: calc(100% + 80px);
-    //     width: calc(100% + 80px);
-    //     background: $light-gray;
-    // }
-
-
 
 
     &__text {
-        background: $darkslategray;
+       
         font-family: vp;
         // margin-bottom: 60px;
         // border: 8px solid gray;
         // border-radius: 25px;
-        padding: 24px;
+       
         color: $darker-gray;
         
     }
@@ -40,6 +21,8 @@
     &__content {
         position: relative;
         z-index: 1;
+        padding: 24px;
+        background: $darkslategray;
     }
 
  

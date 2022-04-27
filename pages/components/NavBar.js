@@ -35,7 +35,6 @@ const NavBar = () => {
 
 
     if (window.pageYOffset > 0) {
-      // document.querySelector('.navbar--static').addClass('navbar-fixed');
       setFixed(true)
     } else {
       setFixed(false)
@@ -63,18 +62,6 @@ const NavBar = () => {
         setHide(false)
       }
     }
-      // window.addEventListener('resize', (event) => {  
-      //   if(window.innerWidth >= 992) {
-
-      //       desktop();
-          
-            
-      //   } 
-      //   else {
-      //       mobile()
-            
-      //   }
-      // });
       document.addEventListener('keydown', keyDown);
 
       window.addEventListener('scroll', handleScroll);

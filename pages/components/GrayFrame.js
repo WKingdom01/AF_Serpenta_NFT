@@ -4,8 +4,6 @@ const GrayFrame = () => {
   const { t } = useTranslation('common')
   return (
   <section className="grayframe component">
-    <div className="grayframe__border grayframe__border--gray"></div>
-    <div className="grayframe__border grayframe__border--white"></div>
       <div className="grayframe__title">
           {t('about.title')}
       </div>

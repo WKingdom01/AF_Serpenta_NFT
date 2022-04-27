@@ -33,7 +33,6 @@ const Roadmap = () =>  {
      }
 
     useEffect(() => {
-        // const tl = new gsap.timeline()
         gsap.registerPlugin(ScrollTrigger);
         gsap.registerPlugin(TextPlugin);
         const stages = [{selector: '.stage--one', text: t('roadmap.stageOne.header')}, {selector: '.stage--two', text: t('roadmap.stageTwo.header')}, {selector: '.stage--three', text: t('roadmap.stageThree.header')}, {selector: '.stage--four', text: t('roadmap.stageFour.header')}]

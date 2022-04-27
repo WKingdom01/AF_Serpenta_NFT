@@ -1,6 +1,6 @@
 .navbar {
     padding: 24px;
-    font-family: cc;
+ 
     position: fixed;
     top: 24px;
     width: 100%;
@@ -10,6 +10,7 @@
 
     &--static {
         height: 100px;
+        margin-bottom: 24px;
     }
    
 
@@ -33,6 +34,10 @@
         height: 30px;
         color: white;
     }
+
+   li::marker {
+    display:none;
+  }
 
     @media screen and (max-width: $tablet) {
         position: fixed;
