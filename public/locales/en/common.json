@@ -2,10 +2,25 @@
     "title": "Serpenta NFT Collection",
     "tagline": "5555 Genesis Dragons hatching soon!",
     "description":"5555 Legendary Genesis Dragons, their true natures concealed until they hatch at mint.",
+    "joinDiscord": "Join our discord!",
     "navbar": {
       "linkOneText": "Open Sea",
       "linkTwoText": "Twitter",
       "linkThreeText": "Discord"
+    },
+    "roadmapOne": {
+      "title": "WHAT IS SERPENTA NFT?",
+      "body": "Rawr! Serpenta is our draconic love letter to Japanese and retro indie game characters. Our Tokyo founder lives in the very birthplace of Kaiju, gatcha and anime culture. Stylish, fashionable and fiery — we pay homage through our timeless interpretation of these magnificent dragon-kaiju personalities. You are totally going to vibe with them as much as we do!",
+      "buttonText": "Join Our Discord",
+      "buttonLink": ""
+    },
+    "roadmapTwo": {
+      "title": "What;'s Coming",
+      "body": "The first and most powerful 5555 Genesis Dragons will soon emerge into this world; flaunt your personality through your own unique avatar. Staking and breeding them grants you unique access to subsequent generations of dragonlings, hidden treasures, new NFT drops from Japanese artists and future access passes to other projects."
+    },
+    "roadmapThree": {
+      "title": "Serpenta Journey",
+      "body": "We have great things planned for all our dragon fam and dragon stakers. New designs, evolving mechanics and exclusive collaborations with Japanese creators are just the tip of this iceberg."
     },
     "faq": {
       "questionOne": "Mint Information",
@@ -19,26 +34,22 @@
       "questionFive": "Further Questions?",
       "answerFive": "Feel free to ask us questions on Twitter or direct them at our community in our Discord. Everyone is super friendly!"
     },
-    "about": {
-      "title": "About",
-      "content": "<h2>What is Serpenta NFT?</h2><p><p>Rawr! Serpenta is our draconic love letter to Japanese and retro indie game characters. Our Tokyo founder lives in the very birthplace of Kaiju, gatcha and anime culture. Stylish, fashionable and fiery - we pay homage through our timeless interpretation of these magnificent dragon-kaiju personalities. You are totally going to vibe with them as much as we do!</p><p>The first and most powerful 5555 Genesis Dragons will soon emerge into this world; flaunt your  personality through your own unique avatar. Staking and breeding them grants you unique access to subsequent generations of dragonlings, hidden treasures, new NFT drops from Japanese artists and future access passes to other projects. </p><p>We have great things planned for all our dragon fam and dragon stakers. New designs, evolving mechanics and exclusive collaborations with Japanese creators are just the tip of this iceberg.</p><p>Don&apos;t miss out - join the fam!</p></p>"
-    },
     "roadmap": {
       "title":"Roadmap",
       "stageOne": {
-        "header": "The Hatchery",
+        "header": "01. The Hatchery",
         "text": "The Serpenta Dragons’ birthplace, a holy domain where all the eggs are gathered together and blessed. Minting occurs late April 2022 in two phases. An initial phase for the chosen, and a public phase for the subsequent unwashed masses. Each wallet for the chosen - the whitelist - will be allowed up to 2 eggs. Hatching will take place after all the eggs have been claimed."
       },
       "stageTwo":{
-        "header": "Quest For Treasure",
+        "header": "02. Quest For Treasure",
         "text": "Post-hatching, we learn that Dragons are naturally curious creatures and they can be sent out to hunt (stake) treasure in all its forms. Mostly you will discover pockets of gold, but in very rare cases you may happen upon other unexpected treasures too. It has been rumored that the more dragons you send out to hunt, the greater the chance for rarer drops."
       },
       "stageThree": {
-        "header": "Breeding Grounds",
+        "header": "03. Breeding Grounds",
         "text": "Dragons’ gold has been found to augment and accelerate the birth of the next generation. With so many being sent to explore unknown worlds through the Great Void, the urgency to repopulate the land has lead to the Council leaders experimenting with long-abandoned rituals. What hybrids have been grown in the dark breeding grounds?"
       },
       "stageFour": {
-        "header": "The Great Void",
+        "header": "04. The Great Void",
         "text": "Every dragon that returns through the Great Void has new discoveries to report to the Council. What new decisions will be brought to the citizenry of the land and how will these wonders, or threats be dealt with?"
       }
 

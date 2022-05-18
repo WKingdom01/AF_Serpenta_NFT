@@ -1,11 +1,12 @@
 .container {
-    max-width: 920px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 24px;
 }
 
 .component {
     margin-bottom: 48px;
+    padding: 24px;
 
 
     @media screen and (min-width: $tablet) {
@@ -14,6 +15,17 @@
 
     @media screen and (min-width: $desktop) {
         margin-bottom: 128px;
+        padding: 50px;
+    }
+
+    &.logo {
+        
+        display: flex;
+        justify-content: center;
+
+        &__container {
+            max-width: 700px;
+        }
     }
 }
 

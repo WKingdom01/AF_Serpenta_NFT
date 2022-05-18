@@ -1,0 +1,41 @@
+.journey {
+    height: 700px;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        // overflow-y: scroll;
+        // width: 2000px;
+        position: absolute;
+        // height: 700px;
+        width: 3000px;
+    }
+
+    &__stage {
+        width: calc(100% / 4 - 24px);
+        border-radius: 5px;
+        border: 1px solid $papaya-whip;
+        flex-shrink: 0;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    &__image {
+        margin-bottom: 24px;
+        align-self: center;
+    }
+
+    &__header {
+        @include Heading-3;
+        color: $papaya-whip;
+        margin-bottom: 24px;
+        margin-top: 24px;
+    }
+
+    &__text {
+        @include Body-Text;
+        color: $papaya-whip;
+    }
+}

@@ -1,10 +1,10 @@
 .navbar {
-    padding: 24px;
- 
+    // padding: 24px;
+    background: $black;
     position: fixed;
-    top: 24px;
     width: 100%;
     left: 0px;
+    // height: 100%;
     z-index: 11;
     transition: background .3s ease-in, transform .3s ease-in, top .3s ease-in;
 
@@ -12,21 +12,29 @@
         height: 100px;
         margin-bottom: 24px;
     }
+
+    &__button-item {
+        width: calc(25% - 36px);
+    }
    
 
     &__toggle {
         position: absolute;
-        top: 24px;
-        right: 24px;
+        top: 30px;
+        left: 50%;
         display: block;
         z-index: 10;
+        transform: translate(0, -50%)
     }
 
     &__list {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        max-width: 700px;
+        max-width: 1200px;
+        width: 100%;
+        background: $black;
+        padding: 24px 12px;
     }
 
     &__icon {
@@ -46,11 +54,7 @@
         // background: white;
         z-index: 3;
         display: flex;
-        justify-content: flex-end;
-
-       
-
-        
+        justify-content: center;
 
         &--open {
             &:after {
@@ -58,7 +62,7 @@
             }
 
             .navbar__list {
-                max-height: 400px;
+                max-height: 100%;
             }
             
         }

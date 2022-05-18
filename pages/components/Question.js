@@ -1,12 +1,11 @@
 import { useState } from 'react'
 
 
-const Question =({question, answer}) => {
-    const [open, setOpen] = useState(false) 
+const Question = ({ question, answer }) => {
 
 
     return (
-        <div className={`question ${open ? 'question--open' : ''}`} onClick={()=>setOpen(!open)}>
+        <div className={`question`}>
             <div className="question__title">{question}</div>
             <div className="question__answer">{answer}</div>
         </div>
