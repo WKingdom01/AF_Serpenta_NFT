@@ -1,23 +1,26 @@
 .journey {
-    height: 700px;
+
 
     &__content {
         display: flex;
         justify-content: space-between;
         // overflow-y: scroll;
         // width: 2000px;
-        position: absolute;
+
         // height: 700px;
-        width: 3000px;
+        width: 100%;
+        flex-direction: column;
+
     }
 
     &__stage {
-        width: calc(100% / 4 - 24px);
+        width: 100%;
         border-radius: 5px;
         border: 1px solid $papaya-whip;
         flex-shrink: 0;
         padding: 24px;
         display: flex;
+        margin-bottom: 24px;
         flex-direction: column;
 
     }
@@ -37,5 +40,20 @@
     &__text {
         @include Body-Text;
         color: $papaya-whip;
+    }
+
+    @media screen and (min-width: $desktop) {
+        height: 700px;
+
+        &__stage {
+            width: calc(100% / 4 - 24px);
+
+        }
+
+        &__content {
+            width: 3000px;
+            position: absolute;
+            flex-direction: row;
+        }
     }
 }

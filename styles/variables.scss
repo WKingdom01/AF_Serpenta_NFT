@@ -3,6 +3,25 @@ $mobile: 480px;
 $tablet: 992px;
 $desktop: 1200px;
 
+body:before {
+    content: "xsmall";
+    display: none;
+    visibility: hidden;
+}
+
+@media (min-width: $tablet) {
+    body:before {
+        content: "tablet";
+    }
+}
+
+@media (min-width: $desktop) {
+    body:before {
+        content: "desktop";
+    }
+}
+
+
 $offwhite: #f8f8ff;
 
 $darkgreen: #020c04;

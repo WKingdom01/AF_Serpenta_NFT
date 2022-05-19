@@ -11,8 +11,8 @@ const Button = ({ text, link, active, dropdown, style = 'gray', clickHandler }) 
             {!link &&
                 <button className={`button button--${clicked ? 'clicked' : ''}`} onMouseDown={() => { setClick(true) }} onMouseUp={() => { setClick(false) }} onClick={clickHandler}>
                     <div className="button__text">
-                        {text}
-                        {dropdown && <FontAwesomeIcon className="icon" icon={faChevronDown} />}
+                        <div>{text}</div>
+                        {dropdown && <div><FontAwesomeIcon className="icon" icon={faChevronDown} /></div>}
                     </div>
                 </button>
             }

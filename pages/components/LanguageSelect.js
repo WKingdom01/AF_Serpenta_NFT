@@ -10,15 +10,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Button = dynamic(() => import('./Button'))
 
 const LanguageSelect = () => {
-    const { t } = useTranslation('common')
-    const [selectedOption, setOption] = useState({ value: 'en', label: 'English' })
-    const [open, setOpen] = useState(false)
     const router = useRouter()
-
+    const { t } = useTranslation('common')
     const options = [
-        { value: 'en', label: 'English' },
-        { value: 'ch', label: 'Chinese' },
+        { value: 'en', label: t('languageLabels.en') },
+        { value: 'ch', label: t('languageLabels.ch') },
     ];
+
+    const [selectedOption, setOption] = useState(options.find(element => element.value === router.locale))
+    const [open, setOpen] = useState(false)
+
+
+
+
+    console.log(router.locale)
 
 
     return (

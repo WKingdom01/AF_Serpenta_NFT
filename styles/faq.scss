@@ -1,6 +1,10 @@
 .FAQ {
-   &__button {
-       width: 50%;
-       margin-left: auto;
-   }
+
+
+    @media screen and (min-width: $tablet) {
+        &__button {
+            width: 50%;
+            margin-left: auto;
+        }
+    }
 }

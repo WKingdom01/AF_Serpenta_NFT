@@ -31,6 +31,8 @@
 
     @media screen and (min-width: $tablet) {
 
+        flex-direction: row;
+
         &__answer {
             width: 50%;
         }

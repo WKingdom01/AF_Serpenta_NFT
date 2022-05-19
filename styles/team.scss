@@ -42,11 +42,13 @@
 
     &__name {
         @include Heading-3;
+        margin-bottom: 12px;
     }
 
     &__title {
         @include caption;
         color: $pale-silver;
+        margin-bottom: 12px;
     }
 
     &__description {

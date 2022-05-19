@@ -1,8 +1,8 @@
 .stage {
-   &__content {
+    &__content {
         display: flex;
-        // flex-direction: column;
-   }
+        flex-direction: column;
+    }
 
     &__diamond {
         width: 20px;
@@ -51,18 +51,20 @@
         &__content {
             flex-direction: row;
         }
+
         &--alt {
             .stage__content {
                 flex-direction: row-reverse;
             }
-          
+
         }
+
         &__text {
             width: 50%;
         }
-    
+
         &__image {
             width: 50%;
         }
-      }
+    }
 }

@@ -13,19 +13,28 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger)
 
-        const section = document.querySelector('.js-wrapper')
-        const w = document.querySelector('.js-slideContainer');
-        console.log(w.scrollWidth, section.offsetWidth)
-        const [x, xEnd] = ['0%', (w.scrollWidth - section.offsetWidth) * -1]
-        gsap.fromTo(w, { x }, {
-            x: xEnd,
-            scrollTrigger: {
-                pin: true,
-                trigger: section,
-                scrub: .5,
-                start: "bottom 80%"
-            }
-        });
+        var getBreakpoint = function () {
+            return window.getComputedStyle(document.body, ':before').content;
+        };
+
+        console.log(getBreakpoint(), getBreakpoint() === '"desktop"')
+
+        if (getBreakpoint() === '"desktop"') {
+            const section = document.querySelector('.js-wrapper')
+            const w = document.querySelector('.js-slideContainer');
+            console.log(w.scrollWidth, section.offsetWidth, (w.scrollWidth - section.offsetWidth) * -1)
+            const [x, xEnd] = ['0%', (w.scrollWidth - section.offsetWidth + 300) * -1]
+            gsap.fromTo(w, { x }, {
+                x: xEnd,
+                scrollTrigger: {
+                    pin: true,
+                    trigger: section,
+                    scrub: .5,
+                    start: "bottom 80%"
+                }
+            });
+        }
+
 
 
 
