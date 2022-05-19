@@ -27,7 +27,7 @@ export default function Home() {
           <div className="logo__container">
             <Image
               alt="Logo"
-              src="/logo.svg"
+              src="/logo.png"
               layout="intrinsic"
               width="625"
               height="305"
