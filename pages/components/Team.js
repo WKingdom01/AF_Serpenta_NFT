@@ -26,7 +26,7 @@ const Team = () => {
                         </div>
                         <div className="team__text">
                             <div className="team__name"> {t('team.memberOne.name')}</div>
-                            <div className="team__title">// {t('team.memberOne.title')}</div>
+                            <div className="team__title">// {t('team.memberOne.title')}</div>{/* eslint-disable-line*/}
                             <div className="team__footer">
                                 <button className="team__button" onClick={() => { setOpen(1) }}>
                                     <FontAwesomeIcon className={`team__icon ${open === 1 ? 'team__icon--open' : ''}`} icon={faChevronDown}></FontAwesomeIcon>
@@ -64,7 +64,7 @@ const Team = () => {
                         </div>
                         <div className="team__text">
                             <div className="team__name"> {t('team.memberTwo.name')}</div>
-                            <div className="team__title">// {t('team.memberTwo.title')}</div>
+                            <div className="team__title">// {t('team.memberTwo.title')}</div> {/* eslint-disable-line*/}
                             <div className="team__footer">
                                 <button className="team__button" onClick={() => { setOpen(2) }}>
                                     <FontAwesomeIcon className={`team__icon ${open === 2 ? 'team__icon--open' : ''}`} icon={faChevronDown}></FontAwesomeIcon>
@@ -102,7 +102,7 @@ const Team = () => {
                         </div>
                         <div className="team__text">
                             <div className="team__name"> {t('team.memberThree.name')}</div>
-                            <div className="team__title">// {t('team.memberThree.title')}</div>
+                            <div className="team__title">// {t('team.memberThree.title')}</div> {/* eslint-disable-line*/}
                             <div className="team__footer">
                                 <button className="team__button" onClick={() => { setOpen(3) }}>
                                     <FontAwesomeIcon className={`team__icon ${open === 3 ? 'team__icon--open' : ''}`} icon={faChevronDown}></FontAwesomeIcon>
@@ -140,7 +140,7 @@ const Team = () => {
                         </div>
                         <div className="team__text">
                             <div className="team__name"> {t('team.memberFour.name')}</div>
-                            <div className="team__title">// {t('team.memberFour.title')}</div>
+                            <div className="team__title">// {t('team.memberFour.title')}</div> {/* eslint-disable-line*/}
                             <div className="team__footer">
                                 <button className="team__button" onClick={() => { setOpen(4) }}>
                                     <FontAwesomeIcon className={`team__icon ${open === 4 ? 'team__icon--open' : ''}`} icon={faChevronDown}></FontAwesomeIcon>
@@ -178,7 +178,7 @@ const Team = () => {
                         </div>
                         <div className="team__text">
                             <div className="team__name"> {t('team.memberFive.name')}</div>
-                            <div className="team__title">// {t('team.memberFive.title')}</div>
+                            <div className="team__title">// {t('team.memberFive.title')}</div> {/* eslint-disable-line*/}
                             <div className="team__footer">
                                 <button className="team__button" onClick={() => { setOpen(4) }}>
                                     <FontAwesomeIcon className={`team__icon ${open === 4 ? 'team__icon--open' : ''}`} icon={faChevronDown}></FontAwesomeIcon>
@@ -216,7 +216,7 @@ const Team = () => {
                         </div>
                         <div className="team__text">
                             <div className="team__name"> {t('team.memberSix.name')}</div>
-                            <div className="team__title">// {t('team.memberSix.title')}</div>
+                            <div className="team__title">// {t('team.memberSix.title')}</div> {/* eslint-disable-line*/}
                             <div className="team__footer">
                                 <button className="team__button" onClick={() => { setOpen(4) }}>
                                     <FontAwesomeIcon className={`team__icon ${open === 4 ? 'team__icon--open' : ''}`} icon={faChevronDown}></FontAwesomeIcon>
