@@ -1,76 +1,79 @@
 .goldframe {
-        // border: 80px solid;
-        // border-color: white;
-        // padding: 15px;
-        // border-image: url(/frame.png);
-        // border-image-slice: 225;
-        // border-image-repeat: round;
-        position: relative;
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 60%;
-       
-        // @include gradient-border(#fa6a0a, #fffc40, 5px, 'to right');
+    // border: 80px solid;
+    // border-color: white;
+    // padding: 15px;
+    // border-image: url(/frame.png);
+    // border-image-slice: 225;
+    // border-image-repeat: round;
+    position: relative;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
 
-        // overflow: hidden;
-        &__border {
-            position: absolute;
-            width: calc(100% + 20px);
-            height: calc(100% + 20px);
-            z-index: 2;
+    // @include gradient-border(#fa6a0a, #fffc40, 5px, 'to right');
+
+    // overflow: hidden;
+    &__border {
+        position: absolute;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        z-index: 2;
+        top: -10px;
+        left: -10px;
+        // background: $almost-black;
+        z-index: 0;
+        // border: 8px solid white;
+
+        &--orange {
+            top: -20px;
+            left: -20px;
+            height: calc(100% + 40px);
+            width: calc(100% + 40px);
+            // border: 8px solid $light-gray;
+
+        }
+
+        &--yellow {
             top: -10px;
             left: -10px;
-            // background: $almost-black;
-            z-index: 0;
-            // border: 8px solid white;
-
-            &--orange {
-                top: -20px;
-                left: -20px;
-                height: calc(100% + 40px);
-                width: calc(100% + 40px);
-                // border: 8px solid $light-gray;
-
-            }
-            &--yellow {
-                top: -10px;
-                left: -10px;
-                height: calc(100% + 20px);
-                width: calc(100% + 20px);
-                  border: 4px solid #fffc40;
-            }
+            height: calc(100% + 20px);
+            width: calc(100% + 20px);
+            border: 4px solid #fffc40;
         }
- 
+    }
 
-        &__text {
-            // background: $light-gray;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            // border: 16px solid $light-gray;
-            // box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
-            // border-radius: 25px;
-            // margin: -40px;
+
+    &__text {
+        // background: $light-gray;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        // border: 16px solid $light-gray;
+        // box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
+        // border-radius: 25px;
+        // margin: -40px;
+    }
+
+
+    .main-image {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+
+        .image__front,
+        .image__back {
+            width: 100%;
+
         }
+    }
 
+    @media screen and (min-width: $desktop) {
+        width: 100%;
 
         .main-image {
-            max-width: 100%;
-            width: 100%;
-            height: auto;
+            z-index: 1;
 
-            .image__front, .image__back {
-                width: 100%;
-                
-            }
         }
-
-        @media screen and (min-width: $tablet) {
-            width: 100%;
-            .main-image{
-                z-index: 1;
-
-            }
     }
 }

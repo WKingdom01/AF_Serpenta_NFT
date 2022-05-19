@@ -37,15 +37,17 @@ export default function Home() {
           </div>
         </div>
         <div className="component banner">
-          <Image
-            alt="banner"
-            src="/dragon-banner.png"
-            layout="intrinsic"
-            width="2720"
-            height="800"
-            quality={100}
-            priority
-          />
+          <div className="banner__image">
+            <Image
+              alt="banner"
+              src="/dragon-banner.png"
+              layout="intrinsic"
+              width="1300"
+              height="440"
+              quality={100}
+              priority
+            />
+          </div>
         </div>
         <Stage title={t('roadmapOne.title')} body={t('roadmapOne.body')} buttonLink={t('roadmapOne.buttonLink')} buttonText={t('roadmapOne.buttonText')} imageUrl="/hatchery.png"></Stage>
         <h1 className="tagline">{t('tagline')}</h1>
@@ -53,10 +55,11 @@ export default function Home() {
 
         <Stage title={t('roadmapTwo.title')} body={t('roadmapTwo.body')} imageUrl="/roadmap-part2.png" alt="true"></Stage>
 
-        <Stage title={t('roadmapThree.title')} body={t('roadmapThree.body')}>
-          <Journey></Journey>
-        </Stage>
-
+        <div className="stage__wrapper">
+          <Stage title={t('roadmapThree.title')} body={t('roadmapThree.body')}>
+            <Journey></Journey>
+          </Stage>
+        </div>
 
         <FAQ></FAQ>
         <Team></Team>

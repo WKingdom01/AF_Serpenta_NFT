@@ -16,6 +16,10 @@
         margin-bottom: 24px;
     }
 
+    &__wrapper {
+        overflow: hidden;
+    }
+
     &__body {
         color: $papaya-whip;
         @include Body-Text;
@@ -47,7 +51,7 @@
         }
     }
 
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: $desktop) {
         &__content {
             flex-direction: row;
         }

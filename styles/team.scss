@@ -74,7 +74,7 @@
         color: $papaya-whip;
 
 
-        @media screen and (min-width: $tablet) {
+        @media screen and (min-width: $desktop) {
             width: calc(50% - 16px);
             align-items: flex-start;
             flex-direction: row;
@@ -110,13 +110,13 @@
             text-transform: uppercase;
         }
 
-        @media screen and (min-width: $tablet) {
+        @media screen and (min-width: $desktop) {
             text-align: left;
         }
     }
 
     &__image {
-        @media screen and (min-width: $tablet) {
+        @media screen and (min-width: $desktop) {
             width: 100%;
             margin-right: 32px;
         }

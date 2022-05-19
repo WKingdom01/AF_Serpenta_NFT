@@ -4,13 +4,14 @@
     // opacity: 0;
     overflow: hidden;
     background: #3f3145;
-    @media screen and (min-width: $tablet) {
+
+    @media screen and (min-width: $desktop) {
         display: block;
+
         &__image {
             width: 25%;
         }
     }
 
-   
-}
 
+}

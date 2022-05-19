@@ -1,6 +1,6 @@
 .stage-text {
     color: $darker-gray;
-    
+
     position: relative;
     font-size: 36px;
     font-family: cc;
@@ -35,7 +35,7 @@
         text-transform: uppercase;
     }
 
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: $desktop) {
         align-self: center;
         left: auto;
         transform: none;

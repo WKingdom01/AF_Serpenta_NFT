@@ -13,30 +13,45 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger)
 
-        var getBreakpoint = function () {
-            return window.getComputedStyle(document.body, ':before').content;
-        };
 
-        console.log(getBreakpoint(), getBreakpoint() === '"desktop"')
+        if (typeof window !== 'undefined' && children) {
+            // Handler to call on window resize
+            function handleResize() {
+                // Set window width/height to state
+                var getBreakpoint = function () {
+                    return window.getComputedStyle(document.body, ':before').content;
+                };
 
-        if (getBreakpoint() === '"desktop"') {
-            const section = document.querySelector('.js-wrapper')
-            const w = document.querySelector('.js-slideContainer');
-            console.log(w.scrollWidth, section.offsetWidth, (w.scrollWidth - section.offsetWidth) * -1)
-            const [x, xEnd] = ['0%', (w.scrollWidth - section.offsetWidth + 300) * -1]
-            gsap.fromTo(w, { x }, {
-                x: xEnd,
-                scrollTrigger: {
-                    pin: true,
-                    trigger: section,
-                    scrub: .5,
-                    start: "bottom 80%"
+                console.log(getBreakpoint(), getBreakpoint() === '"desktop"')
+
+                if (getBreakpoint() === '"desktop"') {
+                    const section = document.querySelector('.js-wrapper')
+                    const w = document.querySelector('.js-slideContainer');
+                    console.log(w.scrollWidth, section.offsetWidth, (w.scrollWidth - section.offsetWidth) * -1)
+                    const [x, xEnd] = ['0%', (w.scrollWidth - section.offsetWidth + 300) * -1]
+                    gsap.fromTo(w, { x }, {
+                        x: xEnd,
+                        scrollTrigger: {
+                            pin: true,
+                            trigger: section,
+                            scrub: .5,
+                            start: "top 20%"
+                        }
+                    });
+                } else {
+                    gsap.fromTo(document.querySelector('.js-slideContainer')).kill()
                 }
-            });
+            }
+
+            // Add event listener
+            window.addEventListener("resize", handleResize);
+
+            // Call handler right away so state gets updated with initial window size
+            handleResize();
+
+            // Remove event listener on cleanup
+            return () => window.removeEventListener("resize", handleResize);
         }
-
-
-
 
     })
 

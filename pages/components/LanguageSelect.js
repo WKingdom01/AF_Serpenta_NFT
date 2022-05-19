@@ -22,10 +22,6 @@ const LanguageSelect = () => {
 
 
 
-
-    console.log(router.locale)
-
-
     return (
         <div className={`language-select ${open ? 'language-select--open' : ''}`} >
             <Button dropdown="true" text={selectedOption.label} style="blue ThreeD" active={open} className="language-select__header" clickHandler={() => setOpen(!open)}>
