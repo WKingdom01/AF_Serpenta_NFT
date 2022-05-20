@@ -1,17 +1,22 @@
 {
   "title": "Serpenta NFT Collection",
-  "tagline": "5555 Genesis Dragons hatching soon!",
+  "tagline": "5555 Kaiju Dragons hatching soon!",
   "description": "5555 Legendary Genesis Dragons, their true natures concealed until they hatch at mint.",
   "joinDiscord": "Join our discord!",
+  "discordLink": "https://discord.gg/Qc3xWhaNru",
   "languageLabels": {
     "en": "English",
     "ch": "Chinese"
   },
   "navbar": {
-    "linkOneText": "Open Sea",
+    "linkOneText": "OpenSea",
     "linkTwoText": "Twitter",
     "linkThreeText": "Discord"
   },
+  "roadmapTitle": "Roadmap",
+  "faqTitle": "faq",
+  "teamTitle": "Meet our team",
+  "copyright": "© SERPENTA 2022",
   "roadmapOne": {
     "title": "WHAT IS SERPENTA NFT?",
     "body": "Rawr! Serpenta is our draconic love letter to Japanese and retro indie game characters. Our Tokyo founder lives in the very birthplace of Kaiju, gatcha and anime culture. Stylish, fashionable and fiery — we pay homage through our timeless interpretation of these magnificent dragon-kaiju personalities. You are totally going to vibe with them as much as we do!",
@@ -19,7 +24,7 @@
     "buttonLink": ""
   },
   "roadmapTwo": {
-    "title": "What;'s Coming",
+    "title": "What's Coming",
     "body": "The first and most powerful 5555 Genesis Dragons will soon emerge into this world; flaunt your personality through your own unique avatar. Staking and breeding them grants you unique access to subsequent generations of dragonlings, hidden treasures, new NFT drops from Japanese artists and future access passes to other projects."
   },
   "roadmapThree": {

@@ -17,9 +17,9 @@ const Team = () => {
                             <Image
                                 alt="dragon"
                                 src={t('team.memberOne.image')}
-                                layout="responsive"
-                                width="200"
-                                height="200"
+                                layout="fixed"
+                                width="120"
+                                height="120"
                                 quality={100}
                                 loading="lazy"
                             />
@@ -55,9 +55,9 @@ const Team = () => {
                             <Image
                                 alt="dragon"
                                 src={t('team.memberTwo.image')}
-                                layout="responsive"
-                                width="200"
-                                height="200"
+                                layout="fixed"
+                                width="120"
+                                height="120"
                                 quality={100}
                                 loading="lazy"
                             />
@@ -78,7 +78,7 @@ const Team = () => {
                                             src="/twitter.svg"
                                             layout="intrinsic"
                                             width="121"
-                                            height="100"
+                                            height="120"
                                             quality={100}
                                             loading="lazy"
                                         />
@@ -93,9 +93,9 @@ const Team = () => {
                             <Image
                                 alt="dragon"
                                 src={t('team.memberThree.image')}
-                                layout="responsive"
-                                width="200"
-                                height="200"
+                                layout="fixed"
+                                width="120"
+                                height="120"
                                 quality={100}
                                 loading="lazy"
                             />
@@ -131,9 +131,9 @@ const Team = () => {
                             <Image
                                 alt="dragon"
                                 src={t('team.memberFour.image')}
-                                layout="responsive"
-                                width="200"
-                                height="200"
+                                layout="fixed"
+                                width="120"
+                                height="120"
                                 quality={100}
                                 loading="lazy"
                             />
@@ -169,9 +169,9 @@ const Team = () => {
                             <Image
                                 alt="dragon"
                                 src={t('team.memberFive.image')}
-                                layout="responsive"
-                                width="200"
-                                height="200"
+                                layout="fixed"
+                                width="120"
+                                height="120"
                                 quality={100}
                                 loading="lazy"
                             />
@@ -207,9 +207,9 @@ const Team = () => {
                             <Image
                                 alt="dragon"
                                 src={t('team.memberSix.image')}
-                                layout="responsive"
-                                width="200"
-                                height="200"
+                                layout="fixed"
+                                width="120"
+                                height="120"
                                 quality={100}
                                 loading="lazy"
                             />

@@ -3,10 +3,29 @@
     // flex-wrap: wrap;
     // opacity: 0;
     overflow: hidden;
-    background: #3f3145;
+    position: relative;
+
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: calc(100% - 4px);
+        background: #3f3145;
+    }
+
+    .slick-slide {
+        padding-top: 25px;
+    }
 
     @media screen and (min-width: $desktop) {
         display: block;
+
+        .slick-slide {
+            padding-top: 50px;
+        }
 
         &__image {
             width: 25%;

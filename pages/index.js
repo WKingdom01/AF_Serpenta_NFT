@@ -54,15 +54,25 @@ export default function Home() {
         <Grid></Grid>
 
         <Stage title={t('roadmapTwo.title')} body={t('roadmapTwo.body')} imageUrl="/roadmap-part2.png" alt="true"></Stage>
-
-        <div className="stage__wrapper">
+        <div className="tagline">{t('roadmapTitle')}</div>
+        <div className="stage__wrapper journey--mobile">
           <Stage title={t('roadmapThree.title')} body={t('roadmapThree.body')}>
             <Journey></Journey>
           </Stage>
         </div>
-
+        <div className="stage__wrapper  journey--desktop">
+          <Stage title={t('roadmapThree.title')} body={t('roadmapThree.body')}>
+            <Journey></Journey>
+          </Stage>
+        </div>
+        <div className="tagline">{t('faqTitle')}</div>
         <FAQ></FAQ>
+        <div className="tagline">{t('teamTitle')}</div>
         <Team></Team>
+
+        <div className="component copyright">
+          {t('copyright')}
+        </div>
       </div>
     </PageSlot>
   )

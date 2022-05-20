@@ -72,7 +72,7 @@ const NavBar = () => {
 
   return (
     <nav>
-      <div className={`navbar ${hide ? 'navbar--hide' : ''} ${fixed ? 'navbar--fixed' : ''} ${open ? 'navbar--open' : ''}`}>
+      <div className={`navbar ${open ? 'navbar--open' : ''}`}>
         <div className="navbar__toggle">
           <button onClick={() => setOpen(!open)}>
             <FontAwesomeIcon className="navbar__icon icon" icon={open ? faClose : faBars} />
@@ -86,7 +86,7 @@ const NavBar = () => {
 
           <li className="navbar__button-item"><Button style="ThreeD" link="/" text={t('navbar.linkOneText')}></Button></li>
           <li className="navbar__button-item"><Button style="ThreeD" link="https://twitter.com/SerpentaNFT" text={t('navbar.linkTwoText')}></Button></li>
-          <li className="navbar__button-item"><Button style="ThreeD" link="https://discord.gg/Qc3xWhaNru" text={t('navbar.linkThreeText')}></Button></li>
+          <li className="navbar__button-item"><Button style="ThreeD" link={t('discordLink')} text={t('navbar.linkThreeText')}></Button></li>
           {/* <li><Button text="connect" style="gold"></Button></li> */}
           <li className="navbar__button-item"><LanguageSelect></LanguageSelect></li>
 

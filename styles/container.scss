@@ -8,6 +8,10 @@
     margin-bottom: 48px;
     padding: 24px;
 
+    &--no-padding {
+        padding: 0px !important;
+    }
+
 
     @media screen and (min-width: $desktop) {
         margin-bottom: 64px;
@@ -34,6 +38,18 @@
             justify-content: center;
             margin: 0 auto;
         }
+    }
+
+    &.copyright {
+
+        @include caption;
+        text-align: center;
+        color: $pale-silver;
+        padding-bottom: 48px;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
     }
 }
 

@@ -3,44 +3,39 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { faDiamond } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { gsap } from 'gsap';
+import { gsap, TimelineMax } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+import { useTranslation } from 'next-i18next';
 const Button = dynamic(() => import('./Button'))
 
 
 const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children }) => {
-
+    const { t } = useTranslation('common')
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger)
-
+        const tl = new TimelineMax()
 
         if (typeof window !== 'undefined' && children) {
             // Handler to call on window resize
             function handleResize() {
                 // Set window width/height to state
-                var getBreakpoint = function () {
-                    return window.getComputedStyle(document.body, ':before').content;
-                };
 
-                console.log(getBreakpoint(), getBreakpoint() === '"desktop"')
+                const section = document.querySelector('.journey--desktop .js-wrapper')
+                const w = document.querySelector('.journey--desktop .js-slideContainer');
 
-                if (getBreakpoint() === '"desktop"') {
-                    const section = document.querySelector('.js-wrapper')
-                    const w = document.querySelector('.js-slideContainer');
-                    console.log(w.scrollWidth, section.offsetWidth, (w.scrollWidth - section.offsetWidth) * -1)
-                    const [x, xEnd] = ['0%', (w.scrollWidth - section.offsetWidth + 300) * -1]
-                    gsap.fromTo(w, { x }, {
-                        x: xEnd,
-                        scrollTrigger: {
-                            pin: true,
-                            trigger: section,
-                            scrub: .5,
-                            start: "top 20%"
-                        }
-                    });
-                } else {
-                    gsap.fromTo(document.querySelector('.js-slideContainer')).kill()
-                }
+                const [x, xEnd] = ['0%', (w.scrollWidth - section.offsetWidth + 300) * -1]
+
+                tl.fromTo(w, { x }, {
+                    x: xEnd,
+                    scrollTrigger: {
+                        pin: true,
+                        trigger: section,
+                        scrub: .5,
+                        start: "top 5%"
+                    }
+                });
+
             }
 
             // Add event listener
@@ -63,7 +58,7 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
                     <div className="stage__body">{body}</div>
                 </div>
                 {buttonText && <div className="stage__button">
-                    <Button text={buttonText} style="blue" link={buttonLink}></Button>
+                    <Button text={buttonText} link={t('discordLink')} symbol="true" style="blue" ></Button>
                 </div>}
             </div>
 
@@ -73,7 +68,7 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
                         alt="banner"
                         src={imageUrl}
                         layout="fill"
-                        objectFit="contain"
+                        objectFit="cover"
                         quality={100}
                         priority
                     />}

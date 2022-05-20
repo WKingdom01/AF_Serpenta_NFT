@@ -1,7 +1,7 @@
 .navbar {
     // padding: 24px;
     background: $black;
-    position: fixed;
+    // position: fixed;
     width: 100%;
     left: 0px;
     // height: 100%;
@@ -32,7 +32,7 @@
         max-width: 1200px;
         width: 100%;
         background: $black;
-        padding: 24px 12px;
+        padding: 50px 12px 24px 12px;
     }
 
     &__icon {
@@ -46,7 +46,7 @@
     }
 
     @media screen and (max-width: $desktop) {
-        position: fixed;
+        // position: fixed;
         right: 0px;
         top: 0px;
         // background: white;

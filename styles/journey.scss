@@ -1,5 +1,9 @@
 .journey {
 
+    &--desktop {
+        display: none
+    }
+
 
     &__content {
         display: flex;
@@ -15,7 +19,7 @@
 
     &__stage {
         width: 100%;
-        border-radius: 5px;
+        border-radius: 8px;
         border: 1px solid $papaya-whip;
         flex-shrink: 0;
         padding: 24px;
@@ -28,6 +32,8 @@
     &__image {
         margin-bottom: 24px;
         align-self: center;
+        width: 75%;
+        flex-shrink: 1;
     }
 
     &__header {
@@ -43,6 +49,15 @@
     }
 
     @media screen and (min-width: $desktop) {
+        &--mobile {
+            display: none;
+        }
+
+
+        &--desktop {
+            display: block;
+        }
+
         height: 700px;
 
         &__stage {
@@ -51,7 +66,7 @@
         }
 
         &__content {
-            width: 3000px;
+            width: 2350px;
             position: absolute;
             flex-direction: row;
         }

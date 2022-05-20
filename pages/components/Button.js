@@ -1,9 +1,9 @@
 
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react';
 
-const Button = ({ text, link, active, dropdown, style = 'gray', clickHandler }) => {
+const Button = ({ text, link, active, dropdown, style = 'gray', clickHandler, symbol }) => {
     const [clicked, setClick] = useState(false)
 
     return (
@@ -20,7 +20,7 @@ const Button = ({ text, link, active, dropdown, style = 'gray', clickHandler }) 
 
                 <div className="button__text">
                     {text}
-
+                    {symbol && <div><FontAwesomeIcon className="icon" icon={faArrowRight} /></div>}
 
                 </div>
 

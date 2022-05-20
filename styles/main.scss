@@ -1,4 +1,6 @@
+@import './fonts.scss';
 @import './variables.scss';
+
 @import './globals.scss';
 @import './global.scss';
 @import './mixins.scss';
@@ -9,7 +11,7 @@
 @import './container.scss';
 @import './goldframe.scss';
 @import './grayframe.scss';
-@import './fonts.scss';
+
 @import './team.scss';
 @import './image-grid.scss';
 @import './image.scss';
@@ -21,4 +23,4 @@
 @import './language-select.scss';
 @import './mint-block.scss';
 @import './stage.scss';
-@import './journey';
+@import './journey.scss';

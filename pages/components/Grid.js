@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 const Slider = dynamic(() => import("react-slick"));
 
 const Grid = () => {
-    const imgs = ['/1.png', '/2.png', '/6.png', '/4.png', '/5.png', '/3.png', '/7.png', '/8.png', '/9.png', '/10.png']
+    const imgs = ['/01.png', '/02.png', '/03.png', '/04.png', '/05.png', '/06.png', '/07.png', '/08.png', '/09.png', '/10.png', '/11.png', '/12.png', '/13.png', '/14.png', '/15.png']
     var settings = {
         dots: false,
         infinite: true,
@@ -127,7 +127,7 @@ const Grid = () => {
 
     })
     return (
-        <section className="image-grid component">
+        <section className="image-grid component component--no-padding">
             <Slider {...settings}>
                 {imgs.map((image, j) => {
 
@@ -139,13 +139,6 @@ const Grid = () => {
                                     alt="dragon"
                                     src={image}
                                 />
-                            </div>
-                            <div className="image__back">
-                                {/* <img
-                            
-                            alt="dragon"
-                            src={imgs[q]}
-                        /> */}
                             </div>
                         </div>
                     </div>
