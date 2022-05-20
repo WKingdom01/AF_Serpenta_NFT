@@ -47,10 +47,12 @@ p {
   color: $papaya-whip;
   text-transform: uppercase;
 
-  padding: 24px;
+  padding: 24px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
 
   @media screen and (min-width: $desktop) {
-    padding: 48px;
+    padding: 48px 48px;
   }
 
 }

@@ -24,7 +24,7 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
                 const section = document.querySelector('.journey--desktop .js-wrapper')
                 const w = document.querySelector('.journey--desktop .js-slideContainer');
 
-                const [x, xEnd] = ['0%', (w.scrollWidth - section.offsetWidth + 300) * -1]
+                const [x, xEnd] = ['0%', (w.scrollWidth - section.offsetWidth + 250) * -1]
 
                 tl.fromTo(w, { x }, {
                     x: xEnd,
@@ -50,28 +50,33 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
 
     })
 
-    return <div className={`stage ${alt ? 'stage--alt' : ''} component ${children ? 'js-wrapper' : ''}`}>
-        <div className={`stage__content ${children ? 'js-slideContainer' : ''}`}>
-            <div className="stage__text">
-                <div>
-                    <h3 className="stage__title"><FontAwesomeIcon className="stage__diamond icon" icon={faDiamond}></FontAwesomeIcon>{title}</h3>
-                    <div className="stage__body">{body}</div>
-                </div>
-                {buttonText && <div className="stage__button">
-                    <Button text={buttonText} link={t('discordLink')} symbol="true" style="blue" ></Button>
-                </div>}
-            </div>
+    return <div>
 
-            <div className="stage__image">
-                {children ? children :
-                    <Image
-                        alt="banner"
-                        src={imageUrl}
-                        layout="fill"
-                        objectFit="cover"
-                        quality={100}
-                        priority
-                    />}
+
+        <div className={`stage ${alt ? 'stage--alt' : ''} component ${children ? 'js-wrapper' : ''}`}>
+            {children && <div className="tagline">{t('roadmapTitle')}</div>}
+            <div className={`stage__content ${children ? 'js-slideContainer' : ''}`}>
+                <div className="stage__text">
+                    <div>
+                        <h3 className="stage__title"><FontAwesomeIcon className="stage__diamond icon" icon={faDiamond}></FontAwesomeIcon>{title}</h3>
+                        <div className="stage__body">{body}</div>
+                    </div>
+                    {buttonText && <div className="stage__button">
+                        <Button text={buttonText} link={t('discordLink')} symbol="true" style="blue" ></Button>
+                    </div>}
+                </div>
+
+                <div className="stage__image">
+                    {children ? children :
+                        <Image
+                            alt="banner"
+                            src={imageUrl}
+                            layout="fill"
+                            objectFit="cover"
+                            quality={100}
+                            priority
+                        />}
+                </div>
             </div>
         </div>
     </div>

@@ -10,7 +10,7 @@ const FAQ = ({ children }) => {
 
   return (
 
-    <section className="container">
+    <section>
       <div className="FAQ component">
         <div className="FAQ__questions">
           <Question question={t('faq.questionOne')} answer={t('faq.answerOne')}></Question>

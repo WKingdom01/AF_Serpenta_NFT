@@ -1,4 +1,8 @@
 .stage {
+    .tagline {
+        padding-left: 0px;
+    }
+
     &__content {
         display: flex;
         flex-direction: column;

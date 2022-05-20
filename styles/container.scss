@@ -5,11 +5,14 @@
 }
 
 .component {
+    max-width: 1400px;
+    margin: 0 auto;
     margin-bottom: 48px;
     padding: 24px;
 
     &--no-padding {
         padding: 0px !important;
+        max-width: 100000px;
     }
 
 
@@ -46,11 +49,9 @@
         text-align: center;
         color: $pale-silver;
         padding-bottom: 48px;
-    }
-
-    &:last-child {
         margin-bottom: 0;
     }
+
 }
 
 .roadmap {

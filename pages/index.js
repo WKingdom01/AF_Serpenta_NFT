@@ -54,7 +54,7 @@ export default function Home() {
         <Grid></Grid>
 
         <Stage title={t('roadmapTwo.title')} body={t('roadmapTwo.body')} imageUrl="/roadmap-part2.png" alt="true"></Stage>
-        <div className="tagline">{t('roadmapTitle')}</div>
+
         <div className="stage__wrapper journey--mobile">
           <Stage title={t('roadmapThree.title')} body={t('roadmapThree.body')}>
             <Journey></Journey>
