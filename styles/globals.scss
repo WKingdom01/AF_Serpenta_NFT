@@ -8,6 +8,7 @@ body {
   //   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 24px;
   font-family: BasierSquareMono;
+  color: rgba($papaya-whip, .9);
 }
 
 a {
@@ -44,7 +45,7 @@ p {
   line-height: 39px;
   letter-spacing: 0em;
   text-align: left;
-  color: $papaya-whip;
+  color: rgba($papaya-whip, .85);
   text-transform: uppercase;
 
   padding: 24px 24px;

@@ -13,7 +13,7 @@
     padding-top: 50px;
     margin-bottom: 24px;
     border-radius: 8px;
-    color: $papaya-whip;
+    color: rgba($papaya-whip, .85);
     @include Heading-3;
     cursor: pointer;
 

@@ -39,14 +39,14 @@
 
     &__header {
         @include Heading-3;
-        color: $papaya-whip;
+        color: rgba($papaya-whip, .85);
         margin-bottom: 24px;
         margin-top: 24px;
     }
 
     &__text {
         @include Body-Text;
-        color: $papaya-whip;
+        color: rgba($papaya-whip, .85);
     }
 
     @media screen and (min-width: $desktop) {
