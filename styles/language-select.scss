@@ -4,6 +4,7 @@
     color: white;
     transition: color .3s ease-in, background .3s ease-in;
     border-radius: 15px 15px 15px 15px;
+
     &__header {
         // border-radius: 25px;
         // border-radius: 15px 15px 0px 0px;
@@ -12,17 +13,19 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        
+
         padding: 20px 10px;
         transition: color .3s ease-in, background .3s ease-in;
+
         .icon {
             width: 25px;
         }
+
         &:hover {
-            background: rgba(255,255,255,1);
+            background: rgba(255, 255, 255, 1);
             color: black;
             border-radius: 15px 15px 15px 15px;
-        }    
+        }
     }
 
     &--open {
@@ -30,6 +33,7 @@
             max-height: 300px;
         }
     }
+
     .icon {
         // margin-right: 10px;
         width: 15px;
@@ -39,7 +43,7 @@
         max-height: 0px;
         overflow: hidden;
         transition: max-height .2s ease-in-out;
-        position: absolute;
+        position: relative;
         background: $maya-blue;
         // top: 100%;
         // left: 0px;
@@ -59,6 +63,7 @@
         background: $light-blue-sky;
         transition: color .3s ease-in, background .3s ease-in;
         color: $black;
+
         &:hover {
             background: $columbia-blue;
             color: white;
@@ -69,6 +74,13 @@
             right: 10px;
             top: 50%;
             transform: translate(0%, -50%);
+        }
+    }
+
+
+    @media screen and (min-width: $desktop) {
+        &__options {
+            position: absolute;
         }
     }
 }
