@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
+import Script from 'next/script';
 
 const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'))
 
@@ -8,6 +9,8 @@ const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'))
 
 const HeadComponent = () => {
   const { t } = useTranslation('common')
+
+  console.log('g')
   return <Head>
 
     <title>Sepenta</title>
@@ -17,28 +20,14 @@ const HeadComponent = () => {
 
     <link
       rel="preload"
-      href="/fonts/VP-Regular.woff"
+      href="/fonts/BasierSquareMono-Regular.otf"
       as="font"
       crossOrigin=""
       type="font/woff"
     />
     <link
       rel="preload"
-      href="/fonts/TubeOfCorn.woff"
-      as="font"
-      crossOrigin=""
-      type="font/woff"
-    />
-    <link
-      rel="preload"
-      href="/fonts/VP-Bold.woff"
-      as="font"
-      crossOrigin=""
-      type="font/woff"
-    />
-    <link
-      rel="preload"
-      href="/fonts/cc.woff"
+      href="/fonts/BasierSquareMono-SemiBold.otf"
       as="font"
       crossOrigin=""
       type="font/woff"
@@ -60,8 +49,8 @@ const HeadComponent = () => {
     <meta property="twitter:description" content={t('tagline')} />
     <meta property="twitter:image" content="/king-kaiju-city-attack-1200-630.jpeg" />
     {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+    <GoogleAnalytics></GoogleAnalytics>
 
-    <GoogleAnalytics strategy="afterInteractive"></GoogleAnalytics>
   </Head>
 }
 

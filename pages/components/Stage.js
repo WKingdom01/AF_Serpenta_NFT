@@ -24,7 +24,7 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
                 const section = document.querySelector('.journey--desktop .js-wrapper')
                 const w = document.querySelector('.journey--desktop .js-slideContainer');
 
-                const [x, xEnd] = ['0%', (w.scrollWidth - section.offsetWidth + 250) * -1]
+                const [x, xEnd] = ['0%', (w?.scrollWidth - section?.offsetWidth + 250) * -1]
 
                 tl.fromTo(w, { x }, {
                     x: xEnd,
