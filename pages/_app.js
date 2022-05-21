@@ -14,14 +14,14 @@ function MyApp({ Component, pageProps }) {
 
     <Script id="gtag-init" strategy="afterInteractive" dangerouslySetInnerHTML={{
       _html: `
-                                window.dataLayer = window.dataLayer || [];
-                                function gtag(){dataLayer.push(arguments);}
-                                gtag('js', new Date());
-                                console.log(window.location.pathname)
-                                gtag('config', ${gaMeasurementId}, {
-                                    page_path: window.location.pathname,
-                                });
-                            `}}>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            console.log(window.location.pathname)
+            gtag('config', ${gaMeasurementId}, {
+                page_path: window.location.pathname,
+            });
+        `}}>
 
     </Script>
     <Component {...pageProps} />

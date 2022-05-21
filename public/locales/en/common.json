@@ -64,61 +64,64 @@
   },
   "team": {
     "title": "",
-    "memberOne": {
-      "name": "Pine",
-      "title": "creative designer",
-      "description": "Our creative lead, a prolific and successful collector of fine digital antiquities, a respected member in many communities and a determined proponent of the hard work behind the business grind and hustle.",
-      "twitter": "https://twitter.com/cryptpine",
-      "image": "/1.png"
-    },
-    "memberTwo": {
-      "name": "Miaoux",
-      "title": "marketing, biz-dev",
-      "description": "Storyteller and geek polymath specialising in growth and logistics. Serial builder of multi-million dollar companies. He&apos;s channeling his seasoned expertise in business, NFTs and crypto to benefit Serpenta.",
-      "twitter": "https://twitter.com/miaoux",
-      "image": "/2.png"
-    },
-    "memberThree": {
-      "name": "Remo",
-      "title": "Designer",
-      "description": "Bringing the dragons to vibrant life is our inspired indie artist. He joined our talented team many moons ago and astounds us with his skill daily. We are fortunate to have his visionary abilities. ",
-      "twitter": "https://twitter.com/remimoth",
-      "image": "/3.png"
-    },
-    "memberFour": {
-      "name": "Dani",
-      "title": "solidity engineer",
-      "description": "Our insanely skilled dev has contributed to a more efficient ERC721A and written many more ethereum contracts. He is in constant demand from developers for his solidity expertise. We are in safe hands.",
-      "twitter": "https://twitter.com/danipopes",
-      "image": "/4.png"
-    },
-    "memberFive": {
-      "name": "Almos",
-      "title": "Advisor",
-      "description": "Our insanely skilled dev has contributed to a more efficient ERC721A and written many more ethereum contracts. He is in constant demand from developers for his solidity expertise. We are in safe hands.",
-      "twitter": "https://twitter.com/danipopes",
-      "image": "/almos.png"
-    },
-    "memberSix": {
-      "name": "Ward",
-      "title": "solidity engineer",
-      "description": "Our insanely skilled dev has contributed to a more efficient ERC721A and written many more ethereum contracts. He is in constant demand from developers for his solidity expertise. We are in safe hands.",
-      "twitter": "https://twitter.com/danipopes",
-      "image": "/ward.png"
-    },
-    "memberSeven": {
-      "name": "Dayo",
-      "title": "solidity engineer",
-      "description": "Our insanely skilled dev has contributed to a more efficient ERC721A and written many more ethereum contracts. He is in constant demand from developers for his solidity expertise. We are in safe hands.",
-      "twitter": "https://twitter.com/danipopes",
-      "image": "/dayo.png"
-    },
-    "memberEight": {
-      "name": "Klaus",
-      "title": "solidity engineer",
-      "description": "Our insanely skilled dev has contributed to a more efficient ERC721A and written many more ethereum contracts. He is in constant demand from developers for his solidity expertise. We are in safe hands.",
-      "twitter": "https://twitter.com/danipopes",
-      "image": "/klaus.png"
-    }
+    "buttonText": "more",
+    "members": [
+      {
+        "name": "Pine",
+        "title": "creative designer",
+        "description": "Our creative lead, a prolific and successful collector of fine digital antiquities, a respected member in many communities and a determined proponent of the hard work behind the business grind and hustle.",
+        "twitter": "https://twitter.com/cryptpine",
+        "image": "/1.png"
+      },
+      {
+        "name": "Miaoux",
+        "title": "marketing, biz-dev",
+        "description": "Storyteller and geek polymath specialising in growth and logistics. Serial builder of multi-million dollar companies. He&apos;s channeling his seasoned expertise in business, NFTs and crypto to benefit Serpenta.",
+        "twitter": "https://twitter.com/miaoux",
+        "image": "/2.png"
+      },
+      {
+        "name": "Remo",
+        "title": "Designer",
+        "description": "Bringing the dragons to vibrant life is our inspired indie artist. He joined our talented team many moons ago and astounds us with his skill daily. We are fortunate to have his visionary abilities. ",
+        "twitter": "https://twitter.com/remimoth",
+        "image": "/3.png"
+      },
+      {
+        "name": "Dani",
+        "title": "solidity engineer",
+        "description": "Our insanely skilled dev has contributed to a more efficient ERC721A and written many more ethereum contracts. He is in constant demand from developers for his solidity expertise. We are in safe hands.",
+        "twitter": "https://twitter.com/danipopes",
+        "image": "/4.png"
+      },
+      {
+        "name": "Almos",
+        "title": "Advisor",
+        "description": "Our insanely skilled dev has contributed to a more efficient ERC721A and written many more ethereum contracts. He is in constant demand from developers for his solidity expertise. We are in safe hands.",
+        "twitter": "https://twitter.com/danipopes",
+        "image": "/almos.png"
+      },
+      {
+        "name": "Ward",
+        "title": "solidity engineer",
+        "description": "Our insanely skilled dev has contributed to a more efficient ERC721A and written many more ethereum contracts. He is in constant demand from developers for his solidity expertise. We are in safe hands.",
+        "twitter": "https://twitter.com/danipopes",
+        "image": "/ward.png"
+      },
+      {
+        "name": "Dayo",
+        "title": "solidity engineer",
+        "description": "Our insanely skilled dev has contributed to a more efficient ERC721A and written many more ethereum contracts. He is in constant demand from developers for his solidity expertise. We are in safe hands.",
+        "twitter": "https://twitter.com/danipopes",
+        "image": "/dayo.png"
+      },
+      {
+        "name": "Klaus",
+        "title": "solidity engineer",
+        "description": "Our insanely skilled dev has contributed to a more efficient ERC721A and written many more ethereum contracts. He is in constant demand from developers for his solidity expertise. We are in safe hands.",
+        "twitter": "https://twitter.com/danipopes",
+        "image": "/klaus.png"
+      }
+    ]
   }
 }

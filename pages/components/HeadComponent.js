@@ -1,16 +1,11 @@
 import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
-import Script from 'next/script';
-
-const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'))
 
 
 
 const HeadComponent = () => {
   const { t } = useTranslation('common')
 
-  console.log('g')
   return <Head>
 
     <title>Sepenta</title>
@@ -48,8 +43,6 @@ const HeadComponent = () => {
     <meta property="twitter:title" content={t('title')} />
     <meta property="twitter:description" content={t('tagline')} />
     <meta property="twitter:image" content="/king-kaiju-city-attack-1200-630.jpeg" />
-    {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
-    <GoogleAnalytics></GoogleAnalytics>
 
   </Head>
 }
