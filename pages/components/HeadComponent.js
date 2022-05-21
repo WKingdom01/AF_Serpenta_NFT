@@ -8,7 +8,6 @@ const HeadComponent = () => {
 
   return <Head>
 
-    <title>Sepenta</title>
     <meta name="description" content={t('description')} />
     <title>{t('title')}</title>
     <link rel="icon" href="/favicon.ico" />

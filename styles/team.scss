@@ -2,7 +2,7 @@
     // margin-bottom: 0;
 
     &__twitter {
-        width: 50px;
+        width: 25px;
         display: block;
         align-self: flex-end;
     }
@@ -28,6 +28,7 @@
         flex-direction: column;
         height: 100%;
         flex-grow: 1;
+        // width: calc(80% - 32px);
     }
 
     &__members {
@@ -42,6 +43,7 @@
         color: $light-blue-sky;
         text-transform: uppercase;
         font-size: 20px;
+        width: 100%;
     }
 
     &__name {
@@ -61,6 +63,9 @@
         max-height: 0px;
         overflow: hidden;
         transition: max-height .3s ease-in;
+        margin-top: 24px;
+        text-align: left;
+        @include Body-Text;
 
         &--open {
             max-height: 400px;
@@ -72,8 +77,8 @@
         color: $black;
         display: flex;
         margin-bottom: 24px;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        align-items: flex-start;
         padding: 32px;
         border: 1px solid $papaya-whip;
         border-radius: 8px;
@@ -122,13 +127,16 @@
     }
 
     &__image {
+        margin-right: 32px;
+
         @media screen and (min-width: $desktop) {
             width: 100%;
-            margin-right: 32px;
+
         }
     }
 
     &__twitter-link {
         text-decoration: underline;
+
     }
 }

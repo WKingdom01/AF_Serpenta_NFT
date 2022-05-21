@@ -44,6 +44,7 @@
         z-index: 2;
         position: relative;
 
+
         &:before {
             content: "";
             position: absolute;
@@ -52,6 +53,12 @@
             width: 100%;
             background: $papaya-whip;
             height: 1px;
+        }
+    }
+
+    @media screen and (min-width: $tablet) {
+        &__text {
+            width: 75%;
         }
     }
 

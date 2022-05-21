@@ -29,10 +29,10 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        max-width: 1200px;
+        max-width: 372px;
         width: 100%;
         background: $black;
-        padding: 50px 12px 24px 12px;
+        padding: 50px 12px 0px 12px;
     }
 
     &__icon {
@@ -76,10 +76,11 @@
 
         &__list {
             // align-items: flex-end;
-            padding-top: 65px;
+            padding-top: 50px;
             display: inline-block;
             flex-shrink: 1;
             // padding: 16px;
+
             max-height: 0px;
             overflow: hidden;
             transition: max-height .2s ease-in-out;
@@ -123,6 +124,7 @@
             flex-direction: row;
             width: 75%;
             margin: 0 auto;
+            max-width: 1200px;
         }
     }
 

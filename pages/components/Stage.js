@@ -68,14 +68,18 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
 
                 <div className="stage__image">
                     {children ? children :
-                        <Image
-                            alt="banner"
-                            src={imageUrl}
-                            layout="fill"
-                            objectFit="cover"
-                            quality={100}
-                            priority
-                        />}
+                        <div className="unset-img">
+                            <Image
+                                className="custom-img"
+                                alt="banner"
+                                src={imageUrl}
+                                layout="responsive"
+                                width="100%"
+                                height="100%"
+                                objectFit="cover"
+                                quality={100}
+                                priority
+                            /></div>}
                 </div>
             </div>
         </div>

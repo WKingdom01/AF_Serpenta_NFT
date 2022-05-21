@@ -2,7 +2,7 @@
     background: $black;
     position: relative;
     margin-bottom: 0;
-    padding-top: 180px;
+    padding-top: 76px;
 
     &:before {
         content: '';
@@ -15,4 +15,7 @@
         z-index: 0;
     }
 
+    @media screen and (min-width: $desktop) {
+        padding-top: 180px
+    }
 }
