@@ -20,23 +20,39 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
             // Handler to call on window resize
             function handleResize() {
                 // Set window width/height to state
-
-                const section = document.querySelector('.journey--desktop .js-wrapper')
-                const w = document.querySelector('.journey--desktop .js-slideContainer');
+                const bp = window.getComputedStyle(document.body, ':before').content
+                const section = document.querySelector('.js-wrapper')
+                const w = document.querySelector('.js-slideContainer');
 
                 const [x, xEnd] = ['0%', (w?.scrollWidth - section?.offsetWidth + 250) * -1]
 
                 tl.fromTo(w, { x }, {
                     x: xEnd,
                     scrollTrigger: {
+                        id: 'id',
                         pin: true,
                         trigger: section,
                         scrub: .5,
-                        start: "top 5%"
+                        start: "top 5%",
+                        animation: tl
                     }
                 });
 
+                // window.st = st
+
+                if (bp !== '"desktop"') {
+                    console.log(ScrollTrigger.getById('id'))
+                    // tl.scrollTrigger.kill({ revert: true })
+                    // ScrollTrigger.getById('id')?.kill({ revert: true });
+                    ScrollTrigger.getAll().forEach((st) => st.disable())
+                } else {
+                    ScrollTrigger.getAll().forEach((st) => st.enable())
+                }
+
+
             }
+
+
 
             // Add event listener
             window.addEventListener("resize", handleResize);

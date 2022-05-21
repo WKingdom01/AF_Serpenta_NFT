@@ -20,6 +20,7 @@ export default function Home() {
 
   const { t } = useTranslation('common')
 
+
   return (
     <PageSlot>
       <div className="components">
@@ -55,16 +56,11 @@ export default function Home() {
 
         <Stage title={t('roadmapTwo.title')} body={t('roadmapTwo.body')} imageUrl="/roadmap-part2.png" alt="true"></Stage>
 
-        <div className="stage__wrapper journey--mobile">
+        {<div className="stage__wrapper">
           <Stage title={t('roadmapThree.title')} body={t('roadmapThree.body')}>
             <Journey></Journey>
           </Stage>
-        </div>
-        <div className="stage__wrapper  journey--desktop">
-          <Stage title={t('roadmapThree.title')} body={t('roadmapThree.body')}>
-            <Journey></Journey>
-          </Stage>
-        </div>
+        </div>}
         <div className="tagline">{t('faqTitle')}</div>
         <FAQ></FAQ>
         <div className="tagline">{t('teamTitle')}</div>

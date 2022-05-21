@@ -84,6 +84,10 @@
         border-radius: 8px;
         color: $papaya-whip;
 
+        @media screen and (min-width: $tablet) {
+            flex-direction: row;
+        }
+
 
         @media screen and (min-width: $desktop) {
             width: calc(50% - 16px);
