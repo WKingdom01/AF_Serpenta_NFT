@@ -4,9 +4,11 @@ import { useState } from 'react'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+
 const Team = () => {
     const [open, setOpen] = useState(0)
-    const { t } = useTranslation('common')
+
+    const { t, i18n, ready } = useTranslation('common', { useSuspense: false });
 
     const toggleOpen = (index) => {
         const i = index + 1
@@ -21,7 +23,7 @@ const Team = () => {
         <section className="team component">
             <div className="container team__container">
                 <div className="team__members">
-                    {t('team.members', { returnObjects: true }).map((member, index) => {
+                    {ready && t('team.members', { returnObjects: true }).map((member, index) => {
                         return <div className="team__member" key={`member-${index}`}>
                             <div className="team__image">
                                 <Image

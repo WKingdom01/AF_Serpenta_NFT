@@ -2,7 +2,7 @@ import Script from 'next/script';
 
 function GoogleAnalytics({ strategy }) {
   const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-  console.log('google')
+
   if (!gaMeasurementId) {
     return null;
   }
