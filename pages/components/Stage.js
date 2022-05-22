@@ -68,7 +68,7 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
 
         <div className={`stage ${alt ? 'stage--alt' : ''} component ${children ? 'js-wrapper' : ''}`}>
             {children && <div className="tagline">{t('roadmapTitle')}</div>}
-            <div className={`stage__content `}>
+            <div className={`stage__content  ${children ? 'js-slideContainer' : ''} `}>
                 <div className="stage__text">
                     <div>
                         <h3 className="stage__title"><FontAwesomeIcon className="stage__diamond icon" icon={faDiamond}></FontAwesomeIcon>{title}</h3>
@@ -79,7 +79,7 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
                     </div>}
                 </div>
 
-                <div className={`stage__image ${children ? 'js-slideContainer' : ''}`}>
+                <div className={`stage__image`}>
                     {children ? children :
                         <div className="unset-img">
                             <Image
