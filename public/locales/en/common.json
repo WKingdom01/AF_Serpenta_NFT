@@ -46,20 +46,20 @@
   "roadmap": {
     "title": "Roadmap",
     "stageOne": {
-      "header": "01. The Hatchery",
-      "text": "The Serpenta Dragons’ birthplace, a holy domain where all the eggs are gathered together and blessed. Minting occurs late April 2022 in two phases. An initial phase for the chosen, and a public phase for the subsequent unwashed masses. Each wallet for the chosen - the whitelist - will be allowed up to 2 eggs. Hatching will take place after all the eggs have been claimed."
+      "header": "01. Dragon Emergence",
+      "text": "Surviving your first excursion in the Void as a newbie recruit is tough! Training with the Dragon Army Elites can prepare you for your first visit - but who knows what worlds you will find or what traits you will absorb?"
     },
     "stageTwo": {
-      "header": "02. Quest For Treasure",
-      "text": "Post-hatching, we learn that Dragons are naturally curious creatures and they can be sent out to hunt (stake) treasure in all its forms. Mostly you will discover pockets of gold, but in very rare cases you may happen upon other unexpected treasures too. It has been rumored that the more dragons you send out to hunt, the greater the chance for rarer drops."
+      "header": "02. Rebellion",
+      "text": "Choose your own path - Rebel, or Imperial? The Army wants you to carry out their missions - Look deep within yourself and enhance your Dragon's strengths. What new treasures and journeys will you discover as you challenge the Void?"
     },
     "stageThree": {
       "header": "03. Breeding Grounds",
-      "text": "Dragons’ gold has been found to augment and accelerate the birth of the next generation. With so many being sent to explore unknown worlds through the Great Void, the urgency to repopulate the land has lead to the Council leaders experimenting with long-abandoned rituals. What hybrids have been grown in the dark breeding grounds?"
+      "text": "The Five primary Dragon Clans scheme to expand their influence. Not all is as it seems - why is the High Council creating a new generation of hybrid Dragonlings and how will they change the balance of power?"
     },
     "stageFour": {
-      "header": "04. The Great Void",
-      "text": "Every dragon that returns through the Great Void has new discoveries to report to the Council. What new decisions will be brought to the citizenry of the land and how will these wonders, or threats be dealt with?"
+      "header": "04. The Great Adventure Continues",
+      "text": "The Great Void investigations continue and stories and tales continue to be told. Chaos lurks within and only the strongest teams can work together to defeat the unexpected hordes that start to break out. Great artists ink and capture the personalities of your future companions."
     }
   },
   "team": {
