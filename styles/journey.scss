@@ -1,0 +1,77 @@
+.journey {
+
+    &--desktop {
+        display: none;
+        padding-bottom: 48px;
+    }
+
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        // overflow-y: scroll;
+        // width: 2000px;
+
+        // height: 700px;
+        width: 100%;
+        flex-direction: column;
+
+    }
+
+    &__stage {
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid $papaya-whip;
+        flex-shrink: 0;
+        padding: 24px;
+        padding-top: 48px;
+        display: flex;
+        margin-bottom: 24px;
+        flex-direction: column;
+
+    }
+
+    &__image {
+        margin-bottom: 24px;
+        align-self: center;
+        width: 75%;
+        flex-shrink: 1;
+        height: 300px;
+    }
+
+    &__header {
+        @include Heading-3;
+        color: rgba($papaya-whip, .85);
+        margin-bottom: 24px;
+        margin-top: 24px;
+    }
+
+    &__text {
+        @include Body-Text;
+        color: rgba($papaya-whip, .85);
+    }
+
+    @media screen and (min-width: $desktop) {
+        &--mobile {
+            display: none;
+        }
+
+
+        &--desktop {
+            display: block;
+        }
+
+        height: 700px;
+
+        &__stage {
+            width: calc(100% / 4 - 24px);
+
+        }
+
+        &__content {
+            width: 2325px;
+            position: absolute;
+            flex-direction: row;
+        }
+    }
+}

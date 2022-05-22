@@ -1,5 +1,6 @@
 .roadmap {
     padding-bottom: 128px;
+
     .stages {
         display: flex;
         flex-direction: column;
@@ -9,16 +10,17 @@
     &__title {
         margin-bottom: 48px;
     }
+
     .stage {
         opacity: 0;
-       
+
         // width: 60%;
         margin: 0 auto;
         margin-bottom: 48px;
-        position:relative;
+        position: relative;
         text-align: center;
-        
-        
+
+
         &:nth-child(odd) {
             // align-self: flex-end;
             flex-direction: row-reverse;
@@ -29,21 +31,23 @@
                 // width: 50%;
                 margin: 0 auto;
             }
-            
+
         }
 
-       
 
-    
-        @media screen and (min-width: $tablet) { 
+
+
+        @media screen and (min-width: $desktop) {
             width: 100%;
-            margin: 0;     
+            margin: 0;
             margin-bottom: 200px;
             display: flex;
             justify-content: space-between;
+
             &__image {
                 width: 40%;
                 transition: transform .3s ease-in-out;
+
                 &:hover {
                     transform: scale(1.2);
                 }

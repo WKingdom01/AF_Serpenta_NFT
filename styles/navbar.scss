@@ -1,33 +1,38 @@
 .navbar {
-    padding: 24px;
-    font-family: cc;
-    position: fixed;
-    top: 24px;
+    // padding: 24px;
+    background: $black;
+    // position: fixed;
     width: 100%;
     left: 0px;
+    // height: 100%;
     z-index: 11;
     transition: background .3s ease-in, transform .3s ease-in, top .3s ease-in;
 
-   
-
     &--static {
         height: 100px;
+        margin-bottom: 24px;
     }
-   
+
+
+
 
     &__toggle {
         position: absolute;
-        top: 24px;
-        right: 24px;
+        top: 30px;
+        left: 50%;
         display: block;
         z-index: 10;
+        transform: translate(-50%, 0%)
     }
 
     &__list {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        max-width: 700px;
+        max-width: 372px;
+        width: 100%;
+        background: $black;
+        padding: 50px 12px 0px 12px;
     }
 
     &__icon {
@@ -36,18 +41,18 @@
         color: white;
     }
 
-    @media screen and (max-width: $tablet) {
-        position: fixed;
+    li::marker {
+        display: none;
+    }
+
+    @media screen and (max-width: $desktop) {
+        // position: fixed;
         right: 0px;
         top: 0px;
         // background: white;
         z-index: 3;
         display: flex;
-        justify-content: flex-end;
-
-       
-
-        
+        justify-content: center;
 
         &--open {
             &:after {
@@ -55,31 +60,37 @@
             }
 
             .navbar__list {
-                max-height: 400px;
+                max-height: 1000px;
             }
-            
+
         }
 
         li {
             margin: 16px;
+
+            &:first-child {
+                margin-top: 36px;
+            }
         }
-       
+
 
         &__list {
             // align-items: flex-end;
-            // padding-right: 24px;
+            padding-top: 50px;
             display: inline-block;
             flex-shrink: 1;
             // padding: 16px;
+
             max-height: 0px;
             overflow: hidden;
             transition: max-height .2s ease-in-out;
             position: relative;
+
             &:after {
                 content: '';
                 width: 100%;
                 height: 100%;
-                background: rgba(0,0,0,.3);
+                background: rgba(0, 0, 0, .3);
                 opacity: 0;
                 top: 0px;
                 left: 0px;
@@ -90,25 +101,37 @@
         }
     }
 
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: $desktop) {
 
         &--fixed {
             background: $black;
             top: 0px;
         }
-    
+
         &--hide {
             transform: translateY(-100%);
         }
+
         &__toggle {
             display: none;
         }
 
+        &__button-item {
+            width: calc(25% - 36px);
+        }
 
         &__list {
             flex-direction: row;
             width: 75%;
             margin: 0 auto;
+            max-width: 1200px;
         }
-      }
+    }
+
+    &__language-toggle {
+        position: absolute;
+        top: 50%;
+        left: 24px;
+        transform: translate(0, -50%);
+    }
 }

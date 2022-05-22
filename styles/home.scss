@@ -3,7 +3,7 @@
 }
 
 .main {
-  min-height: 100vh;
+  // min-height: 100vh;
   // padding: 4rem 0;
   // flex: 1;
   // display: flex;
@@ -44,7 +44,7 @@
 
 .code {
   background: #fafafa;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 0.75rem;
   font-size: 1.1rem;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
@@ -89,10 +89,7 @@
   line-height: 1.5;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
+
 
 @media (max-width: 600px) {
   .grid {

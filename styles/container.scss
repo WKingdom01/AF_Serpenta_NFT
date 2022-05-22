@@ -1,29 +1,67 @@
 .container {
-    max-width: 920px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 24px;
 }
 
 .component {
+    max-width: 1400px;
+    margin: 0 auto;
     margin-bottom: 48px;
+    padding: 0px 12px;
+
+    &--no-padding {
+        padding: 0px !important;
+        max-width: 100000px;
+    }
 
 
     @media screen and (min-width: $tablet) {
         margin-bottom: 64px;
+        padding: 0px 24px;
     }
 
     @media screen and (min-width: $desktop) {
-        margin-bottom: 128px;
+        margin-bottom: 100px;
+        padding: 0px 50px;
     }
+
+    &.logo {
+
+        display: flex;
+        justify-content: center;
+
+        &__container {
+            max-width: 700px;
+        }
+    }
+
+    & .banner {
+        &__image {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+        }
+    }
+
+    &.copyright {
+
+        @include caption;
+        text-align: center;
+        color: $pale-silver;
+        padding-bottom: 48px;
+        margin-bottom: 0;
+    }
+
 }
 
 .roadmap {
-  
+
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
 
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: $desktop) {
         // width: 75%;
     }
 }

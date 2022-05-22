@@ -13,7 +13,9 @@ function GoogleAnalytics({ strategy }) {
         src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
         strategy={strategy}
       />
-      <Script id="nextjs-google-analytics">
+      <Script id="nextjs-google-analytics"
+        strategy={strategy}
+      >
         {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
