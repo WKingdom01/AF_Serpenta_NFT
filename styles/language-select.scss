@@ -45,6 +45,7 @@
         transition: max-height .2s ease-in-out;
         position: relative;
         background: $maya-blue;
+        top: calc(100% + 16px);
         // top: 100%;
         // left: 0px;
         z-index: 2;
@@ -66,7 +67,7 @@
 
         &:hover {
             background: $columbia-blue;
-            color: white;
+            // color: white;
         }
 
         .icon {
