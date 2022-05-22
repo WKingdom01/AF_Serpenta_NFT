@@ -72,7 +72,7 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
                 <div className="stage__text">
                     <div>
                         <h3 className="stage__title"><FontAwesomeIcon className="stage__diamond icon" icon={faDiamond}></FontAwesomeIcon>{title}</h3>
-                        <div className="stage__body">{body}</div>
+                        <div className="stage__body" dangerouslySetInnerHTML={{ __html: body }}></div>
                     </div>
                     {buttonText && <div className="stage__button">
                         <Button text={buttonText} link={t('discordLink')} symbol="true" style="blue" ></Button>
