@@ -64,12 +64,12 @@
         height: 700px;
 
         &__stage {
-            width: calc(100% / 4 - 24px);
+            width: calc(100% / 6 - 24px);
 
         }
 
         &__content {
-            width: 2325px;
+            width: 3325px;
             position: absolute;
             flex-direction: row;
         }
