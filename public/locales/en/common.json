@@ -2,7 +2,7 @@
   "title": "Serpenta NFT Collection",
   "tagline": "5555 Serpenta Dragons Battling the Void!",
   "description": "5555 Genesis Dragon NFT heroes enter the Void for the Dragon Army! What unique powers will you emerge with?",
-  "joinDiscord": "Join our discord!",
+  "joinDiscord": "Join our Discord!",
   "discordLink": "https://discord.gg/serpentaNFT",
   "languageLabels": {
     "en": "English",
@@ -19,13 +19,13 @@
   "copyright": "© SERPENTA 2022",
   "roadmapOne": {
     "title": "WHAT IS SERPENTA NFT?",
-    "body": "An NFT adventure where your chosen Dragons battle through unknown worlds beyond the dimensional portal known as the Great Void! 5555 Genesis Dragons have been conscripted and undergone harsh training before venturing into the mysterious portals. <p>&nbsp;<p> Escape from your shackles and discover new traits, outfits and artifacts that uniquely show off your personality and power! Serpenta is a fantastic Web3 P2E journey and game experience combining NFT pixel art, anime and on-chain storytelling!",
-    "buttonText": "Join Our Discord",
+    "body": "An NFT collection where your chosen Dragons battle through unknown worlds beyond the dimensional portal known as the Great Void! 5555 Genesis Dragons have been conscripted and have undergone harsh training before venturing into the mysterious Void. <p>&nbsp;<p> Escape from your shackles and discover rare traits, outfits and artifacts that uniquely show off your personality and power! Serpenta is a fantastic Web3 P2E journey and game experience combining NFT pixel art, anime and on-chain storytelling!",
+    "buttonText": "Join our Discord",
     "buttonLink": "https://discord.gg/serpentaNFT"
   },
   "roadmapTwo": {
     "title": "What's Coming",
-    "body": "Exceptionally detailed and desirable NFT Pixel Art avatars that grow and accumulate more treasure with each Void mission. Find out who, or what is behind the Great Void excursions and decide which clan factions you align with. Experience on-chain idle encounters and find ultra-rare drops through the actions and exploits of your Dragons! <p>&nbsp;<p>Serpenta is working with anime artists to provide ultra-limited, rare art drops to holders, Tokyo streetwear partnerships, membership benefits on top of the expanded AFK/Idle games, staking currency through crypto defi and many other community profit-sharing opportunities. Ultimately, you will decide on the hybrid breeding of the next Dragon generation and expose the secret behind unveiling your very own Anime Waifu Navigator."
+    "body": "Exceptionally detailed and desirable NFT Pixel Art avatars that accumulate levels and treasure with each Void mission. Find out who, or what is behind the Portal incursions and decide which clan factions you align with. Experience on-chain idle encounters and find ultra-rare drops through the exciting exploits of your Dragons! <p>&nbsp;<p>Serpenta is working with anime artists to provide limited, rare art drops to holders, Tokyo streetwear partnerships, membership benefits on top of the planned AFK/Idle game, staking $VOID and many other community opportunities. Dragon holders will decide on the breeding of the next Dragon generation and unveil secrets that reveal your future Anime Waifu Navigators."
   },
   "roadmapThree": {
     "title": "The Serpenta Road Ahead",
@@ -45,30 +45,38 @@
   },
   "roadmap": {
     "title": "Roadmap",
-    "stageOne": {
-      "header": "01. Dragons Emerge",
-      "text": "Surviving your first excursion in the Void as a newbie recruit is tough! Training with the Dragon Army Elites can prepare you for your first visit - but who knows what worlds you will find and what traits you will absorb as a result? [ Mint launch ]"
-    },
-    "stageTwo": {
-      "header": "02. Rebellion",
-      "text": "Choose your own path - Rebel, or Imperial? The Army wants you to carry out their missions - Look deep within yourself and enhance your Dragon's strengths. What new treasures and journeys will you discover as you challenge the Void? [ Dragon Staking / Branding ]"
-    },
-    "stageThree": {
-      "header": "03. Breeding Grounds",
-      "text": "The Five primary Dragon Clans scheme to expand their influence. Not all is as it seems - why is the High Council creating a new generation of hybrid Dragonlings and how will they change the balance of power? [ Dragonling Breeding ]"
-    },
-    "stageFour": {
-      "header": "04. The Great Adventure",
-      "text": "The Great Void investigations continue and stories and tales continue to be told. Chaos lurks within and only the strongest teams can work together to defeat the unexpected hordes that start to break out. Great artists ink and capture the personalities of your future companions. [ Rare Japanese Art, Banner & Story Drops ]"
-    },
-    "stageFive": {
-      "header": "05. Quest for a Waifu",
-      "text": "Every Dragon deserves a great companion to accompany them on their adventures! No one knows in which metaverse the Anime Waifu Navigators were discovered, but they're resourceful, smart and here to stay! [ Anime Navigator Waifus ]"
-    },
-    "stageSix": {
-      "header": "06. Idle-AFK Game of Dragons",
-      "text": "A grand goal for our project is to be able to complete an Idle/AFK game with the whole history and storyline spread across numerous chapters. All the loose threads and mysteries of the world and Serpenta brand will be blended into a fantastic. [ Idle-AFK Game, XP & expansions ]"
-    }
+    "stages": [
+      {
+        "header": "01. Dragons Emerge",
+        "text": "Surviving your first excursion in the Void as a newbie recruit is tough! Training with the Dragon Army Elites can prepare you for your first visit - but who knows what worlds you will find and what traits you will absorb as a result? [ Mint launch ]",
+        "image": "/town.png"
+      },
+      {
+        "header": "02. Rebellion",
+        "text": "Choose your own path - Rebel, or Imperial? The Army wants you to carry out their missions - Look deep within yourself and enhance your Dragon's strengths. What new treasures and journeys will you discover as you challenge the Void? [ Dragon Staking / Branding ]",
+        "image": "/castle.png"
+      },
+      {
+        "header": "03. Breeding Grounds",
+        "text": "The Five primary Dragon Clans scheme to expand their influence. Not all is as it seems - why is the High Council creating a new generation of hybrid Dragonlings and how will they change the balance of power? [ Dragonling Breeding ]",
+        "image": "/shop.png"
+      },
+      {
+        "header": "04. The Great Adventure",
+        "text": "The Great Void investigations continue and stories and tales continue to be told. Chaos lurks within and only the strongest teams can work together to defeat the unexpected hordes that start to break out. Great artists ink and capture the personalities of your future companions. [ Rare Japanese Art, Banner & Story Drops ]",
+        "image": "/key.png"
+      },
+      {
+        "header": "05. Quest for a Waifu",
+        "text": "Every Dragon deserves a great companion to accompany them on their adventures! No one knows in which metaverse the Anime Waifu Navigators were discovered, but they're resourceful, smart and here to stay! [ Anime Navigator Waifus ]",
+        "image": "/scroll.png"
+      },
+      {
+        "header": "06. Idle-AFK Game of Dragons",
+        "text": "A grand goal for our project is to be able to complete an Idle/AFK game with the whole history and storyline spread across numerous chapters. All the loose threads and mysteries of the world and Serpenta brand will be blended into a fantastic. [ Idle-AFK Game, XP & expansions ]",
+        "image": "/wormhole.png"
+      }
+    ]
   },
   "team": {
     "title": "",

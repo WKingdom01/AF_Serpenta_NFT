@@ -1,37 +1,4 @@
 @font-face {
-  font-family: "TubeOfCorn";
-  src: url("/fonts/TubeOfCorn.woff");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "cc";
-  src: url("/fonts/cc.woff");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
-
-@font-face {
-  font-family: "vp";
-  src: url("/fonts/VP-Regular.woff");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "vp";
-  src: url("/fonts/VP-Bold.woff");
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "BasierSquareMono";
   src: url("/fonts/BasierSquareMono-Regular.otf");
   font-style: normal;
@@ -99,8 +66,14 @@
   letter-spacing: 0em;
   text-align: left;
 
+
+
   @media screen and (min-width: $desktop) {
     font-size: 20px;
+  }
+
+  @media (max-height: $mbp) {
+    font-size: 15px;
   }
 
 }
