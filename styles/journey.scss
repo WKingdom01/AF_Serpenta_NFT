@@ -35,6 +35,7 @@
         align-self: center;
         width: 75%;
         flex-shrink: 1;
+        height: 300px;
     }
 
     &__header {
@@ -67,7 +68,7 @@
         }
 
         &__content {
-            width: 2350px;
+            width: 2325px;
             position: absolute;
             flex-direction: row;
         }

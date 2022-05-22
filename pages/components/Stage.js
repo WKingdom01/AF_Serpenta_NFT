@@ -24,7 +24,7 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
                 const section = document.querySelector('.js-wrapper')
                 const w = document.querySelector('.js-slideContainer');
 
-                const [x, xEnd] = ['0%', (w?.scrollWidth - section?.offsetWidth + 250) * -1]
+                const [x, xEnd] = ['0%', (w?.scrollWidth - section?.offsetWidth + 800) * -1]
 
                 tl.fromTo(w, { x }, {
                     x: xEnd,
@@ -38,12 +38,9 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
                     }
                 });
 
-                // window.st = st
+
 
                 if (bp !== '"desktop"') {
-                    console.log(ScrollTrigger.getById('id'))
-                    // tl.scrollTrigger.kill({ revert: true })
-                    // ScrollTrigger.getById('id')?.kill({ revert: true });
                     ScrollTrigger.getAll().forEach((st) => st.disable())
                 } else {
                     ScrollTrigger.getAll().forEach((st) => st.enable())
@@ -71,7 +68,7 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
 
         <div className={`stage ${alt ? 'stage--alt' : ''} component ${children ? 'js-wrapper' : ''}`}>
             {children && <div className="tagline">{t('roadmapTitle')}</div>}
-            <div className={`stage__content ${children ? 'js-slideContainer' : ''}`}>
+            <div className={`stage__content `}>
                 <div className="stage__text">
                     <div>
                         <h3 className="stage__title"><FontAwesomeIcon className="stage__diamond icon" icon={faDiamond}></FontAwesomeIcon>{title}</h3>
@@ -82,7 +79,7 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
                     </div>}
                 </div>
 
-                <div className="stage__image">
+                <div className={`stage__image ${children ? 'js-slideContainer' : ''}`}>
                     {children ? children :
                         <div className="unset-img">
                             <Image

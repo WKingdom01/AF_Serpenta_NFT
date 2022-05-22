@@ -6,6 +6,7 @@
     &__content {
         display: flex;
         flex-direction: column;
+        overflow: hidden;
     }
 
     &__diamond {
@@ -40,9 +41,10 @@
         flex-direction: column;
         justify-content: space-between;
         padding-top: 36px;
-        // background: $black;
+        background: $black;
         z-index: 2;
         position: relative;
+        // z-index: 2;
 
 
         &:before {
@@ -54,6 +56,20 @@
             background: $papaya-whip;
             height: 1px;
         }
+
+        .js-wrapper {
+            &:after {
+                content: "";
+                position: absolute;
+                width: 100vw;
+                height: 100%;
+                right: 0px;
+                top: 0px;
+                background: $black;
+                z-index: -1;
+            }
+        }
+
     }
 
     @media screen and (min-width: $tablet) {
