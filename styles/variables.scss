@@ -3,6 +3,8 @@ $mobile: 480px;
 $tablet: 800px;
 $desktop: 1200px;
 
+$mbp: 850px;
+
 body:before {
     content: "xsmall";
     display: none;
@@ -20,6 +22,13 @@ body:before {
         content: "desktop";
     }
 }
+
+@media (max-height: $mbp) {
+    body:after {
+        content: "short";
+    }
+}
+
 
 
 $offwhite: #f8f8ff;

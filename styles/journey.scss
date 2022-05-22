@@ -68,10 +68,26 @@
 
         }
 
+
         &__content {
             width: 3325px;
             position: absolute;
             flex-direction: row;
+        }
+
+        @media (max-height: $mbp) {
+
+            .tagline {
+                padding: 0px;
+            }
+
+            &__text {
+                font-size: 14px;
+            }
+
+            &__image {
+                width: 100%;
+            }
         }
     }
 }
