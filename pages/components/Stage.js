@@ -33,7 +33,7 @@ const Stage = ({ title, body, buttonText, buttonLink, imageUrl, alt, children })
                         pin: true,
                         trigger: section,
                         scrub: .5,
-                        start: "top 5%",
+                        start: "top -10vh",
                         animation: tl
                     }
                 });
