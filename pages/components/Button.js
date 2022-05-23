@@ -16,7 +16,7 @@ const Button = ({ text, link, active, dropdown, style = 'gray', clickHandler, sy
                     </div>
                 </button>
             }
-            {link && <a href={link} className={`button button--${clicked ? 'clicked' : ''}`} onMouseDown={() => { setClick(true) }} onMouseUp={() => { setClick(false) }}>
+            {link && <a href={link} target="_blank" className={`button button--${clicked ? 'clicked' : ''}`} onMouseDown={() => { setClick(true) }} onMouseUp={() => { setClick(false) }}>
 
                 <div className="button__text">
                     {text}
