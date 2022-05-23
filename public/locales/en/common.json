@@ -45,30 +45,38 @@
   },
   "roadmap": {
     "title": "Roadmap",
-    "stageOne": {
-      "header": "01. Dragons Emerge",
-      "text": "Surviving your first excursion in the Void as a newbie recruit is tough! Training with the Dragon Army Elites can prepare you for your first visit - but who knows what worlds you will find and what traits you will absorb as a result? [ Mint launch ]"
-    },
-    "stageTwo": {
-      "header": "02. Rebellion",
-      "text": "Choose your own path - Rebel, or Imperial? The Army wants you to carry out their missions - Look deep within yourself and enhance your Dragon's strengths. What new treasures and journeys will you discover as you challenge the Void? [ Dragon Staking / Branding ]"
-    },
-    "stageThree": {
-      "header": "03. Breeding Grounds",
-      "text": "The Five primary Dragon Clans scheme to expand their influence. Not all is as it seems - why is the High Council creating a new generation of hybrid Dragonlings and how will they change the balance of power? [ Dragonling Breeding ]"
-    },
-    "stageFour": {
-      "header": "04. The Great Adventure",
-      "text": "The Great Void investigations continue and stories and tales continue to be told. Chaos lurks within and only the strongest teams can work together to defeat the unexpected hordes that start to break out. Great artists ink and capture the personalities of your future companions. [ Rare Japanese Art, Banner & Story Drops ]"
-    },
-    "stageFive": {
-      "header": "05. Quest for a Waifu",
-      "text": "Every Dragon deserves a great companion to accompany them on their adventures! No one knows in which metaverse the Anime Waifu Navigators were discovered, but they're resourceful, smart and here to stay! [ Anime Navigator Waifus ]"
-    },
-    "stageSix": {
-      "header": "06. Idle-AFK Game of Dragons",
-      "text": "A grand goal for our project is to be able to complete an Idle/AFK game with the whole history and storyline spread across numerous chapters. All the loose threads and mysteries of the world and Serpenta brand will be blended into a fantastic. [ Idle-AFK Game, XP & expansions ]"
-    }
+    "stages": [
+      {
+        "header": "01. Dragons Emerge",
+        "text": "Surviving your first excursion in the Void as a newbie recruit is tough! Training with the Dragon Army Elites can prepare you for your first visit - but who knows what worlds you will find and what traits you will absorb as a result? [ Mint launch ]",
+        "image": "/town.png"
+      },
+      {
+        "header": "02. Rebellion",
+        "text": "Choose your own path - Rebel, or Imperial? The Army wants you to carry out their missions - Look deep within yourself and enhance your Dragon's strengths. What new treasures and journeys will you discover as you challenge the Void? [ Dragon Staking / Branding ]",
+        "image": "/castle.png"
+      },
+      {
+        "header": "03. Breeding Grounds",
+        "text": "The Five primary Dragon Clans scheme to expand their influence. Not all is as it seems - why is the High Council creating a new generation of hybrid Dragonlings and how will they change the balance of power? [ Dragonling Breeding ]",
+        "image": "/shop.png"
+      },
+      {
+        "header": "04. The Great Adventure",
+        "text": "The Great Void investigations continue and stories and tales continue to be told. Chaos lurks within and only the strongest teams can work together to defeat the unexpected hordes that start to break out. Great artists ink and capture the personalities of your future companions. [ Rare Japanese Art, Banner & Story Drops ]",
+        "image": "/key.png"
+      },
+      {
+        "header": "05. Quest for a Waifu",
+        "text": "Every Dragon deserves a great companion to accompany them on their adventures! No one knows in which metaverse the Anime Waifu Navigators were discovered, but they're resourceful, smart and here to stay! [ Anime Navigator Waifus ]",
+        "image": "/scroll.png"
+      },
+      {
+        "header": "06. Idle-AFK Game of Dragons",
+        "text": "A grand goal for our project is to be able to complete an Idle/AFK game with the whole history and storyline spread across numerous chapters. All the loose threads and mysteries of the world and Serpenta brand will be blended into a fantastic. [ Idle-AFK Game, XP & expansions ]",
+        "image": "/wormhole.png"
+      }
+    ]
   },
   "team": {
     "title": "",

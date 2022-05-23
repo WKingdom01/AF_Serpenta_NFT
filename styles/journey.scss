@@ -36,7 +36,7 @@
         align-self: center;
         width: 75%;
         flex-shrink: 1;
-        height: 300px;
+        // height: 300px;
     }
 
     &__header {
@@ -64,14 +64,30 @@
         height: 700px;
 
         &__stage {
-            width: calc(100% / 4 - 24px);
+            width: calc(100% / 6 - 24px);
 
         }
 
+
         &__content {
-            width: 2325px;
+            width: 3325px;
             position: absolute;
             flex-direction: row;
+        }
+
+        @media (max-height: $mbp) {
+
+            .tagline {
+                padding: 0px;
+            }
+
+            &__text {
+                font-size: 14px;
+            }
+
+            &__image {
+                width: 100%;
+            }
         }
     }
 }
