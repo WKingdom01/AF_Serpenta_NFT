@@ -2,6 +2,8 @@
 import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import nextI18NextConfig from '../next-i18next.config.js';
+
 import Image from 'next/image'
 
 const Team = dynamic(() => import('./components/Team'))
@@ -75,8 +77,10 @@ export default function Home() {
 }
 
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    ...await serverSideTranslations(locale, ['common']),
-  },
-})
+export const getStaticProps = async ({ locale }) => {
+  return ({
+    props: {
+      ...(await serverSideTranslations(locale, ['common'], nextI18NextConfig)),
+    },
+  })
+}
