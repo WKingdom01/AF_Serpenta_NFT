@@ -5,7 +5,8 @@ $desktop: 1200px;
 
 $mbp: 850px;
 
-body:before {
+body:before,
+body:after {
     content: "xsmall";
     display: none;
     visibility: hidden;
