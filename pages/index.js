@@ -14,7 +14,7 @@ const HeadComponent = dynamic(() => import('./components/HeadComponent'))
 const Stage = dynamic(() => import('./components/Stage'))
 const Journey = dynamic(() => import('./components/Journey'))
 
-
+const NavBar = dynamic(() => import('./components/NavBar'))
 
 export default function Home() {
 
@@ -23,6 +23,7 @@ export default function Home() {
 
   return (
     <PageSlot>
+      <NavBar></NavBar>
       <div className="components">
         <div className="component logo">
           <div className="logo__container">

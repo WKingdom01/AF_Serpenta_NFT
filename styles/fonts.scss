@@ -78,6 +78,17 @@
 
 }
 
+@mixin Small-Body {
+  //styleName: Body Text;
+  font-family: BasierSquareMono;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
+
 @mixin Small-Button-Text {
   //styleName: Small button text;
   font-family: BasierSquareMono;

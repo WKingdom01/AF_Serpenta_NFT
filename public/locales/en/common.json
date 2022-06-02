@@ -10,8 +10,11 @@
   },
   "navbar": {
     "linkOneText": "OpenSea",
+    "linkOneLink": "",
     "linkTwoText": "Twitter",
-    "linkThreeText": "Discord"
+    "linkTwoLink": "",
+    "linkThreeText": "Discord",
+    "linkThreeLink": ""
   },
   "roadmapTitle": "Roadmap",
   "faqTitle": "faq",
@@ -137,6 +140,23 @@
         "description": "While we do have a much larger team that we could go on about all day, the one central pin that holds everything together is Archienne! The community, the events, the order - we are grateful for his enthusiasm and organisation.",
         "twitter": "https://twitter.com/archienne",
         "image": "/dragons/team/Archienne.png"
+      }
+    ]
+  },
+  "helpCenter": {
+    "title": "Help Center",
+    "questions": [
+      {
+        "question": "How to add funds to your wallet",
+        "answer": "just do it"
+      },
+      {
+        "question": "How to mint an NFT",
+        "answer": "just do it"
+      },
+      {
+        "question": "How to buy and sell nfts",
+        "answer": "just do it"
       }
     ]
   }
