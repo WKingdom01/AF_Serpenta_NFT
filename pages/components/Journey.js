@@ -11,7 +11,6 @@ const Journey = ({ title }) => {
     const [shortScreen, setShortScreen] = useState(false)
 
     useEffect(() => {
-        console.log('yo')
         if (typeof window !== 'undefined') {
             // Handler to call on window resize
             function handleResize() {

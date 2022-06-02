@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 const Slider = dynamic(() => import("react-slick"));
 
 const Grid = () => {
-    const imgs = ['/01.png', '/02.png', '/03.png', '/04.png', '/05.png', '/06.png', '/07.png', '/08.png', '/09.png', '/10.png', '/11.png', '/12.png', '/13.png', '/14.png', '/15.png']
+    const imgs = ['/dragons/carousel/1.png', '/dragons/carousel/3.png', '/dragons/carousel/4.png', '/dragons/carousel/5.png', '/dragons/carousel/7.png', '/dragons/carousel/8.png', '/dragons/carousel/11.png']
     var settings = {
         dots: false,
         infinite: true,
