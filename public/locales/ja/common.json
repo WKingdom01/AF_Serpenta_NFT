@@ -1,36 +1,36 @@
 {
-    "title": "Serpenta NFT Collection",
-    "tagline": "5555 Serpenta Dragons Battling the Void!",
-    "description": "5555 Genesis Dragon NFT heroes enter the Void for the Dragon Army! What unique powers will you emerge with?",
-    "joinDiscord": "Join our Discord!",
+    "title": "セルペンタNFTコレクション",
+    "tagline": "5555頭のセルペンタ・ドラゴンが異世界へ!",
+    "description": "5555頭のNFTヒーロー達が、創世記ドラゴン軍として次元の歪みの中に入って行く!君はどんな特殊能力を引き当てる？",
+    "joinDiscord": "Discordに参加",
     "discordLink": "https://discord.gg/serpentaNFT",
     "languageLabels": {
         "en": "English",
         "ch": "中文-Chinese",
-        "ja": "Japanese"
+        "ja": "日本語-Japanese"
     },
     "navbar": {
         "linkOneText": "OpenSea",
         "linkTwoText": "Twitter",
         "linkThreeText": "Discord"
     },
-    "roadmapTitle": "Roadmap",
-    "faqTitle": "faq",
-    "teamTitle": "Meet our team",
+    "roadmapTitle": "ロードマップ",
+    "faqTitle": "よくある質問",
+    "teamTitle": "プロジェクト・メンバー紹介",
     "copyright": "© SERPENTA 2022",
     "roadmapOne": {
-        "title": "WHAT IS SERPENTA NFT?",
-        "body": "An NFT collection where your chosen Dragons battle through unknown worlds beyond the dimensional portal known as the Great Void! 5555 Genesis Dragons have been conscripted and have undergone harsh training before venturing into the mysterious Void. <p>&nbsp;<p> Escape from your shackles and discover rare traits, outfits and artifacts that uniquely show off your personality and power! Serpenta is a fantastic Web3 P2E journey and game experience combining NFT pixel art, anime and on-chain storytelling!",
-        "buttonText": "Join our Discord",
+        "title": "セルペンタNFTとは?",
+        "body": "選ばれたドラゴン達と一緒に異世界を開拓していくNFTアートコレクション! 神秘的な異世界の扉をくぐるため、徴兵され厳しい訓練を受けた5555頭の創世記ドラゴン達<p>&nbsp;<p> 日々の喧騒から逃れ、この世界でレアな特性・衣装・アーティファクトを発見して、自分の個性と力を見せつけよう! Serpenta はNFT ピクセルアート・アニメ・オンチェーンストーリーテリングを組み合わせた素晴らしい Web3 P2E の旅とゲーム体験です!",
+        "buttonText": "Discordに参加",
         "buttonLink": "https://discord.gg/serpentaNFT"
     },
     "roadmapTwo": {
-        "title": "What's Coming",
-        "body": "Exceptionally detailed and desirable NFT Pixel Art avatars that accumulate levels and treasure with each Void mission. Find out who, or what is behind the Portal incursions and decide which clan factions you align with. Experience on-chain idle encounters and find ultra-rare drops through the exciting exploits of your Dragons! <p>&nbsp;<p>Serpenta is working with anime artists to provide limited, rare art drops to holders, Tokyo streetwear partnerships, membership benefits on top of the planned AFK/Idle game, staking $VOID and many other community opportunities. Dragon holders will decide on the breeding of the next Dragon generation and unveil secrets that reveal your future Anime Waifu Navigators."
+        "title": "今後の展開",
+        "body": "細部までこだわって作り込まれた、レベルを蓄積できるNFTピクセルアートのドラゴンのアバター。ポータル侵略の背後にいる人物・またはその背後にあるものを見つけ出し、どのクラン派閥につくかを決定しよう。ドラゴンの活躍を通してチェーン上のアイドルとの出会いを体験し、超レアなドロップを見つけることが可能!<p>&nbsp;<p>セルペンタは、アニメアーティストと協力してドラゴン所有者限定で、希少なアートドロップの提供・東京ストリートウェアとの提携・計画中のAFK/Idleゲームに加えた会員特典・$VOIDのステーキングなど、多くのコミュニティ機会を提供します。そして、ドラゴンの所有者達は次の世代のドラゴンの繁殖についてを決定できたり、未来のアニメワイフナビゲーターについての秘密を明らかにできます。"
     },
     "roadmapThree": {
-        "title": "The Serpenta Road Ahead",
-        "body": "We have some fantastic things planned for all our Serpenta community. Staking, hybrid and second generation breeding, new designs, evolving mechanics, non-pixel art, exclusive anime waifus (just because it'll be awesome), a possible Idle-AFK game and rare exclusive collaborations with Japanese artists and animators are just the tip of the iceberg! Read on for more"
+        "title": "セルペンタのこれから",
+        "body": "私たちはセルペンタのコミュニティのために、いくつかワクワクする事を計画中です。ステーキング・ハイブリッドや第二世代の繁殖・新しいデザイン・進化するメカニック・ピクセルアート以外のフォーマット・限定アニメのワイフ・アイドルAFKゲーム・日本のアーティストやアニメーターとの珍しい限定コラボレーションなど。これらは氷山の一角に過ぎません。もっと読む"
     },
     "faq": {
         "questionOne": "Mint Information",
@@ -45,30 +45,31 @@
         "answerFive": "Ask us questions on Twitter or direct them to our community in our Discord. Everyone is super friendly!"
     },
     "roadmap": {
-        "title": "Roadmap",
+        "title": "ロードマップ",
         "stages": [
             {
-                "header": "01. Dragons Emerge",
-                "text": "Surviving your first excursion in the Void as a newbie recruit is tough! Training with the Dragon Army Elites can prepare you for your first visit - but who knows what worlds you will find and what traits you will absorb as a result? [ Mint launch ]",
+                "header": "01. ドラゴンの出現",
+                "text": "新兵として初めて『次元の歪み』を訪れたとき、生き残るのはとても大変です。ドラゴン軍のエリートとのトレーニングで、それに備えることができます。しかし、あなたがどんな世界を見つけ、その結果どんな特性を吸収することになるかはまだ誰にも分かりません。 [ Mint launch ]",
                 "image": "/town.png"
             },
             {
-                "header": "02. Rebellion",
-                "text": "Choose your own path - Rebel, or Imperial? The Army wants you to carry out their missions - Look deep within yourself and enhance your Dragon's strengths. What new treasures and journeys will you discover as you challenge the Void? [ Dragon Staking / Branding ]",
+                "header": "02. 反乱",
+                "text": "反乱軍か、それとも帝国軍か？自分の道を選びます。
+                軍はあなたに任務を遂行することを望んでいます。自分の心の奥底を見つめ、ドラゴンの力を高めましょう。次元の歪みに挑戦する中で、どんな新しい宝物や旅を発見するのでしょう？ [ Dragon Staking / Branding ]",
                 "image": "/castle.png"
             },
             {
-                "header": "03. Breeding Grounds",
-                "text": "The Five primary Dragon Clans scheme to expand their influence. Not all is as it seems - why is the High Council creating a new generation of hybrid Dragonlings and how will they change the balance of power? [ Dragonling Breeding ]",
+                "header": "03. ドラゴン繁殖場",
+                "text": "5つの主要なドラゴン族が、その影響力を拡大しようと画策中。なぜ最高評議会は新世代のハイブリッド・ドラゴン族を作り、彼らがどのようにパワーバランスを変えて行くのでしょう？ [ Dragonling Breeding ]",
                 "image": "/shop.png"
             },
             {
-                "header": "04. The Great Adventure",
-                "text": "The Great Void investigations continue and stories and tales continue to be told. Chaos lurks within and only the strongest teams can work together to defeat the unexpected hordes that start to break out. Great artists ink and capture the personalities of your future companions. [ Rare Japanese Art, Banner & Story Drops ]",
+                "header": "04. 最高の冒険を",
+                "text": "大空洞の調査は続き、物語も語り継がれる。混沌は内に潜み、最強のチームだけが協力して、勃発し始めた予期せぬ大軍を打ち負かすことができるのです。偉大なアーティスト達があなたの未来の仲間達の個性を描いています。[ Rare NFT Art, Banner & Story Drops ]",
                 "image": "/key.png"
             },
             {
-                "header": "05. Quest for a Waifu",
+                "header": "05. ワイフ・クエスト",
                 "text": "Every Dragon deserves a great companion to accompany them on their adventures! No one knows in which metaverse the Anime Waifu Navigators were discovered, but they're resourceful, smart and here to stay! [ Anime Navigator Waifus ]",
                 "image": "/scroll.png"
             },
