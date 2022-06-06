@@ -12,10 +12,10 @@ const HelpCenter = ({ modalOpen, setModalOpen }) => {
 
     const toggleQuestionOpen = (index) => {
         const i = index + 1
-        if (i === open) {
-            setOpen(0)
+        if (i === questionOpen) {
+            setQuestionOpen(0)
         } else {
-            setOpen(i)
+            setQuestionOpen(i)
         }
 
     }
@@ -38,9 +38,9 @@ const HelpCenter = ({ modalOpen, setModalOpen }) => {
                     </button>
                 </div>
                 <div className="help-center__questions">
-                    {ready && t('helpCenter.questions', { returnObjects: true }).map((question, index) => {
+                    {ready && t('mint.helpCenter.questions', { returnObjects: true }).map((question, index) => {
                         return <div className={`help-center__question ${questionOpen === index + 1 ? 'help-center__question--open' : ''}`} key={`question-hc-${index}`}>
-                            <button className="help-center__prompt" onClick={() => { toggleQuestionOpen(index) }}><span className="help-center__chevron">{"> "}</span>{question.question}</button>
+                            <button className="help-center__prompt" onClick={() => { toggleQuestionOpen(index) }}><span className="help-center__chevron">{"> "}</span>{question.prompt}</button>
                             <div className="help-center__answer">{question.answer}</div>
                         </div>
                     })}

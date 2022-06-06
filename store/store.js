@@ -1,19 +1,23 @@
+// store.js
 
-import { createStore, applyMiddleware } from "redux";
+import { createStore } from 'redux';
+import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 
-import { createWrapper } from "next-redux-wrapper";
-import rootReducer from "./reducers";
+// create your reducer
+const reducer = (state = { tick: 'init', wallet: { connected: false } }, action) => {
+  console.log(action)
+  switch (action.type) {
+    case HYDRATE:
+      return { ...state, ...action.payload };
+    case 'CONNECT_WALLET':
+      return { ...state, wallet: action.payload };
+    default:
+      return state;
+  }
+};
 
-// initial states here
-const initalState = {};
+// create a makeStore function
+const makeStore = context => createStore(reducer);
 
-// creating store
-export const store = createStore(
-    rootReducer,
-    initalState
-);
-
-// assigning store to next wrapper
-const makeStore = () => store;
-
-export const wrapper = createWrapper(makeStore);
+// export an assembled wrapper
+export const wrapper = createWrapper(makeStore, { debug: true });

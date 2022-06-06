@@ -29,6 +29,7 @@
     "react-redux": "^8.0.2",
     "react-select": "^5.2.2",
     "react-slick": "^0.28.1",
+    "redux": "^4.2.0",
     "sass": "^1.49.7",
     "scrollmagic": "^2.0.8",
     "scrollmagic-plugin-gsap": "^1.0.4",

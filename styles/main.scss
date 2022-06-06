@@ -1,4 +1,4 @@
-@import 'bootstrap/dist/css/bootstrap.min.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
 
 @import './fonts.scss';
 @import './variables.scss';
@@ -28,5 +28,5 @@
 @import './mint.scss';
 @import './label.scss';
 @import './mint-navbar.scss';
-@import 'modal';
-@import 'help-center';
+@import './modal.scss';
+@import './help-center.scss';

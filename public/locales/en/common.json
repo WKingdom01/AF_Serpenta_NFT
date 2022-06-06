@@ -143,21 +143,31 @@
       }
     ]
   },
-  "helpCenter": {
-    "title": "Help Center",
-    "questions": [
-      {
-        "question": "How to add funds to your wallet",
-        "answer": "just do it"
-      },
-      {
-        "question": "How to mint an NFT",
-        "answer": "just do it"
-      },
-      {
-        "question": "How to buy and sell nfts",
-        "answer": "just do it"
-      }
-    ]
+  "mint": {
+    "amountLabel": "amount",
+    "totalPriceLabel": "Total Price",
+    "mintingLabel": "Minting Now",
+    "mintLabel": "Mint",
+    "errors": {
+      "authorizeLabel": "100/5000 You will need to authorise your wallet to buy NFTs"
+    },
+    "soldOut": "Sold Out!",
+    "helpCenter": {
+      "button": "Help Center",
+      "questions": [
+        {
+          "prompt": "how to add funds to your wallet?",
+          "answer": "do it"
+        },
+        {
+          "prompt": "how to mint an nft?",
+          "answer": "do it"
+        },
+        {
+          "prompt": "how to buy and sell nfts?",
+          "answer": "do it"
+        }
+      ]
+    }
   }
 }

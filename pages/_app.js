@@ -4,8 +4,14 @@ import '../styles/main.scss'
 import Script from 'next/script';
 import { appWithTranslation } from 'next-i18next'
 
-function MyApp({ Component, pageProps }) {
+
+import withRedux from 'next-redux-wrapper';
+import { Provider } from 'react-redux';
+import { wrapper } from '../store/store';
+
+function MyApp({ Component, pageProps, store }) {
   const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  console.log('yo', pageProps, store)
   return <>
     <Script
       strategy="afterInteractive"
@@ -23,8 +29,9 @@ function MyApp({ Component, pageProps }) {
         `}}>
 
     </Script>
+
     <Component {...pageProps} />
   </>
 }
 
-export default appWithTranslation(MyApp)
+export default wrapper.withRedux(appWithTranslation(MyApp))

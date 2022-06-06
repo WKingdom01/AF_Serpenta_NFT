@@ -3,11 +3,26 @@ const Button = dynamic(() => import('./Button'))
 import Image from 'next/image'
 import HelpCenter from './HelpCenter';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 
 
 const MintNavBar = () => {
     const [modalOpen, setModalOpen] = useState(false);
+    const state = useSelector(state => state.wallet)
+    const dispatch = useDispatch()
 
+    const connectWallet = () => {
+        console.log('connect')
+        if (true) {
+            dispatch({
+                type: 'CONNECT_WALLET', payload: {
+                    wallet: {
+                        connected: true
+                    }
+                }
+            })
+        }
+    }
     return (
         <div>
             <div className="mint-navbar">
@@ -39,7 +54,7 @@ const MintNavBar = () => {
                     />
                 </div>
                 <div className="mint-navbar__button">
-                    <Button style="outline ThreeD" text="Connect Wallet"></Button>
+                    <Button clickHandler={connectWallet} style="outline ThreeD" text={state?.wallet?.connected ? 'Wallet Connected' : 'Connect Wallet'}></Button>
                 </div>
 
             </div>

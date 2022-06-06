@@ -2,16 +2,22 @@ import dynamic from 'next/dynamic'
 import React, { useState, useEffect } from 'react';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useSelector, useDispatch } from 'react-redux'
+
+
 const Grid = dynamic(() => import('./Grid'))
 const Button = dynamic(() => import('./Button'))
 
 
+
 const MintBlock = ({ walletConnected }) => {
+
+  const state = useSelector(state => state.wallet)
 
   const [width, setWidth] = useState('100%')
   const [mints, setMints] = useState(1);
   const [mintError, setMintError] = useState(false)
-  const [soldOut, setSoldOut] = useState(true)
+  const [soldOut, setSoldOut] = useState(false)
 
   const incrementMints = (newMintValue) => {
     if (newMintValue <= 10 && newMintValue > 0) {
@@ -20,16 +26,12 @@ const MintBlock = ({ walletConnected }) => {
   }
 
   const mint = () => {
-    if (!walletConnected) {
+    if (!state?.wallet?.connected) {
       setMintError(true)
     }
   }
 
-  const connectWallet = () => {
-    if (!walletConnected) {
-      setWalletConnected(true)
-    }
-  }
+
   return (
     <div className="mint__block container">
       <Grid alt="true"></Grid>
