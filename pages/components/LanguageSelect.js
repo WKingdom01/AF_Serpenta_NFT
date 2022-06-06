@@ -14,8 +14,8 @@ const LanguageSelect = () => {
     const { t } = useTranslation('common')
     const options = [
         { value: 'en', label: t('languageLabels.en') },
-        { value: 'ch', label: t('languageLabels.ch') },
-        { value: 'ja', label: t('languageLabels.ja') }
+        { value: 'cn', label: t('languageLabels.cn') },
+        { value: 'jp', label: t('languageLabels.jp') }
     ];
 
     const [selectedOption, setOption] = useState(options.find(element => element.value === router.locale))
