@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Image from 'next/image'
 
+
 const Team = dynamic(() => import('./components/Team'))
 const GrayFrame = dynamic(() => import('./components/GrayFrame'))
 const Grid = dynamic(() => import('./components/Grid'))
@@ -13,7 +14,7 @@ const PageSlot = dynamic(() => import('./components/PageSlot'))
 const HeadComponent = dynamic(() => import('./components/HeadComponent'))
 const Stage = dynamic(() => import('./components/Stage'))
 const Journey = dynamic(() => import('./components/Journey'))
-
+const BlockGrid = dynamic(() => import('./components/BlockGrid'))
 
 
 export default function Home() {
@@ -61,6 +62,9 @@ export default function Home() {
             <Journey></Journey>
           </Stage>
         </div>}
+        <div className="tagline">{t('gridTitle')}</div>
+        <BlockGrid></BlockGrid>
+        <BlockGrid reverse={true}></BlockGrid>
         <div className="tagline">{t('faqTitle')}</div>
         <FAQ></FAQ>
         <div className="tagline">{t('teamTitle')}</div>
