@@ -117,7 +117,7 @@
         }
 
         &__button-item {
-            width: calc(25% - 36px);
+            min-width: calc(25% - 36px);
         }
 
         &__list {
