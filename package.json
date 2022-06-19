@@ -2,10 +2,13 @@
   "name": "serpenta",
   "private": true,
   "scripts": {
+    "predev": "vercel env pull & npm run build-wallets",
+    "prebuild": "npm run build-wallets",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build-wallets": "node ./scripts/build-whitelisted-wallets-json.mjs"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.3.0",
@@ -13,6 +16,9 @@
     "@fortawesome/free-regular-svg-icons": "^6.0.0-beta3",
     "@fortawesome/free-solid-svg-icons": "^6.0.0",
     "@fortawesome/react-fontawesome": "^0.1.17",
+    "@supabase/supabase-js": "^1.35.2",
+    "dotenv": "^16.0.0",
+    "fs-extra": "^10.1.0",
     "gsap": "^3.9.1",
     "i18next-browser-languagedetector": "^6.1.4",
     "imports-loader": "^4.0.0",
@@ -20,6 +26,7 @@
     "next": "^12.1.7-canary.10",
     "next-i18next": "^10.5.0",
     "next-safe": "^3.2.1",
+    "node-fetch": "^3.2.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-parallax": "^3.3.0",
