@@ -1,8 +1,14 @@
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
-const PageSlot  = dynamic(() =>  import('./components/PageSlot'))
-const MintBlock  = dynamic(() =>  import('./components/MintBlock'))
+const PageSlot = dynamic(() => import('./components/PageSlot'));
+const MintBlock = dynamic(() => import('./components/MintBlock'), {
+  ssr: false,
+});
 
-export default function Home() {
-    return  (<PageSlot topComponent={<MintBlock></MintBlock>}></PageSlot>)
+export default function Mint() {
+  return (
+    <PageSlot>
+      <MintBlock />
+    </PageSlot>
+  );
 }
