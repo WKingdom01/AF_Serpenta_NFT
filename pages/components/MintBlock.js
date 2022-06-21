@@ -25,8 +25,10 @@ const MintBlock = () => {
   const { activeChain } = useNetwork();
   const { signMessageAsync } = useSignMessage();
 
-  const domain = window.location.host;
-  const origin = window.location.origin;
+  if (typeof window !== 'undefined') {
+    const domain = window.location.host;
+    const origin = window.location.origin;
+  }
 
   const address = accountData?.address;
   const chainId = activeChain?.id;
@@ -109,7 +111,7 @@ const MintBlock = () => {
         isLoading: false,
       });
     }
-  }, []);
+  }, [address, chainId, state]);
 
   /**
    * logout method for siwe protocol
@@ -137,7 +139,7 @@ const MintBlock = () => {
         isLoading: false,
       });
     }
-  }, []);
+  }, [state]);
 
   /**
    * Unset all state variables
