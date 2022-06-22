@@ -88,56 +88,56 @@
         "title": "創意設計師",
         "description": "我們的創意領導者，一位多產且成功的精美數字古董收藏家，在許多社區中受人尊敬的成員，並且堅定地支持商業磨礪和喧囂背後的辛勤工作。",
         "twitter": "https://twitter.com/cryptpine",
-        "image": "/1.png"
+        "image": "/dragons/team/Pine.png"
       },
       {
         "name": "Miaoux",
         "title": "營銷，商務開發",
         "description": "專門從事增長和物流的故事講述者和極客博學。數百萬美元公司的連續建設者。他正在利用他在商業、NFT 和加密方面的經驗豐富的專業知識來使 Serpenta 受益。",
         "twitter": "https://twitter.com/miaoux",
-        "image": "/2.png"
+        "image": "/dragons/team/Miaoux.png"
       },
       {
         "name": "Remo",
         "title": "設計師",
         "description": "讓巨龍煥發活力是我們受啟發的獨立藝術家。他在很多個月前加入了我們才華橫溢的團隊，每天都以他的技能讓我們震驚。我們很幸運擁有他的遠見卓識。",
         "twitter": "https://twitter.com/remimoth",
-        "image": "/3.png"
+        "image": "/dragons/team/Remo.png"
       },
       {
         "name": "Dani",
         "title": "solidity 工程師",
         "description": "Our insanely skilled dev has contributed to a more efficient ERC721A and written many more ethereum contracts. He is in constant demand from developers for his solidity expertise. We are in safe hands.",
         "twitter": "https://twitter.com/danipopes",
-        "image": "/4.png"
+        "image": "/dragons/team/Dani.png"
       },
       {
         "name": "Mr. Hmmm",
         "title": "advisor",
         "description": "Experienced, smart and the source of so much wisdom. Mr. Hmmm is one of the most genuine people you will meet in the space. He really cares about everyone he works with. Without him and his knowledge, we would not be where we are.",
         "twitter": "https://twitter.com/mr_hmmmnft",
-        "image": "/almos.png"
+        "image": "/dragons/team/Mr.png"
       },
       {
         "name": "SGar",
         "title": "collab champion",
         "description": "An amazingly warm-hearted team member who naturally makes friends wherever he goes, in addition to being a great musician and creator. We're blessed to have such a well connected Champion for Serpenta who is at the top of his game.",
-        "twitter": "https://twitter.com/greggsgarlata",
-        "image": "/10.png"
+        "twitter": "https://twitter.com/GreggSgarlata",
+        "image": "/dragons/team/SGAR.png"
       },
       {
         "name": "Purple",
         "title": "front end developer",
         "description": "Everything you see here, he is responsible for. It is no understatement that his skills, ability and brains are why you are still reading! If you want a project to look this professional, you need exemplary, capable team members.",
-        "twitter": "https://twitter.com/pgccontroller",
-        "image": "/dayo.png"
+        "twitter": "https://twitter.com/xoxog0ssipgirl4",
+        "image": "/dragons/team/Purple.png"
       },
       {
         "name": "Archienne",
         "title": "Head Mod",
         "description": "While we do have a much larger team that we could go on about all day, the one central pin that holds everything together is Archienne! The community, the events, the order - we are grateful for his enthusiasm and organisation.",
         "twitter": "https://twitter.com/valri_archienne",
-        "image": "/14.png"
+        "image": "/dragons/team/Archienne.png"
       }
     ]
   }
