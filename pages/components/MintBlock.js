@@ -1,95 +1,256 @@
 import dynamic from 'next/dynamic'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useSelector, useDispatch } from 'react-redux'
+import {
+  useConnect,
+  useAccount,
+  useNetwork,
+  useSignMessage,
+  useDisconnect,
+} from 'wagmi';
+import { SiweMessage } from 'siwe';
+import shortenAddress from '../../utils/helpers/shortenAddress';
 
-
+const Button = dynamic(() => import('./Button'));
 const Grid = dynamic(() => import('./Grid'))
-const Button = dynamic(() => import('./Button'))
 
+const MintBlock = () => {
+  const [state, setState] = useState({});
+  const [message, setMessage] = useState();
+  const [signature, setSignature] = useState();
+  const [me, setMe] = useState();
 
+  const { isConnecting, pendingConnector, connectors, error, connect } =
+    useConnect();
+  const { data: accountData } = useAccount();
+  const { disconnect } = useDisconnect();
+  const { activeChain } = useNetwork();
+  const { signMessageAsync } = useSignMessage();
 
-const MintBlock = ({ walletConnected }) => {
-
-  const state = useSelector(state => state.wallet)
-
-  const [width, setWidth] = useState('100%')
-  const [mints, setMints] = useState(1);
-  const [mintError, setMintError] = useState(false)
-  const [soldOut, setSoldOut] = useState(false)
-
-  const incrementMints = (newMintValue) => {
-    if (newMintValue <= 10 && newMintValue > 0) {
-      setMints(newMintValue)
-    }
+  if (typeof window !== 'undefined') {
+    const domain = window.location.host;
+    const origin = window.location.origin;
   }
 
-  const mint = () => {
-    if (!state?.wallet?.connected) {
-      setMintError(true)
-    }
-  }
+  const address = accountData?.address;
+  const chainId = activeChain?.id;
+  const chainName = activeChain?.name;
+  const appName = process.env.NEXT_PUBLIC_APP_NAME;
 
+  /**
+   * Sign in method for siwe protocol
+   */
+  const signIn = async () => {
+    try {
+      if (!address || !chainId) return;
+
+      // Set loading
+      setState({
+        ...state,
+        error: undefined,
+        isLoading: true,
+      });
+
+      const message = new SiweMessage({
+        domain,
+        address,
+        statement: `Sign in with ${chainName} on ${appName}`,
+        uri: origin,
+        chainId,
+        version: 1,
+      });
+
+      setMessage(message);
+
+      const signResult = await signMessageAsync({
+        message: message.prepareMessage(),
+      });
+      setSignature(signResult);
+
+      // Reset loading state
+      setState({
+        ...state,
+        isLoading: false,
+      });
+    } catch (error) {
+      setState({
+        ...state,
+        error,
+        isLoading: false,
+      });
+    }
+  };
+
+  const retrieveMe = useCallback(async () => {
+    if (!address || !chainId) return;
+    // Set loading
+    setState({
+      ...state,
+      error: undefined,
+      isLoading: true,
+    });
+
+    try {
+      // Retrieve me
+      const meResult = await fetch(`/api/proof/${address}`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const meJson = await meResult.json();
+
+      setMe(meJson);
+
+      // Reset loading state
+      setState({
+        ...state,
+        isLoading: false,
+      });
+    } catch (error) {
+      setState({
+        ...state,
+        error: error,
+        isLoading: false,
+      });
+    }
+  }, [address, chainId, state]);
+
+  /**
+   * logout method for siwe protocol
+   */
+  const logOut = useCallback(async () => {
+    // Set loading
+    setState({
+      ...state,
+      error: undefined,
+      isLoading: true,
+    });
+
+    try {
+      // TODO: Maybe we should do some api functions to logout from siwe?
+
+      // Reset loading state
+      setState({
+        ...state,
+        isLoading: false,
+      });
+    } catch (error) {
+      setState({
+        ...state,
+        error: error,
+        isLoading: false,
+      });
+    }
+  }, [state]);
+
+  /**
+   * Unset all state variables
+   */
+  const unsetAll = () => {
+    setMe(undefined);
+    setMessage(undefined);
+    setSignature(undefined);
+  };
 
   return (
-    <div className="mint__block container">
-      <Grid alt="true"></Grid>
-      <div className="mint__container">
-        <div className="mint__amount">
+    <div className='mint-block container'>
+      <div>
+        <h2>Serpenta Mint Page</h2>
+        {accountData ? (
+          <div>
+            <p>
+              <small>Connected With</small>
+            </p>
+            <pre title={accountData?.address}>
+              <dl>
+                <dt>Full Address:</dt>
+                <dd>
+                  <code>{accountData?.address}</code>
+                </dd>
+                <dt>Short Address:</dt>
+                <dd>
+                  <code>{shortenAddress(accountData?.address)}</code>
+                </dd>
+              </dl>
+            </pre>
+            <h2>Wallet Actions</h2>
+            <Button
+              title={'Disconnect your Wallet'}
+              clickHandler={() => {
+                unsetAll();
+                disconnect();
+              }}
+              text='Disconnect'
+            />
+            <h2>Siwe Actions</h2>
+            <Button clickHandler={() => signIn()} text='Sign in' />
+            <Button
+              clickHandler={() => retrieveMe()}
+              text='Retrieve Wallet Info'
+            />
+            <Button
+              clickHandler={() => {
+                unsetAll();
+                logOut();
+              }}
+              text='Log out'
+            />
 
-
-          <div className="mint__left">
-            <div className="mint__eyebrow">
-              Amount
-            </div>
-            <div className="mint__input">
-              <input value={mints}>
-              </input>
-              <div className="mint__counters">
-                <button className="mint__counter-button">
-                  <FontAwesomeIcon className="icon" icon={faMinus} onClick={() => { incrementMints(mints--) }} />
-                </button>
-                <button className="mint__counter-button">
-                  <FontAwesomeIcon className="icon" icon={faPlus} onClick={() => { incrementMints(mints++) }} />
-                </button>
-              </div>
-            </div>
+            <h3>Debug SIWE</h3>
+            <p>
+              <small>Debug</small>
+            </p>
+            <pre>
+              <code>
+                {JSON.stringify(
+                  {
+                    me,
+                    message,
+                    signature,
+                  },
+                  null,
+                  ' '
+                )}
+              </code>
+            </pre>
           </div>
-          <div className="mint__right">
-            <div className="mint__eyebrow">
-              Total Price
-            </div>
-            <div className="mint__price">
-              0.12 ETH
-            </div>
-          </div>
-        </div>
-        <div className="mint__score">
-          <div className="mint__eyebrow">
-            Minting Now
-          </div>
-
-          <div className="mint__progress-bar">
-            <div className="mint__progress-bar--filled" style={{ width: width }}></div>
-            <div className="mint__minted">100/5000</div>
-          </div>
-          {mintError && <div className="mint__error">You will need to authorise your wallet to buy NFTs</div>}
-
-        </div>
-        {!soldOut ? <div className="mint__button">
-          <Button text="Mint" style="papaya short" clickHandler={mint}></Button>
-        </div> :
-          <div className="mint__sold-out">
-            <div className="label label--red">SOLD OUT!</div>
-            <div className="label">Go to opensea.io to buy one</div>
-          </div>}
-
+        ) : null}
       </div>
 
+      {!accountData ? (
+        <div>
+          <h2>Wallet Connectors</h2>
+          {connectors.map((option) => (
+            <Button
+              title={`Connect Your Wallet With ${option.name}`}
+              disabled={!option.ready}
+              key={option.name}
+              clickHandler={() => connect(option)}
+              text={option.name}
+            >
+              {!option.ready && ' (unsupported)'}
+              {isConnecting && pendingConnector?.id === option.id && (
+                <small>(Awaiting Connection...)</small>
+              )}
+            </Button>
+          ))}
 
+          {error ? (
+            <div>
+              <h2>Errors</h2>
+              <span>Error!</span>
+              <br />
+              <span>
+                {error?.message ? `${error?.message}.` : 'Unknown error.'}
+              </span>
+            </div>
+          ) : null}
+        </div>
+      ) : null}
     </div>
-  )
-}
+  );
+};
 
-export default MintBlock
+export default MintBlock;

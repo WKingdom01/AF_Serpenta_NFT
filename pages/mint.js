@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 const PageSlot = dynamic(() => import('./components/PageSlot'))
-const MintBlock = dynamic(() => import('./components/MintBlock'))
+const MintBlock = dynamic(() => import('./components/MintBlock'), { ssr: false })
 const MintNavBar = dynamic(() => import('./components/MintNavBar'))
 
 

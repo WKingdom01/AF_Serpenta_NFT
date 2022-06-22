@@ -1,9 +1,9 @@
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
 const HeadComponent = dynamic(() => import('./HeadComponent'))
 
 
-const PageSlot = ({ topComponent, children }) => {
+const PageSlot = ({ children }) => {
   return (
     <div className="home">
       <HeadComponent></HeadComponent>
@@ -13,7 +13,7 @@ const PageSlot = ({ topComponent, children }) => {
       </main>
 
     </div>
-  )
-}
+  );
+};
 
-export default PageSlot
+export default PageSlot;
