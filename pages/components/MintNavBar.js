@@ -1,28 +1,38 @@
 import dynamic from 'next/dynamic';
 const Button = dynamic(() => import('./Button'))
+const ConnectWallet = dynamic(() => import('./ConnectWallet'))
 import Image from 'next/image'
 import HelpCenter from './HelpCenter';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import {
+    useSelector,
+    useDispatch
+} from 'react-redux';
 
+import {
+    useConnect,
+    useDisconnect
+} from 'wagmi';
 
 const MintNavBar = () => {
     const [modalOpen, setModalOpen] = useState(false);
+    const [connectModalOpen, setConnectModalOpen] = useState(false)
     const state = useSelector(state => state.wallet)
-    const dispatch = useDispatch()
+    const { isConnected } = useConnect()
+    const { disconnect } = useDisconnect();
+    // const dispatch = useDispatch()
 
-    const connectWallet = () => {
-        console.log('connect')
-        if (true) {
-            dispatch({
-                type: 'CONNECT_WALLET', payload: {
-                    wallet: {
-                        connected: true
-                    }
-                }
-            })
-        }
-    }
+    // const connectWallet = () => {
+    //     if (true) {
+    //         dispatch({
+    //             type: 'CONNECT_WALLET', payload: {
+    //                 wallet: {
+    //                     connected: true
+    //                 }
+    //             }
+    //         })
+    //     }
+    // }
     return (
         <div>
             <div className="mint-navbar">
@@ -54,11 +64,12 @@ const MintNavBar = () => {
                     />
                 </div>
                 <div className="mint-navbar__button">
-                    <Button clickHandler={connectWallet} style="outline ThreeD" text={state?.wallet?.connected ? 'Wallet Connected' : 'Connect Wallet'}></Button>
+                    <Button clickHandler={() => { isConnected ? disconnect() : setConnectModalOpen(true) }} style="outline ThreeD" text={isConnected ? 'Disconnect Wallet' : 'Connect Wallet'}></Button>
                 </div>
 
             </div>
             <HelpCenter modalOpen={modalOpen} setModalOpen={setModalOpen}></HelpCenter>
+            <ConnectWallet modalOpen={connectModalOpen} setModalOpen={setConnectModalOpen}></ConnectWallet>
         </div>
     )
 }

@@ -5,6 +5,8 @@
     align-items: center;
     padding: 20px;
     flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
 
     &__logo {
         display: flex;
@@ -33,6 +35,8 @@
 
         &-text {
             display: none;
+            @include Button-Text;
+            margin-left: 12px;
         }
 
     }
@@ -46,6 +50,18 @@
             img {
                 width: 150px !important;
             }
+        }
+    }
+
+    @media screen and (min-width: $desktop) {
+        &__logo {
+            width: auto;
+            order: 2;
+            margin-bottom: 0px;
+        }
+
+        &__help-text {
+            display: block;
         }
     }
 }
