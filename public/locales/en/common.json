@@ -151,9 +151,10 @@
     "mintingLabel": "Minting Now",
     "mintLabel": "Mint",
     "errors": {
-      "authorizeLabel": "100/5000 You will need to authorise your wallet to buy NFTs"
+      "authorizeLabel": "You will need to authorise your wallet to buy NFTs"
     },
     "soldOut": "Sold Out!",
+    "openSea": "Go to opensea.io to buy one",
     "helpCenter": {
       "button": "Help Center",
       "questions": [

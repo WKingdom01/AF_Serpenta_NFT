@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useSelector, useDispatch } from 'react-redux'
+import { useTranslation } from 'next-i18next';
 import {
   useConnect,
   useAccount,
@@ -28,9 +29,8 @@ const MintBlock = () => {
   const [mintError, setMintError] = useState(false)
   const [soldOut, setSoldOut] = useState(false)
 
+  const { t, i18n, ready } = useTranslation('common', { useSuspense: false });
 
-  // const { isConnecting, pendingConnector, connectors, error, connect } =
-  //   useConnect();
   const { data: accountData } = useAccount();
   const { disconnect } = useDisconnect();
   const { activeChain } = useNetwork();
@@ -183,7 +183,7 @@ const MintBlock = () => {
 
             <div className="mint__left">
               <div className="mint__eyebrow">
-                Amount
+                {t('mint.amountLabel')}
               </div>
               <div className="mint__input">
                 <input value={mints}>
@@ -200,7 +200,7 @@ const MintBlock = () => {
             </div>
             <div className="mint__right">
               <div className="mint__eyebrow">
-                Total Price
+                {t('mint.totalPriceLabel')}
               </div>
               <div className="mint__price">
                 0.12 ETH
@@ -209,22 +209,22 @@ const MintBlock = () => {
           </div>
           <div className="mint__score">
             <div className="mint__eyebrow">
-              Minting Now
+              {t('mint.mintingLabel')}
             </div>
 
             <div className="mint__progress-bar">
               <div className="mint__progress-bar--filled" style={{ width: width }}></div>
               <div className="mint__minted">100/5000</div>
             </div>
-            {mintError && <div className="mint__error">You will need to authorise your wallet to buy NFTs</div>}
+            {mintError && <div className="mint__error"> {t('mint.errors.authorizeLabel')}</div>}
 
           </div>
           {!soldOut ? <div className="mint__button">
             <Button text="Mint" style="papaya short" clickHandler={mint}></Button>
           </div> :
             <div className="mint__sold-out">
-              <div className="label label--red">SOLD OUT!</div>
-              <div className="label">Go to opensea.io to buy one</div>
+              <div className="label label--red"> {t('mint.soldOut')}</div>
+              <div className="label"> {t('mint.openSea')}</div>
             </div>}
 
         </div>
