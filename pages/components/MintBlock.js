@@ -230,7 +230,7 @@ const MintBlock = () => {
         </div>
       </div>
       <div>
-        {accountData ? (
+        {false && accountData ? ( //hiding this for now.
           <div>
             <p>
               <small>Connected With</small>
