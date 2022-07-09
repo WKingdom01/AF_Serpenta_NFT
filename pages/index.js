@@ -19,6 +19,8 @@ const Journey = dynamic(() => import('./components/Journey'))
 const BlockGrid = dynamic(() => import('./components/BlockGrid'))
 
 
+const NavBar = dynamic(() => import('./components/NavBar'))
+
 export default function Home() {
 
   const { t } = useTranslation('common')
@@ -26,6 +28,7 @@ export default function Home() {
 
   return (
     <PageSlot>
+      <NavBar></NavBar>
       <div className="components">
         <div className="component logo">
           <div className="logo__container">

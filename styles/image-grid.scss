@@ -18,6 +18,17 @@
 
     .slick-slide {
         padding-top: 25px;
+
+    }
+
+    &--alt {
+        &:before {
+            background: $black;
+        }
+
+        .slick-slide {
+            // width: 248px;
+        }
     }
 
     @media screen and (min-width: $desktop) {

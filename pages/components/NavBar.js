@@ -84,9 +84,9 @@ const NavBar = () => {
         <ul className="navbar__list">
 
 
-          <li className="navbar__button-item"><Button style="ThreeD" link="/" text={t('navbar.linkOneText')}></Button></li>
-          <li className="navbar__button-item"><Button style="ThreeD" link="https://twitter.com/SerpentaNFT" text={t('navbar.linkTwoText')}></Button></li>
-          <li className="navbar__button-item"><Button style="ThreeD" link={t('discordLink')} text={t('navbar.linkThreeText')}></Button></li>
+          <li className="navbar__button-item"><Button style="ThreeD" link={t('navbar.linkOneLink')} text={t('navbar.linkOneText')}></Button></li>
+          <li className="navbar__button-item"><Button style="ThreeD" link={t('navbar.linkTwoLink')} text={t('navbar.linkTwoText')}></Button></li>
+          <li className="navbar__button-item"><Button style="ThreeD" link={t('navbar.linkThreeLink')} text={t('navbar.linkThreeText')}></Button></li>
           {/* <li><Button text="connect" style="gold"></Button></li> */}
           <li className="navbar__button-item"><LanguageSelect></LanguageSelect></li>
 

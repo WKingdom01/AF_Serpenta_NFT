@@ -1,3 +1,5 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
 @import './fonts.scss';
 @import './variables.scss';
 
@@ -21,7 +23,11 @@
 @import './question.scss';
 @import './stage-text.scss';
 @import './language-select.scss';
-@import './mint-block.scss';
 @import './stage.scss';
 @import './journey.scss';
-@import './block-grid.scss'
+@import './block-grid.scss';
+@import './mint.scss';
+@import './label.scss';
+@import './mint-navbar.scss';
+@import './modal.scss';
+@import './help-center.scss';

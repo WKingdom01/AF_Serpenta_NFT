@@ -11,8 +11,11 @@
   },
   "navbar": {
     "linkOneText": "OpenSea",
+    "linkOneLink": "",
     "linkTwoText": "Twitter",
-    "linkThreeText": "Discord"
+    "linkTwoLink": "",
+    "linkThreeText": "Discord",
+    "linkThreeLink": ""
   },
   "roadmapTitle": "Roadmap",
   "faqTitle": "faq",
@@ -141,5 +144,33 @@
       }
     ]
   },
-  "gridTitle": "5555 Genesis Dragons and 5 Different Clans!"
+  "gridTitle": "5555 Genesis Dragons and 5 Different Clans!",
+  "mint": {
+    "amountLabel": "amount",
+    "totalPriceLabel": "Total Price",
+    "mintingLabel": "Minting Now",
+    "mintLabel": "Mint",
+    "errors": {
+      "authorizeLabel": "You will need to authorise your wallet to buy NFTs"
+    },
+    "soldOut": "Sold Out!",
+    "openSea": "Go to opensea.io to buy one",
+    "helpCenter": {
+      "button": "Help Center",
+      "questions": [
+        {
+          "prompt": "how to add funds to your wallet?",
+          "answer": "do it"
+        },
+        {
+          "prompt": "how to mint an nft?",
+          "answer": "do it"
+        },
+        {
+          "prompt": "how to buy and sell nfts?",
+          "answer": "do it"
+        }
+      ]
+    }
+  }
 }

@@ -1,0 +1,67 @@
+.mint-navbar {
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    &__logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+
+        img {
+            width: 90px !important;
+        }
+
+        order: 0;
+        width: 100%;
+    }
+
+    &__help {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        order: 2;
+        margin-bottom: 16px;
+
+        button {
+            @include Body-Text;
+            text-transform: uppercase;
+        }
+
+        &-text {
+            display: none;
+            @include Button-Text;
+            margin-left: 12px;
+        }
+
+    }
+
+    &__button {
+        order: 2;
+    }
+
+    @media screen and (min-width: $tablet) {
+        &__logo {
+            img {
+                width: 150px !important;
+            }
+        }
+    }
+
+    @media screen and (min-width: $desktop) {
+        &__logo {
+            width: auto;
+            order: 2;
+            margin-bottom: 0px;
+        }
+
+        &__help-text {
+            display: block;
+        }
+    }
+}
