@@ -18,6 +18,8 @@
     "@fortawesome/react-fontawesome": "^0.1.17",
     "@supabase/supabase-js": "^1.35.2",
     "dotenv": "^16.0.0",
+    "keccak256": "^1.0.6",
+    "merkletreejs": "^0.2.32",
     "ethers": "^5.6.9",
     "fs-extra": "^10.1.0",
     "bootstrap": "^5.1.3",

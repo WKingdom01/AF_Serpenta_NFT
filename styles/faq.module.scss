@@ -1,0 +1,17 @@
+.accordionTitle {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.accordionTitle {
+	border-top: 1px solid #ddd;
+	padding: 16px 0px;
+	text-transform: uppercase;
+	color: #93d3ff;
+	cursor: pointer;
+}
+.accordionContent {
+	padding-bottom: 20px;
+	transition: 0.25s;
+	color: #fbedd6;
+}

@@ -1,59 +1,25 @@
-@import './variables.scss';
-
+@font-face {
+	font-family: "BasierSquareMono";
+	src: url(../static/fonts/basiersquaremono-regular-webfont.woff),
+		url(../static/fonts/basiersquaremono-regular-webfont.ttf),
+		url(../static/fonts/basiersquaremono-regular-webfont.eot),
+		url(../static/fonts/basiersquaremono-regular-webfont.woff2);
+}
 html,
 body {
-  padding: 0;
-  margin: 0;
-  // font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-  //   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: 24px;
-  font-family: BasierSquareMono;
-  color: rgba($papaya-whip, .9);
+	padding: 0;
+	margin: 0;
+	font-family: "BasierSquareMono", sans-serif;
 }
-
+body {
+	background-color: #0e141b;
+}
 a {
-  color: inherit;
-  text-decoration: none;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
-}
-
-h2 {
-  font-size: 32px;
-  margin-bottom: 16px;
-}
-
-p {
-  margin-bottom: 16px;
-}
-
-.title {
-  font-size: 48px;
-  color: white;
-  text-align: left;
-  // font-family: cc;
-  display: block;
-  width: 100%;
-}
-
-.tagline {
-  font-family: BasierSquareMono;
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 39px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: rgba($papaya-whip, .85);
-  text-transform: uppercase;
-
-  padding: 24px 24px;
-  max-width: 1400px;
-  margin: 0 auto;
-
-  @media screen and (min-width: $desktop) {
-    padding: 48px 48px;
-  }
-
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
