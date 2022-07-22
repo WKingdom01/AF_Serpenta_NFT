@@ -12,18 +12,45 @@ export default function handler(req, res) {
   const walletDirectory = resolve(process.cwd(), './public/static');
 
   try {
-    const whitelistedWalletsJson = readFileSync(
+    const wallets = readFileSync(
       join(walletDirectory, 'whitelisted-wallets.json'),
       'utf8'
     );
 
-    const walletArray = JSON.parse(whitelistedWalletsJson);
-    const isWhitelisted = walletArray.includes(address);
+    const discordUserRoles = readFileSync(
+      join(walletDirectory, 'discord-user-roles.json'),
+      'utf8'
+    );
 
-    if (isWhitelisted) {
-      res.status(200).json({ wallet: address, whitelisted: true });
+    const walletsArray = JSON.parse(wallets);
+    const discordUserRolesArray = JSON.parse(discordUserRoles);
+
+    const mergedWalletsWithDiscordUsername = walletsArray.map((wallet) => {
+      const discordUser = discordUserRolesArray.find(
+        (user) => user.discord_id === wallet.discord_id
+      );
+
+      if (discordUser) {
+        return Object.assign({}, wallet, {
+          discord_id: discordUser.discord_id,
+          discord_username: discordUser.discord_username,
+          roles: discordUser.roles,
+        });
+      }
+      return wallet;
+    });
+
+    const wallet = mergedWalletsWithDiscordUsername.find(
+      (mergedWallet) =>
+        mergedWallet.wallet_address.toLowerCase() === address.toLowerCase()
+    );
+
+    if (wallet) {
+      return res.json(wallet);
     } else {
-      res.status(200).json({ wallet: address, whitelisted: false });
+      return res.status(404).json({
+        error: `wallet(${address}) not found in whitelist / waitlist.`,
+      });
     }
   } catch (err) {
     console.error(err);

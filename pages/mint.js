@@ -6,6 +6,10 @@ import Link from "next/link";
 import Script from "next/script"
 import styles from "../styles/mint.module.scss";
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+
+
 // Images
 import GetHelpIcon from "../static/Question-icon.png";
 import Logo from "../static/main-logo.png";
@@ -22,15 +26,25 @@ import mintABI from '../services/abi/mint.json'
 //whitelist address
 import whitelistAddress from '../public/static/whitelisted-wallets.json'
 //Components
-const Accordion = dynamic(() => import('../components/FAQ/FAQ'));
-const SwiperDragon = dynamic(() => import('../components/SWIPER/swiperDragon'));
-const Footer = dynamic(()=>import('../components/FOOTER/footer'))
+const Accordion = dynamic(() => import('./components/FAQ/FAQ'));
+const SwiperDragon = dynamic(() => import('./components/SWIPER/swiperDragon'));
+const Footer = dynamic(()=>import('./components/FOOTER/footer'));
+const PageSlot = dynamic(() => import('./components/PageSlot'));
+const MintNavBar = dynamic(() => import('./components/MintNavBar'));
 //MerkleTree
 const { MerkleTree } = require("merkletreejs");
 const keccak256 = require('keccak256');
 
-
+let whitelistOnlyAddress= [];
+const getWhitelistOnlyAddress = ()=>{
+	whitelistAddress.map((item)=>(
+		whitelistOnlyAddress.push(item.wallet_address)
+	));
+}	
+getWhitelistOnlyAddress();
 export default function Mint() {
+
+
 	const [showModal, setShowModal] = useState(false);
 	const [showWalletModal, setShowWalletModal] = useState(false);
 
@@ -51,8 +65,11 @@ export default function Mint() {
 	const [etherscanLink,setEtherScanLink] = useState('');
 	const [connectText, setText] = useState('CONNECTED')
 
-	const { connect, connectors, error, isLoading, pendingConnector } = useConnect();
-	const { address, isConnecting,isConnected , isDisconnected } = useAccount();
+
+	const { data: accountData } = useAccount();
+  	const address = accountData?.address;
+	// const { connect, connectors, error, isLoading, pendingConnector } = useConnect();
+	// const { address, isConnecting,isConnected , isDisconnected } = useAccount();
 	const { disconnect } = useDisconnect();
 
 	// get the end user
@@ -158,13 +175,13 @@ export default function Mint() {
 		}
 		setIsMinting(false);
 	}
-
+	
 	const getInfo = async() => {
 		//MerkleTree and MerkleProof
-		const leafNodes = whitelistAddress.map(addr => keccak256(addr));
+		const leafNodes = whitelistOnlyAddress.map(addr => keccak256(addr));
 		const merkleTree = new MerkleTree(leafNodes, keccak256,{sortPairs: true});
 		setMerkleProof(merkleTree.getHexProof(keccak256(address)));
-
+		console.log("sdsdsds");
 		try {
 			//Mint Price
 			const price = await contract.PRICE();
@@ -199,92 +216,24 @@ export default function Mint() {
 	}, [keyPress]);
 
 	useEffect(()=> {
-		if(isConnected){
+		if(address){
 			setShowWalletModal(false);
 			setAuthorizedError(false);
 			setText("CONNECTED");
 		}
-	},[isConnected])
+	},[address])
 
 	useEffect(()=>{
-
-		if(isConnected){
+		if(address){
 			getInfo()
 		}
-	},[isConnected])
+	},[address])
 
 	return (
-		<div className={styles.mainContainer}>
-			<Head>
-				<title>Dragon Mint</title>
-				<meta name="description" content="Mint Dragon NFT, enjoy and fight with enemy" />
-				<link rel="icon" href="/favicon.ico" />
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-			</Head>
-			<Script
-				strategy='afterInteractive'
-				src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_GAMEASUREMENTID}`}
-				/>
-
-			<Script
-				id='gtag-init'
-				strategy='afterInteractive'
-				dangerouslySetInnerHTML={{
-					_html: `
-					window.dataLayer = window.dataLayer || [];
-					function gtag(){dataLayer.push(arguments);}
-					gtag('js', new Date());
-					gtag('config', ${process.env.NEXT_PUBLIC_ANALYTICS_GAMEASUREMENTID}, {
-						page_path: window.location.pathname,
-					});
-				`,
-				}}
-			/>
-
-			<header className={styles.header}>
-				{/* Help wrapper */}
-				<div className={styles.helpWrap}>
-					<div className={styles.gethelpWrap} onClick={openModal}>
-						<div className={styles.icon}>
-							<Image src={GetHelpIcon} alt="help" />
-						</div>
-						<h3>GET HELP</h3>
-					</div>
-				</div>
-				{/* Logo wrapper  */}
-				<div className={styles.siteLogoWrap}>
-					<Link href="/">
-						<Image src={Logo} alt="SiteName" />
-					</Link>
-				</div>
-				{/* connect wallet wrapper */}
-				<div className={styles.connectWalletWrap}>
-					<div className={styles.helpMobIcon}>
-						<div className={styles.gethelpWrap} onClick={openModal}>
-							<div className={styles.icon}>
-								<Image src={GetHelpIcon} alt="help" />
-							</div>
-							<h3>GET HELP</h3>
-						</div>
-					</div>
-					<div className={styles.connectBtnWrap}>
-						{
-							isDisconnected?
-							<button onClick={() => setShowWalletModal(true)}>CONNECT WALLET</button>
-							:
-							<button 
-								onClick={() => disconnect()} 
-								onMouseOver={() => setText('DISCONNECT')}
-								onMouseLeave={() => setText('CONNECTED')}
-							>
-								{connectText}
-							</button>
-						}
-					</div>
-				</div>
-			</header>
-
-			<main>
+		<div style={{ background: `url('/starrybg.png')` }}>
+      		<PageSlot>
+        		<MintNavBar/>
+				<main>
 				<div className={styles.mintContainer}>
 					<div className={styles.sliderContainer}>
 						<SwiperDragon/>
@@ -374,46 +323,7 @@ export default function Mint() {
 			)}
 
 
-			{
-				showWalletModal?(
-				<div
-					className={styles.getHelpContainer}
-					onClick={closeModal}
-					ref={modalRef}
-				>
-					<div className={styles.getHelpWrap}>
-						<div className={styles.helpwrapHead}>
-							<h2>Select wallet</h2>
-							<div
-								className={styles.closeIcon}
-								onClick={() => {
-									setShowWalletModal(false);
-								}}
-							>
-								<Image src={CloseIcon} alt="close" />
-							</div>
-						</div>
-						<div className={styles.connectWalletWraps}>
-							<div className={styles.connectBtnWrap}>
-								{connectors.map((connector) => (
-									<button
-										disabled={!connector.ready}
-										key={connector.id}
-										onClick={() => connect({ connector })}
-									>
-										{connector.name}
-										{!connector.ready && ' (unsupported)'}
-										{isLoading && connector.id === pendingConnector?.id &&' (connecting)'}
-									</button>
-								))} 
-							</div>
-						</div>
-					</div>
-				</div>
-				) : (
-					""
-				)
-			}
+			
 			{
 				isMinted?(
 					<div
@@ -476,7 +386,9 @@ export default function Mint() {
 					""
 				)
 			}
-		</div>
+			</PageSlot>
+		</div>	
+		
 	);
 }
 
@@ -508,3 +420,9 @@ const accordionData = [
 		`,
 	},
 ];
+
+export const getStaticProps = async ({ locale }) => ({
+	props: {
+	  ...(await serverSideTranslations(locale, ['common'])),
+	},
+  });

@@ -1,8 +1,8 @@
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 import React, { useState, useEffect, useCallback } from 'react';
-import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useSelector, useDispatch } from 'react-redux'
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'next-i18next';
 import {
   useConnect,
@@ -15,7 +15,7 @@ import { SiweMessage } from 'siwe';
 import shortenAddress from '../../utils/helpers/shortenAddress';
 
 const Button = dynamic(() => import('./Button'));
-const Grid = dynamic(() => import('./Grid'))
+const Grid = dynamic(() => import('./Grid'));
 
 const MintBlock = () => {
   const [state, setState] = useState({});
@@ -23,11 +23,10 @@ const MintBlock = () => {
   const [signature, setSignature] = useState();
   const [me, setMe] = useState();
 
-
-  const [width, setWidth] = useState('100%')
+  const [width, setWidth] = useState('100%');
   const [mints, setMints] = useState(1);
-  const [mintError, setMintError] = useState(false)
-  const [soldOut, setSoldOut] = useState(false)
+  const [mintError, setMintError] = useState(false);
+  const [soldOut, setSoldOut] = useState(false);
 
   const { t, i18n, ready } = useTranslation('common', { useSuspense: false });
 
@@ -163,70 +162,84 @@ const MintBlock = () => {
 
   const incrementMints = (newMintValue) => {
     if (newMintValue <= 10 && newMintValue > 0) {
-      setMints(newMintValue)
+      setMints(newMintValue);
     }
-  }
+  };
 
   const mint = () => {
     if (!accountData) {
-      setMintError(true)
+      setMintError(true);
     }
-  }
+  };
 
   return (
     <div className='mint-block container'>
-      <div className="mint__block container">
-        <Grid alt="true"></Grid>
-        <div className="mint__container">
-          <div className="mint__amount">
-
-
-            <div className="mint__left">
-              <div className="mint__eyebrow">
-                {t('mint.amountLabel')}
-              </div>
-              <div className="mint__input">
-                <input value={mints}>
-                </input>
-                <div className="mint__counters">
-                  <button className="mint__counter-button">
-                    <FontAwesomeIcon className="icon" icon={faMinus} onClick={() => { incrementMints(mints--) }} />
+      <div className='mint__block container'>
+        <Grid alt='true'></Grid>
+        <div className='mint__container'>
+          <div className='mint__amount'>
+            <div className='mint__left'>
+              <div className='mint__eyebrow'>{t('mint.amountLabel')}</div>
+              <div className='mint__input'>
+                <input value={mints}></input>
+                <div className='mint__counters'>
+                  <button className='mint__counter-button'>
+                    <FontAwesomeIcon
+                      className='icon'
+                      icon={faMinus}
+                      onClick={() => {
+                        incrementMints(mints--);
+                      }}
+                    />
                   </button>
-                  <button className="mint__counter-button">
-                    <FontAwesomeIcon className="icon" icon={faPlus} onClick={() => { incrementMints(mints++) }} />
+                  <button className='mint__counter-button'>
+                    <FontAwesomeIcon
+                      className='icon'
+                      icon={faPlus}
+                      onClick={() => {
+                        incrementMints(mints++);
+                      }}
+                    />
                   </button>
                 </div>
               </div>
             </div>
-            <div className="mint__right">
-              <div className="mint__eyebrow">
-                {t('mint.totalPriceLabel')}
-              </div>
-              <div className="mint__price">
-                0.12 ETH
-              </div>
+            <div className='mint__right'>
+              <div className='mint__eyebrow'>{t('mint.totalPriceLabel')}</div>
+              <div className='mint__price'>0.12 ETH</div>
             </div>
           </div>
-          <div className="mint__score">
-            <div className="mint__eyebrow">
-              {t('mint.mintingLabel')}
-            </div>
+          <div className='mint__score'>
+            <div className='mint__eyebrow'>{t('mint.mintingLabel')}</div>
 
-            <div className="mint__progress-bar">
-              <div className="mint__progress-bar--filled" style={{ width: width }}></div>
-              <div className="mint__minted">100/5000</div>
+            <div className='mint__progress-bar'>
+              <div
+                className='mint__progress-bar--filled'
+                style={{ width: width }}
+              ></div>
+              <div className='mint__minted'>100/5000</div>
             </div>
-            {mintError && <div className="mint__error"> {t('mint.errors.authorizeLabel')}</div>}
-
+            {mintError && (
+              <div className='mint__error'>
+                {' '}
+                {t('mint.errors.authorizeLabel')}
+              </div>
+            )}
           </div>
-          {!soldOut ? <div className="mint__button">
-            <Button text="Mint" style="papaya short" clickHandler={mint}></Button>
-          </div> :
-            <div className="mint__sold-out">
-              <div className="label label--red"> {t('mint.soldOut')}</div>
-              <div className="label"> {t('mint.openSea')}</div>
-            </div>}
-
+          {!soldOut ? (
+            <div className='mint__button'>
+              <Button
+                text='Mint'
+                style='papaya short'
+                clickHandler={mint}
+              ></Button>
+            </div>
+          ) : (
+            <div className='mint__sold-out'>
+              <div className='label label--red'> {t('mint.soldOut')}</div>
+              <div className='label'> {t('mint.openSea')}</div>
+            </div>
+          )}
         </div>
       </div>
       <div>

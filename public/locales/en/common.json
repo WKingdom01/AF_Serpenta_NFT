@@ -159,16 +159,20 @@
       "button": "Help Center",
       "questions": [
         {
-          "prompt": "how to add funds to your wallet?",
-          "answer": "do it"
+          "prompt": "How to Install Metamask for NFTs:",
+          "answer": "Here is a guide we have written for newbies to the NFT space. You will need a basic crypto account on Binance / Coinbase etc. Minting an NFT is usually easier on a desktop, and totally possible on mobile, but it's might be a little more cumbersome. https://medium.com/@miaoux_17900/installing-a-metamask-wallet-for-nfts-7e810e1c1b5c"
         },
         {
-          "prompt": "how to mint an nft?",
-          "answer": "do it"
+          "prompt": "How to Add Funds to your wallet:",
+          "answer": "Please see the earlier guide on how to install metamask (or any crypto wallet on your browser). To add funds to your wallet, just take the address that was created along with your wallet (on Ethereum it will start with 0x..... and the remainder will be a string of letters and numbers), and paste that into your withdrawal address on the Ethereum network. If requested, you will want 'ERC-20'. It should only take about 5 minutes for your funds to be visible in your wallet once they have been successfully sent over. Please remember to add extra for normal gas fees. The Serpenta contract for minting is optimised so it will be gas-efficient."
         },
         {
-          "prompt": "how to buy and sell nfts?",
-          "answer": "do it"
+          "prompt": "How to Mint an NFT:",
+          "answer": "Connect your Wallet to the mint page on the official https://serpenta.io/ website.Click 'Connect Wallet' - this will tell you if you are authorised to mint in the whitelisted phase of the mint. If you are not, then you will have to wait for the public phase of the mint. Write the date and times down - you won't want to miss it.If you do - you can always buy a dragon from the official OpenSea NFT site here: https://opensea.io/collection/Serpenta"
+        },
+        {
+          "prompt": "Other issues:",
+          "answer": "If you have any other issues, please open a ticket or ask in our discord where you will receive prompt 24/7 support. That being said, we do have to sleep sometime, so it might take up to a few hours. Please be patient. Thanks!"
         }
       ]
     }

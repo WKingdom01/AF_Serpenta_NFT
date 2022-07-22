@@ -1,0 +1,333 @@
+.mainContainer {
+	background-color: #0e141b;
+	min-height: 100vh;
+	background-position: left top;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+.main {
+	padding: 0px 20%;
+}
+/* HEADER SECTION */
+
+.header {
+	color: #fbedd6;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem 12px 4rem 12px;
+	h3 {
+		font-size: 24px;
+	}
+}
+
+.gethelpWrap {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	h3 {
+		line-height: 1;
+		margin-left: 8px;
+	}
+}
+
+.connectWalletWraps {
+	.connectBtnWrap {
+		margin: 2em auto 0 auto;
+		border-radius: 8px;
+		display: grid;
+		button {
+			outline: none;
+			border: none;
+			font-size: 20px;
+			font-family: "BasierSquareMono", sans-serif;
+			background-color: transparent;
+			color: #fbedd6;
+			border: 1px solid #fbedd6;
+			padding: 10px 16px;
+			border-radius: 8px;
+			cursor: pointer;
+			margin-bottom: 10px;
+			transition: all 0.4s ease-in-out;
+			&:hover {
+				background-color: #fbedd6;
+				color: #272727;
+				transition: all 0.4s ease-in-out;
+			}
+			
+
+		}
+		&:hover {
+			border: 1px solid transparent;
+		}
+	}
+	.helpMobIcon {
+		display: none;
+	}
+}
+
+.connectWalletWrap {
+	display: flex;
+	align-items: center;
+	.connectBtnWrap {
+		margin-left: 12px;
+		border-radius: 8px;
+		border: 1px solid #fbedd6;
+		button {
+			outline: none;
+			border: none;
+			font-size: 20px;
+			font-family: "BasierSquareMono", sans-serif;
+			background-color: transparent;
+			color: #fbedd6;
+			border: 1px solid #fbedd6;
+			padding: 10px 16px;
+			border-radius: 8px;
+			cursor: pointer;
+			margin-bottom: 10px;
+			transition: all 0.4s ease-in-out;
+			&:hover {
+				background-color: #fbedd6;
+				color: #272727;
+				transition: all 0.4s ease-in-out;
+			}
+		}
+		&:hover {
+			border: 1px solid transparent;
+		}
+	}
+	.helpMobIcon {
+		display: none;
+	}
+}
+// GET HELP PAGE
+.getHelpContainer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-height: 100vh;
+	width: 100%;
+	z-index: 100;
+	background-color: #0000009d;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.getHelpWrap {
+		background: #0e141b;
+		border: 1px solid #fbedd6;
+		border-radius: 8px;
+		width: 100%;
+		max-width: 580px;
+		padding: 2rem 1.5rem;
+		overflow-y: scroll;
+    	max-height: 514px;
+		.helpwrapHead {
+			color: #fbedd6;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+	.mintNFTWarp {
+		background: #0e141b;
+		border: 1px solid #fbedd6;
+		border-radius: 8px;
+		width: 100%;
+		max-width: 645px;
+		padding: 2rem 1.5rem;
+		.mintedNFT {
+			margin-top: 1em;
+			border: 1px solid #FBEDD6;
+			border-radius: 8px;
+			text-align: center;
+		}
+		.mintText {
+			color: #93D3FF;
+			font-weight: 600;
+			font-size: 24px;
+			line-height: 39px;
+			text-transform: uppercase;
+			letter-spacing: 4px;
+			margin-top: 1em;
+		}
+		.mintSocial{
+			color: #FBEDD6;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+			line-height: 200%;
+			.mintTrade{
+				flex-basis: 50%;
+				.mintHead{
+					display: flex;
+					.mintRectIcon{
+						width: 10%;
+					}
+				}
+			}
+			.mintTwitter{
+				flex-basis: 50%;
+				.mintHead{
+					display: flex;
+					.mintRectIcon{
+						width: 10%;
+					}
+				}
+			}
+			.mintEther{
+				flex-basis: 100%;
+				.mintHead{
+					display: flex;
+					.mintRectIcon{
+						width: 5%;
+					}
+				}
+			}
+
+			h3 {
+				text-transform: uppercase;
+			}
+			a {
+				text-decoration: underline;
+				color: #FBEDD6;
+			}
+		}
+	}
+	.closeIcon {
+		width: 35px;
+		cursor: pointer;
+	}
+}
+.statusWarpWhitelist{
+	display: flex;
+	color: #FBEDD6;
+	letter-spacing: 1px;
+	margin-bottom: 2em;
+	span{
+		font-size: 20px;
+		font-weight:bold ;
+	}
+	justify-content: left;
+}
+.statusWarpReserve{
+	display: flex;
+	color: #FBEDD6;
+	letter-spacing: 1px;
+	margin-bottom: 2em;
+	span{
+		font-size: 20px;
+		font-weight:bold ;
+	}
+	justify-content: center;
+}
+.statusWarpPublic{
+	display: flex;
+	color: #FBEDD6;
+	letter-spacing: 1px;
+	margin-bottom: 2em;
+	span{
+		font-size: 20px;
+		font-weight:bold ;
+	}
+	justify-content: right;
+}
+.statusWarp{
+	display: flex;
+	color: #FBEDD6;
+	letter-spacing: 1px;
+	margin-bottom: 2em;
+	span{
+		
+		font-size: 20px;
+		font-weight:bold ;
+	}
+}
+.countdown{
+	
+	display: flex;
+	justify-content: center;
+	color: #FBEDD6;
+	letter-spacing: 1px;
+	margin-bottom: 2em;
+	padding: 0px 10%;
+	span{		
+		font-size: 20px;
+		font-weight:bold ;
+		
+	}
+	.mint{
+		&:hover{
+			cursor: pointer;
+		}
+	}
+	Link{
+		font-size: 20px;
+		font-weight:bold;
+		color: #FBEDD6;
+
+	}
+	
+}
+
+
+.accordionContainer {
+	margin-top: 4rem;
+}
+// MEDIA QUERIES
+
+@media (max-width: 780px) {
+	.helpWrap {
+		display: none;
+	}
+	.connectWalletWrap {
+		.helpMobIcon {
+			display: block;
+		}
+	}
+}
+@media (max-width: 580px) {
+	.mainContainer {
+		padding: 12px;
+	}
+	.header {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	.connectWalletWrap {
+		margin-top: 2rem;
+	}
+	.imgSlide {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.getHelpContainer {
+		padding: 0px 12px;
+	}
+}
+@media (max-width: 480px) {
+	.mainContainer {
+		background-color: #0e141b;
+		background-position: top;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	.header {
+		padding: 2rem 0px 4rem 0px;
+		h3 {
+			font-size: 16px;
+		}
+	}
+	.connectBtnWrap {
+		margin-left: 8px;
+		button {
+			font-size: 16px !important;
+			padding: 10px !important;
+		}
+	}
+
+}

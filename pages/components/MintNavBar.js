@@ -19,20 +19,7 @@ const MintNavBar = () => {
     const [connectModalOpen, setConnectModalOpen] = useState(false)
     const state = useSelector(state => state.wallet)
     const { isConnected } = useConnect()
-    const { disconnect } = useDisconnect();
-    // const dispatch = useDispatch()
-
-    // const connectWallet = () => {
-    //     if (true) {
-    //         dispatch({
-    //             type: 'CONNECT_WALLET', payload: {
-    //                 wallet: {
-    //                     connected: true
-    //                 }
-    //             }
-    //         })
-    //     }
-    // }
+    const { disconnect } = useDisconnect();   
     return (
         <div>
             <div className="mint-navbar">
@@ -64,7 +51,7 @@ const MintNavBar = () => {
                     />
                 </div>
                 <div className="mint-navbar__button">
-                    <Button clickHandler={() => { isConnected ? disconnect() : setConnectModalOpen(true) }} style="outline ThreeD" text={isConnected ? 'Disconnect Wallet' : 'Connect Wallet'}></Button>
+                    <Button clickHandler={() => { isConnected ? disconnect() : setConnectModalOpen(true) }} style="outline ThreeD" text={isConnected ?'Connected' : 'Connect Wallet'}></Button>
                 </div>
 
             </div>
