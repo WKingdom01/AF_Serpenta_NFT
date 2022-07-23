@@ -16,8 +16,8 @@ const reducer = (state = { tick: 'init', wallet: { connected: false } }, action)
   }
 };
 
-// create a makeStore function
+//create a makeStore function
 const makeStore = context => createStore(reducer);
 
-// export an assembled wrapper
+//TODO: export an assembled wrapper
 export const wrapper = createWrapper(makeStore, { debug: true });

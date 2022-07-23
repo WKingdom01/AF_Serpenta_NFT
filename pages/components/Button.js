@@ -21,12 +21,6 @@ const Button = ({
       {!link && (
         <button
           className={`button button--${clicked ? 'clicked' : ''}`}
-          onMouseDown={() => {
-            setClick(true);
-          }}
-          onMouseUp={() => {
-            setClick(false);
-          }}
           onClick={clickHandler}
           title={title ?? text}
           disabled={disabled}

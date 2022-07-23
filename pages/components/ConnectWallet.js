@@ -1,8 +1,6 @@
 import Modal from 'react-bootstrap/Modal';
 import dynamic from 'next/dynamic'
-import {
-    useConnect
-} from 'wagmi';
+import { useConnect} from 'wagmi';
 
 
 const Button = dynamic(() => import('./Button'));
@@ -29,22 +27,8 @@ const ConnectWallet = ({ modalOpen, setModalOpen }) => {
                         text={option.name}
                     >
                         {!option.ready && ' (unsupported)'}
-                        {/* {isConnecting && pendingConnector?.id === option.id && (
-                            <small>(Awaiting Connection...)</small>
-                        )} */}
                     </Button>
-                ))}
-
-                {/* {error ? (
-                    <div>
-                        <h2>Errors</h2>
-                        <span>Error!</span>
-                        <br />
-                        <span>
-                            {error?.message ? `${error?.message}.` : 'Unknown error.'}
-                        </span>
-                    </div>
-                ) : null} */}
+                ))}                
             </div>
         </Modal>
     )

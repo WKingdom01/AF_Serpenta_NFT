@@ -6,6 +6,8 @@ import Link from "next/link";
 import Script from "next/script"
 import styles from "../styles/mint.module.scss";
 
+import { useTranslation } from 'next-i18next'
+import nextI18NextConfig from '../next-i18next.config.js';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 
@@ -26,15 +28,14 @@ import mintABI from '../services/abi/mint.json'
 //whitelist address
 import whitelistAddress from '../public/static/whitelisted-wallets.json'
 //Components
-const Accordion = dynamic(() => import('./components/FAQ/FAQ'));
-const SwiperDragon = dynamic(() => import('./components/SWIPER/swiperDragon'));
-const Footer = dynamic(()=>import('./components/FOOTER/footer'));
+const Accordion = dynamic(() => import('./components/Faq'));
+const SwiperDragon = dynamic(() => import('./components/SwiperDragon'));
+const Footer = dynamic(()=>import('./components/Footer'));
 const PageSlot = dynamic(() => import('./components/PageSlot'));
 const MintNavBar = dynamic(() => import('./components/MintNavBar'));
 //MerkleTree
 const { MerkleTree } = require("merkletreejs");
 const keccak256 = require('keccak256');
-
 let whitelistOnlyAddress= [];
 const getWhitelistOnlyAddress = ()=>{
 	whitelistAddress.map((item)=>(
@@ -43,7 +44,7 @@ const getWhitelistOnlyAddress = ()=>{
 }	
 getWhitelistOnlyAddress();
 export default function Mint() {
-
+	const { t } = useTranslation('common');
 
 	const [showModal, setShowModal] = useState(false);
 	const [showWalletModal, setShowWalletModal] = useState(false);
@@ -63,14 +64,11 @@ export default function Mint() {
 	const [isMinting, setIsMinting] = useState(0);
 	const [isMinted, setIsMinted] = useState(false);
 	const [etherscanLink,setEtherScanLink] = useState('');
-	const [connectText, setText] = useState('CONNECTED')
 
 
 	const { data: accountData } = useAccount();
   	const address = accountData?.address;
-	// const { connect, connectors, error, isLoading, pendingConnector } = useConnect();
-	// const { address, isConnecting,isConnected , isDisconnected } = useAccount();
-	const { disconnect } = useDisconnect();
+	const { isConnected } = useConnect()
 
 	// get the end user
 	const  { data: signer, isError, isLoadings } = useSigner ();
@@ -152,7 +150,7 @@ export default function Mint() {
 						if(receipt!==null){
 							getInfo();
 							setIsMinted(true);
-							setEtherScanLink("https://rinkeby.etherscan.io/tx/"+receipt["transactionHash"])
+							setEtherScanLink(process.env.NEXT_PUBLIC_URL_ETHERSCAN_TX+receipt["transactionHash"])
 						}
 					} else if (currentTime >= publicTime) {
 						let tx = await contract.publicMint(mintNum,{value: ethers.utils.parseEther((mintPrice*mintNum).toString())})
@@ -160,7 +158,7 @@ export default function Mint() {
 						if(receipt!==null){
 							getInfo();
 							setIsMinted(true);
-							setEtherScanLink("https://rinkeby.etherscan.io/tx/"+receipt["transactionHash"])
+							setEtherScanLink(process.env.NEXT_PUBLIC_URL_ETHERSCAN_TX+receipt["transactionHash"])
 						}
 					} 
 					else throw new Error("Unreachable");
@@ -181,7 +179,6 @@ export default function Mint() {
 		const leafNodes = whitelistOnlyAddress.map(addr => keccak256(addr));
 		const merkleTree = new MerkleTree(leafNodes, keccak256,{sortPairs: true});
 		setMerkleProof(merkleTree.getHexProof(keccak256(address)));
-		console.log("sdsdsds");
 		try {
 			//Mint Price
 			const price = await contract.PRICE();
@@ -194,7 +191,7 @@ export default function Mint() {
 			//max wallet
 			const maxWallet = await contract.MAX_WALLET();	
 
-			setMintPrice(Number(price)/Math.pow(10,18));
+			setMintPrice(ethers.utils.formatEther(Number(price)));
 			setTotalNFT(Number(totalNTFCount));
 			setMintedNFT(Number(mintedNFT));
 			setPublicTime(Number(publicTimeStamp.data));
@@ -215,19 +212,12 @@ export default function Mint() {
 		return () => document.removeEventListener("keydown", keyPress);
 	}, [keyPress]);
 
-	useEffect(()=> {
-		if(address){
-			setShowWalletModal(false);
-			setAuthorizedError(false);
-			setText("CONNECTED");
-		}
-	},[address])
-
+	
 	useEffect(()=>{
-		if(address){
+		if(isConnected){
 			getInfo()
 		}
-	},[address])
+	},[isConnected])
 
 	return (
 		<div style={{ background: `url('/starrybg.png')` }}>
@@ -240,7 +230,7 @@ export default function Mint() {
 					</div>
 					<div className={styles.amountpriceWrap}>
 						<div className={styles.amount}>
-							<h3>AMOUNT</h3>
+							<h3>{t('mint.amountLabel').toUpperCase()}</h3>
 							<div className={styles.counterWrap}>
 								<div className={styles.numfield}>{mintNum}</div>
 								<div className={styles.Btnfield}>
@@ -250,16 +240,16 @@ export default function Mint() {
 							</div>
 						</div>
 						<div className={styles.price}>
-							<h3>TOTAL PRICE</h3>
+							<h3>{t('mint.totalPriceLabel').toUpperCase()}</h3>
 							<span>{(mintPrice * mintNum).toFixed(3)} ETH</span>
 						</div>
 					</div>
 					<div className={styles.mintProgress}>
 						{
 							soldout?
-							<h3>SOLD OUT</h3>
+							<h3>{t('mint.mintingLabel').toUpperCase()}</h3>
 							:
-							<h3>MINTING NOW</h3>
+							<h3>{t('mint.mintingLabel').toUpperCase()}</h3>
 						}
 						<div className={styles.progressWrap}>
 							<div className={styles.progressBar} style={{ width: "8%" }}></div>
@@ -268,12 +258,12 @@ export default function Mint() {
 						</div>
 					</div>
 					<div className={styles.errorMessage}>
-						{authorizedError && <span>You will need to authorise your wallet to buy NFTs</span>}
+						{authorizedError && <span>{t('mint.errors.authorizeLabel')}</span>}
 					</div>
 					<div className={styles.soldErrorMessage}>
-						{soldout && <div><h3>SOLD OUT!</h3><span>Go to <a href="https://testnets.opensea.io/collection/serpenta"  rel="noreferrer" target="_blank">opensea.io</a> to buy one.</span></div>}
+						{soldout && <div><h3>{t('mint.soldOut').toUpperCase()}</h3><span>{t('mint.opensea.first')}<a href={process.env.NEXT_PUBLIC_URL_OPENSEA_COLLECTION}  rel="noreferrer" target="_blank">opensea.io</a>{t('mint.opensea.second')}</span></div>}
 					</div>
-					<div className={styles.mintBtn}>
+					<div className={styles.mintBtn}> 
 						{
 							isMinting?
 							<button disabled>MINT<i className="fa fa-spinner fa-spin"/>ING</button>
@@ -294,7 +284,7 @@ export default function Mint() {
 				>
 					<div className={styles.getHelpWrap}>
 						<div className={styles.helpwrapHead}>
-							<h2>HELP CENTER</h2>
+							<h2>{t('helpCenter.button')}</h2>
 							<div
 								className={styles.closeIcon}
 								onClick={() => {
@@ -339,11 +329,11 @@ export default function Mint() {
 								{
 									mintNum===1?
 										<span>
-											RAWR! You JUST minted <br></br>A SERPENTA NFT!
+											{t('mint.minted')} <br></br>{t('mint.1minted')}
 										</span>
 									:
 										<span>
-											RAWR! You JUST minted <br></br>[{mintNum}] SERPENTA NFTS!
+											{t('mint.minted')} <br></br>[{mintNum}] {t('mint.mminted')}
 										</span>	
 								}
 								
@@ -372,13 +362,13 @@ export default function Mint() {
 										<div className={styles.mintRectIcon} >
 											<Image src={rectIcon} width="15px" height="15px" alt="rectIcon"/>
 										</div>
-										<h3>transaction confirmation</h3>
+										<h3>t{('mint.transactionConfirm')}</h3>
 									</div>
-									<Link href={etherscanLink}><a target="_blank"  rel="noopener noreferrer">Ether Scan</a></Link>
+									<Link href={etherscanLink}><a target="_blank"  rel="noopener noreferrer">{t('mint.etherScan')}</a></Link>
 								</div>
 							</div>
 							<div className={styles.mintBtn}>
-								<button onClick={()=>setIsMinted(false)}>MINT ANOTHER</button>
+								<button onClick={()=>setIsMinted(false)}>{t('mint.mintAutuor').toUpperCase()}</button>
 							</div>
 						</div>
 					</div>
@@ -391,35 +381,6 @@ export default function Mint() {
 		
 	);
 }
-
-const accordionData = [
-	{
-		id: 1,
-		title: "> How to Install Metamask for NFTs:",
-		content: `Here is a guide we have written for newbies to the NFT space. You will need a basic crypto account on Binance / Coinbase etc. Minting an NFT is usually easier on a desktop, and totally possible on mobile, but it's might be a little more cumbersome. https://medium.com/@miaoux_17900/installing-a-metamask-wallet-for-nfts-7e810e1c1b5c`,
-	},
-	{
-		id: 2,
-		title: "> How to Add Funds to your wallet:",
-		content: `Please see the earlier guide on how to install metamask (or any crypto wallet on your browser). To add funds to your wallet, just take the address that was created along with your wallet (on Ethereum it will start with 0x..... and the remainder will be a string of letters and numbers), and paste that into your withdrawal address on the Ethereum network. If requested, you will want "ERC-20". 
-
-		It should only take about 5 minutes for your funds to be visible in your wallet once they have been successfully sent over. Please remember to add extra for normal gas fees. The Serpenta contract for minting is optimised, so it will be gas-efficient.`,
-	},
-	{
-		id: 3,
-		title: "> How to Mint an NFT:",
-		content: `Connect your Wallet to the mint page on the official https://serpenta.io/ website. 
-		Click "Connect Wallet" - this will tell you if you are authorised to mint in the whitelisted phase of the mint. If you are not, then you will have to wait for the public phase of the mint. Write the date and times down - you won't want to miss it. 
-		If you do - you can always buy a dragon from the official OpenSea NFT site here: https://opensea.io/collection/Serpenta
-		`,
-	},
-	{
-		id: 4,
-		title: "> Other issues:",
-		content: `If you have any other issues, please open a ticket or ask in our discord where you will receive prompt 24/7 support. That being said, we do have to sleep sometime, so it might take up to a few hours. Please be patient. Thanks!
-		`,
-	},
-];
 
 export const getStaticProps = async ({ locale }) => ({
 	props: {

@@ -15,31 +15,45 @@ const PageSlot = dynamic(() => import('./components/PageSlot'));
 const MintNavBar = dynamic(() => import('./components/MintNavBar'));
 
 //whitelist Address
-import whiteListAddresses from '../public/static/whitelisted-wallets.json'
+import whitelistAddresses from '../public/static/whitelisted-wallets.json'
+
+let whitelistOnlyAddresses= [];
+let waitlistOnlyAddresses = [];
+const getWhitelistOnlyAddress = ()=>{
+	whitelistAddresses.map((item)=>(
+		whitelistOnlyAddresses.push(item.wallet_address)
+	));
+}	
+getWhitelistOnlyAddress();
 
 export default function Profile() {
   const { data: accountData } = useAccount();
   const address = accountData?.address;
-  console.log(address);
   const { data, error } = useSwr(`/api/proof/${address}`, fetcher);
   const [status, SetWalletStatus] = useState('');
 	const [currentTime, setCurrentTime] = useState('');
   useEffect(()=> {
 		if(address){
 			let flag = false;
-			whiteListAddresses.map((item)=> {
+			whitelistOnlyAddresses.map((item)=> {
 				if(item === address) {
-					flag = true;
+					SetWalletStatus('WHITELIST');
+					setCurrentTime(Date().toLocaleString());
+					return;
+
 				} else {
 				}
 			})
-			if(flag){
-				SetWalletStatus('WHITELIST');
-			} else {
-				SetWalletStatus('PUBLIC');
-			}
 
-		
+			waitlistOnlyAddresses.map((item)=> {
+				if(item === address) {
+					SetWalletStatus('WAITLIST');
+					setCurrentTime(Date().toLocaleString());
+					eturn;
+				} else {
+				}
+			})
+			SetWalletStatus('PUBLIC');	
 			setCurrentTime(Date().toLocaleString())
 		}
 	},[address])

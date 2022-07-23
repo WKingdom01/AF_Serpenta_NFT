@@ -20,8 +20,8 @@ import { ethers } from 'ethers'
 import { useConnect,useAccount,useDisconnect } from 'wagmi';
 
 //Components
-const Dashboard = dynamic(() => import ('./components/STAKEDASHBOARD/STAKEDASHBOARD'))
-const Serpenta = dynamic(() => import ('./components/SERPENTA/SERPENTA'))
+const Dashboard = dynamic(() => import ('./components/StakeDashboard'))
+const Serpenta = dynamic(() => import ('./components/Serpenta'))
 const PageSlot = dynamic(() => import('./components/PageSlot'));
 const MintNavBar = dynamic(() => import('./components/MintNavBar'));
 

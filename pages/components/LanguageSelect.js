@@ -37,10 +37,7 @@ const LanguageSelect = () => {
         className='language-select__header'
         clickHandler={() => setOpen(!open)}
       >
-        {/* // TODO: @purple: I added children for a loading state inside a button can you decide if you want to have this icon in or not? */}
-        {/* <FontAwesomeIcon className="icon" icon={faGlobe} />
-                <div className="language-select__selected-lang">{router.locale}</div> */}
-      </Button>
+       </Button>
       <div className='language-select__options'>
         {options.map((option, index) => {
           return (

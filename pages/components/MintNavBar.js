@@ -4,15 +4,8 @@ const ConnectWallet = dynamic(() => import('./ConnectWallet'))
 import Image from 'next/image'
 import HelpCenter from './HelpCenter';
 import { useState } from 'react';
-import {
-    useSelector,
-    useDispatch
-} from 'react-redux';
-
-import {
-    useConnect,
-    useDisconnect
-} from 'wagmi';
+import { useSelector, useDispatch} from 'react-redux';
+import { useConnect, useDisconnect} from 'wagmi';
 
 const MintNavBar = () => {
     const [modalOpen, setModalOpen] = useState(false);

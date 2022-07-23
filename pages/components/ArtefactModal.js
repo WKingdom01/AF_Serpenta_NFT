@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useTranslation } from 'next-i18next';
 
 
-const ArtefactModal = ({ modalOpen, setModalOpen, Img }) => {
+const ArtefactModal = ({ modalopen, setModalOpen, Img }) => {
 
     const [questionOpen, setQuestionOpen] = useState(0)
 
@@ -21,7 +21,7 @@ const ArtefactModal = ({ modalOpen, setModalOpen, Img }) => {
     }
     return (
 
-        <Modal centered show={modalOpen}>
+        <Modal centered show={modalopen}>
             <div className="help-center">
                 <div className="help-center__top">
                     <div className="help-center__title">Help Center</div>

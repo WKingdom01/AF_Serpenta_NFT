@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <PageSlot>
-      <NavBar></NavBar>
+      <NavBar/>
       <div className="components">
         <div className="component logo">
           <div className="logo__container">

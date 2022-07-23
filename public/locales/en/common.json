@@ -154,7 +154,10 @@
       "authorizeLabel": "You will need to authorise your wallet to buy NFTs"
     },
     "soldOut": "Sold Out!",
-    "openSea": "Go to opensea.io to buy one",
+    "openSea":{
+      "first":"Go to ",
+      "second":" to buy one."
+    },
     "helpCenter": {
       "button": "Help Center",
       "questions": [
@@ -175,6 +178,12 @@
           "answer": "If you have any other issues, please open a ticket or ask in our discord where you will receive prompt 24/7 support. That being said, we do have to sleep sometime, so it might take up to a few hours. Please be patient. Thanks!"
         }
       ]
+    },
+    "minted":"RAWR! You JUST minted",
+    "1minted":"A SERPENTA NFT!",
+    "mminted":"SERPENTA NFTS!",
+    "transactionConfirm":"transaction confirmation",
+    "etherscan":"Ether Scan",
+    "mintauthor":"Mint Author"
     }
-  }
 }
