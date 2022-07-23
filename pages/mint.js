@@ -28,7 +28,7 @@ import mintABI from '../services/abi/mint.json'
 //whitelist address
 import whitelistAddress from '../public/static/whitelisted-wallets.json'
 //Components
-const Accordion = dynamic(() => import('./components/Faq'));
+
 const SwiperDragon = dynamic(() => import('./components/SwiperDragon'));
 const Footer = dynamic(()=>import('./components/Footer'));
 const PageSlot = dynamic(() => import('./components/PageSlot'));
@@ -46,7 +46,7 @@ getWhitelistOnlyAddress();
 export default function Mint() {
 	const { t } = useTranslation('common');
 
-	const [showModal, setShowModal] = useState(false);
+
 	const [showWalletModal, setShowWalletModal] = useState(false);
 
 	const [authorizedError, setAuthorizedError] = useState(false);
@@ -108,28 +108,6 @@ export default function Mint() {
 
 		}
 	}
-
-	const modalRef = useRef();
-	const openModal = (e) => {
-		e.preventDefault();
-		setShowModal((prev) => !prev);
-	};
-	const closeModal = (e) => {
-		if (modalRef.current === e.target) {
-			setShowModal(false);
-			setIsMinted(false);
-			setShowWalletModal(false);
-		}
-	};
-
-	const keyPress = useCallback(
-		(e) => {
-			if (e.key === "Escape" && showModal) {
-				setShowModal(false);
-			}
-		},
-		[setShowModal, showModal]
-	);
 
 	const mint = async() => {
 		setIsMinting(true);
@@ -207,10 +185,6 @@ export default function Mint() {
 		}
 	}
 
-	useEffect(() => {
-		document.addEventListener("keydown", keyPress);
-		return () => document.removeEventListener("keydown", keyPress);
-	}, [keyPress]);
 
 	
 	useEffect(()=>{
@@ -275,43 +249,7 @@ export default function Mint() {
 
 				</div>
 			</main>
-			<Footer/>
-			{showModal ? (
-				<div
-					className={styles.getHelpContainer}
-					onClick={closeModal}
-					ref={modalRef}
-				>
-					<div className={styles.getHelpWrap}>
-						<div className={styles.helpwrapHead}>
-							<h2>{t('helpCenter.button')}</h2>
-							<div
-								className={styles.closeIcon}
-								onClick={() => {
-									setShowModal(!showModal);
-								}}
-							>
-								<Image src={CloseIcon} alt="close" />
-							</div>
-						</div>
-
-						<div className={styles.accordionContainer}>
-							<div className={styles.accordion}>
-								<div className={styles.accordionContainer}>
-									<div className={styles.accordion}>
-										{accordionData.map(({ title, content, id }) => (
-											<Accordion key={id} title={title} content={content} />
-										))}
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			) : (
-				""
-			)}
-
+			<Footer/>	
 
 			
 			{
