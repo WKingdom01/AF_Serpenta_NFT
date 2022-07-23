@@ -53,7 +53,7 @@ const Dragon = () => {
         </div>    
     )
 }
-const STAKEDASHBOARD = () => {
+const STAKEDASHBOARD = (props) => {
 	return (
         <main>
             <div className={styles.contentWarpDashboard}>
@@ -61,7 +61,7 @@ const STAKEDASHBOARD = () => {
                 <p>This is an overview of all of your items. To start exploring, click on the button below.</p>
             </div>
             <div className={styles.serpentaWarp}>
-                    <button onClick={() => setShowWalletModal(true)}>THE SERPENTA WORLD</button>
+                    <button onClick={() => props.setDashboard(false)}>THE SERPENTA WORLD</button>
             </div>
 
             <div className = {styles.row}>

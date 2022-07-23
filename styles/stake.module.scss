@@ -625,6 +625,7 @@
 }
 .revealImg{
 	margin-bottom: 20px	;	
+	position: relative;
 }
 .artefactImg{
 	width:72px;
@@ -645,4 +646,13 @@
 	flex-direction:column;
 	gap: 100px; 
 	padding: 20px;
+}
+
+.question{
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
 }

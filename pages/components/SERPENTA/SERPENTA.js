@@ -1,6 +1,9 @@
 
-import React from "react";
+import React, {useState} from "react";
+
 import Image from "next/image";
+
+import Artefact from "../Artefact";
 
 //Import style
 import styles from "/styles/stake.module.scss";
@@ -31,6 +34,14 @@ import Artefact3 from "/static/stake/Artefact3.png";
 
 import key from "/static/stake/1key.png";
 const DragonDetail = () => {
+
+    const [modalOpen, setModalOpen] = useState(false);
+	const [selectedImg, setSelectedImg] = useState();
+    const onClickArtefact =(img)=>{
+        setSelectedImg(img);
+        setModalOpen(show);
+    }
+
     return(
         <div className = {styles.row2}>
             <div className = {styles.columnLeft}>
@@ -92,14 +103,7 @@ const DragonDetail = () => {
                     <p>Click on the slice to view it or reroll it. Each slice contains an image of a dimension that the dragon has visited. There is a possibility of an artefact with each reveal.<br></br>Follow the journey of your personal Serpenta dragons closely and who knows what you can obtain! </p>
                 </div>
                 <div className = {styles.revealImgArray}>
-                    <div >
-                        <div className = {styles.revealImg}>
-                            <Image src = {reveal}></Image>
-                        </div>
-                        <div className = {styles.artefactImg}>
-                            <Image src = {Artefact1}></Image>
-                        </div>
-                    </div>
+                    <Artefact img={reveal} item={Artefact1} isReveal={true}/>
                     <div>
                         <div className = {styles.revealImg}>
                             <Image src = {unreveal0}></Image>
@@ -157,11 +161,13 @@ const DragonDetail = () => {
                 </div>
             </div>
 
+           
+
         </div>
     );
     
 }
-const SERPENTA = () => {
+const SERPENTA = (props) => {
     return (
         <main>
             <div className={styles.contentWarpDashboard}>
@@ -169,7 +175,7 @@ const SERPENTA = () => {
                 <p>Find your Kaiju dragons here. Explore the dimensions, dive into the lore, and collect artefacts. Oh, and don’t forget to check-in for the keys — they will surely be handy to open the loot boxes!</p>
             </div>
             <div className={styles.serpentaWarp}>
-                    <button onClick={() => setShowWalletModal(true)}>BACK TO DASHBOARD</button>
+                    <button onClick={() => props.setDashboard(true)}>BACK TO DASHBOARD</button>
             </div>  
             <div  className= {styles.hLinen}>                
                
