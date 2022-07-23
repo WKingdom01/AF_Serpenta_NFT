@@ -25,17 +25,22 @@ const footerUrls = [
     alt: 'Serpenta - Discord',
   }
 ]
+const Item = ({url}) => {
+  return(
+    <li>
+      <Link  href={url.href}>
+        <Image src={url.src} alt={url.alt} />
+      </Link>
+    </li>
+  )
+}
 const Footer = () => {
 
 	return (
         <div className={styles.footerContainer}>
             <ul className={styles.socialLinks}>
               {footerUrls.map((url, index) => (
-                  <li key={index}>
-                    <Link href={url.href}>
-                      <Image src={url.src} alt={url.alt} />
-                    </Link>
-                  </li>
+                  <Item key={index} url={url}/>
                 ))}
             </ul>
         </div>
