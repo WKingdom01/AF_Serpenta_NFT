@@ -31,7 +31,7 @@ const Footer = () => {
         <div className={styles.footerContainer}>
             <ul className={styles.socialLinks}>
               {footerUrls.map((url, index) => (
-                  <li>
+                  <li key={index}>
                     <Link href={url.href}>
                       <Image src={url.src} alt={url.alt} />
                     </Link>
