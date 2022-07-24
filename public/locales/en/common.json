@@ -185,5 +185,10 @@
     "transactionConfirm":"transaction confirmation",
     "etherScan":"Ether Scan",
     "mintAuthor":"Mint Author"
-    }
+    },   
+  "stake":{
+    "staking":"staking",
+    "firstExp":"Rawr! Log in and explore the dimensions that your dragons have visited. Collect artefacts and uncover the dimension images over time; unveil the lore and dive deep into the world of Serpenta.",
+    "connectwallet":"connect wallet"
+  }
 }

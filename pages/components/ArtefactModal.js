@@ -39,7 +39,7 @@ const ArtefactModal = ({ modalopen, setModalOpen, img }) => {
                 <div className={styles.body}>
                     
                     <div  className={styles.artefactImg}>
-                        <Image src={img} alt="Artefact" width='320px' height='580px' margin='auto' objectFit='cover' />
+                        <Image src={img} alt="Artefact" width='320px' height='580px' margin='auto' layout='fill' />
                     </div>
                    
                    
