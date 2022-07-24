@@ -419,7 +419,7 @@
 	gap: 51px;
 }
 .row{
-	width: 100%;
+	width: fit-content;
 	padding: 0px 50px;
 	margin-top: 100px;
 		h1{
@@ -662,4 +662,43 @@
 }
 .badge{
 	color: #6D6963;
+}
+.artefactModal{  
+   
+	button{
+		position:fixed;
+		top: 20px;
+		right:20px;
+		:hover{
+			cursor: pointer;
+		}
+
+	}
+	.body{
+		margin: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		
+		.img{
+			width: 342px;
+			margin: auto;
+			display: flex;
+		}
+		.box{
+			border:1px solid #93D3FF;
+			border-radius: 8px;
+			padding:36px 160px;
+			height: 100px;
+			margin-top:50px;
+
+			p{
+				font-size: 24px;
+				min-width: 206px;
+				color: #93D3FF;
+			}
+			
+		}
+	}
 }

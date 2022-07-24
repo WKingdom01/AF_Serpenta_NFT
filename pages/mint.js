@@ -306,7 +306,7 @@ export default function Mint() {
 								</div>
 							</div>
 							<div className={styles.mintBtn}>
-								<button onClick={()=>setIsMinted(false)}>{t('mint.mintAutuor').toUpperCase()}</button>
+								<button onClick={()=>setIsMinted(false)}>{t('mint.mintAuthor').toUpperCase()}</button>
 							</div>
 						</div>
 					</div>

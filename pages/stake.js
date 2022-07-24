@@ -4,7 +4,10 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script"
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import styles from "../styles/stake.module.scss";
+
 
 // Images
 import GetHelpIcon from "../static/Question-icon.png";
@@ -27,53 +30,12 @@ const MintNavBar = dynamic(() => import('./components/MintNavBar'));
 
 
 export default function Stake() {
-	  
-	
-	// const { connect, connectors, error, isLoading, pendingConnector } = useConnect();
-	// const { address, isConnecting,isConnected , isDisconnected } = useAccount();
-	// const { disconnect } = useDisconnect();
 	const { isConnected } = useConnect()
     const { disconnect } = useDisconnect();
 
 
 	const [isDashboard, setDashboard] = useState(true);
 
-
-	// const modalRef = useRef();
-	// const openModal = (e) => {
-	// 	e.preventDefault();
-	// 	setShowModal((prev) => !prev);
-	// };
-	// const closeModal = (e) => {
-	// 	if (modalRef.current === e.target) {
-	// 		setShowModal(false);
-	// 		setShowWalletModal(false);
-	// 	}
-	// };
-
-	// const keyPress = useCallback(
-	// 	(e) => {
-	// 		if (e.key === "Escape" && showModal) {
-	// 			setShowModal(false);
-	// 		}
-	// 	},
-	// 	[setShowModal, showModal]
-	// );
-
-
-
-
-	// useEffect(() => {
-	// 	document.addEventListener("keydown", keyPress);
-	// 	return () => document.removeEventListener("keydown", keyPress);
-	// }, [keyPress]);
-
-	// useEffect(()=> {
-	// 	if(isConnected){
-	// 		setShowWalletModal(false);
-	// 		setText("CONNECTED");
-	// 	}
-	// },[isConnected])
 	console.log("connnect:",isConnected);
 
 	return (
@@ -98,7 +60,7 @@ export default function Stake() {
 							<p>Rawr! Log in and explore the dimensions that your dragons have visited. Collect artefacts and uncover the dimension images over time; unveil the lore and dive deep into the world of Serpenta.</p>
 						</div>
 						<div className={styles.connectWarp}>
-							<button onClick={() => setShowWalletModal(true)}>CONNECT WALLET &nbsp;<Image src={Arrow} alt="arrow"/></button>
+							<button >CONNECT WALLET &nbsp;<Image src={Arrow} alt="arrow"/></button>
 						</div>
 						<div className={styles.footer}>
 							<span>@ SERPENTA 2022</span>
@@ -113,3 +75,8 @@ export default function Stake() {
 		
 	);
 }
+export const getStaticProps = async ({ locale }) => ({
+	props: {
+	  ...(await serverSideTranslations(locale, ['common'])),
+	},
+  });

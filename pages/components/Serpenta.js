@@ -107,10 +107,10 @@ const DragonDetail = () => {
         </div>
         <div className={styles.revealImgArray}>
           <Artefact img={reveal} item={Artefact1} isReveal={true} />
-          <Artefact img={unreveal1} item={Artefactunreveal} isReveal={true} />
-          <Artefact img={unreveal2} item={Artefactunreveal} isReveal={true} />
-          <Artefact img={unreveal3} item={Artefactunreveal} isReveal={true} />
-          <Artefact img={unreveal6} item={Artefactunreveal} isReveal={true} />
+          <Artefact img={unreveal1} item={Artefactunreveal} isReveal={false} />
+          <Artefact img={unreveal2} item={Artefactunreveal} isReveal={false} />
+          <Artefact img={unreveal3} item={Artefactunreveal} isReveal={false} />
+          <Artefact img={unreveal6} item={Artefactunreveal} isReveal={false} />
         </div>
       </div>
     </div>

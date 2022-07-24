@@ -183,7 +183,7 @@
     "1minted":"A SERPENTA NFT!",
     "mminted":"SERPENTA NFTS!",
     "transactionConfirm":"transaction confirmation",
-    "etherscan":"Ether Scan",
-    "mintauthor":"Mint Author"
+    "etherScan":"Ether Scan",
+    "mintAuthor":"Mint Author"
     }
 }

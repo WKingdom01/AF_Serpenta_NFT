@@ -20,7 +20,7 @@ const Artefact = ({ img, item, isReveal }) => {
                         <Image src = {img}></Image>
                     </button>
                
-                    {isReveal&&
+                    {!isReveal&&
                         <div className = {styles.question}>                        
                             <Image  src = {Q}></Image>
                         </div>

@@ -2,9 +2,9 @@ import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import Image from 'next/image'
 import { useTranslation } from 'next-i18next';
+import styles from '/styles/stake.module.scss';
 
-
-const ArtefactModal = ({ modalopen, setModalOpen, Img }) => {
+const ArtefactModal = ({ modalopen, setModalOpen, img }) => {
 
     const [questionOpen, setQuestionOpen] = useState(0)
 
@@ -19,15 +19,15 @@ const ArtefactModal = ({ modalopen, setModalOpen, Img }) => {
         }
 
     }
+
     return (
 
         <Modal centered show={modalopen}>
-            <div className="help-center">
-                <div className="help-center__top">
-                    <div className="help-center__title">Help Center</div>
-                    <button onClick={() => { setModalOpen(false) }}> <Image
+            <div className={styles.artefactModal}>
+            <button onClick={() => { setModalOpen(false) }}> 
+                    <Image
                         alt="help"
-                        src="/close.svg"
+                        src="/cross.png"
                         layout="intrinsic"
                         width="50"
                         height="50"
@@ -35,15 +35,16 @@ const ArtefactModal = ({ modalopen, setModalOpen, Img }) => {
                         priority
                         className="help-center__close"
                     />
-                    </button>
-                </div>
-                <div className="help-center__questions">
-                    {ready && t('mint.helpCenter.questions', { returnObjects: true }).map((question, index) => {
-                        return <div className={`help-center__question ${questionOpen === index + 1 ? 'help-center__question--open' : ''}`} key={`question-hc-${index}`}>
-                            <button className="help-center__prompt" onClick={() => { toggleQuestionOpen(index) }}><span className="help-center__chevron">{"> "}</span>{question.prompt}</button>
-                            <div className="help-center__answer">{question.answer}</div>
-                        </div>
-                    })}
+                </button>
+                <div className={styles.body}>
+                    
+                   
+                    <img src={img.src} alt="Artefact" className={styles.img}/>
+                   
+                    <div className={styles.box}>
+                        <p>REROL (0.12) ETH</p>
+                        
+                    </div>
                 </div>
 
             </div>
