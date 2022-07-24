@@ -39,7 +39,7 @@ const ArtefactModal = ({ modalopen, setModalOpen, img }) => {
                 <div className={styles.body}>
                     
                    
-                    <img src={img.src} alt="Artefact" className={styles.img}/>
+                    <Image src={img} alt="Artefact" className={styles.img}/>
                    
                     <div className={styles.box}>
                         <p>REROL (0.12) ETH</p>
