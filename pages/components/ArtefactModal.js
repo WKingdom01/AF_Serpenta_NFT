@@ -24,7 +24,7 @@ const ArtefactModal = ({ modalopen, setModalOpen, img }) => {
 
         <Modal centered show={modalopen}>
             <div className={styles.artefactModal}>
-            <button onClick={() => { setModalOpen(false) }}> 
+               <button onClick={() => { setModalOpen(false) }}> 
                     <Image
                         alt="help"
                         src="/cross.png"
@@ -38,8 +38,10 @@ const ArtefactModal = ({ modalopen, setModalOpen, img }) => {
                 </button>
                 <div className={styles.body}>
                     
+                    <div  className={styles.artefactImg}>
+                        <Image src={img} alt="Artefact" width='320px' height='580px' margin='auto' objectFit='cover' />
+                    </div>
                    
-                    <Image src={img} alt="Artefact" className={styles.img}/>
                    
                     <div className={styles.box}>
                         <p>REROL (0.12) ETH</p>

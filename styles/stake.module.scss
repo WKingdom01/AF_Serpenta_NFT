@@ -680,11 +680,12 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		
-		.img{
+		.artefactImg{
+			position: relative;
 			width: 342px;
 			margin: auto;
 			display: flex;
+			height: auto;
 		}
 		.box{
 			border:1px solid #93D3FF;
