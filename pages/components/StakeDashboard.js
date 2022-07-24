@@ -6,9 +6,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 
 //Import Dragon item datas
- import {dashboardDrgItems, dashboardArtefactItems} from '/data/stakeData' 
-
-
+import { dashboardDrgItems, dashboardArtefactItems } from "/data/stakeData";
 
 import Key from "/static/stake/key.png";
 
@@ -16,7 +14,7 @@ import Box from "/static/stake/box.png";
 //Import Style
 import styles from "/styles/stake.module.scss";
 
-const Dragon = ({Id,level,img,lblImg}) => {
+const Dragon = ({ Id, level, img, lblImg }) => {
   return (
     <div className={styles.dragonWarp}>
       <div className={styles.drgImg} style={{ background: "#FBEDD6" }}>
@@ -36,7 +34,6 @@ const Dragon = ({Id,level,img,lblImg}) => {
   );
 };
 const StakeDashboard = (props) => {
-  
   return (
     <main>
       <div className={styles.contentWarpDashboard}>
@@ -58,11 +55,15 @@ const StakeDashboard = (props) => {
           <span className={styles.badge}>(4)</span>
         </h1>
         <div className={styles.dragonsArray}>
-          {
-            dashboardDrgItems.map((item,index)=>(
-              <Dragon key={index} Id={item.Id} level={item.level} img={item.img} lblImg={item.lblImg}/>
-            ))
-          }
+          {dashboardDrgItems.map((item, index) => (
+            <Dragon
+              key={index}
+              Id={item.Id}
+              level={item.level}
+              img={item.img}
+              lblImg={item.lblImg}
+            />
+          ))}
         </div>
       </div>
 
@@ -79,15 +80,11 @@ const StakeDashboard = (props) => {
                 <span className={styles.badge}>(7)</span>
               </h2>
               <div className={styles.efactArrayWarp}>
-                {
-                  dashboardArtefactItems.map((item,index)=>(
-                    <div key={index} className={styles.efactWarp}>
-                      <Image src={item.src} alt={item.alt}></Image>
-                    </div>
-                  ))
-                }
-                
-                
+                {dashboardArtefactItems.map((item, index) => (
+                  <div key={index} className={styles.efactWarp}>
+                    <Image src={item.src} alt={item.alt}></Image>
+                  </div>
+                ))}
               </div>
             </div>
             <div className={styles.keysWarp}>
