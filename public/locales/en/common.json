@@ -163,7 +163,7 @@
       "questions": [
         {
           "prompt": "How to Install Metamask for NFTs:",
-          "answer": "Here is a guide we have written for newbies to the NFT space. You will need a basic crypto account on Binance / Coinbase etc. Minting an NFT is usually easier on a desktop, and totally possible on mobile, but it's might be a little more cumbersome. https://medium.com/@miaoux_17900/installing-a-metamask-wallet-for-nfts-7e810e1c1b5c"
+          "answer": "Here is a guide we have written for newbies to the NFT space. You will need a basic crypto account on Binance / Coinbase etc. Minting an NFT is usually easier on a desktop, and totally possible on mobile, but it's might be a little more cumbersome.<a href='https://medium.com/@miaoux_17900/installing-a-metamask-wallet-for-nfts-7e810e1c1b5c'> https://medium.com/@miaoux_17900/installing-a-metamask-wallet-for-nfts-7e810e1c1b5c</a>"
         },
         {
           "prompt": "How to Add Funds to your wallet:",
@@ -171,7 +171,7 @@
         },
         {
           "prompt": "How to Mint an NFT:",
-          "answer": "Connect your Wallet to the mint page on the official https://serpenta.io/ website.Click 'Connect Wallet' - this will tell you if you are authorised to mint in the whitelisted phase of the mint. If you are not, then you will have to wait for the public phase of the mint. Write the date and times down - you won't want to miss it.If you do - you can always buy a dragon from the official OpenSea NFT site here: https://opensea.io/collection/Serpenta"
+          "answer": "Connect your Wallet to the mint page on the official <a href='https://serpenta.io/'>https://serpenta.io/</a> website.Click 'Connect Wallet' - this will tell you if you are authorised to mint in the whitelisted phase of the mint. If you are not, then you will have to wait for the public phase of the mint. Write the date and times down - you won't want to miss it.If you do - you can always buy a dragon from the official OpenSea NFT site here: <a href='https://opensea.io/collection/Serpenta'>https://opensea.io/collection/Serpenta</a>"
         },
         {
           "prompt": "Other issues:",
