@@ -7,14 +7,11 @@ import styles from "../styles/stake.module.scss";
 
 
 // Images
-import IMG1 from '../static/stake/NFT_DRAGONS_BATCH2_6 1.png';
-import IMG2 from '../static/stake/NFT_DRAGONS_BATCH2_3 1.png';
-import IMG3 from '../static/stake/NFT_DRAGONS_BATCH2_4 1.png';
-import {firstPageItems} from '/data/stakeImg'
+import {firstPageItems} from '/data/stakeData'
 import Arrow from '../static/stake/arrow.png' 
 
 //wagmi react hook
-import { useConnect,useDisconnect } from 'wagmi';
+import { useConnect } from 'wagmi';
 
 //Components
 const Dashboard = dynamic(() => import ('./components/StakeDashboard'))
@@ -29,7 +26,6 @@ export default function Stake() {
 	const { isConnected } = useConnect()
 	const [isDashboard, setDashboard] = useState(true);
 	const[openmodal, setOpenmodal] = useState(false);
-	console.log(firstPageItems);
 	return (
 		<div >
 			<PageSlot>
@@ -41,7 +37,6 @@ export default function Stake() {
 								<div  key={index} className={styles.imageWrap}>
 									<Image src={item.src} alt={item.alt}/>
 								</div>
-
 							))}
 						</div>
 						<div className={styles.contentWarp}>

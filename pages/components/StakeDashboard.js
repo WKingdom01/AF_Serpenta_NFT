@@ -5,18 +5,10 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/autoplay";
 
-//Import image
-import Img1 from "/static/stake/drg1.png";
-import Img2 from "/static/stake/drg2.png";
-import Img3 from "/static/stake/drg3.png";
-import Img4 from "/static/stake/drg4.png";
+//Import Dragon item datas
+ import {dashboardDrgItems, dashboardArtefactItems} from '/data/stakeData' 
 
-import lblBronze from "/static/stake/lblBronze.png";
-import lblSilver from "/static/stake/lblSilver.png";
-import lblGolden from "/static/stake/lblGolden.png";
-import lblDiamond from "/static/stake/lblDiamond.png";
 
-import Artefact from "/static/stake/Artefact.png";
 
 import Key from "/static/stake/key.png";
 
@@ -24,11 +16,7 @@ import Box from "/static/stake/box.png";
 //Import Style
 import styles from "/styles/stake.module.scss";
 
-const Dragon = () => {
-  const Id = 1029;
-  const level = "Bronze";
-  const img = Img1;
-  const lblImg = lblBronze;
+const Dragon = ({Id,level,img,lblImg}) => {
   return (
     <div className={styles.dragonWarp}>
       <div className={styles.drgImg} style={{ background: "#FBEDD6" }}>
@@ -48,6 +36,7 @@ const Dragon = () => {
   );
 };
 const StakeDashboard = (props) => {
+  
   return (
     <main>
       <div className={styles.contentWarpDashboard}>
@@ -69,10 +58,11 @@ const StakeDashboard = (props) => {
           <span className={styles.badge}>(4)</span>
         </h1>
         <div className={styles.dragonsArray}>
-          <Dragon />
-          <Dragon />
-          <Dragon />
-          <Dragon />
+          {
+            dashboardDrgItems.map((item,index)=>(
+              <Dragon key={index} Id={item.Id} level={item.level} img={item.img} lblImg={item.lblImg}/>
+            ))
+          }
         </div>
       </div>
 
@@ -89,30 +79,15 @@ const StakeDashboard = (props) => {
                 <span className={styles.badge}>(7)</span>
               </h2>
               <div className={styles.efactArrayWarp}>
-                <div className={styles.efactWarp}>
-                  <Image src={Artefact}></Image>
-                </div>
-                <div className={styles.efactWarp}>
-                  <Image src={Artefact}></Image>
-                </div>
-                <div className={styles.efactWarp}>
-                  <Image src={Artefact}></Image>
-                </div>
-                <div className={styles.efactWarp}>
-                  <Image src={Artefact}></Image>
-                </div>
-                <div className={styles.efactWarp}>
-                  <Image src={Artefact}></Image>
-                </div>
-                <div className={styles.efactWarp}>
-                  <Image src={Artefact}></Image>
-                </div>
-                <div className={styles.efactWarp}>
-                  <Image src={Artefact}></Image>
-                </div>
-                <div className={styles.efactWarp}>
-                  <Image src={Artefact}></Image>
-                </div>
+                {
+                  dashboardArtefactItems.map((item,index)=>(
+                    <div key={index} className={styles.efactWarp}>
+                      <Image src={item.src} alt={item.alt}></Image>
+                    </div>
+                  ))
+                }
+                
+                
               </div>
             </div>
             <div className={styles.keysWarp}>
