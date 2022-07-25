@@ -13,6 +13,7 @@ const NavBar = dynamic(() => import('./components/NavBar'));
 const PageSlot = dynamic(() => import('./components/PageSlot'));
 const Stage = dynamic(() => import('./components/Stage'));
 const Team = dynamic(() => import('./components/Team'));
+const Question = dynamic(() => import('./components/Question'));
 
 export default function Home() {
   const { t } = useTranslation('common');
@@ -78,7 +79,28 @@ export default function Home() {
         <BlockGrid />
         <BlockGrid reverse={true} />
         <div className="tagline">{t('faqTitle')}</div>
-        <FAQ />
+        <FAQ>
+          <Question
+            question={t('faq.questionOne')}
+            answer={t('faq.answerOne')}
+          ></Question>
+          <Question
+            question={t('faq.questionTwo')}
+            answer={t('faq.answerTwo')}
+          ></Question>
+          <Question
+            question={t('faq.questionThree')}
+            answer={t('faq.answerThree')}
+          ></Question>
+          <Question
+            question={t('faq.questionFour')}
+            answer={t('faq.answerFour')}
+          ></Question>
+          <Question
+            question={t('faq.questionFive')}
+            answer={t('faq.answerFive')}
+          ></Question>
+        </FAQ>
         <div className="tagline">{t('teamTitle')}</div>
         <Team />
         <div className="component copyright">{t('copyright')}</div>

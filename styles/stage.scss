@@ -1,8 +1,23 @@
-.stage {
-  .tagline {
-    padding-left: 0px;
-  }
+.tagline {
+  font-family: BasierSquareMono, serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 39px;
+  letter-spacing: 0;
+  text-align: left;
+  color: hsla(37, 82%, 91%, .85);
+  text-transform: uppercase;
+  padding: 50px;
+  max-width: 1400px;
+  margin: 0 auto;
 
+  &--no-padding-left {
+    padding-left: 0;
+  }
+}
+
+
+.stage {
   &__content {
     display: flex;
     flex-direction: column;

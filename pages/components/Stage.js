@@ -69,7 +69,11 @@ const Stage = ({ title, body, buttonText, imageUrl, alt, children }) => {
           children ? 'js-wrapper' : ''
         }`}
       >
-        {children && <div className="tagline">{t('roadmapTitle')}</div>}
+        {children && (
+          <div className="tagline tagline--no-padding-left">
+            {t('roadmapTitle')}
+          </div>
+        )}
         <div
           className={`stage__content  ${children ? 'js-slideContainer' : ''} `}
         >
