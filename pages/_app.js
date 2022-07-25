@@ -81,7 +81,6 @@ const client = createClient({
   provider,
 });
 
-
 import withRedux from 'next-redux-wrapper';
 import { Provider } from 'react-redux';
 import { wrapper } from '../store/store';
@@ -92,13 +91,13 @@ function MyApp({ Component, pageProps, store }) {
     <>
       <WagmiConfig client={client}>
         <Script
-          strategy='afterInteractive'
+          strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
         />
 
         <Script
-          id='gtag-init'
-          strategy='afterInteractive'
+          id="gtag-init"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             _html: `
             window.dataLayer = window.dataLayer || [];
@@ -116,4 +115,4 @@ function MyApp({ Component, pageProps, store }) {
   );
 }
 
-export default wrapper.withRedux(appWithTranslation(MyApp, nextI18NextConfig))
+export default wrapper.withRedux(appWithTranslation(MyApp, nextI18NextConfig));

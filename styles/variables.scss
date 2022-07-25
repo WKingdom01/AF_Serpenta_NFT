@@ -7,30 +7,28 @@ $mbp: 850px;
 
 body:before,
 body:after {
-    content: "xsmall";
-    display: none;
-    visibility: hidden;
+  content: 'xsmall';
+  display: none;
+  visibility: hidden;
 }
 
 @media (min-width: $tablet) {
-    body:before {
-        content: "tablet";
-    }
+  body:before {
+    content: 'tablet';
+  }
 }
 
 @media (min-width: $desktop) {
-    body:before {
-        content: "desktop";
-    }
+  body:before {
+    content: 'desktop';
+  }
 }
 
 @media (max-height: $mbp) {
-    body:after {
-        content: "short";
-    }
+  body:after {
+    content: 'short';
+  }
 }
-
-
 
 $offwhite: #f8f8ff;
 
@@ -43,33 +41,31 @@ $light-gray: #ebeef7;
 $darker-gray: #8b93af;
 $almost-black: #181818;
 
-
 //bg
 
-$darkslategray:#18263e;
+$darkslategray: #18263e;
 $black: #0c1117;
 $purple: #271731;
 $darkblue: #111d2d;
 
-$light-brown: #CC9544;
-
+$light-brown: #cc9544;
 
 //new colors
 
-$black: #0D1116;
-$papaya-whip: #FBEDD6;
-$light-blue-sky: #93D3FF;
+$black: #0d1116;
+$papaya-whip: #fbedd6;
+$light-blue-sky: #93d3ff;
 $white: #fff;
 
-//secondary 
+//secondary
 
-$rich-black: #0E141B;
-$pale-silver: #BDB7AC;
-$wheat: #F4DFBA;
-$khaki-web: #D2C4AB;
-$khaki-web-dark: #BBAE96;
-$violet-web:#FE8FFF;
+$rich-black: #0e141b;
+$pale-silver: #bdb7ac;
+$wheat: #f4dfba;
+$khaki-web: #d2c4ab;
+$khaki-web-dark: #bbae96;
+$violet-web: #fe8fff;
 $english-violet: #554367;
-$columbia-blue: #C5E3FB;
-$maya-blue: #7DC1FA;
-$red: #FF7070;
+$columbia-blue: #c5e3fb;
+$maya-blue: #7dc1fa;
+$red: #ff7070;

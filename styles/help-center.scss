@@ -1,68 +1,66 @@
 .help-center {
-    border: 1px solid rgba($papaya-whip, .85);
-    border-radius: 8px;
-    padding: 16px;
-    background: $rich-black;
+  border: 1px solid rgba($papaya-whip, 0.85);
+  border-radius: 8px;
+  padding: 16px;
+  background: $rich-black;
 
-    &__question {
-        border-top: 1px solid $papaya-whip;
-        padding: 30px 0px;
+  &__question {
+    border-top: 1px solid $papaya-whip;
+    padding: 30px 0px;
 
-        &--open {
-            .help-center__chevron {
-                transform: rotate(90deg);
-            }
+    &--open {
+      .help-center__chevron {
+        transform: rotate(90deg);
+      }
 
-            .help-center__answer {
-                max-height: 1000px;
-            }
-        }
-
-
+      .help-center__answer {
+        max-height: 1000px;
+      }
     }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  &__title {
+    @include Heading-2;
+    color: $papaya-whip;
+    text-transform: uppercase;
+  }
+
+  &__chevron {
+    width: 20px;
+
+    position: absolute;
+    left: 0px;
+  }
+
+  &__prompt {
+    padding-left: 30px;
+    @include Heading-3;
+    text-transform: uppercase;
+    color: $light-blue-sky;
+  }
+
+  &__answer {
+    max-height: 0px;
+    transition: max-height 0.5s ease-in-out;
+    overflow: hidden;
+    @include Body-Text;
+    color: $light-blue-sky;
+    padding-left: 30px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding: 50px;
 
     &__top {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 50px;
+      margin-bottom: 100px;
     }
-
-    &__title {
-        @include Heading-2;
-        color: $papaya-whip;
-        text-transform: uppercase;
-    }
-
-    &__chevron {
-        width: 20px;
-
-        position: absolute;
-        left: 0px;
-    }
-
-    &__prompt {
-        padding-left: 30px;
-        @include Heading-3;
-        text-transform: uppercase;
-        color: $light-blue-sky;
-    }
-
-    &__answer {
-        max-height: 0px;
-        transition: max-height .5s ease-in-out;
-        overflow: hidden;
-        @include Body-Text;
-        color: $light-blue-sky;
-        padding-left: 30px;
-    }
-
-    @media screen and (min-width: $tablet) {
-        padding: 50px;
-
-        &__top {
-            margin-bottom: 100px;
-        }
-    }
+  }
 }

@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image';
 import { Parallax } from 'react-parallax';
 
 const Background = ({ top, bottom }) => (
@@ -29,7 +29,7 @@ const Background = ({ top, bottom }) => (
       </div>
       <div>{bottom}</div>
     </div>
-  </Parallax >
-)
+  </Parallax>
+);
 
-export default Background
+export default Background;

@@ -30,22 +30,21 @@ const LanguageSelect = () => {
   return (
     <div className={`language-select ${open ? 'language-select--open' : ''}`}>
       <Button
-        dropdown='true'
+        dropdown="true"
         text={selectedOption.label}
-        style='blue ThreeD'
+        style="blue ThreeD"
         active={open}
-        className='language-select__header'
+        className="language-select__header"
         clickHandler={() => setOpen(!open)}
-      >
-       </Button>
-      <div className='language-select__options'>
+      ></Button>
+      <div className="language-select__options">
         {options.map((option, index) => {
           return (
-            <Link key={`option--${index}`} href='/' locale={option.value}>
-              <div className='language-select__option'>
+            <Link key={`option--${index}`} href="/" locale={option.value}>
+              <div className="language-select__option">
                 {option.label}{' '}
                 {option.value === selectedOption.value ? (
-                  <FontAwesomeIcon className='icon' icon={faCheck} />
+                  <FontAwesomeIcon className="icon" icon={faCheck} />
                 ) : (
                   ''
                 )}{' '}

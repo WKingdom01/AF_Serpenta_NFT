@@ -1,19 +1,18 @@
 @font-face {
-  font-family: "BasierSquareMono";
-  src: url("/fonts/BasierSquareMono-Regular.otf");
+  font-family: 'BasierSquareMono';
+  src: url('/fonts/BasierSquareMono-Regular.otf');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "BasierSquareMono";
-  src: url("/fonts/BasierSquareMono-SemiBold.otf");
+  font-family: 'BasierSquareMono';
+  src: url('/fonts/BasierSquareMono-SemiBold.otf');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
 }
-
 
 @mixin Heading-1 {
   //styleName: H1;
@@ -43,7 +42,6 @@
   line-height: 28px;
   letter-spacing: 0em;
   text-align: left;
-
 }
 
 @mixin Button-Text {
@@ -54,7 +52,6 @@
   line-height: 29px;
   letter-spacing: 0em;
   text-align: left;
-
 }
 
 @mixin Body-Text {
@@ -66,8 +63,6 @@
   letter-spacing: 0em;
   text-align: left;
 
-
-
   @media screen and (min-width: $desktop) {
     font-size: 20px;
   }
@@ -75,7 +70,6 @@
   @media (max-height: $mbp) {
     font-size: 15px;
   }
-
 }
 
 @mixin Small-Body {
@@ -86,7 +80,6 @@
   line-height: 32px;
   letter-spacing: 0em;
   text-align: left;
-
 }
 
 @mixin Small-Button-Text {
@@ -97,7 +90,6 @@
   line-height: 24px;
   letter-spacing: 0em;
   text-align: left;
-
 }
 
 @mixin caption {
@@ -108,5 +100,4 @@
   line-height: 22px;
   letter-spacing: 0em;
   text-align: left;
-
 }

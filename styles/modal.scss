@@ -1,10 +1,9 @@
 .modal {
-    &-backdrop {
-        background-color: $rich-black !important;
+  &-backdrop {
+    background-color: $rich-black !important;
 
-        &.show {
-            opacity: .9 !important;
-        }
-
+    &.show {
+      opacity: 0.9 !important;
     }
+  }
 }

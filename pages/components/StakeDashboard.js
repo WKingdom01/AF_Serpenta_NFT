@@ -1,23 +1,23 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/autoplay";
+import 'swiper/css';
+import 'swiper/css/autoplay';
 
 //Import Dragon item datas
-import { dashboardDrgItems, dashboardArtefactItems } from "/data/stakeData";
+import { dashboardDrgItems, dashboardArtefactItems } from '/data/stakeData';
 
-import Key from "/static/stake/key.png";
+import Key from '/static/stake/key.png';
 
-import Box from "/static/stake/box.png";
+import Box from '/static/stake/box.png';
 //Import Style
-import styles from "/styles/stake.module.scss";
+import styles from '/styles/stake.module.scss';
 
 const Dragon = ({ Id, level, img, lblImg }) => {
   return (
     <div className={styles.dragonWarp}>
-      <div className={styles.drgImg} style={{ background: "#FBEDD6" }}>
+      <div className={styles.drgImg} style={{ background: '#FBEDD6' }}>
         <Image src={img} alt="level"></Image>
       </div>
       <div classNamce={styles.drgProp}>

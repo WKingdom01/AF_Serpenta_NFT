@@ -25,13 +25,13 @@ const Button = ({
           title={title ?? text}
           disabled={disabled}
         >
-          <div className='button__text'>
+          <div className="button__text">
             <div>
               {text} {children}
             </div>
             {dropdown && (
               <div>
-                <FontAwesomeIcon className='icon' icon={faChevronDown} />
+                <FontAwesomeIcon className="icon" icon={faChevronDown} />
               </div>
             )}
           </div>
@@ -40,8 +40,8 @@ const Button = ({
       {link && (
         <a
           href={link}
-          target='_blank'
-          rel='noreferrer'
+          target="_blank"
+          rel="noreferrer"
           className={`button button--${clicked ? 'clicked' : ''}`}
           onMouseDown={() => {
             setClick(true);
@@ -52,11 +52,11 @@ const Button = ({
           title={title ?? text}
           disabled={disabled}
         >
-          <div className='button__text'>
+          <div className="button__text">
             {text} {children}
             {symbol && (
               <div>
-                <FontAwesomeIcon className='icon' icon={faArrowRight} />
+                <FontAwesomeIcon className="icon" icon={faArrowRight} />
               </div>
             )}
           </div>

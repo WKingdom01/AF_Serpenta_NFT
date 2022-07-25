@@ -173,28 +173,28 @@ const MintBlock = () => {
   };
 
   return (
-    <div className='mint-block container'>
-      <div className='mint__block container'>
-        <Grid alt='true'></Grid>
-        <div className='mint__container'>
-          <div className='mint__amount'>
-            <div className='mint__left'>
-              <div className='mint__eyebrow'>{t('mint.amountLabel')}</div>
-              <div className='mint__input'>
+    <div className="mint-block container">
+      <div className="mint__block container">
+        <Grid alt="true"></Grid>
+        <div className="mint__container">
+          <div className="mint__amount">
+            <div className="mint__left">
+              <div className="mint__eyebrow">{t('mint.amountLabel')}</div>
+              <div className="mint__input">
                 <input value={mints}></input>
-                <div className='mint__counters'>
-                  <button className='mint__counter-button'>
+                <div className="mint__counters">
+                  <button className="mint__counter-button">
                     <FontAwesomeIcon
-                      className='icon'
+                      className="icon"
                       icon={faMinus}
                       onClick={() => {
                         incrementMints(mints--);
                       }}
                     />
                   </button>
-                  <button className='mint__counter-button'>
+                  <button className="mint__counter-button">
                     <FontAwesomeIcon
-                      className='icon'
+                      className="icon"
                       icon={faPlus}
                       onClick={() => {
                         incrementMints(mints++);
@@ -204,40 +204,40 @@ const MintBlock = () => {
                 </div>
               </div>
             </div>
-            <div className='mint__right'>
-              <div className='mint__eyebrow'>{t('mint.totalPriceLabel')}</div>
-              <div className='mint__price'>0.12 ETH</div>
+            <div className="mint__right">
+              <div className="mint__eyebrow">{t('mint.totalPriceLabel')}</div>
+              <div className="mint__price">0.12 ETH</div>
             </div>
           </div>
-          <div className='mint__score'>
-            <div className='mint__eyebrow'>{t('mint.mintingLabel')}</div>
+          <div className="mint__score">
+            <div className="mint__eyebrow">{t('mint.mintingLabel')}</div>
 
-            <div className='mint__progress-bar'>
+            <div className="mint__progress-bar">
               <div
-                className='mint__progress-bar--filled'
+                className="mint__progress-bar--filled"
                 style={{ width: width }}
               ></div>
-              <div className='mint__minted'>100/5000</div>
+              <div className="mint__minted">100/5000</div>
             </div>
             {mintError && (
-              <div className='mint__error'>
+              <div className="mint__error">
                 {' '}
                 {t('mint.errors.authorizeLabel')}
               </div>
             )}
           </div>
           {!soldOut ? (
-            <div className='mint__button'>
+            <div className="mint__button">
               <Button
-                text='Mint'
-                style='papaya short'
+                text="Mint"
+                style="papaya short"
                 clickHandler={mint}
               ></Button>
             </div>
           ) : (
-            <div className='mint__sold-out'>
-              <div className='label label--red'> {t('mint.soldOut')}</div>
-              <div className='label'> {t('mint.openSea')}</div>
+            <div className="mint__sold-out">
+              <div className="label label--red"> {t('mint.soldOut')}</div>
+              <div className="label"> {t('mint.openSea')}</div>
             </div>
           )}
         </div>
@@ -267,20 +267,20 @@ const MintBlock = () => {
                 unsetAll();
                 disconnect();
               }}
-              text='Disconnect'
+              text="Disconnect"
             />
             <h2>Siwe Actions</h2>
-            <Button clickHandler={() => signIn()} text='Sign in' />
+            <Button clickHandler={() => signIn()} text="Sign in" />
             <Button
               clickHandler={() => retrieveMe()}
-              text='Retrieve Wallet Info'
+              text="Retrieve Wallet Info"
             />
             <Button
               clickHandler={() => {
                 unsetAll();
                 logOut();
               }}
-              text='Log out'
+              text="Log out"
             />
 
             <h3>Debug SIWE</h3>

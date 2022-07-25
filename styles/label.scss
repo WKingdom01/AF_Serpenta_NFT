@@ -1,7 +1,7 @@
 .label {
-    @include Body-Text;
+  @include Body-Text;
 
-    &--red {
-        color: $red;
-    }
+  &--red {
+    color: $red;
+  }
 }

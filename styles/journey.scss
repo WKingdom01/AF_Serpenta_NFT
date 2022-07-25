@@ -1,93 +1,85 @@
 .journey {
+  &--desktop {
+    display: none;
+    padding-bottom: 48px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    // overflow-y: scroll;
+    // width: 2000px;
+
+    // height: 700px;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  &__stage {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba($papaya-whip, 0.85);
+    flex-shrink: 0;
+    padding: 24px;
+    padding-top: 48px;
+    display: flex;
+    margin-bottom: 24px;
+    flex-direction: column;
+  }
+
+  &__image {
+    margin-bottom: 24px;
+    align-self: center;
+    width: 75%;
+    flex-shrink: 1;
+    // height: 300px;
+  }
+
+  &__header {
+    @include Heading-3;
+    color: rgba($papaya-whip, 0.85);
+    margin-bottom: 24px;
+    margin-top: 24px;
+  }
+
+  &__text {
+    @include Body-Text;
+    color: rgba($papaya-whip, 0.85);
+  }
+
+  @media screen and (min-width: $desktop) {
+    &--mobile {
+      display: none;
+    }
 
     &--desktop {
-        display: none;
-        padding-bottom: 48px;
+      display: block;
     }
 
-
-    &__content {
-        display: flex;
-        justify-content: space-between;
-        // overflow-y: scroll;
-        // width: 2000px;
-
-        // height: 700px;
-        width: 100%;
-        flex-direction: column;
-
-    }
+    height: 700px;
 
     &__stage {
+      width: calc(100% / 6 - 24px);
+    }
+
+    &__content {
+      width: 3325px;
+      position: absolute;
+      flex-direction: row;
+    }
+
+    @media (max-height: $mbp) {
+      .tagline {
+        padding: 0px;
+      }
+
+      &__text {
+        font-size: 14px;
+      }
+
+      &__image {
         width: 100%;
-        border-radius: 8px;
-        border: 1px solid rgba($papaya-whip, .85);
-        flex-shrink: 0;
-        padding: 24px;
-        padding-top: 48px;
-        display: flex;
-        margin-bottom: 24px;
-        flex-direction: column;
-
+      }
     }
-
-    &__image {
-        margin-bottom: 24px;
-        align-self: center;
-        width: 75%;
-        flex-shrink: 1;
-        // height: 300px;
-    }
-
-    &__header {
-        @include Heading-3;
-        color: rgba($papaya-whip, .85);
-        margin-bottom: 24px;
-        margin-top: 24px;
-    }
-
-    &__text {
-        @include Body-Text;
-        color: rgba($papaya-whip, .85);
-    }
-
-    @media screen and (min-width: $desktop) {
-        &--mobile {
-            display: none;
-        }
-
-
-        &--desktop {
-            display: block;
-        }
-
-        height: 700px;
-
-        &__stage {
-            width: calc(100% / 6 - 24px);
-
-        }
-
-
-        &__content {
-            width: 3325px;
-            position: absolute;
-            flex-direction: row;
-        }
-
-        @media (max-height: $mbp) {
-
-            .tagline {
-                padding: 0px;
-            }
-
-            &__text {
-                font-size: 14px;
-            }
-
-            &__image {
-                width: 100%;
-            }
-        }
-    }
+  }
 }

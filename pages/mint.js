@@ -1,25 +1,25 @@
-import dynamic from "next/dynamic";
-import React, { useState, useRef, useEffect, useCallback } from "react";
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import Script from "next/script";
-import styles from "../styles/mint.module.scss";
+import dynamic from 'next/dynamic';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+import Script from 'next/script';
+import styles from '../styles/mint.module.scss';
 
-import { useTranslation } from "next-i18next";
-import nextI18NextConfig from "../next-i18next.config.js";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from 'next-i18next';
+import nextI18NextConfig from '../next-i18next.config.js';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 // Images
-import GetHelpIcon from "../static/Question-icon.png";
-import Logo from "../static/main-logo.png";
-import CloseIcon from "../static/Close-icon.png";
-import rectIcon from "../static/rectIcon.png";
+import GetHelpIcon from '../static/Question-icon.png';
+import Logo from '../static/main-logo.png';
+import CloseIcon from '../static/Close-icon.png';
+import rectIcon from '../static/rectIcon.png';
 //temp image
-import nftImage from "../static/01.png";
+import nftImage from '../static/01.png';
 
 //wagmi react hook
-import { ethers } from "ethers";
+import { ethers } from 'ethers';
 import {
   useConnect,
   useAccount,
@@ -28,20 +28,20 @@ import {
   useContract,
   useSigner,
   useProvider,
-} from "wagmi";
+} from 'wagmi';
 //contract
-import mintABI from "../services/abi/mint.json";
+import mintABI from '../services/abi/mint.json';
 //whitelist address
-import whitelistAddress from "../public/static/whitelisted-wallets.json";
+import whitelistAddress from '../public/static/whitelisted-wallets.json';
 //Components
 
-const SwiperDragon = dynamic(() => import("./components/SwiperDragon"));
-const Footer = dynamic(() => import("./components/Footer"));
-const PageSlot = dynamic(() => import("./components/PageSlot"));
-const MintNavBar = dynamic(() => import("./components/MintNavBar"));
+const SwiperDragon = dynamic(() => import('./components/SwiperDragon'));
+const Footer = dynamic(() => import('./components/Footer'));
+const PageSlot = dynamic(() => import('./components/PageSlot'));
+const MintNavBar = dynamic(() => import('./components/MintNavBar'));
 //MerkleTree
-const { MerkleTree } = require("merkletreejs");
-const keccak256 = require("keccak256");
+const { MerkleTree } = require('merkletreejs');
+const keccak256 = require('keccak256');
 let whitelistOnlyAddress = [];
 const getWhitelistOnlyAddress = () => {
   whitelistAddress.map((item) =>
@@ -50,7 +50,7 @@ const getWhitelistOnlyAddress = () => {
 };
 getWhitelistOnlyAddress();
 export default function Mint() {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation('common');
 
   const [showWalletModal, setShowWalletModal] = useState(false);
 
@@ -68,7 +68,7 @@ export default function Mint() {
   const [publicTime, setPublicTime] = useState(0);
   const [isMinting, setIsMinting] = useState(0);
   const [isMinted, setIsMinted] = useState(false);
-  const [etherscanLink, setEtherScanLink] = useState("");
+  const [etherscanLink, setEtherScanLink] = useState('');
 
   const { data: accountData } = useAccount();
   const address = accountData?.address;
@@ -88,13 +88,13 @@ export default function Mint() {
   const publicTimeStamp = useContractRead({
     addressOrName: process.env.NEXT_PUBLIC_ANALYTICS_CONTRACT_ADDRESS,
     contractInterface: mintABI,
-    functionName: "publicTimestamp",
+    functionName: 'publicTimestamp',
   });
 
   const privateTimeStamp = useContractRead({
     addressOrName: process.env.NEXT_PUBLIC_ANALYTICS_CONTRACT_ADDRESS,
     contractInterface: mintABI,
-    functionName: "privateTimestamp",
+    functionName: 'privateTimestamp',
   });
 
   const decrease = () => {
@@ -125,7 +125,7 @@ export default function Mint() {
 
         if (Number(currentBalance) + mintNum < max_wallet) {
           if (currentTime < priveTime || priveTime === 0 || publicTime === 0) {
-            console.log("sale has not started");
+            console.log('sale has not started');
           } else if (currentTime >= priveTime && currentTime < publicTime) {
             let tx = await contract.privateMint(mintNum, merkleProof, {
               value: ethers.utils.parseEther((mintPrice * mintNum).toString()),
@@ -136,7 +136,7 @@ export default function Mint() {
               setIsMinted(true);
               setEtherScanLink(
                 process.env.NEXT_PUBLIC_URL_ETHERSCAN_TX +
-                  receipt["transactionHash"]
+                  receipt['transactionHash']
               );
             }
           } else if (currentTime >= publicTime) {
@@ -149,10 +149,10 @@ export default function Mint() {
               setIsMinted(true);
               setEtherScanLink(
                 process.env.NEXT_PUBLIC_URL_ETHERSCAN_TX +
-                  receipt["transactionHash"]
+                  receipt['transactionHash']
               );
             }
-          } else throw new Error("Unreachable");
+          } else throw new Error('Unreachable');
         } else {
           setIsMinting(false);
           console.log("you can't mint nft more than " + max_wallet);
@@ -216,7 +216,7 @@ export default function Mint() {
             </div>
             <div className={styles.amountpriceWrap}>
               <div className={styles.amount}>
-                <h3>{t("mint.amountLabel").toUpperCase()}</h3>
+                <h3>{t('mint.amountLabel').toUpperCase()}</h3>
                 <div className={styles.counterWrap}>
                   <div className={styles.numfield}>{mintNum}</div>
                   <div className={styles.Btnfield}>
@@ -226,20 +226,20 @@ export default function Mint() {
                 </div>
               </div>
               <div className={styles.price}>
-                <h3>{t("mint.totalPriceLabel").toUpperCase()}</h3>
+                <h3>{t('mint.totalPriceLabel').toUpperCase()}</h3>
                 <span>{(mintPrice * mintNum).toFixed(3)} ETH</span>
               </div>
             </div>
             <div className={styles.mintProgress}>
               {soldout ? (
-                <h3>{t("mint.mintingLabel").toUpperCase()}</h3>
+                <h3>{t('mint.mintingLabel').toUpperCase()}</h3>
               ) : (
-                <h3>{t("mint.mintingLabel").toUpperCase()}</h3>
+                <h3>{t('mint.mintingLabel').toUpperCase()}</h3>
               )}
               <div className={styles.progressWrap}>
                 <div
                   className={styles.progressBar}
-                  style={{ width: "8%" }}
+                  style={{ width: '8%' }}
                 ></div>
                 <span>
                   {mintedNftID}/{totalNftID}
@@ -248,15 +248,15 @@ export default function Mint() {
             </div>
             <div className={styles.errorMessage}>
               {authorizedError && (
-                <span>{t("mint.errors.authorizeLabel")}</span>
+                <span>{t('mint.errors.authorizeLabel')}</span>
               )}
             </div>
             <div className={styles.soldErrorMessage}>
               {soldout && (
                 <div>
-                  <h3>{t("mint.soldOut").toUpperCase()}</h3>
+                  <h3>{t('mint.soldOut').toUpperCase()}</h3>
                   <span>
-                    {t("mint.opensea.first")}
+                    {t('mint.opensea.first')}
                     <a
                       href={process.env.NEXT_PUBLIC_URL_OPENSEA_COLLECTION}
                       rel="noreferrer"
@@ -264,7 +264,7 @@ export default function Mint() {
                     >
                       opensea.io
                     </a>
-                    {t("mint.opensea.second")}
+                    {t('mint.opensea.second')}
                   </span>
                 </div>
               )}
@@ -297,12 +297,12 @@ export default function Mint() {
               <div className={styles.mintText}>
                 {mintNum === 1 ? (
                   <span>
-                    {t("mint.minted")} <br></br>
-                    {t("mint.1minted")}
+                    {t('mint.minted')} <br></br>
+                    {t('mint.1minted')}
                   </span>
                 ) : (
                   <span>
-                    {t("mint.minted")} <br></br>[{mintNum}] {t("mint.mminted")}
+                    {t('mint.minted')} <br></br>[{mintNum}] {t('mint.mminted')}
                   </span>
                 )}
               </div>
@@ -353,24 +353,24 @@ export default function Mint() {
                         alt="rectIcon"
                       />
                     </div>
-                    <h3>t{"mint.transactionConfirm"}</h3>
+                    <h3>t{'mint.transactionConfirm'}</h3>
                   </div>
                   <Link href={etherscanLink}>
                     <a target="_blank" rel="noopener noreferrer">
-                      {t("mint.etherScan")}
+                      {t('mint.etherScan')}
                     </a>
                   </Link>
                 </div>
               </div>
               <div className={styles.mintBtn}>
                 <button onClick={() => setIsMinted(false)}>
-                  {t("mint.mintAuthor").toUpperCase()}
+                  {t('mint.mintAuthor').toUpperCase()}
                 </button>
               </div>
             </div>
           </div>
         ) : (
-          ""
+          ''
         )}
       </PageSlot>
     </div>
@@ -379,6 +379,6 @@ export default function Mint() {
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ["common"])),
+    ...(await serverSideTranslations(locale, ['common'])),
   },
 });

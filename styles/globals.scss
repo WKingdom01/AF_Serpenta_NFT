@@ -1,26 +1,26 @@
 @font-face {
-	font-family: "BasierSquareMono";
-	src: url(../static/fonts/basiersquaremono-regular-webfont.woff),
-		url(../static/fonts/basiersquaremono-regular-webfont.ttf),
-		url(../static/fonts/basiersquaremono-regular-webfont.eot),
-		url(../static/fonts/basiersquaremono-regular-webfont.woff2);
+  font-family: 'BasierSquareMono';
+  src: url(../static/fonts/basiersquaremono-regular-webfont.woff),
+    url(../static/fonts/basiersquaremono-regular-webfont.ttf),
+    url(../static/fonts/basiersquaremono-regular-webfont.eot),
+    url(../static/fonts/basiersquaremono-regular-webfont.woff2);
 }
 html,
 body {
-	padding: 0;
-	margin: 0;
-	font-family: "BasierSquareMono", sans-serif;
-	color: hsla(37,82%,91%,.9);
+  padding: 0;
+  margin: 0;
+  font-family: 'BasierSquareMono', sans-serif;
+  color: hsla(37, 82%, 91%, 0.9);
 }
 body {
-	background-color: #0e141b;
+  background-color: #0e141b;
 }
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }

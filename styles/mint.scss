@@ -1,184 +1,178 @@
 .mint {
-    padding: 20px;
+  padding: 20px;
 
+  &__block {
+    padding: 0px;
+    // min-height: 1200px;
+    border: 1px solid $papaya-whip;
+    border-radius: 8px;
+    background: $black;
+    max-width: 694px;
 
-    &__block {
-        padding: 0px;
-        // min-height: 1200px;
-        border: 1px solid $papaya-whip;
-        border-radius: 8px;
-        background: $black;
-        max-width: 694px;
+    background: $black;
+    // margin: 20px;
+    margin-bottom: 82px;
+  }
 
-        background: $black;
-        // margin: 20px;
-        margin-bottom: 82px;
+  &__input {
+    border: 1px solid $papaya-whip;
+    border-radius: 8px;
+    background: $black;
 
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
 
+    input {
+      background: none;
+      border: none;
+      background: $black;
+      width: 75%;
+      color: rgba($papaya-whip, 0.85);
+      @include Body-Text;
+    }
+  }
+
+  &__amount {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  &__eyebrow {
+    @include Heading-3;
+    color: rgba($papaya-whip, 0.85);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  &__price {
+    @include Body-Text;
+    color: rgba($papaya-whip, 0.85);
+  }
+
+  &__counters {
+    // width: 25%;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  &__counter-button {
+    width: 28px;
+    height: 28px;
+    background: $papaya-whip;
+    color: $black;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:first-child {
+      margin-right: 10px;
     }
 
-    &__input {
-        border: 1px solid $papaya-whip;
-        border-radius: 8px;
-        background: $black;
-
-        padding: 16px;
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 40px;
-
-        input {
-            background: none;
-            border: none;
-            background: $black;
-            width: 75%;
-            color: rgba($papaya-whip, .85);
-            @include Body-Text;
-        }
+    .icon {
+      width: 13px;
+      height: 13px;
     }
+  }
 
+  &__score {
+    color: white;
+    font-size: 45px;
+    margin-bottom: 32px;
+    width: 100%;
+  }
+
+  // &__block {
+  //     // background: $light-gray;
+  //     min-height: 500px;
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  // }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 50px 50px 50px;
+  }
+
+  &__progress-bar {
+    border: 1px solid rgba($papaya-whip, 0.85);
+    width: 100%;
+
+    @include Body-Text;
+    text-align: center;
+    padding: 14px 0px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+
+    &--filled {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 25%;
+      background: $light-blue-sky;
+      height: 100%;
+      transition: width 0.3s;
+    }
+  }
+
+  &__minted {
+    position: relative;
+    z-index: 2;
+    mix-blend-mode: difference;
+  }
+
+  &__button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  &__sold-out {
+    width: 100%;
+
+    .label {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__error {
+    color: $red;
+    @include Small-Body;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: $tablet) {
     &__amount {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        margin-bottom: 40px;
+      flex-direction: row;
+      justify-content: space-between;
     }
 
-    &__eyebrow {
-        @include Heading-3;
-        color: rgba($papaya-whip, .85);
-        text-transform: uppercase;
-        margin-bottom: 20px;
-    }
-
-    &__price {
-        @include Body-Text;
-        color: rgba($papaya-whip, .85);
-    }
-
-    &__counters {
-        // width: 25%;
-        display: flex;
-        justify-content: space-between;
-        flex-grow: 1;
-    }
-
-    &__counter-button {
-        width: 28px;
-        height: 28px;
-        background: $papaya-whip;
-        color: $black;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        &:first-child {
-            margin-right: 10px;
-        }
-
-        .icon {
-            width: 13px;
-            height: 13px;
-        }
-    }
-
-    &__score {
-        color: white;
-        font-size: 45px;
-        margin-bottom: 32px;
-        width: 100%;
-    }
-
-    // &__block {
-    //     // background: $light-gray;
-    //     min-height: 500px;
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    // }
-
-    &__container {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        padding: 0px 50px 50px 50px;
+    &__left,
+    &__right {
+      width: calc(50% - 25px);
     }
 
     &__progress-bar {
-        border: 1px solid rgba($papaya-whip, .85);
-        width: 100%;
-
-        @include Body-Text;
-        text-align: center;
-        padding: 14px 0px;
-        border-radius: 8px;
-        position: relative;
-        overflow: hidden;
-
-        &--filled {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 25%;
-            background: $light-blue-sky;
-            height: 100%;
-            transition: width .3s;
-        }
+      margin-bottom: 50px;
     }
-
-    &__minted {
-        position: relative;
-        z-index: 2;
-        mix-blend-mode: difference;
-    }
-
-    &__button {
-        width: 100%;
-        max-width: 300px;
-
-    }
-
-    &__sold-out {
-        width: 100%;
-
-        .label {
-            margin-bottom: 8px;
-        }
-    }
-
-    &__error {
-        color: $red;
-        @include Small-Body;
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        width: 100%;
-    }
-
-    &__socials {
-        display: flex;
-        justify-content: space-between;
-        width: 200px;
-        margin: 0 auto;
-    }
-
-    @media screen and (min-width: $tablet) {
-
-        &__amount {
-            flex-direction: row;
-            justify-content: space-between;
-        }
-
-        &__left,
-        &__right {
-            width: calc(50% - 25px);
-        }
-
-        &__progress-bar {
-            margin-bottom: 50px;
-        }
-
-    }
+  }
 }

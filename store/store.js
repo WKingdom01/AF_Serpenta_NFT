@@ -4,8 +4,11 @@ import { createStore } from 'redux';
 import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 
 // create your reducer
-const reducer = (state = { tick: 'init', wallet: { connected: false } }, action) => {
-  console.log(action)
+const reducer = (
+  state = { tick: 'init', wallet: { connected: false } },
+  action
+) => {
+  console.log(action);
   switch (action.type) {
     case HYDRATE:
       return { ...state, ...action.payload };
@@ -17,7 +20,7 @@ const reducer = (state = { tick: 'init', wallet: { connected: false } }, action)
 };
 
 //create a makeStore function
-const makeStore = context => createStore(reducer);
+const makeStore = (context) => createStore(reducer);
 
 //TODO: export an assembled wrapper
 export const wrapper = createWrapper(makeStore, { debug: true });

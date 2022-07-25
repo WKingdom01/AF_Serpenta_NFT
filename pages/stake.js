@@ -1,26 +1,26 @@
-import dynamic from "next/dynamic";
-import React, { useState } from "react";
-import Image from "next/image";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
-import styles from "../styles/stake.module.scss";
+import dynamic from 'next/dynamic';
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+import styles from '../styles/stake.module.scss';
 
 // Images
-import { firstPageItems } from "/data/stakeData";
-import Arrow from "../static/stake/arrow.png";
+import { firstPageItems } from '/data/stakeData';
+import Arrow from '../static/stake/arrow.png';
 
 //wagmi react hook
-import { useConnect } from "wagmi";
+import { useConnect } from 'wagmi';
 
 //Components
-const Dashboard = dynamic(() => import("./components/StakeDashboard"));
-const Serpenta = dynamic(() => import("./components/StakeSerpenta"));
-const PageSlot = dynamic(() => import("./components/PageSlot"));
-const MintNavBar = dynamic(() => import("./components/MintNavBar"));
-const ConnectWallet = dynamic(() => import("./components/ConnectWallet"));
+const Dashboard = dynamic(() => import('./components/StakeDashboard'));
+const Serpenta = dynamic(() => import('./components/StakeSerpenta'));
+const PageSlot = dynamic(() => import('./components/PageSlot'));
+const MintNavBar = dynamic(() => import('./components/MintNavBar'));
+const ConnectWallet = dynamic(() => import('./components/ConnectWallet'));
 
 export default function Stake() {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation('common');
   const { isConnected } = useConnect();
   const [isDashboard, setDashboard] = useState(true);
   const [openmodal, setOpenmodal] = useState(false);
@@ -38,8 +38,8 @@ export default function Stake() {
               ))}
             </div>
             <div className={styles.contentWarp}>
-              <h2>{t("stake.staking").toUpperCase()}</h2>
-              <p>{t("stake.firstExp")}</p>
+              <h2>{t('stake.staking').toUpperCase()}</h2>
+              <p>{t('stake.firstExp')}</p>
             </div>
             {!isConnected && (
               <div className={styles.connectWarp}>
@@ -48,13 +48,13 @@ export default function Stake() {
                     setOpenmodal(true);
                   }}
                 >
-                  {t("stake.connectwallet").toUpperCase()} &nbsp;
+                  {t('stake.connectwallet').toUpperCase()} &nbsp;
                   <Image src={Arrow} alt="arrow" />
                 </button>
               </div>
             )}
             <div className={styles.footer}>
-              <span>{t("copyright")}</span>
+              <span>{t('copyright')}</span>
             </div>
           </section>
         ) : isDashboard ? (
@@ -69,6 +69,6 @@ export default function Stake() {
 }
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ["common"])),
+    ...(await serverSideTranslations(locale, ['common'])),
   },
 });

@@ -1,146 +1,141 @@
 .team {
-    // margin-bottom: 0;
+  // margin-bottom: 0;
 
-    &__twitter {
-        width: 25px;
-        display: block;
-        align-self: flex-end;
+  &__twitter {
+    width: 25px;
+    display: block;
+    align-self: flex-end;
+  }
+
+  &__container {
+    max-width: 1120px;
+  }
+
+  &__icon {
+    width: 10px;
+    margin-right: 12px;
+    transform: rotate(-90deg);
+
+    &--open {
+      transform: rotate(0deg);
+    }
+  }
+
+  &__text {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-grow: 1;
+    // width: calc(80% - 32px);
+  }
+
+  &__members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__button {
+    text-align: left;
+    color: $light-blue-sky;
+    text-transform: uppercase;
+    font-size: 20px;
+    width: 100%;
+  }
+
+  &__name {
+    @include Heading-3;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    @include caption;
+    color: $pale-silver;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in;
+    margin-top: 24px;
+    text-align: left;
+    @include Body-Text;
+
+    &--open {
+      max-height: 400px;
+    }
+  }
+
+  &__member {
+    align-self: flex-start;
+    color: $black;
+    display: flex;
+    margin-bottom: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px;
+    border: 1px solid $papaya-whip;
+    border-radius: 8px;
+    color: rgba($papaya-whip, 0.85);
+
+    @media screen and (min-width: $tablet) {
+      flex-direction: row;
     }
 
-    &__container {
-        max-width: 1120px;
+    @media screen and (min-width: $desktop) {
+      width: calc(50% - 16px);
+      // align-items: flex-start;
+      flex-direction: row;
 
-    }
+      &__image {
+      }
 
-    &__icon {
-        width: 10px;
-        margin-right: 12px;
-        transform: rotate(-90deg);
+      &:nth-child(odd) {
+        // flex-direction: row;
 
-        &--open {
-            transform: rotate(0deg);
+        .team__image {
+          // margin-left: 0px;
+          // margin-right: 32px;
         }
+      }
+    }
+  }
+
+  &__text {
+    text-align: center;
+    font-size: 24px;
+    // font-family: vp;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      // font-family: cc;
     }
 
-    &__text {
-        justify-content: space-between;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        flex-grow: 1;
-        // width: calc(80% - 32px);
+    h3 {
+      margin-bottom: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
     }
 
-    &__members {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
+    @media screen and (min-width: $desktop) {
+      text-align: left;
     }
+  }
 
-    &__button {
-        text-align: left;
-        color: $light-blue-sky;
-        text-transform: uppercase;
-        font-size: 20px;
-        width: 100%;
+  &__image {
+    margin-right: 32px;
+
+    @media screen and (min-width: $desktop) {
+      width: 100%;
     }
+  }
 
-    &__name {
-        @include Heading-3;
-        margin-bottom: 12px;
-        text-transform: uppercase;
-    }
-
-    &__title {
-        @include caption;
-        color: $pale-silver;
-        margin-bottom: 12px;
-        text-transform: uppercase;
-    }
-
-    &__description {
-        max-height: 0px;
-        overflow: hidden;
-        transition: max-height .3s ease-in;
-        margin-top: 24px;
-        text-align: left;
-        @include Body-Text;
-
-        &--open {
-            max-height: 400px;
-        }
-    }
-
-    &__member {
-        align-self: flex-start;
-        color: $black;
-        display: flex;
-        margin-bottom: 24px;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 32px;
-        border: 1px solid $papaya-whip;
-        border-radius: 8px;
-        color: rgba($papaya-whip, .85);
-
-        @media screen and (min-width: $tablet) {
-            flex-direction: row;
-        }
-
-
-        @media screen and (min-width: $desktop) {
-            width: calc(50% - 16px);
-            // align-items: flex-start;
-            flex-direction: row;
-
-            &__image {}
-
-            &:nth-child(odd) {
-                // flex-direction: row;
-
-                .team__image {
-                    // margin-left: 0px;
-                    // margin-right: 32px;
-                }
-            }
-        }
-    }
-
-    &__text {
-        text-align: center;
-        font-size: 24px;
-        // font-family: vp;
-        display: flex;
-        flex-direction: column;
-
-
-        h2 {
-            // font-family: cc;
-        }
-
-        h3 {
-            margin-bottom: 16px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        @media screen and (min-width: $desktop) {
-            text-align: left;
-        }
-    }
-
-    &__image {
-        margin-right: 32px;
-
-        @media screen and (min-width: $desktop) {
-            width: 100%;
-
-        }
-    }
-
-    &__twitter-link {
-        text-decoration: underline;
-
-    }
+  &__twitter-link {
+    text-decoration: underline;
+  }
 }

@@ -1,36 +1,36 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import Image from "next/image";
+import Image from 'next/image';
 
-import Artefact from "./Artefact";
+import Artefact from './Artefact';
 
 //Import style
-import styles from "/styles/stake.module.scss";
+import styles from '/styles/stake.module.scss';
 
 //Import Image
-import Img1 from "/static/stake/drg1.png";
-import Img2 from "/static/stake/drg2.png";
+import Img1 from '/static/stake/drg1.png';
+import Img2 from '/static/stake/drg2.png';
 
-import lvl1 from "/static/stake/lvl1.png";
-import lvl2 from "/static/stake/lvl2.png";
-import lvl3 from "/static/stake/lvl3.png";
-import lvl4 from "/static/stake/lvl4.png";
-import lvl5 from "/static/stake/lvl5.png";
+import lvl1 from '/static/stake/lvl1.png';
+import lvl2 from '/static/stake/lvl2.png';
+import lvl3 from '/static/stake/lvl3.png';
+import lvl4 from '/static/stake/lvl4.png';
+import lvl5 from '/static/stake/lvl5.png';
 
-import reveal from "/static/stake/reveal.png";
-import unreveal0 from "/static/stake/unreveal11.png";
-import unreveal1 from "/static/stake/unreveal0.png";
-import unreveal2 from "/static/stake/unreveal2.png";
-import unreveal3 from "/static/stake/unreveal3.png";
-import unreveal6 from "/static/stake/unreveal6.png";
+import reveal from '/static/stake/reveal.png';
+import unreveal0 from '/static/stake/unreveal11.png';
+import unreveal1 from '/static/stake/unreveal0.png';
+import unreveal2 from '/static/stake/unreveal2.png';
+import unreveal3 from '/static/stake/unreveal3.png';
+import unreveal6 from '/static/stake/unreveal6.png';
 
-import Artefactnone from "/static/stake/Artefact_none.png";
-import Artefactunreveal from "/static/stake/Artefact_unreveal.png";
-import Artefact1 from "/static/stake/Artefact1.png";
-import Artefact2 from "/static/stake/Artefact2.png";
-import Artefact3 from "/static/stake/Artefact3.png";
+import Artefactnone from '/static/stake/Artefact_none.png';
+import Artefactunreveal from '/static/stake/Artefact_unreveal.png';
+import Artefact1 from '/static/stake/Artefact1.png';
+import Artefact2 from '/static/stake/Artefact2.png';
+import Artefact3 from '/static/stake/Artefact3.png';
 
-import key from "/static/stake/1key.png";
+import key from '/static/stake/1key.png';
 const DragonDetail = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImg, setSelectedImg] = useState();
@@ -42,11 +42,11 @@ const DragonDetail = () => {
   return (
     <div className={styles.row2}>
       <div className={styles.columnLeft}>
-        <div className={styles.drgImg} style={{ background: "#FBEDD6" }}>
+        <div className={styles.drgImg} style={{ background: '#FBEDD6' }}>
           <Image src={Img1} alt="level"></Image>
         </div>
         <div className={styles.lvlstatus}>
-          <div className={styles.bar} style={{ width: "30%" }}></div>
+          <div className={styles.bar} style={{ width: '30%' }}></div>
         </div>
         <div className={styles.row3}>
           <div className={styles.lvlArrayImg}>
@@ -93,7 +93,7 @@ const DragonDetail = () => {
             <div className={styles.rightTxt}>Total staking time: 19 days</div>
           </div>
           <div className={styles.timeline}>
-            <div className={styles.passline} style={{ width: "30%" }}></div>
+            <div className={styles.passline} style={{ width: '30%' }}></div>
           </div>
         </div>
         <div className={styles.revealExpTxt}>
@@ -102,7 +102,7 @@ const DragonDetail = () => {
             image of a dimension that the dragon has visited. There is a
             possibility of an artefact with each reveal.<br></br>Follow the
             journey of your personal Serpenta dragons closely and who knows what
-            you can obtain!{" "}
+            you can obtain!{' '}
           </p>
         </div>
         <div className={styles.revealImgArray}>
