@@ -13,17 +13,8 @@ const replace = (node) => {
     );
   }
 };
+
 const HelpCenter = ({ modalOpen, setModalOpen }) => {
-  // const [_document, set_document] = useState(null)
-  // useEffect(() => {
-  //     set_document(document)
-  // }, [])
-  // const unescapeHTML=(html) => {
-  //     if(_document===null){return;}
-  //     var escapeEl =  _document.createElement("p");
-  //     escapeEl.innerHTML = "<a href='https://medium.com/@miaoux_17900/installing-a-metamask-wallet-for-nfts-7e810e1c1b5c'> https://medium.com/@miaoux_17900/installing-a-metamask-wallet-for-nfts-7e810e1c1b5c</a>";
-  //     return escapeEl;
-  //   }
   const [questionOpen, setQuestionOpen] = useState(0);
 
   const { t, i18n, ready } = useTranslation('common', { useSuspense: false });
@@ -36,6 +27,7 @@ const HelpCenter = ({ modalOpen, setModalOpen }) => {
       setQuestionOpen(i);
     }
   };
+
   return (
     <Modal centered show={modalOpen}>
       <div className="help-center">

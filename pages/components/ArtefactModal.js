@@ -1,7 +1,8 @@
-import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
+
 import styles from '/styles/stake.module.scss';
 
 const ArtefactModal = ({ modalopen, setModalOpen, img }) => {

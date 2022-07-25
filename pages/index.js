@@ -1,22 +1,18 @@
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
+
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import nextI18NextConfig from '../next-i18next.config.js';
 
-import Image from 'next/image';
-
-const Team = dynamic(() => import('./components/Team'));
-const GrayFrame = dynamic(() => import('./components/GrayFrame'));
-const Grid = dynamic(() => import('./components/Grid'));
-const Roadmap = dynamic(() => import('./components/Roadmap'));
-const FAQ = dynamic(() => import('./components/FAQ'));
-const PageSlot = dynamic(() => import('./components/PageSlot'));
-const HeadComponent = dynamic(() => import('./components/HeadComponent'));
-const Stage = dynamic(() => import('./components/Stage'));
-const Journey = dynamic(() => import('./components/Journey'));
 const BlockGrid = dynamic(() => import('./components/BlockGrid'));
-
+const FAQ = dynamic(() => import('./components/FAQ'));
+const Grid = dynamic(() => import('./components/Grid'));
+const Journey = dynamic(() => import('./components/Journey'));
 const NavBar = dynamic(() => import('./components/NavBar'));
+const PageSlot = dynamic(() => import('./components/PageSlot'));
+const Stage = dynamic(() => import('./components/Stage'));
+const Team = dynamic(() => import('./components/Team'));
 
 export default function Home() {
   const { t } = useTranslation('common');
@@ -79,13 +75,12 @@ export default function Home() {
           </div>
         }
         <div className="tagline">{t('gridTitle')}</div>
-        <BlockGrid></BlockGrid>
-        <BlockGrid reverse={true}></BlockGrid>
+        <BlockGrid />
+        <BlockGrid reverse={true} />
         <div className="tagline">{t('faqTitle')}</div>
-        <FAQ></FAQ>
+        <FAQ />
         <div className="tagline">{t('teamTitle')}</div>
-        <Team></Team>
-
+        <Team />
         <div className="component copyright">{t('copyright')}</div>
       </div>
     </PageSlot>

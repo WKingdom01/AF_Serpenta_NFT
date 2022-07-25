@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '/styles/mint.module.scss';
-import { OPENSEA_URL, TWITTER_URL, DISCORD_URL } from '/data/constants';
 
+import { OPENSEA_URL, TWITTER_URL, DISCORD_URL } from '/data/constants';
 import Opensea from '/static/opensea.png';
 import Twitter from '/static/Twitter.png';
 import Discord from '/static/Discord.png';
+
+import styles from '/styles/mint.module.scss';
 
 const footerUrls = [
   {
@@ -24,6 +25,7 @@ const footerUrls = [
     alt: 'Serpenta - Discord',
   },
 ];
+
 const Item = ({ url }) => {
   return (
     <li>
@@ -33,6 +35,7 @@ const Item = ({ url }) => {
     </li>
   );
 };
+
 const Footer = () => {
   return (
     <div className={styles.footerContainer}>
@@ -46,5 +49,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-// pages/components/footer/footer.js - template

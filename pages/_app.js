@@ -1,14 +1,15 @@
-import '../styles/globals.scss';
-import '../styles/reset.scss';
-import '../styles/main.scss';
 import Script from 'next/script';
 import { appWithTranslation } from 'next-i18next';
 import nextI18NextConfig from '../next-i18next.config.js';
 import { providers } from 'ethers';
-import { WagmiConfig, createClient, chain, defaultChains } from 'wagmi';
+import { chain, createClient, defaultChains, WagmiConfig } from 'wagmi';
 import { InjectedConnector } from 'wagmi/connectors/injected';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
+
+import '../styles/globals.scss';
+import '../styles/reset.scss';
+import '../styles/main.scss';
 
 const chains = defaultChains;
 const defaultChain = chain.mainnet;
@@ -60,7 +61,7 @@ const connectors = ({ chainId }) => {
 /**
  *
  * @param {number} chainId
- * @returns provider
+ * @returns BaseProvider
  */
 const provider = ({ chainId }) =>
   providers.getDefaultProvider(
@@ -81,11 +82,7 @@ const client = createClient({
   provider,
 });
 
-import withRedux from 'next-redux-wrapper';
-import { Provider } from 'react-redux';
-import { wrapper } from '../store/store';
-
-function MyApp({ Component, pageProps, store }) {
+function MyApp({ Component, pageProps }) {
   const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
   return (
     <>
@@ -115,4 +112,4 @@ function MyApp({ Component, pageProps, store }) {
   );
 }
 
-export default wrapper.withRedux(appWithTranslation(MyApp, nextI18NextConfig));
+export default appWithTranslation(MyApp, nextI18NextConfig);

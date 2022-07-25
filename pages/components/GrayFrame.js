@@ -2,6 +2,7 @@ import { useTranslation } from 'next-i18next';
 
 const GrayFrame = () => {
   const { t } = useTranslation('common');
+
   return (
     <section className="grayframe component">
       <div className="grayframe__title">{t('about.title')}</div>

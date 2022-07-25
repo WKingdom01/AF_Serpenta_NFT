@@ -1,18 +1,19 @@
+import { useState } from 'react';
+import { useConnect, useDisconnect } from 'wagmi';
 import dynamic from 'next/dynamic';
-const Button = dynamic(() => import('./Button'));
-const ConnectWallet = dynamic(() => import('./ConnectWallet'));
 import Image from 'next/image';
 import HelpCenter from './HelpCenter';
-import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useConnect, useDisconnect } from 'wagmi';
+
+const Button = dynamic(() => import('./Button'));
+const ConnectWallet = dynamic(() => import('./ConnectWallet'));
 
 const MintNavBar = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [connectModalOpen, setConnectModalOpen] = useState(false);
-  const state = useSelector((state) => state.wallet);
+
   const { isConnected } = useConnect();
   const { disconnect } = useDisconnect();
+
   return (
     <div>
       <div className="mint-navbar">

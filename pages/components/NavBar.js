@@ -1,17 +1,14 @@
-import dynamic from 'next/dynamic';
-
-const Button = dynamic(() => import('./Button'));
-
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
+import { useTranslation } from 'next-i18next';
 import throttle from 'lodash/throttle';
 import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { useTranslation } from 'next-i18next';
-
+const Button = dynamic(() => import('./Button'));
 const LanguageSelect = dynamic(() => import('./LanguageSelect'));
 
-var lastScrollTop = 0;
+let lastScrollTop = 0;
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);

@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 const StageText = ({ text }) => {
   const [open, setOpen] = useState(false);
+
   return (
     <div
       className={`stage-text ${open ? 'stage-text--open' : ''}`}

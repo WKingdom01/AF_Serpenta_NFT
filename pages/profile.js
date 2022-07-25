@@ -1,24 +1,22 @@
-import dynamic from 'next/dynamic';
-import useSwr from 'swr';
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-
-import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useAccount } from 'wagmi';
+import useSwr from 'swr';
+
 import styles from '../styles/profile.module.scss';
+//whitelist Address
+import whitelistAddresses from '../public/static/whitelisted-wallets.json';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const PageSlot = dynamic(() => import('./components/PageSlot'));
 const MintNavBar = dynamic(() => import('./components/MintNavBar'));
 
-//whitelist Address
-import whitelistAddresses from '../public/static/whitelisted-wallets.json';
-
 let whitelistOnlyAddresses = [];
 let waitlistOnlyAddresses = [];
+
 const getWhitelistOnlyAddress = () => {
   whitelistAddresses.map((item) =>
     whitelistOnlyAddresses.push(item.wallet_address)

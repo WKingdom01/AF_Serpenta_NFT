@@ -1,22 +1,22 @@
-import Image from 'next/image';
-import { gsap } from 'gsap';
 import { useEffect } from 'react';
+import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
+
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { TextPlugin } from 'gsap/dist/TextPlugin';
-import { faMobile } from '@fortawesome/free-solid-svg-icons';
+
 import StageText from './StageText';
-import { useTranslation } from 'next-i18next';
 
 const Roadmap = () => {
   const { t } = useTranslation('common');
 
-  function stageOne(stage, index) {
-    var tl = gsap.timeline({
+  function stageOne(stage) {
+    let tl = gsap.timeline({
       scrollTrigger: { trigger: stage.selector, start: 'bottom bottom' },
     });
 
-    var m = index % 2 === 1 ? -50 : 50;
-    var random = Math.round(Math.random() * 100) / 100;
+    let random = Math.round(Math.random() * 100) / 100;
 
     if (window.innerWidth >= 992) {
       tl.to(stage.selector, 1, { opacity: 1 });
@@ -54,6 +54,7 @@ const Roadmap = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(TextPlugin);
+
     const stages = [
       { selector: '.stage--one', text: t('roadmap.stageOne.header') },
       { selector: '.stage--two', text: t('roadmap.stageTwo.header') },
@@ -61,8 +62,8 @@ const Roadmap = () => {
       { selector: '.stage--four', text: t('roadmap.stageFour.header') },
     ];
 
-    stages.forEach((stage, i) => {
-      stageOne(stage, i);
+    stages.forEach((stage) => {
+      stageOne(stage);
     });
   });
 
@@ -76,7 +77,6 @@ const Roadmap = () => {
               alt="town"
               src="/town.png"
               layout="intrinsic"
-              // object-fit="cover"
               width="538"
               height="400"
               quality={100}

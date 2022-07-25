@@ -1,9 +1,8 @@
 import { useState } from 'react';
-
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import Q from '/static/stake/question.png';
 
+import Q from '/static/stake/question.png';
 import styles from '/styles/stake.module.scss';
 
 const ArtefactModal = dynamic(() => import('./ArtefactModal'));

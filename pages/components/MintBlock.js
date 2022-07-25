@@ -1,16 +1,9 @@
 import dynamic from 'next/dynamic';
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'next-i18next';
-import {
-  useConnect,
-  useAccount,
-  useNetwork,
-  useSignMessage,
-  useDisconnect,
-} from 'wagmi';
+import { useAccount, useDisconnect, useNetwork, useSignMessage } from 'wagmi';
 import { SiweMessage } from 'siwe';
 import shortenAddress from '../../utils/helpers/shortenAddress';
 

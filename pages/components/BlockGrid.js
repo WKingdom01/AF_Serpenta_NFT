@@ -1,9 +1,10 @@
 import dynamic from 'next/dynamic';
-
 import { gsap } from 'gsap';
 import { useEffect } from 'react';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
 const Slider = dynamic(() => import('react-slick'));
 
 const BlockGrid = ({ reverse }) => {

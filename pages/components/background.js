@@ -3,17 +3,6 @@ import { Parallax } from 'react-parallax';
 
 const Background = ({ top, bottom }) => (
   <Parallax bgImage="starrybg.png" className="background">
-    {/* <div className="background__image">
-      <Image
-        alt="background"
-        src="/starrybg.png"
-        layout="fill"
-        objectFit="cover"
-        quality={100}
-        priority
-        
-      />
-      </div> */}
     <div className="background__container">
       <div className="container">{top}</div>
       <div className="background__logo">

@@ -1,9 +1,11 @@
-import dynamic from 'next/dynamic';
-
-import { gsap } from 'gsap';
 import { useEffect } from 'react';
+
+import dynamic from 'next/dynamic';
+import { gsap } from 'gsap';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
 const Slider = dynamic(() => import('react-slick'));
 
 const Grid = ({ alt }) => {
@@ -16,7 +18,8 @@ const Grid = ({ alt }) => {
     '/dragons/carousel/8.png',
     '/dragons/carousel/11.png',
   ];
-  var settings = {
+
+  const settings = {
     dots: false,
     infinite: true,
     autoplay: true,
@@ -44,7 +47,7 @@ const Grid = ({ alt }) => {
       },
     ],
   };
-  useEffect(() => {});
+
   return (
     <section
       className={`image-grid component component--no-padding ${

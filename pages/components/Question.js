@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 const Question = ({ question, answer }) => {
   return (
     <div className={`question`}>

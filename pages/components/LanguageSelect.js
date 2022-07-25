@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import Select from 'react-select';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useTranslation } from 'next-i18next';
 import {
   faGlobe,
   faCheck,
@@ -45,9 +45,7 @@ const LanguageSelect = () => {
                 {option.label}{' '}
                 {option.value === selectedOption.value ? (
                   <FontAwesomeIcon className="icon" icon={faCheck} />
-                ) : (
-                  ''
-                )}{' '}
+                ) : null }
               </div>
             </Link>
           );

@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
-import { useState } from 'react';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -17,6 +17,7 @@ const Team = () => {
       setOpen(i);
     }
   };
+
   return (
     <section className="team component">
       <div className="container team__container">

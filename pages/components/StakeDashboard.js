@@ -1,17 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/autoplay';
 
-//Import Dragon item datas
-import { dashboardDrgItems, dashboardArtefactItems } from '/data/stakeData';
+import { dashboardArtefactItems, dashboardDrgItems } from '/data/stakeData';
 
 import Key from '/static/stake/key.png';
-
 import Box from '/static/stake/box.png';
-//Import Style
+
 import styles from '/styles/stake.module.scss';
 
 const Dragon = ({ Id, level, img, lblImg }) => {
@@ -20,7 +17,7 @@ const Dragon = ({ Id, level, img, lblImg }) => {
       <div className={styles.drgImg} style={{ background: '#FBEDD6' }}>
         <Image src={img} alt="level"></Image>
       </div>
-      <div classNamce={styles.drgProp}>
+      <div className={styles.drgProp}>
         <div className={styles.dragonId}>
           <span>DRAGON </span>
           <span>#{Id}</span>
@@ -33,7 +30,8 @@ const Dragon = ({ Id, level, img, lblImg }) => {
     </div>
   );
 };
-const StakeDashboard = (props) => {
+
+const StakeDashboard = ({ setDashboard }) => {
   return (
     <main>
       <div className={styles.contentWarpDashboard}>
@@ -44,9 +42,7 @@ const StakeDashboard = (props) => {
         </p>
       </div>
       <div className={styles.serpentaWarp}>
-        <button onClick={() => props.setDashboard(false)}>
-          THE SERPENTA WORLD
-        </button>
+        <button onClick={() => setDashboard(false)}>THE SERPENTA WORLD</button>
       </div>
 
       <div className={styles.row}>
@@ -93,7 +89,7 @@ const StakeDashboard = (props) => {
                 <span className={styles.badge}>(56)</span>
               </h2>
               <div>
-                <Image src={Key}></Image>
+                <Image src={Key} alt="" />
               </div>
             </div>
           </div>
@@ -104,7 +100,7 @@ const StakeDashboard = (props) => {
             <span className={styles.badge}>(63)</span>
           </h1>
           <div className={styles.box}>
-            <Image src={Box}></Image>
+            <Image src={Box} alt="" />
           </div>
         </div>
       </div>

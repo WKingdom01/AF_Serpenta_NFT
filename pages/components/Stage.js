@@ -1,23 +1,15 @@
 import { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 import { faDiamond } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { gsap, TimelineMax } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
-import { useTranslation } from 'next-i18next';
 const Button = dynamic(() => import('./Button'));
 
-const Stage = ({
-  title,
-  body,
-  buttonText,
-  buttonLink,
-  imageUrl,
-  alt,
-  children,
-}) => {
+const Stage = ({ title, body, buttonText, imageUrl, alt, children }) => {
   const { t } = useTranslation('common');
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);

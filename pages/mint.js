@@ -1,81 +1,68 @@
+import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
-import styles from '../styles/mint.module.scss';
-
 import { useTranslation } from 'next-i18next';
-import nextI18NextConfig from '../next-i18next.config.js';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
-// Images
-import GetHelpIcon from '../static/Question-icon.png';
-import Logo from '../static/main-logo.png';
-import CloseIcon from '../static/Close-icon.png';
-import rectIcon from '../static/rectIcon.png';
-//temp image
-import nftImage from '../static/01.png';
-
-//wagmi react hook
 import { ethers } from 'ethers';
 import {
-  useConnect,
   useAccount,
-  useDisconnect,
-  useContractRead,
+  useConnect,
   useContract,
-  useSigner,
+  useContractRead,
   useProvider,
+  useSigner,
 } from 'wagmi';
-//contract
-import mintABI from '../services/abi/mint.json';
-//whitelist address
-import whitelistAddress from '../public/static/whitelisted-wallets.json';
-//Components
 
-const SwiperDragon = dynamic(() => import('./components/SwiperDragon'));
+import mintABI from '../services/abi/mint.json';
+import whitelistAddress from '../public/static/whitelisted-wallets.json';
+import rectIcon from '../static/rectIcon.png';
+import nftImage from '../static/01.png';
+
+import styles from '../styles/mint.module.scss';
+
 const Footer = dynamic(() => import('./components/Footer'));
-const PageSlot = dynamic(() => import('./components/PageSlot'));
 const MintNavBar = dynamic(() => import('./components/MintNavBar'));
+const PageSlot = dynamic(() => import('./components/PageSlot'));
+const SwiperDragon = dynamic(() => import('./components/SwiperDragon'));
+
 //MerkleTree
 const { MerkleTree } = require('merkletreejs');
 const keccak256 = require('keccak256');
+
 let whitelistOnlyAddress = [];
+
 const getWhitelistOnlyAddress = () => {
   whitelistAddress.map((item) =>
     whitelistOnlyAddress.push(item.wallet_address)
   );
 };
 getWhitelistOnlyAddress();
+
 export default function Mint() {
   const { t } = useTranslation('common');
 
-  const [showWalletModal, setShowWalletModal] = useState(false);
-
   const [authorizedError, setAuthorizedError] = useState(false);
-  const [soldout, setSoldOut] = useState(false);
-
-  const [mintNum, setMintNum] = useState(3);
-  const [totalNftID, setTotalNFT] = useState(0);
-  const [mintedNftID, setMintedNFT] = useState(0);
+  const [etherscanLink, setEtherScanLink] = useState('');
+  const [isMinted, setIsMinted] = useState(false);
+  const [isMinting, setIsMinting] = useState(false);
   const [max_tx, setMaxTx] = useState(0);
   const [max_wallet, setMaxWallet] = useState(0);
   const [merkleProof, setMerkleProof] = useState(null);
+  const [mintNum, setMintNum] = useState(3);
   const [mintPrice, setMintPrice] = useState(0);
+  const [mintedNftID, setMintedNFT] = useState(0);
   const [priveTime, setPrivateTime] = useState(0);
   const [publicTime, setPublicTime] = useState(0);
-  const [isMinting, setIsMinting] = useState(0);
-  const [isMinted, setIsMinted] = useState(false);
-  const [etherscanLink, setEtherScanLink] = useState('');
+  const [soldout, setSoldOut] = useState(false);
+  const [totalNftID, setTotalNFT] = useState(0);
 
   const { data: accountData } = useAccount();
   const address = accountData?.address;
   const { isConnected } = useConnect();
 
   // get the end user
-  const { data: signer, isError, isLoadings } = useSigner();
+  const { data: signer } = useSigner();
   const provider = useProvider();
 
   // get the smart contract
@@ -111,7 +98,7 @@ export default function Mint() {
 
   const mint = async () => {
     setIsMinting(true);
-    if (address == undefined) {
+    if (address === undefined) {
       setAuthorizedError(true);
     } else {
       try {
@@ -203,7 +190,7 @@ export default function Mint() {
     if (isConnected) {
       getInfo();
     }
-  }, [isConnected]);
+  }, [getInfo, isConnected]);
 
   return (
     <div style={{ background: `url('/starrybg.png')` }}>

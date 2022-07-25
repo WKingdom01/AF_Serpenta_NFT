@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 
 const Journey = ({ title }) => {
   const { t, i18n, ready } = useTranslation('common', { useSuspense: false });

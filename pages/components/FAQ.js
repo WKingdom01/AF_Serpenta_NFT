@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+
 import faqstyles from '/styles/faq.module.scss';
+
 const Faq = ({ title, content }) => {
   const [isActive, setIsActive] = useState(false);
 

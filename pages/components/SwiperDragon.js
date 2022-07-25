@@ -1,14 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { swiperItems } from '/data/swiperItems';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/autoplay';
+
+import { swiperItems } from '/data/swiperItems';
 
 import styles from '/styles/mint.module.scss';
 
