@@ -190,7 +190,8 @@ export default function Mint(callback, deps) {
     if (isConnected) {
       getInfo();
     }
-  }, [getInfo, isConnected]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isConnected]);
 
   return (
     <div style={{ background: `url('/starrybg.png')` }}>
