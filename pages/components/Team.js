@@ -39,8 +39,9 @@ const Team = () => {
                   </div>
                   <div className="team__text">
                     <div className="team__name"> {member.name}</div>
-                    <div className="team__title">// {member.title}</div>
-                    {/* eslint-disable-line*/}
+                    <div className="team__title">
+                      {'//'} {member.title}
+                    </div>
                     <div className="team__footer">
                       <button
                         className="team__button"

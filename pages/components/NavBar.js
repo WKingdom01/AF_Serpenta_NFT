@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useTranslation } from 'next-i18next';
-import throttle from 'lodash/throttle';
 import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -60,7 +59,7 @@ const NavBar = () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('keydown', keyDown);
     };
-  });
+  }, [fixed, hide]);
 
   return (
     <nav>

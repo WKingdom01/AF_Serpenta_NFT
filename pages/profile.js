@@ -87,13 +87,14 @@ export default function Profile() {
             <div className={styles.statusWarp}>
               <span>Lootboxes Gifted with each dragon minted:</span>
               <span>
-                <img src="" height={'100px'} width={'100px'}></img>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="" height={'100px'} width={'100px'} alt=""></img>
               </span>
             </div>
 
             <div className={styles.countdown}>
               <span>Countdown to mint:</span>
-              <Link href="/mint">
+              <Link href="/mint" passHref>
                 <span className={styles.mint}>Go to mint page</span>
               </Link>
             </div>

@@ -9,7 +9,6 @@ import styles from '/styles/stake.module.scss';
 
 //Import Image
 import Img1 from '/static/stake/drg1.png';
-import Img2 from '/static/stake/drg2.png';
 
 import lvl1 from '/static/stake/lvl1.png';
 import lvl2 from '/static/stake/lvl2.png';
@@ -18,19 +17,15 @@ import lvl4 from '/static/stake/lvl4.png';
 import lvl5 from '/static/stake/lvl5.png';
 
 import reveal from '/static/stake/reveal.png';
-import unreveal0 from '/static/stake/unreveal11.png';
 import unreveal1 from '/static/stake/unreveal0.png';
 import unreveal2 from '/static/stake/unreveal2.png';
 import unreveal3 from '/static/stake/unreveal3.png';
 import unreveal6 from '/static/stake/unreveal6.png';
-
-import Artefactnone from '/static/stake/Artefact_none.png';
 import Artefactunreveal from '/static/stake/Artefact_unreveal.png';
 import Artefact1 from '/static/stake/Artefact1.png';
-import Artefact2 from '/static/stake/Artefact2.png';
-import Artefact3 from '/static/stake/Artefact3.png';
 
 import key from '/static/stake/1key.png';
+
 const DragonDetail = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImg, setSelectedImg] = useState();
@@ -50,19 +45,19 @@ const DragonDetail = () => {
         </div>
         <div className={styles.row3}>
           <div className={styles.lvlArrayImg}>
-            <Image src={lvl1}></Image>
+            <Image src={lvl1} alt="" />
           </div>
           <div className={styles.lvlArrayImg}>
-            <Image src={lvl2}></Image>
+            <Image src={lvl2} alt="" />
           </div>
           <div className={styles.lvlArrayImg}>
-            <Image src={lvl3}></Image>
+            <Image src={lvl3} alt="" />
           </div>
           <div className={styles.lvlArrayImg}>
-            <Image src={lvl4}></Image>
+            <Image src={lvl4} alt="" />
           </div>
           <div className={styles.lvlArrayImg}>
-            <Image src={lvl5}></Image>
+            <Image src={lvl5} alt="" />
           </div>
         </div>
         <div className={styles.dragonId}>
@@ -81,7 +76,7 @@ const DragonDetail = () => {
             <div>2d</div>
             <div>2h</div>
             <div>
-              <Image src={key}></Image>
+              <Image src={key} alt="" />
             </div>
           </div>
         </div>
@@ -124,7 +119,7 @@ const Serpenta = (props) => {
         <p>
           Find your Kaiju dragons here. Explore the dimensions, dive into the
           lore, and collect artefacts. Oh, and don’t forget to check-in for the
-          keys — they will surely be handy to open the loot boxes!
+          keys — they will surely be handy to open the loot boxes!
         </p>
       </div>
       <div className={styles.serpentaWarp}>

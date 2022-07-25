@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -39,7 +39,7 @@ const getWhitelistOnlyAddress = () => {
 };
 getWhitelistOnlyAddress();
 
-export default function Mint() {
+export default function Mint(callback, deps) {
   const { t } = useTranslation('common');
 
   const [authorizedError, setAuthorizedError] = useState(false);
@@ -119,7 +119,7 @@ export default function Mint() {
             });
             let receipt = await tx.wait();
             if (receipt !== null) {
-              getInfo();
+              await getInfo();
               setIsMinted(true);
               setEtherScanLink(
                 process.env.NEXT_PUBLIC_URL_ETHERSCAN_TX +
@@ -132,7 +132,7 @@ export default function Mint() {
             });
             let receipt = await tx.wait();
             if (receipt !== null) {
-              getInfo();
+              await getInfo();
               setIsMinted(true);
               setEtherScanLink(
                 process.env.NEXT_PUBLIC_URL_ETHERSCAN_TX +
@@ -151,7 +151,7 @@ export default function Mint() {
     setIsMinting(false);
   };
 
-  const getInfo = async () => {
+  const getInfo = useCallback(async () => {
     //MerkleTree and MerkleProof
     const leafNodes = whitelistOnlyAddress.map((addr) => keccak256(addr));
     const merkleTree = new MerkleTree(leafNodes, keccak256, {
@@ -184,7 +184,7 @@ export default function Mint() {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [address, contract, publicTimeStamp, privateTimeStamp]);
 
   useEffect(() => {
     if (isConnected) {

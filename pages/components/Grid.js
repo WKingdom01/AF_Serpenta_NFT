@@ -1,7 +1,4 @@
-import { useEffect } from 'react';
-
 import dynamic from 'next/dynamic';
-import { gsap } from 'gsap';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -60,6 +57,7 @@ const Grid = ({ alt }) => {
             <div className="slide" key={`image--${j}`}>
               <div className="image-grid__image image" key={j}>
                 <div className="image__front">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img alt="dragon" src={image} />
                 </div>
               </div>

@@ -1,6 +1,4 @@
 import dynamic from 'next/dynamic';
-import { gsap } from 'gsap';
-import { useEffect } from 'react';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -17,7 +15,8 @@ const BlockGrid = ({ reverse }) => {
     '/dragons/carousel/8.png',
     '/dragons/carousel/11.png',
   ];
-  var settings = {
+
+  const settings = {
     dots: false,
     infinite: true,
     autoplay: true,
@@ -54,6 +53,7 @@ const BlockGrid = ({ reverse }) => {
             <div className="slide" key={`image--${j}`}>
               <div className="block-grid__image image" key={j}>
                 <div className="block-grid__container">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img alt="dragon" src={image} />
                 </div>
               </div>

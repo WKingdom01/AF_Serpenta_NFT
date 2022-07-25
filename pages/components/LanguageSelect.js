@@ -2,13 +2,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
-import Select from 'react-select';
 import Link from 'next/link';
-import {
-  faGlobe,
-  faCheck,
-  faChevronDown,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Button = dynamic(() => import('./Button'));
@@ -40,12 +35,17 @@ const LanguageSelect = () => {
       <div className="language-select__options">
         {options.map((option, index) => {
           return (
-            <Link key={`option--${index}`} href="/" locale={option.value}>
+            <Link
+              key={`option--${index}`}
+              href="/"
+              locale={option.value}
+              passHref
+            >
               <div className="language-select__option">
                 {option.label}{' '}
                 {option.value === selectedOption.value ? (
                   <FontAwesomeIcon className="icon" icon={faCheck} />
-                ) : null }
+                ) : null}
               </div>
             </Link>
           );

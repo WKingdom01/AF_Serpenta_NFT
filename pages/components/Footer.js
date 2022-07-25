@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { OPENSEA_URL, TWITTER_URL, DISCORD_URL } from '/data/constants';
+import { DISCORD_URL, OPENSEA_URL, TWITTER_URL } from '/data/constants';
 import Opensea from '/static/opensea.png';
 import Twitter from '/static/Twitter.png';
 import Discord from '/static/Discord.png';
@@ -29,7 +29,7 @@ const footerUrls = [
 const Item = ({ url }) => {
   return (
     <li>
-      <Link href={url.href}>
+      <Link href={url.href} passHref>
         <Image src={url.src} alt={url.alt} />
       </Link>
     </li>
