@@ -17,17 +17,17 @@ const Artefact = ({ img, item, isReveal }) => {
           className={styles.revealButton}
           onClick={() => setModalOpen(true)}
         >
-          <Image src={img} width="170px" height="318px" layout="fixed" />
+          <Image src={img} width="170px" height="318px" layout="fixed" alt="" />
         </button>
 
         {!isReveal && (
           <div className={styles.question}>
-            <Image src={Q} />
+            <Image src={Q} alt="" />
           </div>
         )}
       </div>
       <div className={styles.artefactImgItem}>
-        <Image src={item} />
+        <Image src={item} alt="" />
       </div>
       <ArtefactModal
         modalopen={modalopen}
