@@ -1,26 +1,25 @@
-import dynamic from 'next/dynamic';
-import useSwr from 'swr';
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import Link from 'next/link';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useAccount, useConnect } from 'wagmi';
+import useSwr from 'swr';
+
 import {
   getWaitlistedAddresses,
   getWhitelistedAddresses,
-} from '/utils/helpers/get-exported-addresses';
+} from '../utils/helpers/get-exported-addresses';
 import { statusHelper } from '../utils/helpers/status-helper';
 
 import styles from '/styles/profile.module.scss';
-
 import Box from '/static/stake/box.png';
-import DiscordRoles from './components/DiscordRoles';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const PageSlot = dynamic(() => import('./components/PageSlot'));
 const MintNavBar = dynamic(() => import('./components/MintNavBar'));
+const DiscordRoles = dynamic(() => import('./components/DiscordRoles'));
 
 export default function Profile() {
   const { isConnected } = useConnect();
