@@ -8,17 +8,17 @@ import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useAccount, useConnect } from 'wagmi';
-import styles from '../styles/profile.module.scss';
+import styles from '/styles/profile.module.scss';
 
 import Box from '/static/stake/box.png';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const PageSlot = dynamic(() => import('../staging/pages/components/PageSlot'));
-const MintNavBar = dynamic(() => import('../staging/pages/components/MintNavBar'));
+const PageSlot = dynamic(() => import('./components/PageSlot'));
+const MintNavBar = dynamic(() => import('./components/MintNavBar'));
 
 //whitelist Address
-import whitelistAddresses from '../staging/public/static/whitelisted-wallets.json';
+import whitelistAddresses from '../public/static/whitelisted-wallets.json';
 
 let whitelistOnlyAddresses = [];
 let waitlistOnlyAddresses = [];
@@ -78,7 +78,7 @@ export default function Profile() {
     <div style={{ background: `url('/starrybg.png')` }}>
       <PageSlot>
         <MintNavBar />
-        {isConnected ? (
+        {isConnected&&data ? (
           <main className={styles.main}>
             <div className={styles.statusWarpWhitelist}>
               <span>{'Whitelist (mint 3 max)'}</span>
