@@ -1,6 +1,6 @@
 import Modal from 'react-bootstrap/Modal';
 import { useState, useEffect } from 'react';
-import parse, { domToReact } from 'react-html-parser';
+import parse, { domToReact } from 'html-react-parser';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 

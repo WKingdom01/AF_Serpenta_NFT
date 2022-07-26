@@ -1,3 +1,4 @@
+
 import dynamic from 'next/dynamic';
 import useSwr from 'swr';
 import Image from 'next/image';
@@ -33,7 +34,7 @@ export default function Profile() {
   const { isConnected } = useConnect();
   const { data: accountData } = useAccount();
   const address = accountData?.address;
-  const { data, error } = useSwr(`/api/proof/${address}`, fetcher);
+  const { data, error } = useSwr('/api/proof/${address}', fetcher);
   const [status, SetWalletStatus] = useState('');
   const [text, setText] = useState('');
   const [phaseTime, setPhaseTime] = useState('');
@@ -75,20 +76,11 @@ export default function Profile() {
     }
   }, [address]);
   return (
-    <div style={{ background: `url('/starrybg.png')` }}>
+    <div style={{ background: 'url("/starrybg.png")' }}>
       <PageSlot>
         <MintNavBar />
         {isConnected&&data ? (
-          <main className={styles.main}>
-            <div className={styles.statusWarpWhitelist}>
-              <span>{'Whitelist (mint 3 max)'}</span>
-            </div>
-            <div className={styles.statusWarpReserve}>
-              <span>{'Waitlist (max of 3)'}</span>
-            </div>
-            <div className={styles.statusWarpPublic}>
-              <span>{'Public (unlimited)'}</span>
-            </div>
+          <main className={styles.main}>            
             <div className={styles.statusWarp}>
               <p>{text}</p>
             </div>
@@ -104,13 +96,13 @@ export default function Profile() {
             <div className={styles.statusWarp}>
               <span>Lootboxes Gifted with each dragon minted:</span>
               <span>
-                <Image src={Box} height="100px" width="100px" />
+                <Image src={Box} height="100px" width="100px" alt='' />
               </span>
             </div>
 
             <div className={styles.countdown}>
               <span>Countdown to mint:</span>
-              <Link href="/mint">
+              <Link href="/mint" passHref>
                 <span className={styles.mint}>Go to mint page</span>
               </Link>
             </div>
@@ -118,12 +110,7 @@ export default function Profile() {
         ) : (
           <main className={styles.main}>
             <div className={styles.statusWarp}>
-              <p>
-                Connect your wallet to check your whitelist / wait list status
-                for Serpenta. We will not ask you to pay any gas or complete any
-                transactions. It's just a connection to check you own the
-                wallet.
-              </p>
+              <p>Connect your wallet to check your whitelist/waitlist status for Serpenta. We will not ask you to pay any gas or complete an transactions.It`&apos`s just a connection to check you own the wallet</p>
             </div>
           </main>
         )}
