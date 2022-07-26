@@ -1,18 +1,19 @@
-import { useState } from 'react';
-import { useConnect, useDisconnect } from 'wagmi';
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
-import HelpCenter from './HelpCenter';
-
 const Button = dynamic(() => import('./Button'));
 const ConnectWallet = dynamic(() => import('./ConnectWallet'));
-
+import Image from 'next/image';
+import HelpCenter from './HelpCenter';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useConnect, useDisconnect, useEnsName, useAccount } from 'wagmi';
+import shortenAddress from '/utils/helpers/shortenAddress';
 const MintNavBar = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [connectModalOpen, setConnectModalOpen] = useState(false);
-
   const { isConnected } = useConnect();
   const { disconnect } = useDisconnect();
+  const { data: accountData } = useAccount();
+  const address = accountData?.address;
 
   return (
     <div>
@@ -46,13 +47,17 @@ const MintNavBar = () => {
             priority
           />
         </div>
+
         <div className="mint-navbar__button">
+          <div className="mint-navbar__address">
+            {address && <spane>{shortenAddress(address)}</spane>}
+          </div>
           <Button
             clickHandler={() => {
               isConnected ? disconnect() : setConnectModalOpen(true);
             }}
             style="outline ThreeD"
-            text={isConnected ? 'Connected' : 'Connect Wallet'}
+            text={isConnected ? 'Disconnect Wallet' : 'Connect Wallet'}
           ></Button>
         </div>
       </div>

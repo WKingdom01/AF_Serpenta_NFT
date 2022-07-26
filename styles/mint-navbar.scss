@@ -39,9 +39,15 @@
       margin-left: 12px;
     }
   }
-
+  &__address{
+    color:white;
+    font-size: 25px;
+    margin-right:10px;
+  }
   &__button {
     order: 2;
+    display: flex;
+    align-items: center;
   }
 
   @media screen and (min-width: $tablet) {

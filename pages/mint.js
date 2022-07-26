@@ -14,6 +14,8 @@ import {
   useSigner,
 } from 'wagmi';
 
+import getWhitelistedAddresses from '/utils/helpers/get-whitelisted-addresses'
+
 import mintABI from '../services/abi/mint.json';
 import whitelistAddress from '../public/static/whitelisted-wallets.json';
 import rectIcon from '../static/rectIcon.png';
@@ -30,14 +32,7 @@ const SwiperDragon = dynamic(() => import('./components/SwiperDragon'));
 const { MerkleTree } = require('merkletreejs');
 const keccak256 = require('keccak256');
 
-let whitelistOnlyAddress = [];
 
-const getWhitelistOnlyAddress = () => {
-  whitelistAddress.map((item) =>
-    whitelistOnlyAddress.push(item.wallet_address)
-  );
-};
-getWhitelistOnlyAddress();
 
 export default function Mint(callback, deps) {
   const { t } = useTranslation('common');
@@ -153,7 +148,7 @@ export default function Mint(callback, deps) {
 
   const getInfo = useCallback(async () => {
     //MerkleTree and MerkleProof
-    const leafNodes = whitelistOnlyAddress.map((addr) => keccak256(addr));
+    const leafNodes = getWhitelistedAddresses().map((addr) => keccak256(addr));
     const merkleTree = new MerkleTree(leafNodes, keccak256, {
       sortPairs: true,
     });

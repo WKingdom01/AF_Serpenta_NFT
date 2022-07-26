@@ -29,8 +29,7 @@ const Button = ({
         >
           <div className="button__text">
             <div>
-              {!hovered ? text : text == 'Connected' ? 'Disconnect' : text}
-              {children}
+              {text} {children}
             </div>
             {dropdown && (
               <div>
