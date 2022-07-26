@@ -1,8 +1,7 @@
-import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
+import { useState } from 'react';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
-
 import styles from '/styles/stake.module.scss';
 
 const ArtefactModal = ({ modalopen, setModalOpen, img }) => {
@@ -43,10 +42,10 @@ const ArtefactModal = ({ modalopen, setModalOpen, img }) => {
             <Image
               src={img}
               alt="Artefact"
-              width="320px"
-              height="580px"
+              width="342px"
+              height="628px"
               margin="auto"
-              layout="fill"
+              layout="fixed"
             />
           </div>
 

@@ -599,6 +599,7 @@
   display: flex;
   flex-direction: row;
   gap: 5px;
+  padding-left: 40px;
 }
 .revealExpTxt {
   width: 100%;
@@ -615,7 +616,7 @@
   margin-bottom: 20px;
   position: relative;
 }
-.artefactImg {
+.artefactImgItem {
   width: 72px;
   height: 72px;
   align-items: center;
@@ -624,9 +625,12 @@
   align-items: center;
 }
 .artefactN {
-  width: fit-content;
-  height: fit-content;
+  width: 170px;
+  height: 318px;
   margin: auto;
+}
+.artefact {
+  margin-left: -40px;
 }
 .dragonsList {
   display: flex;

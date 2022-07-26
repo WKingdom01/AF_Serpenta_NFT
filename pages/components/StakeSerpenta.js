@@ -7,26 +7,17 @@ import Artefact from './Artefact';
 //Import style
 import styles from '/styles/stake.module.scss';
 
-//Import Image
-import Img1 from '/static/stake/drg1.png';
 
 import lvl1 from '/static/stake/lvl1.png';
 import lvl2 from '/static/stake/lvl2.png';
 import lvl3 from '/static/stake/lvl3.png';
 import lvl4 from '/static/stake/lvl4.png';
 import lvl5 from '/static/stake/lvl5.png';
-
-import reveal from '/static/stake/reveal.png';
-import unreveal1 from '/static/stake/unreveal0.png';
-import unreveal2 from '/static/stake/unreveal2.png';
-import unreveal3 from '/static/stake/unreveal3.png';
-import unreveal6 from '/static/stake/unreveal6.png';
-import Artefactunreveal from '/static/stake/Artefact_unreveal.png';
-import Artefact1 from '/static/stake/Artefact1.png';
-
 import key from '/static/stake/1key.png';
 
-const DragonDetail = () => {
+import { dragonDetailItems } from '/data/stakeData';
+
+const DragonDetail = ({ data }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImg, setSelectedImg] = useState();
   const onClickArtefact = (img) => {
@@ -37,35 +28,38 @@ const DragonDetail = () => {
   return (
     <div className={styles.row2}>
       <div className={styles.columnLeft}>
-        <div className={styles.drgImg} style={{ background: '#FBEDD6' }}>
-          <Image src={Img1} alt="level"></Image>
+        <div className={styles.drgImg} style={{ background: data.bgColor }}>
+          <Image src={data.imgSrc} alt="level"></Image>
         </div>
         <div className={styles.lvlstatus}>
-          <div className={styles.bar} style={{ width: '30%' }}></div>
+          <div
+            className={styles.bar}
+            style={{ width: data.lvl * 20 + '%' }}
+          ></div>
         </div>
         <div className={styles.row3}>
           <div className={styles.lvlArrayImg}>
-            <Image src={lvl1} alt="" />
+            <Image src={lvl1}></Image>
           </div>
           <div className={styles.lvlArrayImg}>
-            <Image src={lvl2} alt="" />
+            <Image src={lvl2}></Image>
           </div>
           <div className={styles.lvlArrayImg}>
-            <Image src={lvl3} alt="" />
+            <Image src={lvl3}></Image>
           </div>
           <div className={styles.lvlArrayImg}>
-            <Image src={lvl4} alt="" />
+            <Image src={lvl4}></Image>
           </div>
           <div className={styles.lvlArrayImg}>
-            <Image src={lvl5} alt="" />
+            <Image src={lvl5}></Image>
           </div>
         </div>
         <div className={styles.dragonId}>
           <span>DRAGON </span>
-          <span>#1029</span>
+          <span>#{data.id}</span>
         </div>
         <div className={styles.cirLvlText}>
-          <span>Current level is Bronze</span>
+          <span>Current level is {data.lvlStr}</span>
         </div>
         <div className={styles.drgExplainTxt}>
           <p>
@@ -76,7 +70,7 @@ const DragonDetail = () => {
             <div>2d</div>
             <div>2h</div>
             <div>
-              <Image src={key} alt="" />
+              <Image src={key}></Image>
             </div>
           </div>
         </div>
@@ -84,8 +78,14 @@ const DragonDetail = () => {
       <div className={styles.columnRight}>
         <div className={styles.columnRight}>
           <div className={styles.revealTxt}>
-            <div className={styles.leftTxt}> 2 weeks until next reveal</div>
-            <div className={styles.rightTxt}>Total staking time: 19 days</div>
+            <div className={styles.leftTxt}>
+              {' '}
+              {data.nextRevealTime}
+              {data.nextRevealTimeUnit}s until next reveal
+            </div>
+            <div className={styles.rightTxt}>
+              Total staking time: {data.stakingDays} days
+            </div>
           </div>
           <div className={styles.timeline}>
             <div className={styles.passline} style={{ width: '30%' }}></div>
@@ -101,11 +101,14 @@ const DragonDetail = () => {
           </p>
         </div>
         <div className={styles.revealImgArray}>
-          <Artefact img={reveal} item={Artefact1} isReveal={true} />
-          <Artefact img={unreveal1} item={Artefactunreveal} isReveal={false} />
-          <Artefact img={unreveal2} item={Artefactunreveal} isReveal={false} />
-          <Artefact img={unreveal3} item={Artefactunreveal} isReveal={false} />
-          <Artefact img={unreveal6} item={Artefactunreveal} isReveal={false} />
+          {data.revealItemArray.map((item, index) => (
+            <Artefact
+              key={index}
+              img={item.imgSrc}
+              item={item.itemSrc}
+              isReveal={item.isReveal}
+            />
+          ))}
         </div>
       </div>
     </div>
@@ -119,7 +122,7 @@ const Serpenta = (props) => {
         <p>
           Find your Kaiju dragons here. Explore the dimensions, dive into the
           lore, and collect artefacts. Oh, and don’t forget to check-in for the
-          keys — they will surely be handy to open the loot boxes!
+          keys — they will surely be handy to open the loot boxes!
         </p>
       </div>
       <div className={styles.serpentaWarp}>
@@ -129,8 +132,9 @@ const Serpenta = (props) => {
       </div>
       <div className={styles.hLinen}></div>
       <div className={styles.dragonsList}>
-        <DragonDetail />
-        <DragonDetail />
+        {dragonDetailItems.map((item, index) => (
+          <DragonDetail key={index} data={item} />
+        ))}
       </div>
     </section>
   );

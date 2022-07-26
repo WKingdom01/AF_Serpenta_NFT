@@ -15,7 +15,7 @@ const Button = ({
   children,
 }) => {
   const [clicked, setClick] = useState(false);
-
+  const [hovered, setHover] = useState(false);
   return (
     <div className={`button-container ${style}`}>
       {!link && (
@@ -24,10 +24,13 @@ const Button = ({
           onClick={clickHandler}
           title={title ?? text}
           disabled={disabled}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
         >
           <div className="button__text">
             <div>
-              {text} {children}
+              {!hovered ? text : text == 'Connected' ? 'Disconnect' : text}
+              {children}
             </div>
             {dropdown && (
               <div>

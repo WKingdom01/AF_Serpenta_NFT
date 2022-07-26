@@ -1,22 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useAccount } from 'wagmi';
 import useSwr from 'swr';
+import Image from 'next/image';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 
+import Link from 'next/link';
+
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useAccount, useConnect } from 'wagmi';
 import styles from '../styles/profile.module.scss';
-//whitelist Address
-import whitelistAddresses from '../public/static/whitelisted-wallets.json';
+
+import Box from '/static/stake/box.png';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const PageSlot = dynamic(() => import('./components/PageSlot'));
-const MintNavBar = dynamic(() => import('./components/MintNavBar'));
+const PageSlot = dynamic(() => import('../staging/pages/components/PageSlot'));
+const MintNavBar = dynamic(() => import('../staging/pages/components/MintNavBar'));
+
+//whitelist Address
+import whitelistAddresses from '../staging/public/static/whitelisted-wallets.json';
 
 let whitelistOnlyAddresses = [];
 let waitlistOnlyAddresses = [];
-
 const getWhitelistOnlyAddress = () => {
   whitelistAddresses.map((item) =>
     whitelistOnlyAddresses.push(item.wallet_address)
@@ -25,18 +30,24 @@ const getWhitelistOnlyAddress = () => {
 getWhitelistOnlyAddress();
 
 export default function Profile() {
+  const { isConnected } = useConnect();
   const { data: accountData } = useAccount();
   const address = accountData?.address;
   const { data, error } = useSwr(`/api/proof/${address}`, fetcher);
   const [status, SetWalletStatus] = useState('');
-  const [currentTime, setCurrentTime] = useState('');
+  const [text, setText] = useState('');
+  const [phaseTime, setPhaseTime] = useState('');
   useEffect(() => {
     if (address) {
       let flag = false;
       whitelistOnlyAddresses.map((item) => {
         if (item === address) {
-          SetWalletStatus('WHITELIST');
-          setCurrentTime(Date().toLocaleString());
+          SetWalletStatus('Whitelist');
+          setText(
+            'You are in the Whitelist : This starts at Wednesday, August 17, 2022 12:00 AM'
+          );
+          const date = new Date('2022', '7', '17', '00', '00', '00', '00');
+          setPhaseTime(date.getTime());
           return;
         } else {
         }
@@ -44,41 +55,47 @@ export default function Profile() {
 
       waitlistOnlyAddresses.map((item) => {
         if (item === address) {
-          SetWalletStatus('WAITLIST');
-          setCurrentTime(Date().toLocaleString());
-          eturn;
+          SetWalletStatus('Waitlist');
+          setText(
+            'You are in the Waitlist : This starts at Wednesday, August 17, 2022 11:00 PM'
+          );
+          const date = new Date('2022', '7', '17', '23', '00', '00', '00');
+          setPhaseTime(date.getTime());
+          return;
         } else {
         }
       });
-      SetWalletStatus('PUBLIC');
-      setCurrentTime(Date().toLocaleString());
+      SetWalletStatus('Public');
+      setText(
+        'This wallet has not been found in our white or wait list.\
+			The public mint starts at Thursday, August 18, 2022 1:00 AM'
+      );
+      const date = new Date('2022', '7', '18', '1', '00', '00', '00');
+      setPhaseTime(date.toLocaleString());
     }
   }, [address]);
-
   return (
     <div style={{ background: `url('/starrybg.png')` }}>
       <PageSlot>
         <MintNavBar />
-        {!data && <p>Loading profile data...</p>}
-
-        {data && (
+        {isConnected ? (
           <main className={styles.main}>
             <div className={styles.statusWarpWhitelist}>
               <span>{'Whitelist (mint 3 max)'}</span>
             </div>
             <div className={styles.statusWarpReserve}>
-              <span>{'Reserve (max of 3)'}</span>
+              <span>{'Waitlist (max of 3)'}</span>
             </div>
             <div className={styles.statusWarpPublic}>
               <span>{'Public (unlimited)'}</span>
             </div>
             <div className={styles.statusWarp}>
-              <span>Mint Phase Date/Time:</span>
-              <span>{currentTime}</span>
+              <p>{text}</p>
             </div>
+
             <div className={styles.statusWarp}>
               <span>Discord ID: </span>
-              <span>{data.discord_id}</span>
+              <span>{data.discord_username}</span>
             </div>
             <div className={styles.statusWarp}>
               <span>Wallet Address:</span>
@@ -87,16 +104,26 @@ export default function Profile() {
             <div className={styles.statusWarp}>
               <span>Lootboxes Gifted with each dragon minted:</span>
               <span>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="" height={'100px'} width={'100px'} alt=""></img>
+                <Image src={Box} height="100px" width="100px" />
               </span>
             </div>
 
             <div className={styles.countdown}>
               <span>Countdown to mint:</span>
-              <Link href="/mint" passHref>
+              <Link href="/mint">
                 <span className={styles.mint}>Go to mint page</span>
               </Link>
+            </div>
+          </main>
+        ) : (
+          <main className={styles.main}>
+            <div className={styles.statusWarp}>
+              <p>
+                Connect your wallet to check your whitelist / wait list status
+                for Serpenta. We will not ask you to pay any gas or complete any
+                transactions. It's just a connection to check you own the
+                wallet.
+              </p>
             </div>
           </main>
         )}

@@ -4,7 +4,7 @@ import IMG2 from '/static/stake/NFT_DRAGONS_BATCH2_3 1.png';
 import IMG3 from '/static/stake/NFT_DRAGONS_BATCH2_4 1.png';
 //End first page
 
-//Import Imgs for the dashboard page
+//Begin the dashboard page
 //Dragon Img
 import Img1 from '/static/stake/drg1.png';
 import Img2 from '/static/stake/drg2.png';
@@ -20,6 +20,26 @@ import lblDiamond from '/static/stake/lblDiamond.png';
 //Artefact item img
 import Artefact from '/static/stake/Artefact.png';
 //End dashboard page
+
+//Begin  Serpenta page
+//Artefact Imgs
+import reveal from '/static/stake/reveal.png';
+import unreveal0 from '/static/stake/unreveal11.png';
+import unreveal1 from '/static/stake/unreveal0.png';
+import unreveal2 from '/static/stake/unreveal2.png';
+import unreveal3 from '/static/stake/unreveal3.png';
+import unreveal6 from '/static/stake/unreveal6.png';
+
+import reveal22 from '/static/stake/revealImg/reveal1.png';
+import reveal23 from '/static/stake/revealImg/reveal2.png';
+import reveal21 from '/static/stake/revealImg/reveal3.png';
+//Artefact Item Imgs
+import Artefactnone from '/static/stake/Artefact_none.png';
+import Artefactunreveal from '/static/stake/Artefact_unreveal.png';
+import Artefact1 from '/static/stake/Artefact1.png';
+import Artefact2 from '/static/stake/Artefact2.png';
+import Artefact3 from '/static/stake/Artefact3.png';
+//End Serpenta page
 
 //First page
 export const firstPageItems = [
@@ -37,7 +57,7 @@ export const firstPageItems = [
   },
 ];
 
-//Dashboard page
+//Begin Dashboard page
 // Dragon Item
 export const dashboardDrgItems = [
   {
@@ -96,3 +116,119 @@ export const dashboardArtefactItems = [
     alt: 'Artefact',
   },
 ];
+//End Dashboard page
+
+//Begin Serpenta
+//Dragon Detail
+export const dragonDetailItems = [
+  {
+    id: 1029,
+    imgSrc: Img2,
+    bgColor: '#C7DC73',
+    lvl: 2,
+    lvlStr: 'Bronze',
+    stakingDays: 19,
+    nextRevealTime: 2,
+    nextRevealTimeUnit: 'week',
+
+    revealItemArray: [
+      {
+        imgSrc: reveal,
+        imgAlt: 'Artefact',
+        itemSrc: Artefact1,
+        itemAlt: 'Artefact Item',
+        isReveal: true,
+      },
+      {
+        imgSrc: unreveal0,
+        imgAlt: 'Artefact',
+        itemSrc: Artefactunreveal,
+        itemAlt: 'Artefact Item',
+        isReveal: false,
+      },
+      {
+        imgSrc: unreveal1,
+        imgAlt: 'Artefact',
+        itemSrc: Artefactunreveal,
+        itemAlt: 'Artefact Item',
+        isReveal: false,
+      },
+      {
+        imgSrc: unreveal2,
+        imgAlt: 'Artefact',
+        itemSrc: Artefactunreveal,
+        itemAlt: 'Artefact Item',
+        isReveal: false,
+      },
+      {
+        imgSrc: unreveal3,
+        imgAlt: 'Artefact',
+        itemSrc: Artefactunreveal,
+        itemAlt: 'Artefact Item',
+        isReveal: false,
+      },
+      {
+        imgSrc: unreveal6,
+        imgAlt: 'Artefact',
+        itemSrc: Artefactunreveal,
+        itemAlt: 'Artefact Item',
+        isReveal: false,
+      },
+    ],
+  },
+  {
+    id: 2398,
+    imgSrc: Img3,
+    bgColor: '#FAFAFA',
+    lvl: 4,
+    lvlStr: 'Golden',
+    stakingDays: 127,
+    nextRevealTime: 4,
+    nextRevealTimeUnit: 'day',
+    revealItemArray: [
+      {
+        imgSrc: reveal21,
+        imgAlt: 'Artefact',
+        itemSrc: Artefact2,
+        itemAlt: 'Artefact Item',
+        isReveal: true,
+      },
+      {
+        imgSrc: reveal22,
+        imgAlt: 'Artefact',
+        itemSrc: Artefactnone,
+        itemAlt: 'Artefact Item',
+        isReveal: true,
+      },
+      {
+        imgSrc: reveal23,
+        imgAlt: 'Artefact',
+        itemSrc: Artefact3,
+        itemAlt: 'Artefact Item',
+        isReveal: true,
+      },
+      {
+        imgSrc: unreveal2,
+        imgAlt: 'Artefact',
+        itemSrc: Artefactunreveal,
+        itemAlt: 'Artefact Item',
+        isReveal: false,
+      },
+      {
+        imgSrc: unreveal3,
+        imgAlt: 'Artefact',
+        itemSrc: Artefactunreveal,
+        itemAlt: 'Artefact Item',
+        isReveal: false,
+      },
+      {
+        imgSrc: unreveal6,
+        imgAlt: 'Artefact',
+        itemSrc: Artefactunreveal,
+        itemAlt: 'Artefact Item',
+        isReveal: false,
+      },
+    ],
+  },
+];
+//End Serpenta

@@ -241,6 +241,11 @@
     font-size: 20px;
     font-weight: bold;
   }
+  p {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+  }
 }
 .countdown {
   display: flex;
@@ -254,6 +259,7 @@
     font-weight: bold;
   }
   .mint {
+    text-decoration: underline;
     &:hover {
       cursor: pointer;
     }
