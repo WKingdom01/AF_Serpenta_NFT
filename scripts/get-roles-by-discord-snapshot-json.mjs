@@ -39,7 +39,7 @@ if (allNewUsers) {
     }
 
     console.log(
-      'discord-user-roles.json was saved in ./public/static/discord-user-roles.json'
+      'discord-user-roles.json was saved in ./public/static/discord-user-roles.json',
     );
   });
 }

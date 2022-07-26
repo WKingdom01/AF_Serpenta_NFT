@@ -1,0 +1,18 @@
+.discord-role {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #2f3136;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &--red {
+    background-color: #ff0000;
+  }
+
+  // TODO: add colors for other roles
+}

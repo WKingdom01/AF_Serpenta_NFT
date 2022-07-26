@@ -6,12 +6,16 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useAccount, useConnect } from 'wagmi';
-import { getWaitlistedAddresses, getWhitelistedAddresses } from '/utils/helpers/get-exported-addresses';
+import {
+  getWaitlistedAddresses,
+  getWhitelistedAddresses,
+} from '/utils/helpers/get-exported-addresses';
+import { statusHelper } from '../utils/helpers/status-helper';
 
 import styles from '/styles/profile.module.scss';
 
 import Box from '/static/stake/box.png';
-//whitelist Address
+import DiscordRoles from './components/DiscordRoles';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -77,14 +81,23 @@ export default function Profile() {
               <p>{text}</p>
             </div>
 
-            <div className={styles.statusWarp}>
-              <span>Discord ID: </span>
-              <span>{data.discord_username}</span>
-            </div>
-            <div className={styles.statusWarp}>
-              <span>Wallet Address:</span>
-              <span>{address}</span>
-            </div>
+            <dl className={styles.definitionList}>
+              <dt>Discord name:</dt>
+              <dd>{data.discord_username}</dd>
+
+              <dt>Discord ID:</dt>
+              <dd>{data.discord_id}</dd>
+
+              <dt>Discord roles:</dt>
+              <dd>{data?.roles && <DiscordRoles roles={data.roles} />}</dd>
+
+              <dt>Wallet Address:</dt>
+              <dd>{address}</dd>
+
+              <dt>Status:</dt>
+              <dd>{statusHelper(data.whitelisted)}</dd>
+            </dl>
+
             <div className={styles.statusWarp}>
               <span>Lootboxes Gifted with each dragon minted:</span>
               <span>
