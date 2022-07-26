@@ -1,12 +1,13 @@
 import dynamic from 'next/dynamic';
-const Button = dynamic(() => import('./Button'));
-const ConnectWallet = dynamic(() => import('./ConnectWallet'));
 import Image from 'next/image';
 import HelpCenter from './HelpCenter';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useConnect, useDisconnect, useEnsName, useAccount } from 'wagmi';
+import { useAccount, useConnect, useDisconnect } from 'wagmi';
 import shortenAddress from '/utils/helpers/shortenAddress';
+
+const Button = dynamic(() => import('./Button'));
+const ConnectWallet = dynamic(() => import('./ConnectWallet'));
+
 const MintNavBar = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [connectModalOpen, setConnectModalOpen] = useState(false);
@@ -50,7 +51,7 @@ const MintNavBar = () => {
 
         <div className="mint-navbar__button">
           <div className="mint-navbar__address">
-            {address && <spane>{shortenAddress(address)}</spane>}
+            {address && <span>{shortenAddress(address)}</span>}
           </div>
           <Button
             clickHandler={() => {
