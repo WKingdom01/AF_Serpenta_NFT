@@ -12,18 +12,18 @@ if (SUPABASE_API_KEY && SUPABASE_API_URL) {
     .select(
       'id, wallet_address, whitelisted, discord_id, discord_username, roles, mint_quantity, lootbox_type, lootbox_status, lootbox_quantity, lootbox_held, created_at, updated_at',
     )
-    .eq('whitelisted', 1)
+    .eq('whitelisted', 2)
     .limit(100000);
 
   if (error) {
-    console.log('error fetching whitelisted wallets from supabase');
+    console.log('error fetching waitlisted wallets from supabase');
   }
 
   if (wallets) {
     const jsonWallets = JSON.stringify(wallets);
 
     fse.outputFile(
-      './public/static/whitelisted-wallets.json',
+      './public/static/waitlisted-wallets.json',
       jsonWallets,
       (e) => {
         if (e) {
@@ -31,7 +31,7 @@ if (SUPABASE_API_KEY && SUPABASE_API_URL) {
         }
 
         console.log(
-          'whitelisted-wallets.json was saved in ./public/static/whitelisted-wallets.json',
+          'waitlisted-wallets.json was saved in ./public/static/waitlisted-wallets.json',
         );
       },
     );

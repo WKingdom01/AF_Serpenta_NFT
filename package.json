@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build-wallets": "node ./scripts/build-whitelisted-wallets-json.mjs",
+    "build-wallets": "node ./scripts/build-whitelisted-wallets-json.mjs & node ./scripts/build-waitlisted-wallets-json.mjs",
     "get-snapshot-roles": "node --experimental-json-modules ./scripts/get-roles-by-discord-snapshot-json.mjs"
   },
   "dependencies": {

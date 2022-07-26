@@ -2,30 +2,38 @@ const { join, resolve } = require('path');
 const { readFileSync } = require('fs');
 
 /**
- * Check whitelisted wallets based on slug
+ * Check wallets based on slug
  * @param req {Object} The request.
  * @param res {Object} The response.
  * @param req.query.address {String} ethaddress.
  */
 export default function handler(req, res) {
   const { address } = req.query;
-  const walletDirectory = resolve(process.cwd(), './public/static');
+  const staticDirectory = resolve(process.cwd(), './public/static');
 
   try {
-    const wallets = readFileSync(
-      join(walletDirectory, 'whitelisted-wallets.json'),
+    const whitelistedWallets = readFileSync(
+      join(staticDirectory, 'whitelisted-wallets.json'),
+      'utf8'
+    );
+
+    const waitlistedWallets = readFileSync(
+      join(staticDirectory, 'whitelisted-wallets.json'),
       'utf8'
     );
 
     const discordUserRoles = readFileSync(
-      join(walletDirectory, 'discord-user-roles.json'),
+      join(staticDirectory, 'discord-user-roles.json'),
       'utf8'
     );
 
-    const walletsArray = JSON.parse(wallets);
+    const whitelistedWalletsArray = JSON.parse(whitelistedWallets);
+    const waitlistedWalletsArray = JSON.parse(waitlistedWallets);
     const discordUserRolesArray = JSON.parse(discordUserRoles);
 
-    const mergedWalletsWithDiscordUsername = walletsArray.map((wallet) => {
+    const allWallets = [...whitelistedWalletsArray, ...waitlistedWalletsArray];
+
+    const mergedWalletsWithDiscordUsername = allWallets.map((wallet) => {
       const discordUser = discordUserRolesArray.find(
         (user) => user.discord_id === wallet.discord_id
       );
