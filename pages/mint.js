@@ -14,7 +14,7 @@ import {
   useSigner,
 } from 'wagmi';
 
-import getWhitelistedAddresses from '/utils/helpers/get-whitelisted-addresses';
+import { getWhitelistedAddresses } from '/utils/helpers/get-exported-addresses';
 
 import mintABI from '../services/abi/mint.json';
 import rectIcon from '../static/rectIcon.png';

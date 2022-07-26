@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useAccount, useConnect } from 'wagmi';
-import getWhitelistedAddresses from '/utils/helpers/get-whitelisted-addresses';
+import { getWaitlistedAddresses, getWhitelistedAddresses } from '/utils/helpers/get-exported-addresses';
 
 import styles from '/styles/profile.module.scss';
 
@@ -18,7 +18,6 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 const PageSlot = dynamic(() => import('./components/PageSlot'));
 const MintNavBar = dynamic(() => import('./components/MintNavBar'));
 
-let waitlistOnlyAddresses = [];
 export default function Profile() {
   const { isConnected } = useConnect();
   const { data: accountData } = useAccount();
@@ -44,7 +43,7 @@ export default function Profile() {
         }
       });
 
-      waitlistOnlyAddresses.map((item) => {
+      getWaitlistedAddresses().map((item) => {
         if (item === address) {
           SetWalletStatus('Waitlist');
           setText(
@@ -104,10 +103,9 @@ export default function Profile() {
           <main className={styles.main}>
             <div className={styles.statusWarp}>
               <p>
-                Connect your wallet to check your whitelist/waitlist status for
-                Serpenta. We will not ask you to pay any gas or complete an
-                transactions.It`&apos`s just a connection to check you own the
-                wallet
+                {
+                  "Connect your wallet to check your whitelist/waitlist status for Serpenta. We will not ask you to pay any gas or complete an transactions. It's just a connection to check you own the wallet"
+                }
               </p>
             </div>
           </main>
