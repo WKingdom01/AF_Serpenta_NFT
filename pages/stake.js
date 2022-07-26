@@ -26,7 +26,7 @@ export default function Stake() {
   const [openmodal, setOpenmodal] = useState(false);
   return (
     <div>
-      <PageSlot>
+      <PageSlot title="stake">
         <MintNavBar />
         {!isConnected ? (
           <section>

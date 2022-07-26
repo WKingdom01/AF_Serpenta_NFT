@@ -2,10 +2,10 @@ import dynamic from 'next/dynamic';
 
 const HeadComponent = dynamic(() => import('./HeadComponent'));
 
-const PageSlot = ({ children }) => {
+const PageSlot = ({ title, children }) => {
   return (
     <div className="home">
-      <HeadComponent></HeadComponent>
+      <HeadComponent title={title}></HeadComponent>
       <main className="main">{children}</main>
     </div>
   );

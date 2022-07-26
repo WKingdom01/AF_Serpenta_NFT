@@ -1,11 +1,14 @@
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Script from 'next/script';
 import { appWithTranslation } from 'next-i18next';
-import nextI18NextConfig from '../next-i18next.config.js';
 import { providers } from 'ethers';
 import { chain, createClient, defaultChains, WagmiConfig } from 'wagmi';
 import { InjectedConnector } from 'wagmi/connectors/injected';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
+import nextI18NextConfig from '../next-i18next.config.js';
+import * as gtag from '../utils/gtag';
 
 import '../styles/globals.scss';
 import '../styles/reset.scss';
@@ -83,29 +86,38 @@ const client = createClient({
 });
 
 function MyApp({ Component, pageProps }) {
-  const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <>
-      <WagmiConfig client={client}>
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-        />
-
-        <Script
-          id="gtag-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            _html: `
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`}
+      />
+      <Script
+        id="nextjs-google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', ${gaMeasurementId}, {
-                page_path: window.location.pathname,
+            gtag('config', '${gtag.GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
             });
-        `,
-          }}
-        />
+          `,
+        }}
+      />
+      <WagmiConfig client={client}>
         <Component {...pageProps} />
       </WagmiConfig>
     </>

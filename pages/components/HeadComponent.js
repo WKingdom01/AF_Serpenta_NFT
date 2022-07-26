@@ -1,13 +1,15 @@
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 
-const HeadComponent = () => {
+const HeadComponent = ({ title }) => {
   const { t } = useTranslation('common');
 
   return (
     <Head>
       <meta name="description" content={t('description')} />
-      <title>{t('title')}</title>
+      <title>
+        {t('title')} - {title}
+      </title>
       <link rel="icon" href="/favicon.ico" />
 
       <link

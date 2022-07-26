@@ -14,10 +14,9 @@ import {
   useSigner,
 } from 'wagmi';
 
-import getWhitelistedAddresses from '/utils/helpers/get-whitelisted-addresses'
+import getWhitelistedAddresses from '/utils/helpers/get-whitelisted-addresses';
 
 import mintABI from '../services/abi/mint.json';
-import whitelistAddress from '../public/static/whitelisted-wallets.json';
 import rectIcon from '../static/rectIcon.png';
 import nftImage from '../static/01.png';
 
@@ -31,8 +30,6 @@ const SwiperDragon = dynamic(() => import('./components/SwiperDragon'));
 //MerkleTree
 const { MerkleTree } = require('merkletreejs');
 const keccak256 = require('keccak256');
-
-
 
 export default function Mint(callback, deps) {
   const { t } = useTranslation('common');
@@ -190,7 +187,7 @@ export default function Mint(callback, deps) {
 
   return (
     <div style={{ background: `url('/starrybg.png')` }}>
-      <PageSlot>
+      <PageSlot title="mint">
         <MintNavBar />
         <main>
           <div className={styles.mintContainer}>

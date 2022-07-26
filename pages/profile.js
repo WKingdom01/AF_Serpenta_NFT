@@ -1,11 +1,9 @@
 import dynamic from 'next/dynamic';
 import useSwr from 'swr';
 import Image from 'next/image';
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Link from 'next/link';
-
-import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useAccount, useConnect } from 'wagmi';
 import getWhitelistedAddresses from '/utils/helpers/get-whitelisted-addresses';
@@ -13,14 +11,12 @@ import getWhitelistedAddresses from '/utils/helpers/get-whitelisted-addresses';
 import styles from '/styles/profile.module.scss';
 
 import Box from '/static/stake/box.png';
+//whitelist Address
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const PageSlot = dynamic(() => import('./components/PageSlot'));
 const MintNavBar = dynamic(() => import('./components/MintNavBar'));
-
-//whitelist Address
-import whitelistAddresses from '../public/static/whitelisted-wallets.json';
 
 let waitlistOnlyAddresses = [];
 export default function Profile() {
@@ -74,7 +70,7 @@ export default function Profile() {
   }, [address]);
   return (
     <div style={{ background: 'url("/starrybg.png")' }}>
-      <PageSlot>
+      <PageSlot title="profile">
         <MintNavBar />
         {isConnected && data ? (
           <main className={styles.main}>
