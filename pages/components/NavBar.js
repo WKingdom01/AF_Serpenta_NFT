@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import { useTranslation } from 'next-i18next';
 import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { DISCORD_URL, OPENSEA_URL, TWITTER_URL } from '../../data/constants';
 
 const Button = dynamic(() => import('./Button'));
 const LanguageSelect = dynamic(() => import('./LanguageSelect'));
@@ -13,7 +14,6 @@ const NavBar = () => {
   const [open, setOpen] = useState(false);
   const [fixed, setFixed] = useState(false);
   const [hide, setHide] = useState(false);
-  // const [lastScrollTop, setLastScrollTop] = useState(0)
   const { t } = useTranslation('common');
 
   const handleScroll = () => {
@@ -77,21 +77,21 @@ const NavBar = () => {
           <li className="navbar__button-item">
             <Button
               style="ThreeD"
-              link={t('navbar.linkOneLink')}
+              link={OPENSEA_URL}
               text={t('navbar.linkOneText')}
             ></Button>
           </li>
           <li className="navbar__button-item">
             <Button
               style="ThreeD"
-              link={t('navbar.linkTwoLink')}
+              link={TWITTER_URL}
               text={t('navbar.linkTwoText')}
             ></Button>
           </li>
           <li className="navbar__button-item">
             <Button
               style="ThreeD"
-              link={t('navbar.linkThreeLink')}
+              link={DISCORD_URL}
               text={t('navbar.linkThreeText')}
             ></Button>
           </li>
