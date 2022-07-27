@@ -1,20 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
-import Link from 'next/link';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useAccount, useConnect } from 'wagmi';
 import useSwr from 'swr';
-
-import {
-  getWaitlistedAddresses,
-  getWhitelistedAddresses,
-} from '../utils/helpers/get-exported-addresses';
 import { statusHelper } from '../utils/helpers/status-helper';
 
 import styles from '/styles/profile.module.scss';
-import Box from '/static/stake/box.png';
-import HelpCenter from './components/HelpCenter';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -32,17 +23,7 @@ export default function Profile() {
   const [phaseTime, setPhaseTime] = useState('');
   const [statusCode, setStatusCode] = useState('');
   const [userName, setUserName] = useState();
-  useEffect(() => {
-    if (address && data) {
-      setStatusCode(data.whitelisted);
-      const info = statusHelper(data.whitelisted);
-      setWalletStatus(info.status);
-      setAlertTxt(info.alert);
-      setPhaseTime(info.time);
-      setUserName(data.discord_username);
-      console.log('Ready for showing');
-    }
-  });
+
   useEffect(() => {
     if (address && data) {
       setStatusCode(data.whitelisted);

@@ -176,6 +176,11 @@
         }
       ]
     },
+    "mintQuantityModal": {
+      "title": "Mint Quantity",
+      "description": "How many dragons do you want to mint?",
+      "button": "Submit"
+    },
     "minted": "RAWR! You JUST minted",
     "1minted": "A SERPENTA NFT!",
     "mminted": "SERPENTA NFTS!",

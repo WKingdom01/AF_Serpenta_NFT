@@ -4,15 +4,20 @@ import Image from 'next/image';
 import HelpCenter from './HelpCenter';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
 import shortenAddress from '/utils/helpers/shortenAddress';
+import MintQuantityModal from './MintQuantityModal';
 
 const Button = dynamic(() => import('./Button'));
 const ConnectWallet = dynamic(() => import('./ConnectWallet'));
 
 const MintNavBar = () => {
   let insertedWallet;
+  let insertedQuantity;
 
   const [modalOpen, setModalOpen] = useState(false);
   const [connectModalOpen, setConnectModalOpen] = useState(false);
+  const [mintQuantityModalOpen, setMintQuantityModalOpen] = useState(false);
+  const [parentMintQuantity, setParentMintQuantity] = useState(null);
+
   const { isConnected } = useConnect();
   const { disconnect } = useDisconnect();
   const { data: accountData } = useAccount();
@@ -20,6 +25,14 @@ const MintNavBar = () => {
 
   if (typeof window !== 'undefined') {
     insertedWallet = localStorage.getItem('inserted_wallet');
+    insertedQuantity = localStorage.getItem('inserted_quantity');
+  }
+
+  function resetMintQuantity() {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('inserted_quantity');
+    }
+    setParentMintQuantity(null);
   }
 
   useEffect(() => {
@@ -30,6 +43,7 @@ const MintNavBar = () => {
     ) {
       if (typeof window !== 'undefined') {
         localStorage.setItem('inserted_wallet', address);
+        resetMintQuantity();
       }
 
       fetch('/api/wallet', {
@@ -44,6 +58,32 @@ const MintNavBar = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address]);
+
+  useEffect(() => {
+    if (isConnected && address && insertedQuantity === null) {
+      setMintQuantityModalOpen(true);
+
+      if (parentMintQuantity) {
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('inserted_quantity', parentMintQuantity);
+        }
+
+        fetch('/api/wallet', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            address,
+            mint_quantity: parentMintQuantity,
+          }),
+        }).then(() => {
+          setMintQuantityModalOpen(false);
+        });
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [address, isConnected, parentMintQuantity, insertedQuantity]);
 
   return (
     <div>
@@ -98,6 +138,12 @@ const MintNavBar = () => {
         modalOpen={connectModalOpen}
         setModalOpen={setConnectModalOpen}
       ></ConnectWallet>
+      <MintQuantityModal
+        modalOpen={mintQuantityModalOpen}
+        setModalOpen={setMintQuantityModalOpen}
+        setParentMintQuantity={setParentMintQuantity}
+        maxMintQuantity={3}
+      />
     </div>
   );
 };
