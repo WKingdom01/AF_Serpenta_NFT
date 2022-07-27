@@ -31,6 +31,7 @@ export default function Profile() {
   const [alertTxt, setAlertTxt] = useState('');
   const [phaseTime, setPhaseTime] = useState('');
   const [statusCode, setStatusCode] = useState('');
+  const [userName, setUserName] = useState();
   useEffect(() => {
     if (address && data) {
       setStatusCode(data.whitelisted);
@@ -38,6 +39,7 @@ export default function Profile() {
       setWalletStatus(info.status);
       setAlertTxt(info.alert);
       setPhaseTime(info.time);
+      setUserName(data.discord_username);
     }
   }, [address]);
   return (
@@ -137,7 +139,7 @@ export default function Profile() {
             </div>
             <div className={styles.info}>
               <span className={styles.title}>your discord id</span>
-              <span className={styles.content}>{data.discord_username}</span>
+              <span className={styles.content}>{userName}</span>
             </div>
             <div className={styles.info}>
               <span className={styles.title}>discord role</span>
