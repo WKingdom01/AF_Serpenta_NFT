@@ -14,6 +14,7 @@ import { statusHelper } from '../utils/helpers/status-helper';
 
 import styles from '/styles/profile.module.scss';
 import Box from '/static/stake/box.png';
+import HelpCenter from './components/HelpCenter';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -26,102 +27,148 @@ export default function Profile() {
   const { data: accountData } = useAccount();
   const address = accountData?.address;
   const { data, error } = useSwr(`/api/proof/${address}`, fetcher);
-  const [status, SetWalletStatus] = useState('');
-  const [text, setText] = useState('');
+  const [status, setWalletStatus] = useState('');
+  const [alertTxt, setAlertTxt] = useState('');
   const [phaseTime, setPhaseTime] = useState('');
+  const [statusCode, setStatusCode] = useState('');
   useEffect(() => {
-    if (address) {
-      let flag = false;
-      getWhitelistedAddresses().map((item) => {
-        if (address.localeCompare(item) == 0) {
-          SetWalletStatus('Whitelist');
-          setText(
-            'You are in the Whitelist : This starts at Wednesday, August 17, 2022 12:00 AM'
-          );
-          const date = new Date('2022', '7', '17', '00', '00', '00', '00');
-          setPhaseTime(date.getTime());
-          flag = true;
-          return;
-        } else {
-        }
-      });
-
-      getWaitlistedAddresses().map((item) => {
-        if (item === address) {
-          SetWalletStatus('Waitlist');
-          setText(
-            'You are in the Waitlist : This starts at Wednesday, August 17, 2022 11:00 PM'
-          );
-          const date = new Date('2022', '7', '17', '23', '00', '00', '00');
-          setPhaseTime(date.getTime());
-          flag = true;
-          return;
-        } else {
-        }
-      });
-      if (!flag) {
-        SetWalletStatus('Public');
-        setText(
-          'This wallet has not been found in our white or wait list.\
-        The public mint starts at Thursday, August 18, 2022 1:00 AM'
-        );
-        const date = new Date('2022', '7', '18', '1', '00', '00', '00');
-        setPhaseTime(date.toLocaleString());
-      }
+    if (address && data) {
+      setStatusCode(data.whitelisted);
+      const info = statusHelper(data.whitelisted);
+      setWalletStatus(info.status);
+      setAlertTxt(info.alert);
+      setPhaseTime(info.time);
     }
   }, [address]);
   return (
     <div style={{ background: 'url("/starrybg.png")' }}>
       <PageSlot title="profile">
         <MintNavBar />
-        {isConnected && data ? (
-          <main className={styles.main}>
-            <div className={styles.statusWarp}>
-              <p>{text}</p>
-            </div>
-
-            <dl className={styles.definitionList}>
-              <dt>Discord name:</dt>
-              <dd>{data.discord_username}</dd>
-
-              <dt>Discord ID:</dt>
-              <dd>{data.discord_id}</dd>
-
-              <dt>Discord roles:</dt>
-              <dd>{data?.roles && <DiscordRoles roles={data.roles} />}</dd>
-
-              <dt>Wallet Address:</dt>
-              <dd>{address}</dd>
-
-              <dt>Status:</dt>
-              <dd>{statusHelper(data.whitelisted)}</dd>
-            </dl>
-
-            <div className={styles.statusWarp}>
-              <span>Lootboxes Gifted with each dragon minted:</span>
-              <span>
-                <Image src={Box} height="100px" width="100px" alt="" />
-              </span>
-            </div>
-
-            <div className={styles.countdown}>
-              <span>Countdown to mint:</span>
-              <Link href="/mint" passHref>
-                <span className={styles.mint}>Go to mint page</span>
-              </Link>
-            </div>
-          </main>
-        ) : (
-          <main className={styles.main}>
-            <div className={styles.statusWarp}>
-              <p>
-                {
-                  "Connect your wallet to check your whitelist/waitlist status for Serpenta. We will not ask you to pay any gas or complete an transactions. It's just a connection to check you own the wallet"
+        <div className={styles.body}>
+          <div className={styles.stages}>
+            <div className={styles.stageTxts}>
+              <div
+                className={statusCode == '1' ? styles.current : styles.passed}
+              >
+                <span className={styles.list}>whitelist</span>
+                <span className={styles.amount}>Mint 3 max</span>
+              </div>
+              <div
+                className={
+                  statusCode == '1'
+                    ? styles.upcoming
+                    : statusCode == '2'
+                    ? styles.current
+                    : styles.passed
                 }
-              </p>
+              >
+                <span className={styles.list}>
+                  <span className={styles.centerTxt}>reserve</span>
+                </span>
+                <span className={styles.amount}>
+                  <span className={styles.centerTxt}>Mint 3 max</span>
+                </span>
+              </div>
+
+              <div
+                className={
+                  statusCode != '1' && statusCode != '2'
+                    ? styles.current
+                    : styles.upcoming
+                }
+              >
+                <span className={styles.list}>
+                  <span className={styles.rightTxt}>public</span>
+                </span>
+                <span className={styles.amount}>
+                  <span className={styles.rightTxt}>Unlimited</span>
+                </span>
+              </div>
             </div>
-          </main>
-        )}
+            <div className={styles.stageGraph}>
+              <div
+                className={statusCode == '1' ? styles.current : styles.passed}
+              >
+                {statusCode != '1' ? <div className={styles.check}></div> : 1}
+              </div>
+              <div
+                className={
+                  statusCode != '1' ? styles.passline : styles.timeline
+                }
+              ></div>
+              <div
+                className={
+                  statusCode == '1'
+                    ? styles.upcoming
+                    : statusCode == '2'
+                    ? styles.current
+                    : styles.passed
+                }
+              >
+                {statusCode != '1' && statusCode != '2' ? (
+                  <div className={styles.check}></div>
+                ) : (
+                  2
+                )}
+              </div>
+              <div
+                className={
+                  statusCode != '1' && statusCode != '2'
+                    ? styles.passline
+                    : styles.timeline
+                }
+              ></div>
+              <div
+                className={
+                  statusCode != '1' && statusCode != '2'
+                    ? styles.current
+                    : styles.upcoming
+                }
+              >
+                3
+              </div>
+            </div>
+          </div>
+          <div className={styles.status}>{alertTxt}</div>
+          <div className={styles.infoBox}>
+            <div className={styles.info}>
+              <span className={styles.title}>mint phase date/time</span>
+              <span className={styles.content}>{phaseTime.toString()}</span>
+            </div>
+            <div className={styles.info}>
+              <span className={styles.title}>your discord id</span>
+              <span className={styles.content}>{data.discord_username}</span>
+            </div>
+            <div className={styles.info}>
+              <span className={styles.title}>discord role</span>
+              <div className={styles.roles}>
+                <div className={styles.id}>@Everyone</div>
+                <div className={styles.verify}>Verified Rookie</div>
+                <div className={styles.status}>Whitelisted</div>
+              </div>
+            </div>
+            <div className={styles.info}>
+              <span className={styles.title}>wallet address</span>
+              <span className={styles.content}>{address}</span>
+            </div>
+            <div className={styles.info}>
+              <span className={styles.title}>status</span>
+              <span className={styles.content}>{status}</span>
+            </div>
+          </div>
+          <div className={styles.lootboxes}>
+            <span className={styles.title}>
+              Lootboxes gifted with each dragon minted
+            </span>
+            <div className={styles.content}>
+              <i className={styles.number}>2</i>
+            </div>
+          </div>
+          <div className={styles.mintbox}>
+            <span>Countdown to mint: 7d 8h 32s</span>
+            <button>go to mint</button>
+          </div>
+        </div>
       </PageSlot>
     </div>
   );

@@ -13,6 +13,7 @@ const Button = ({
   clickHandler,
   symbol,
   children,
+  address='',
 }) => {
   const [clicked, setClick] = useState(false);
   const [hovered, setHover] = useState(false);
@@ -30,6 +31,9 @@ const Button = ({
           <div className="button__text">
             <div>
               {text} {children}
+            </div>
+            <div className="button__text__address">
+              {address}
             </div>
             {dropdown && (
               <div>

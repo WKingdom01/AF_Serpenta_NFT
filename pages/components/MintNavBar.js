@@ -51,14 +51,14 @@ const MintNavBar = () => {
 
         <div className="mint-navbar__button">
           <div className="mint-navbar__address">
-            {address && <span>{shortenAddress(address)}</span>}
           </div>
           <Button
             clickHandler={() => {
               isConnected ? disconnect() : setConnectModalOpen(true);
             }}
             style="outline ThreeD"
-            text={isConnected ? 'Disconnect Wallet' : 'Connect Wallet'}
+            text={isConnected ? 'Disconnect' : 'Connect Wallet'}
+            address={address?shortenAddress(address):''}
           ></Button>
         </div>
       </div>
