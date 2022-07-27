@@ -1,7 +1,7 @@
+import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import HelpCenter from './HelpCenter';
-import { useState } from 'react';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
 import shortenAddress from '/utils/helpers/shortenAddress';
 
@@ -9,12 +9,41 @@ const Button = dynamic(() => import('./Button'));
 const ConnectWallet = dynamic(() => import('./ConnectWallet'));
 
 const MintNavBar = () => {
+  let insertedWallet;
+
   const [modalOpen, setModalOpen] = useState(false);
   const [connectModalOpen, setConnectModalOpen] = useState(false);
   const { isConnected } = useConnect();
   const { disconnect } = useDisconnect();
   const { data: accountData } = useAccount();
   const address = accountData?.address;
+
+  if (typeof window !== 'undefined') {
+    insertedWallet = localStorage.getItem('inserted_wallet');
+  }
+
+  useEffect(() => {
+    if (
+      isConnected &&
+      address &&
+      (insertedWallet === null || insertedWallet !== address)
+    ) {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('inserted_wallet', address);
+      }
+
+      fetch('/api/wallet', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          address,
+        }),
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [address]);
 
   return (
     <div>
@@ -50,15 +79,14 @@ const MintNavBar = () => {
         </div>
 
         <div className="mint-navbar__button">
-          <div className="mint-navbar__address">
-          </div>
+          <div className="mint-navbar__address"></div>
           <Button
             clickHandler={() => {
               isConnected ? disconnect() : setConnectModalOpen(true);
             }}
             style="outline ThreeD"
             text={isConnected ? 'Disconnect' : 'Connect Wallet'}
-            address={address?shortenAddress(address):''}
+            address={address ? shortenAddress(address) : ''}
           ></Button>
         </div>
       </div>
