@@ -40,8 +40,10 @@ export default function Profile() {
       setAlertTxt(info.alert);
       setPhaseTime(info.time);
       setUserName(data.discord_username);
+      console.log('Ready for showing');
     }
   }, [address]);
+
   return (
     <div style={{ background: 'url("/starrybg.png")' }}>
       <PageSlot title="profile">
