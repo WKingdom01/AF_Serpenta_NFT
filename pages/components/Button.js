@@ -31,10 +31,12 @@ const Button = ({
           <div className="button__text">
             <div>
               {text} {children}
-            </div>
-            <div className="button__text__address">
-              {address}
-            </div>
+            </div>    
+            {address!=''&&
+             <div className="button__text__address">
+             {address}
+           </div>  }      
+           
             {dropdown && (
               <div>
                 <FontAwesomeIcon className="icon" icon={faChevronDown} />

@@ -40,8 +40,21 @@ export default function Profile() {
       setAlertTxt(info.alert);
       setPhaseTime(info.time);
       setUserName(data.discord_username);
+      console.log('Ready for showing');
+    }
+  });
+  useEffect(() => {
+    if (address && data) {
+      setStatusCode(data.whitelisted);
+      const info = statusHelper(data.whitelisted);
+      setWalletStatus(info.status);
+      setAlertTxt(info.alert);
+      setPhaseTime(info.time);
+      setUserName(data.discord_username);
+      console.log('Ready for showing');
     }
   }, [address]);
+
   return (
     <div style={{ background: 'url("/starrybg.png")' }}>
       <PageSlot title="profile">
