@@ -1,16 +1,12 @@
-import whitelistAddresses from '../../public/static/whitelisted-wallets.json';
-import waitlistAddresses from '../../public/static/waitlisted-wallets.json';
+import whitelistAddresses from '../../public/static/whitelisted-wallets-only.json';
+import waitlistAddresses from '../../public/static/waitlisted-wallets-only.json';
 
 /**
  * @function getWhitelistedAddresses
  * @returns {Array[wallet_address]}
  */
 export const getWhitelistedAddresses = () => {
-  let whitelistOnlyAddresses = [];
-  whitelistAddresses.map((item) =>
-    whitelistOnlyAddresses.push(item.wallet_address)
-  );
-  return whitelistOnlyAddresses;
+  return whitelistAddresses;
 };
 
 /**
@@ -18,9 +14,5 @@ export const getWhitelistedAddresses = () => {
  * @returns {Array[wallet_address]}
  */
 export const getWaitlistedAddresses = () => {
-  let waitlistOnlyAddresses = [];
-  waitlistAddresses.map((item) =>
-    waitlistOnlyAddresses.push(item.wallet_address)
-  );
-  return waitlistOnlyAddresses;
+  return waitlistAddresses;
 };
