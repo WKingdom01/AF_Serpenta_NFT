@@ -1,6 +1,13 @@
 import { faChevronDown, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
+import Image from 'next/image';
+
+
+
+import metamask from '/public/metamask.png';
+import walletconnect from '/public/walletconnect.png';
+import coinbase from '/public/coinbase.png';
 
 const Button = ({
   text,
@@ -13,7 +20,8 @@ const Button = ({
   clickHandler,
   symbol,
   children,
-  address='',
+  address,
+  icon,
 }) => {
   const [clicked, setClick] = useState(false);
   const [hovered, setHover] = useState(false);
@@ -28,21 +36,27 @@ const Button = ({
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
-          <div className="button__text">
+          <div className={address?"button__textaddress":"button__text"}>
             <div>
               {text} {children}
-            </div>    
-            {address!=''&&
-             <div className="button__text__address">
-             {address}
-           </div>  }      
+            </div>   
+            {address&&
+             <div className={"button__textaddress__address"}>
+                {address}
+              </div>  } 
+            {icon&&<div className="icon">{icon.includes('Meta')?<Image src={metamask} alt='icon' width='32px' height='32px' layout='fixed'/>
+            :icon.includes('Connect')?<Image src={walletconnect} alt='icon' width='32px' height='32px' layout='fixed'/>
+            :<Image src={coinbase} alt='icon' width='32px' height='32px' layout='fixed'/>}</div>
+              
+            } 
+                
            
             {dropdown && (
               <div>
                 <FontAwesomeIcon className="icon" icon={faChevronDown} />
               </div>
             )}
-          </div>
+          </div>          
         </button>
       )}
       {link && (
@@ -70,6 +84,7 @@ const Button = ({
           </div>
         </a>
       )}
+      
     </div>
   );
 };

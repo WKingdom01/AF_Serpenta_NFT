@@ -1,11 +1,11 @@
 // prettier-ignore
 export const roles = {
   '@everyone': 'red',
-  'Verified Rookie': 'red',
+  'Verified Rookie': '#2ECC71',
   'Wick': 'red',
   'CULT LEADER': 'red',
   'Mod': 'red',
-  'Whitelisted': 'red',
+  'Whitelisted': '#9B55FD',
   'Head mod': 'red',
   'Quarantine': 'red',
   'Senior Acolyte': 'red',

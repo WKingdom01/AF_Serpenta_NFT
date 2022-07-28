@@ -23,6 +23,7 @@ const ConnectWallet = ({ modalOpen, setModalOpen }) => {
             key={option.name}
             clickHandler={() => connect(option)}
             text={option.name}
+            icon={option.name}
           >
             {!option.ready && ' (unsupported)'}
           </Button>

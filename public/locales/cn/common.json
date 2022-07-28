@@ -12,7 +12,9 @@
   "navbar": {
     "linkOneText": "OpenSea",
     "linkTwoText": "Twitter",
-    "linkThreeText": "Discord"
+    "linkThreeText": "Discord",
+    "linkCheckText": "查看",
+    "linkMintText": "薄荷"
   },
   "roadmapTitle": "路線圖",
   "faqTitle": "常見問題",

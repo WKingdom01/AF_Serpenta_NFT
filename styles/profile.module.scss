@@ -587,7 +587,7 @@
         align-items: flex-start;
         padding: 2px 5px;
         gap: 10px;
-        .id{
+        .role{
           font-family: 'BasierSquareMono';
           font-style: normal;
           font-weight: 400;
@@ -595,7 +595,6 @@
           line-height: 160%;
           border-radius: 4px;
           padding: 2px 5px;
-          background: #EB0369;
           color:white;
         }
         .verify{
@@ -687,9 +686,9 @@
       align-items: center;
       text-align: center;
       color: #FFFFFF;
-      letter-spacing: 3px;
+      letter-spacing: -1px;
     }
-    button{
+    .link{
       background: #FBEDD6;
       border-radius: 8px;
       font-family: 'BasierSquareMono';
@@ -703,6 +702,7 @@
       text-transform: uppercase;
       padding: 16px 70px;
       width: fit-content;     
+      margin: auto;
 
     }
 

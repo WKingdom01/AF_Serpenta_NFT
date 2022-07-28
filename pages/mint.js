@@ -15,6 +15,8 @@ import {
 } from 'wagmi';
 
 import { getWhitelistedAddresses } from '/utils/helpers/get-exported-addresses';
+import getCurrentPhase from '/utils/helpers/get-current-phase';
+
 
 import mintABI from '../services/abi/mint.json';
 import rectIcon from '../static/rectIcon.png';
@@ -214,7 +216,8 @@ export default function Mint(callback, deps) {
               {soldout ? (
                 <h3>{t('mint.mintingLabel').toUpperCase()}</h3>
               ) : (
-                <h3>{t('mint.mintingLabel').toUpperCase()}</h3>
+                <h3>{getCurrentPhase()}</h3>
+                
               )}
               <div className={styles.progressWrap}>
                 <div

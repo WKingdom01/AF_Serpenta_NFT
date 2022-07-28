@@ -12,7 +12,9 @@
   "navbar": {
     "linkOneText": "OpenSea",
     "linkTwoText": "Twitter",
-    "linkThreeText": "Discord"
+    "linkThreeText": "Discord",
+    "linkCheckText": "Check",
+    "linkMintText": "Mint"
   },
   "roadmapTitle": "Roadmap",
   "faqTitle": "faq",
@@ -26,11 +28,11 @@
   },
   "roadmapTwo": {
     "title": "What's Coming",
-    "body": "Exceptionally detailed and desirable NFT Pixel Art avatars that accumulate levels and treasure with each Void mission. Find out who, or what is behind the Portal incursions and decide which clan factions you align with. Experience on-chain idle encounters and find ultra-rare drops through the exciting exploits of your Dragons! <p>&nbsp;<p>Serpenta is working with anime artists to provide limited, rare art drops to holders, Tokyo streetwear partnerships, membership benefits on top of the planned AFK/Idle game, staking and many other community opportunities. Dragon holders will decide on the breeding of the next Dragon generation and unveil secrets that reveal your future Anime Waifu Navigators."
+    "body": "Exceptionally detailed and desirable NFT Pixel Art avatars that accumulate levels and treasure with each Void mission. Find out who, or what is behind the Portal incursions and decide which clan factions you align with. Experience on-chain idle encounters and find ultra-rare drops through the exciting exploits of your Dragons! <p>&nbsp;<p>Serpenta is working with anime artists to provide limited, rare art drops to holders, Tokyo streetwear partnerships, membership benefits on top of the planned AFK/Idle Story, staking and many other community opportunities. Dragon holders will decide on the breeding of the next Dragon generation and unveil secrets that reveal your future Anime Waifu Navigators."
   },
   "roadmapThree": {
     "title": "The Serpenta Road Ahead",
-    "body": "We have some fantastic things planned for all our Serpenta community. Staking, hybrid and second generation breeding, new designs, evolving mechanics, non-pixel art, exclusive anime waifus (just because it'll be awesome), a possible Idle-AFK game and rare exclusive collaborations with Japanese artists and animators are just the tip of the iceberg! Read on for more"
+    "body": "We have some fantastic things planned for all our Serpenta community. Staking, hybrid and second generation breeding, new designs, evolving mechanics, non-pixel art, exclusive anime waifus (just because it'll be awesome), a possible Idle-AFK Story and rare exclusive collaborations with Japanese artists and animators are just the tip of the iceberg! Read on for more"
   },
   "faq": {
     "questionOne": "Mint Information",
@@ -41,7 +43,7 @@
     "answerThree": "During the whitelist or public mint periods you can visit the Serpenta mint page from our homepage and obtain one of our limited unrevealed NFTs at launch. Once the initial launch phase has sold out on the website, you will be able to acquire a Dragon directly on OpenSea, the NFT marketplace. We recommend using the Metamask extension on Chrome for payment and a Crypto exchange for initial ETH funding.",
     "questionFour": "What is the total supply?",
     "answerFour": "There will be a total of 5555 Serpenta Genesis Dragons.",
-    "questionFive": "Further Questions?",
+    "questionFive": "Further Questions? You can find more thorough answers in our Pitch Deck.",
     "answerFive": "Ask us questions on Twitter or direct them to our community in our Discord. Everyone is super friendly!"
   },
   "roadmap": {
@@ -73,8 +75,8 @@
         "image": "/scroll.png"
       },
       {
-        "header": "06. Idle-AFK Game of Dragons",
-        "text": "A grand goal for our project is to be able to complete an Idle/AFK game with the whole history and storyline spread across numerous chapters. All the loose threads and mysteries of the world and Serpenta brand will be blended into a fantastic. [ Idle-AFK Game, XP & expansions ]",
+        "header": "06. Idle-AFK Storytelling of Dragons",
+        "text": "A grand goal for our project is to be able to complete an Idle/AFK Storytelling with the whole history and storyline spread across numerous chapters. All the loose threads and mysteries of the world and Serpenta brand will be blended into a fantastic. [ Idle-AFK Story, XP & expansions ]",
         "image": "/wormhole.png"
       }
     ]
@@ -121,7 +123,7 @@
       {
         "name": "SGar",
         "title": "collab champion",
-        "description": "An amazingly warm-hearted team member who naturally makes friends wherever he goes, in addition to being a great musician and creator. We're blessed to have such a well connected Champion for Serpenta who is at the top of his game.",
+        "description": "An amazingly warm-hearted team member who naturally makes friends wherever he goes, in addition to being a great musician and creator. We're blessed to have such a well connected Champion for Serpenta who is at the top of his Story.",
         "twitter": "https://twitter.com/GreggSgarlata",
         "image": "/dragons/team/SGAR.png"
       },
