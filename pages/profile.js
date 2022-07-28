@@ -214,7 +214,7 @@ export default function Profile() {
               <p>
                 Connect your wallet to check your whitelist/waitlist status for
                 Serpenta. We will not ask you to pay any gas or complete an
-                transactions.It`&#39` just a connection to check you own the
+                transactions.It's just a connection to check you own the
                 wallet
               </p>
             </div>

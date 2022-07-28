@@ -84,7 +84,7 @@ const MintNavBar = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address, isConnected, parentMintQuantity, insertedQuantity]);
-
+ 
   return (
     <div>
       <div className="mint-navbar">
@@ -126,7 +126,8 @@ const MintNavBar = () => {
             }}
             style="outline ThreeD"
             text={isConnected ? 'Disconnect' : 'Connect Wallet'}
-            address={address ? shortenAddress(address) : ''}
+            address={address && shortenAddress(address)}
+            isCon={isConnected}
           ></Button>
         </div>
       </div>
