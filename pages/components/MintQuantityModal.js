@@ -1,8 +1,10 @@
-import Modal from 'react-bootstrap/Modal';
-import Image from 'next/image';
-import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
+import Modal from 'react-bootstrap/Modal';
 import Button from './Button';
+import { MINT_QUANTITY_MODAL_POPUP_DUE_DATE } from '../../data/constants';
 
 const MintQuantityModal = ({
   modalOpen,
@@ -13,6 +15,12 @@ const MintQuantityModal = ({
   const { t, i18n, ready } = useTranslation('common', { useSuspense: false });
 
   const [mintQuantity, setMintQuantity] = useState(maxMintQuantity);
+  const { pathname } = useRouter();
+
+  const currentDate = new Date();
+  const dueDate = MINT_QUANTITY_MODAL_POPUP_DUE_DATE;
+
+  const hideModal = currentDate > dueDate || pathname !== '/profile';
 
   function mintQuantityHandler(value) {
     if (value > maxMintQuantity) {
@@ -29,7 +37,7 @@ const MintQuantityModal = ({
   }
 
   return (
-    <Modal centered show={modalOpen}>
+    <Modal centered show={modalOpen && !hideModal}>
       <div className="mint-quantity-modal">
         <div className="mint-quantity-modal__top">
           <div className="mint-quantity-modal__title">

@@ -180,7 +180,7 @@
     },
     "mintQuantityModal": {
       "title": "Mint Quantity",
-      "description": "How many dragons do you want to mint?",
+      "description": "We would like to know how many Serpenta NFT you might mint. \nThis has no effect on your actual allocation, but please try to guess as accurately as possible.",
       "button": "Submit"
     },
     "minted": "RAWR! You JUST minted",
