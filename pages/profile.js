@@ -14,7 +14,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 const PageSlot = dynamic(() => import('./components/PageSlot'));
 const MintNavBar = dynamic(() => import('./components/MintNavBar'));
 const DiscordRoles = dynamic(() => import('./components/DiscordRoles'));
-const LaunchCountdown = dynamic(() => import('./components/LaunchCountdown'));
+const LaunchCountdown = dynamic(() => import('./components/LaunchCountDown'));
 const Footer = dynamic(() => import('./components/Footer'));
 
 export default function Profile() {

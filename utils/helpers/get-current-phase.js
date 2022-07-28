@@ -5,7 +5,7 @@ const current = new Date();
 
 const getCurrentPhase=()=>{
     if(current<whitelist)
-        {return 'Wait by Minting Time'}
+        {return 'Minting soon'}
     else if(whitelist <current && current < waitlist){
         return 'Minting Now Whitelist'
     }

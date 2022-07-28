@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-const LaunchCountdown = ({ days, hours, minutes, seconds }) => {
+const LaunchCountDown = ({ days, hours, minutes, seconds }) => {
   const [time, setTime] = useState(
     days * 24 * 3600 + hours * 3600 + minutes * 60 + seconds
   );
@@ -35,4 +35,4 @@ const LaunchCountdown = ({ days, hours, minutes, seconds }) => {
   );
 };
 
-export default LaunchCountdown;
+export default LaunchCountDown;
