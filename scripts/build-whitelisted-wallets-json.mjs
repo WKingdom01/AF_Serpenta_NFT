@@ -1,6 +1,7 @@
 import fse from 'fs-extra';
 import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
+import { transformWallets } from './transform-wallets.mjs';
 
 const { SUPABASE_API_KEY, SUPABASE_API_URL } = process.env;
 
@@ -21,6 +22,21 @@ if (SUPABASE_API_KEY && SUPABASE_API_URL) {
 
   if (wallets) {
     const jsonWallets = JSON.stringify(wallets);
+    const addressesOnly = transformWallets(wallets);
+
+    fse.outputFile(
+      './public/static/whitelisted-wallets-only.json',
+      addressesOnly,
+      (e) => {
+        if (e) {
+          return console.log(e);
+        }
+
+        console.log(
+          'whitelisted-wallets-only.json was saved in ./public/static/whitelisted-wallets-only.json',
+        );
+      },
+    );
 
     fse.outputFile(
       './public/static/whitelisted-wallets.json',
