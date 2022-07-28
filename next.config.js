@@ -25,4 +25,23 @@ module.exports = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/static/whitelisted-wallets.json',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/static/waitlisted-wallets.json',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/static/discord-user-roles.json',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
 };
