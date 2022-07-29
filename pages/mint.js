@@ -17,7 +17,6 @@ import {
 import { getWhitelistedAddresses } from '/utils/helpers/get-exported-addresses';
 import getCurrentPhase from '/utils/helpers/get-current-phase';
 
-
 import mintABI from '../services/abi/mint.json';
 import rectIcon from '../static/rectIcon.png';
 import nftImage from '../static/01.png';
@@ -90,12 +89,10 @@ export default function Mint(callback, deps) {
     }
   };
   const closeModal = (e) => {
-		if (modalRef.current === e.target) {
-			setShowModal(false);
-			setIsMinted(false);
-			setShowWalletModal(false);
-		}
-	};
+    if (modalRef.current === e.target) {
+      setIsMinted(false);
+    }
+  };
   const modalRef = useRef();
   const mint = async () => {
     setIsMinting(true);
@@ -110,9 +107,7 @@ export default function Mint(callback, deps) {
           signer
         );
         const currentBalance = await contract.balanceOf(address);
-       if (Number(currentBalance) + mintNum < max_wallet) {
-        console.log('publiceTimestamp',publicTime);
-        console.log('privateTimeStamp',priveTime);
+        if (Number(currentBalance) + mintNum < max_wallet) {
           if (currentTime < priveTime || priveTime === 0 || publicTime === 0) {
             console.log('sale has not started');
           } else if (currentTime >= priveTime && currentTime < publicTime) {
@@ -174,12 +169,6 @@ export default function Mint(callback, deps) {
       //public time stamp
       const publictimestamp = await contract.publicTimestamp();
       const prvtimestamp = await contract.privateTimestamp();
-      console.log('publictimestamp',publictimestamp);
-      console.log("price",Number(price));
-      console.log("totalNTFCount",Number(totalNTFCount));
-      console.log("mintedNFT",Number(mintedNFT));
-      console.log("maxTx",Number(maxTx));
-      console.log("maxWallet",Number(maxWallet));
       setPublicTime(publictimestamp);
       setPrivateTime(prvtimestamp);
       setMintPrice(ethers.utils.formatEther(Number(price)));
@@ -192,14 +181,13 @@ export default function Mint(callback, deps) {
         setSoldOut(true);
       }
     } catch (error) {
-      console.log("Getinfo_ERROR:",error);
+      console.log('Getinfo_ERROR:', error);
     }
   }, [address, contract, publicTimeStamp, privateTimeStamp]);
 
   useEffect(() => {
     if (isConnected) {
       getInfo();
-
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isConnected]);
@@ -234,7 +222,6 @@ export default function Mint(callback, deps) {
                 <h3>{t('mint.mintingLabel').toUpperCase()}</h3>
               ) : (
                 <h3>{getCurrentPhase()}</h3>
-                
               )}
               <div className={styles.progressWrap}>
                 <div
@@ -353,7 +340,7 @@ export default function Mint(callback, deps) {
                         alt="rectIcon"
                       />
                     </div>
-                    <h3>t{'mint.transactionConfirm'}</h3>
+                    <h3>{t('mint.transactionConfirm')}</h3>
                   </div>
                   <Link href={etherscanLink}>
                     <a target="_blank" rel="noopener noreferrer">
