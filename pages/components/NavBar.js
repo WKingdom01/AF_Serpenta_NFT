@@ -84,14 +84,14 @@ const NavBar = () => {
           <li className="navbar__button-item">
             <Button
               style="ThreeD"
-              nextLink={'/profile'}
+              nextLink="/profile"
               text={t('navbar.linkCheckText')}
             ></Button>
           </li>
           <li className="navbar__button-item">
             <Button
               style="ThreeD"
-              nextLink={'/mint'}
+              nextLink="/mint"
               text={t('navbar.linkMintText')}
             ></Button>
           </li>

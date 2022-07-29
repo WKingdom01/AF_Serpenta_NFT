@@ -29,8 +29,10 @@ const footerUrls = [
 const Item = ({ url }) => {
   return (
     <li>
-      <Link href={url.href} passHref>
-        <Image src={url.src} alt={url.alt} />
+      <Link href={url.href ? url.href : '/'} passHref>
+        <a href={url.href} target="_blank" rel="noreferrer noopener">
+          <Image src={url.src} alt={url.alt} />
+        </a>
       </Link>
     </li>
   );

@@ -132,16 +132,18 @@ const Button = ({
       )}
       {nextLink && (
         <Link href={nextLink} passHref>
-          <div className={`button button--${clicked ? 'clicked' : ''}`}>
-            <div className="button__text">
-              {text} {children}
-              {symbol && (
-                <div>
-                  <FontAwesomeIcon className="icon" icon={faArrowRight} />
-                </div>
-              )}
+          <a href={nextLink}>
+            <div className={`button button--${clicked ? 'clicked' : ''}`}>
+              <div className="button__text">
+                {text} {children}
+                {symbol && (
+                  <div>
+                    <FontAwesomeIcon className="icon" icon={faArrowRight} />
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          </a>
         </Link>
       )}
     </div>

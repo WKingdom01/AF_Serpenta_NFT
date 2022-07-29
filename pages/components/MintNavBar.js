@@ -107,19 +107,23 @@ const MintNavBar = () => {
             priority
             className="mint-navbar__icon"
           />
-          <div className="mint-navbar__help-text">{t('mint.helpCenter.button').toUpperCase()}</div>
+          <div className="mint-navbar__help-text">
+            {t('mint.helpCenter.button').toUpperCase()}
+          </div>
         </button>
         <div className="mint-navbar__logo">
           <Link href="/" passHref>
-            <Image
-              alt="Logo"
-              src="/logo.png"
-              layout="intrinsic"
-              width="625"
-              height="305"
-              quality={100}
-              priority
-            />
+            <a>
+              <Image
+                alt="Logo"
+                src="/logo.png"
+                layout="intrinsic"
+                width="625"
+                height="305"
+                quality={100}
+                priority
+              />
+            </a>
           </Link>
         </div>
 
