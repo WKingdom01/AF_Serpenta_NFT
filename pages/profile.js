@@ -53,7 +53,6 @@ export default function Profile() {
     }
   });
 
-
   return (
     <div style={{ background: 'url("/starrybg.png")' }}>
       <PageSlot title="profile">
