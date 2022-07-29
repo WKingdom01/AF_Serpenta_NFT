@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -89,7 +89,14 @@ export default function Mint(callback, deps) {
       setMintNum(mintNum + 1);
     }
   };
-
+  const closeModal = (e) => {
+		if (modalRef.current === e.target) {
+			setShowModal(false);
+			setIsMinted(false);
+			setShowWalletModal(false);
+		}
+	};
+  const modalRef = useRef();
   const mint = async () => {
     setIsMinting(true);
     if (address === undefined) {
@@ -103,8 +110,9 @@ export default function Mint(callback, deps) {
           signer
         );
         const currentBalance = await contract.balanceOf(address);
-
-        if (Number(currentBalance) + mintNum < max_wallet) {
+       if (Number(currentBalance) + mintNum < max_wallet) {
+        console.log('publiceTimestamp',publicTime);
+        console.log('privateTimeStamp',priveTime);
           if (currentTime < priveTime || priveTime === 0 || publicTime === 0) {
             console.log('sale has not started');
           } else if (currentTime >= priveTime && currentTime < publicTime) {
@@ -163,12 +171,20 @@ export default function Mint(callback, deps) {
       const maxTx = await contract.MAX_TX();
       //max wallet
       const maxWallet = await contract.MAX_WALLET();
-
+      //public time stamp
+      const publictimestamp = await contract.publicTimestamp();
+      const prvtimestamp = await contract.privateTimestamp();
+      console.log('publictimestamp',publictimestamp);
+      console.log("price",Number(price));
+      console.log("totalNTFCount",Number(totalNTFCount));
+      console.log("mintedNFT",Number(mintedNFT));
+      console.log("maxTx",Number(maxTx));
+      console.log("maxWallet",Number(maxWallet));
+      setPublicTime(publictimestamp);
+      setPrivateTime(prvtimestamp);
       setMintPrice(ethers.utils.formatEther(Number(price)));
       setTotalNFT(Number(totalNTFCount));
       setMintedNFT(Number(mintedNFT));
-      setPublicTime(Number(publicTimeStamp.data));
-      setPrivateTime(Number(privateTimeStamp.data));
       setMaxTx(Number(maxTx));
       setMaxWallet(Number(maxWallet));
 
@@ -176,13 +192,14 @@ export default function Mint(callback, deps) {
         setSoldOut(true);
       }
     } catch (error) {
-      console.log(error);
+      console.log("Getinfo_ERROR:",error);
     }
   }, [address, contract, publicTimeStamp, privateTimeStamp]);
 
   useEffect(() => {
     if (isConnected) {
       getInfo();
+
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isConnected]);
