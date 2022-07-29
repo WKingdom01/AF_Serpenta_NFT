@@ -52,17 +52,7 @@ export default function Profile() {
       setDistance({ days: days, hours: hours, mins: mins, secs: seconds });
     }
   });
-  useEffect(() => {
-    if (address && data) {
-      setStatusCode(data.whitelisted);
-      const info = statusHelper(data.whitelisted);
-      setWalletStatus(info.status);
-      setAlertTxt(info.alert);
-      setPhaseTime(info.time);
-      setUserName(data.discord_username);
-      console.log('Ready for showing');
-    }
-  }, [address]);
+
 
   return (
     <div style={{ background: 'url("/starrybg.png")' }}>
@@ -214,7 +204,7 @@ export default function Profile() {
               <p>
                 Connect your wallet to check your whitelist/waitlist status for
                 Serpenta. We will not ask you to pay any gas or complete an
-                transactions.It`&#39;`s just a connection to check you own the
+                transactions.It&#39;s just a connection to check you own the
                 wallet
               </p>
             </div>

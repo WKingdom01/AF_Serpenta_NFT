@@ -1,5 +1,6 @@
 .discord-role {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   margin-right: 10px;
   margin-top: 10px;
   padding: 5px;
@@ -9,10 +10,17 @@
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
+  width: fit-content;
 
   &--red {
     background-color: #ff0000;
   }
 
   // TODO: add colors for other roles
+}
+@media screen and (min-width:834px) {
+  .discord-role{
+    flex-direction: row;
+  }
+  
 }
