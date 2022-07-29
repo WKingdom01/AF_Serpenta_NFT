@@ -9,68 +9,70 @@
   margin: 0 auto;
 
   &__logo {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    cursor: pointer;
 
-      img {
-          width: 90px !important;
-      }
+    img {
+      width: 90px !important;
+    }
 
-      order: 0;
-      width: 100%;
+    order: 0;
+    width: 100%;
   }
 
   &__help {
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-      order: 2;
-      margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    order: 2;
+    margin-bottom: 16px;
 
-      button {
-          @include Body-Text;
-          text-transform: uppercase;
-      }
+    button {
+      @include Body-Text;
+      text-transform: uppercase;
+    }
 
-      &-text {
-          display: none;
-          @include Button-Text;
-          margin-left: 12px;
-      }
+    &-text {
+      display: none;
+      @include Button-Text;
+      margin-left: 12px;
+    }
 
   }
 
   &__button {
-      order: 2;
+    order: 2;
   }
 
   @media screen and (min-width: 834px) {
-      &__logo {
-                  
+    &__logo {
+
+    }
+    &__logo {
+      width: auto;
+      order: 1;
+      margin-bottom: 0px;
+
+      img {
+        width: 120px !important;
       }
-      &__logo {
-        width: auto;
-        order: 1;
-        margin-bottom: 0px;
-        img {
-          width: 120px !important;
-      } 
     }
     &__help-text {
       display: block;
-  }
+    }
   }
 
   @media screen and (min-width: $desktop) {
-      &__logo {
-          width: auto;
-          order: 2;
-          margin-bottom: 0px;
-      }
+    &__logo {
+      width: auto;
+      order: 2;
+      margin-bottom: 0px;
+    }
 
-      &__help-text {
-          display: block;
-      }
+    &__help-text {
+      display: block;
+    }
   }
 }

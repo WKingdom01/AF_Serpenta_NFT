@@ -2,11 +2,11 @@ import { faArrowRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import metamask from '/public/metamask.png';
 import walletconnect from '/public/walletconnect.png';
 import coinbase from '/public/coinbase.png';
-import Link from 'next/link';
 
 const Button = ({
   text,
@@ -20,15 +20,64 @@ const Button = ({
   symbol,
   children,
   address,
-  icon="",
+  icon = '',
   isCon,
   nextLink,
 }) => {
   const [clicked, setClick] = useState(false);
-  const [hovered, setHover] = useState(false);
-  if (address == 'x') {
-    console.log(address);
-  }
+
+  const ConnectWalletButton = ({ icon }) => {
+    switch (icon) {
+      case 'MetaMask':
+        return (
+          <>
+            <div className="iconwallet">
+              <Image
+                src={metamask}
+                alt="icon"
+                width="32px"
+                height="32px"
+                layout="fixed"
+              />
+            </div>
+            <div className="wallettext">MetaMask</div>
+          </>
+        );
+      case 'WalletConnect':
+        return (
+          <>
+            <div className="iconwallet">
+              <Image
+                src={walletconnect}
+                alt="icon"
+                width="32px"
+                height="32px"
+                layout="fixed"
+              />
+            </div>
+            <div className="wallettext">WalletConnect</div>
+          </>
+        );
+      case 'Coinbase Wallet':
+        return (
+          <>
+            <div className="iconwallet">
+              <Image
+                src={coinbase}
+                alt="icon"
+                width="32px"
+                height="32px"
+                layout="fixed"
+              />
+            </div>
+            <div className="wallettext">Coinbase Wallet</div>
+          </>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className={`button-container ${style}`}>
       {!link && !nextLink && (
@@ -37,64 +86,18 @@ const Button = ({
           onClick={clickHandler}
           title={title ?? text}
           disabled={disabled}
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
         >
           <div className={isCon ? 'button__textaddress' : 'button__text'}>
-            {icon && (
-              <div className="iconwallet">
-                {icon.includes('Meta') ? (
-                  <Image
-                    src={metamask}
-                    alt="icon"
-                    width="32px"
-                    height="32px"
-                    layout="fixed"
-                  />
-                ) : icon.includes('Connect') ? (
-                  <Image
-                    src={walletconnect}
-                    alt="icon"
-                    width="32px"
-                    height="32px"
-                    layout="fixed"
-                  />
-                ) : (
-                  <Image
-                    src={coinbase}
-                    alt="icon"
-                    width="32px"
-                    height="32px"
-                    layout="fixed"
-                  />
-                )}
-              </div>
-            )}
-            {icon.length> 0?
-                <div className="wallettext">
-                {icon.includes('Meta') ? (
-                  <span>Metamask Wallet</span>
-                ) : icon.includes('Connect') ? (
-                  <span>WalletConnect</span>
-
-                ) : (
-                  <span> Coinbase Wallet</span>
-
-                )}
-              </div>
-              :
+            {icon ? (
+              <ConnectWalletButton icon={icon} />
+            ) : (
               <div>
                 {text} {children}
-             </div>
-
-
-            }
-
-            {address&& (
+              </div>
+            )}
+            {address && (
               <div className={'button__textaddress__address'}>{address}</div>
             )}
-
-
             {dropdown && (
               <div>
                 <FontAwesomeIcon className="icon" icon={faChevronDown} />
@@ -116,7 +119,6 @@ const Button = ({
             setClick(false);
           }}
           title={title ?? text}
-          disabled={disabled}
         >
           <div className="button__text">
             {text} {children}
