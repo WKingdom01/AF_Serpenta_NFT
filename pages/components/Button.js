@@ -1,4 +1,4 @@
-import { faChevronDown, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import Image from 'next/image';
@@ -6,6 +6,7 @@ import Image from 'next/image';
 import metamask from '/public/metamask.png';
 import walletconnect from '/public/walletconnect.png';
 import coinbase from '/public/coinbase.png';
+import Link from 'next/link';
 
 const Button = ({
   text,
@@ -20,14 +21,17 @@ const Button = ({
   children,
   address,
   icon,
-  isCon
+  isCon,
+  nextLink,
 }) => {
   const [clicked, setClick] = useState(false);
   const [hovered, setHover] = useState(false);
-  if(address=='x'){console.log(address)};
+  if (address == 'x') {
+    console.log(address);
+  }
   return (
     <div className={`button-container ${style}`}>
-      {!link && (
+      {!link && !nextLink && (
         <button
           className={`button button--${clicked ? 'clicked' : ''}`}
           onClick={clickHandler}
@@ -40,7 +44,7 @@ const Button = ({
             <div>
               {text} {children}
             </div>
-            {address&& (
+            {address && (
               <div className={'button__textaddress__address'}>{address}</div>
             )}
             {icon && (
@@ -105,6 +109,20 @@ const Button = ({
             )}
           </div>
         </a>
+      )}
+      {nextLink && (
+        <Link href={nextLink} passHref>
+          <div className={`button button--${clicked ? 'clicked' : ''}`}>
+            <div className="button__text">
+              {text} {children}
+              {symbol && (
+                <div>
+                  <FontAwesomeIcon className="icon" icon={faArrowRight} />
+                </div>
+              )}
+            </div>
+          </div>
+        </Link>
       )}
     </div>
   );

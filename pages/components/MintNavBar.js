@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import Link from 'next/link';
 import HelpCenter from './HelpCenter';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
 import shortenAddress from '/utils/helpers/shortenAddress';
@@ -84,7 +85,7 @@ const MintNavBar = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address, isConnected, parentMintQuantity, insertedQuantity]);
- 
+
   return (
     <div>
       <div className="mint-navbar">
@@ -107,15 +108,17 @@ const MintNavBar = () => {
           <div className="mint-navbar__help-text">Help Center</div>
         </button>
         <div className="mint-navbar__logo">
-          <Image
-            alt="Logo"
-            src="/logo.png"
-            layout="intrinsic"
-            width="625"
-            height="305"
-            quality={100}
-            priority
-          />
+          <Link href="/" passHref>
+            <Image
+              alt="Logo"
+              src="/logo.png"
+              layout="intrinsic"
+              width="625"
+              height="305"
+              quality={100}
+              priority
+            />
+          </Link>
         </div>
 
         <div className="mint-navbar__button">

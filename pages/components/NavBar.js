@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { useTranslation } from 'next-i18next';
 import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { DISCORD_URL, OPENSEA_URL, TWITTER_URL } from '../../data/constants';
+import { OPENSEA_URL } from '../../data/constants';
 
 const Button = dynamic(() => import('./Button'));
 const LanguageSelect = dynamic(() => import('./LanguageSelect'));
@@ -77,21 +77,21 @@ const NavBar = () => {
           <li className="navbar__button-item">
             <Button
               style="ThreeD"
-              link={OPENSEA_URL}
+              nextLink={OPENSEA_URL}
               text={t('navbar.linkOneText')}
             ></Button>
           </li>
           <li className="navbar__button-item">
             <Button
               style="ThreeD"
-              link={'/profile'}
+              nextLink={'/profile'}
               text={t('navbar.linkCheckText')}
             ></Button>
           </li>
           <li className="navbar__button-item">
             <Button
               style="ThreeD"
-              link={''}
+              nextLink={'/mint'}
               text={t('navbar.linkMintText')}
             ></Button>
           </li>

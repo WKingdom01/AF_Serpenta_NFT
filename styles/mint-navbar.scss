@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
+    cursor: pointer;
 
     img {
       width: 90px !important;
@@ -39,11 +40,13 @@
       margin-left: 12px;
     }
   }
-  &__address{
-    color:white;
+
+  &__address {
+    color: white;
     font-size: 25px;
-    margin-right:10px;
+    margin-right: 10px;
   }
+
   &__button {
     order: 2;
     display: flex;
