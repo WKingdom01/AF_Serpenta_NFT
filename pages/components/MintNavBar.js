@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 import HelpCenter from './HelpCenter';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
 import shortenAddress from '/utils/helpers/shortenAddress';
@@ -13,6 +14,7 @@ const MintNavBar = () => {
   let insertedWallet;
   let insertedQuantity;
 
+  const { t } = useTranslation('common');
   const [modalOpen, setModalOpen] = useState(false);
   const [connectModalOpen, setConnectModalOpen] = useState(false);
   const [mintQuantityModalOpen, setMintQuantityModalOpen] = useState(false);
@@ -104,7 +106,7 @@ const MintNavBar = () => {
             priority
             className="mint-navbar__icon"
           />
-          <div className="mint-navbar__help-text">Help Center</div>
+          <div className="mint-navbar__help-text">{t('mint.helpCenter.button').toUpperCase()}</div>
         </button>
         <div className="mint-navbar__logo">
           <Image

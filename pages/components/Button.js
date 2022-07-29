@@ -19,7 +19,7 @@ const Button = ({
   symbol,
   children,
   address,
-  icon,
+  icon="",
   isCon
 }) => {
   const [clicked, setClick] = useState(false);
@@ -37,14 +37,8 @@ const Button = ({
           onMouseLeave={() => setHover(false)}
         >
           <div className={isCon ? 'button__textaddress' : 'button__text'}>
-            <div>
-              {text} {children}
-            </div>
-            {address&& (
-              <div className={'button__textaddress__address'}>{address}</div>
-            )}
             {icon && (
-              <div className="icon">
+              <div className="iconwallet">
                 {icon.includes('Meta') ? (
                   <Image
                     src={metamask}
@@ -72,6 +66,30 @@ const Button = ({
                 )}
               </div>
             )}
+            {icon.length> 0?
+                <div className="wallettext">
+                {icon.includes('Meta') ? (
+                  <span>Metamask Wallet</span>
+                ) : icon.includes('Connect') ? (
+                  <span>WalletConnect</span>
+                  
+                ) : (
+                  <span> Coinbase Wallet</span>
+                  
+                )}
+              </div>
+              :
+              <div>
+                {text} {children}
+             </div>
+             
+
+            }
+            
+            {address&& (
+              <div className={'button__textaddress__address'}>{address}</div>
+            )}
+            
 
             {dropdown && (
               <div>

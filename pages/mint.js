@@ -22,6 +22,7 @@ import rectIcon from '../static/rectIcon.png';
 import nftImage from '../static/01.png';
 
 import styles from '../styles/mint.module.scss';
+import { createRouteLoader } from 'next/dist/client/route-loader';
 
 const Footer = dynamic(() => import('./components/Footer'));
 const MintNavBar = dynamic(() => import('./components/MintNavBar'));
@@ -176,12 +177,14 @@ export default function Mint(callback, deps) {
       setMintedNFT(Number(mintedNFT));
       setMaxTx(Number(maxTx));
       setMaxWallet(Number(maxWallet));
+      console.log('price', price);
 
       if (Number(mintedNFT) === Number(totalNTFCount)) {
         setSoldOut(true);
       }
     } catch (error) {
       console.log('Getinfo_ERROR:', error);
+      window.location.reload(false);
     }
   }, [address, contract, publicTimeStamp, privateTimeStamp]);
 
@@ -221,7 +224,7 @@ export default function Mint(callback, deps) {
               {soldout ? (
                 <h3>{t('mint.mintingLabel').toUpperCase()}</h3>
               ) : (
-                <h3>{getCurrentPhase()}</h3>
+                <h3>{getCurrentPhase().toUpperCase()}</h3>
               )}
               <div className={styles.progressWrap}>
                 <div
@@ -262,6 +265,14 @@ export default function Mint(callback, deps) {
                   MINT
                   <i className="fa fa-spinner fa-spin" />
                   ING
+                </button>
+              ) : getCurrentPhase().includes('soon') ? (
+                <button
+                  onClick={() => mint()}
+                  disabled
+                  style={{ cursor: 'not-allowed' }}
+                >
+                  MINT
                 </button>
               ) : (
                 <button onClick={() => mint()}>MINT</button>

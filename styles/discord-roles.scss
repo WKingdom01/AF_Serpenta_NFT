@@ -15,11 +15,62 @@
   &--red {
     background-color: #ff0000;
   }
-
+  &--green {
+    background-color:#2ECC71 ;
+  }
+  &--orange {
+    background-color: #FF7B3C;
+  }
+  &--purple {
+    background-color: #9B55FD;
+  }
+  &--yellow {
+    background-color: #FFF400;
+  }
+  &--lightsky {
+    background-color: #A2ABFF;
+  }
+  &--pink {
+    background-color: #FB90FF;
+  }
+  &--blue {
+    background-color: #00B2FF ;
+  }
+  &--lightgreen {
+    background-color: #68FFC7;
+  }
+  &--ligthpink {
+    background-color: #FFC6F6;
+  }
+  &--white {
+    background-color: #FFFFFF;
+  }
+  &--pink1 {
+    background-color: #EB0369;
+  }
+  &--pink2 {
+    background-color: #DF2974;
+  }
+  &--pink3 {
+    background-color: #DF4786;
+  }
+  &--pink4 {
+    background-color: #D5759C;
+  }
+  &--pink5 {
+    background-color: #DA95B2;
+  }
+  &--pink6 {
+    background-color: #D8B3C9;
+  }
+  &--grey {
+    background-color: #95A5A6;
+  }
   // TODO: add colors for other roles
 }
 @media screen and (min-width:834px) {
-  .discord-role{
+  .discord-roles{
+    display: flex;
     flex-direction: row;
   }
   

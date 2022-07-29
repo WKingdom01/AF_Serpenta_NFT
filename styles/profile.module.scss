@@ -60,7 +60,6 @@
     display: flex;
     align-items: center;
     color: #ffffff;
-    letter-spacing: 3px;
   }
   .stages {
     display: flex;
@@ -356,6 +355,27 @@
       width: fit-content;
       margin: auto;
     }
+  }
+  .img{
+    width:100%;
+  }
+  .title{
+  font-family: 'BasierSquareMono';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  }
+  .content{
+    font-family: 'BasierSquareMono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 160%;
+    color: #FBEDD6;
   }
 }
 .centerTxt {

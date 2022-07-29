@@ -57,6 +57,22 @@
                 transform: rotate(-45deg);
             }
         }
+        .iconwallet {
+            position: fixed;
+            left: 30px;
+        }
+        .wallettext{
+            span{
+                font-family: 'BasierSquareMono';
+                font-size: 24px;
+                font-weight: 400;
+                line-height: 29px;
+                letter-spacing: 0em;
+                text-align: center;
+                text-transform: none;
+
+            }
+        }
 
 
     }
@@ -165,7 +181,38 @@
             padding: 5px;
         }
     }
+    &.lightBlue{
+        .button {
 
+            background-color: $black;
+            border-color: #93D3FF
+            ;
+            color: #93D3FF
+            ;
+
+            &::before {
+                border-color: $maya-blue;
+            }
+
+            &:hover::before {
+                background: $maya-blue;
+            }
+
+            &:hover {
+                background-color: #93D3FF
+                ;
+                color: $black;
+
+                .icon {
+                    color: $black;
+                }
+            }
+
+            &__text {
+                margin: 16px 24px;
+            }
+        }
+    }
     &.outline {
         .button {
             background: transparent;
