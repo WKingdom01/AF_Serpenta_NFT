@@ -1,15 +1,13 @@
-const whitelist = new Date('2022', '7', '17', '00', '00', '00', '00');
-const waitlist = new Date('2022', '7', '17', '4', '00', '00', '00');
-const publics = new Date('2022', '7', '17', '6', '00', '00', '00');
+import { WHITELIST_DATE, WAITLIST_DATE,PUBLIC_DATE } from "../../data/constants";
 const current = new Date();
 
 const getCurrentPhase=()=>{
-    if(current<whitelist)
+    if(current<WHITELIST_DATE)
         {return 'Minting soon'}
-    else if(whitelist <current && current < waitlist){
+    else if(WHITELIST_DATE <current && current < WAITLIST_DATE){
         return 'Minting Now Whitelist'
     }
-    else if(waitlist <current && current < publics){
+    else if(WAITLIST_DATE <current && current < PUBLIC_DATE){
         return 'Minting Now Waitlist'
     }
     else{

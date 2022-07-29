@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,12 +17,12 @@ import {
 import { getWhitelistedAddresses } from '/utils/helpers/get-exported-addresses';
 import getCurrentPhase from '/utils/helpers/get-current-phase';
 
-
 import mintABI from '../services/abi/mint.json';
 import rectIcon from '../static/rectIcon.png';
 import nftImage from '../static/01.png';
 
 import styles from '../styles/mint.module.scss';
+import { createRouteLoader } from 'next/dist/client/route-loader';
 
 const Footer = dynamic(() => import('./components/Footer'));
 const MintNavBar = dynamic(() => import('./components/MintNavBar'));
@@ -89,7 +89,12 @@ export default function Mint(callback, deps) {
       setMintNum(mintNum + 1);
     }
   };
-
+  const closeModal = (e) => {
+    if (modalRef.current === e.target) {
+      setIsMinted(false);
+    }
+  };
+  const modalRef = useRef();
   const mint = async () => {
     setIsMinting(true);
     if (address === undefined) {
@@ -103,7 +108,6 @@ export default function Mint(callback, deps) {
           signer
         );
         const currentBalance = await contract.balanceOf(address);
-
         if (Number(currentBalance) + mintNum < max_wallet) {
           if (currentTime < priveTime || priveTime === 0 || publicTime === 0) {
             console.log('sale has not started');
@@ -163,20 +167,24 @@ export default function Mint(callback, deps) {
       const maxTx = await contract.MAX_TX();
       //max wallet
       const maxWallet = await contract.MAX_WALLET();
-
+      //public time stamp
+      const publictimestamp = await contract.publicTimestamp();
+      const prvtimestamp = await contract.privateTimestamp();
+      setPublicTime(publictimestamp);
+      setPrivateTime(prvtimestamp);
       setMintPrice(ethers.utils.formatEther(Number(price)));
       setTotalNFT(Number(totalNTFCount));
       setMintedNFT(Number(mintedNFT));
-      setPublicTime(Number(publicTimeStamp.data));
-      setPrivateTime(Number(privateTimeStamp.data));
       setMaxTx(Number(maxTx));
       setMaxWallet(Number(maxWallet));
+      console.log('price', price);
 
       if (Number(mintedNFT) === Number(totalNTFCount)) {
         setSoldOut(true);
       }
     } catch (error) {
-      console.log(error);
+      console.log('Getinfo_ERROR:', error);
+      window.location.reload(false);
     }
   }, [address, contract, publicTimeStamp, privateTimeStamp]);
 
@@ -216,8 +224,7 @@ export default function Mint(callback, deps) {
               {soldout ? (
                 <h3>{t('mint.mintingLabel').toUpperCase()}</h3>
               ) : (
-                <h3>{getCurrentPhase()}</h3>
-                
+                <h3>{getCurrentPhase().toUpperCase()}</h3>
               )}
               <div className={styles.progressWrap}>
                 <div
@@ -258,6 +265,14 @@ export default function Mint(callback, deps) {
                   MINT
                   <i className="fa fa-spinner fa-spin" />
                   ING
+                </button>
+              ) : getCurrentPhase().includes('soon') ? (
+                <button
+                  onClick={() => mint()}
+                  disabled
+                  style={{ cursor: 'not-allowed' }}
+                >
+                  MINT
                 </button>
               ) : (
                 <button onClick={() => mint()}>MINT</button>
@@ -336,7 +351,7 @@ export default function Mint(callback, deps) {
                         alt="rectIcon"
                       />
                     </div>
-                    <h3>t{'mint.transactionConfirm'}</h3>
+                    <h3>{t('mint.transactionConfirm')}</h3>
                   </div>
                   <Link href={etherscanLink}>
                     <a target="_blank" rel="noopener noreferrer">

@@ -1,5 +1,4 @@
 import discordAllUsers from '../../public/static/discord-user-roles.json'
-import {rolesColorMap} from './roles-color-map'
 const getDiscordRole = (name) => {
     let rolesArray = [];
     discordAllUsers.map((user)=>{

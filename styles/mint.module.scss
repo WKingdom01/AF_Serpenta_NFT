@@ -108,6 +108,12 @@
   margin: 0 auto;
   border: 1px solid #fbedd6;
   border-radius: 8px;
+  font-family: 'BasierSquareMono';
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 .amountpriceWrap {
   display: flex;
@@ -115,8 +121,12 @@
   max-width: 620px;
   margin: 0 auto;
   justify-content: space-between;
+  //styleName: H3;
+  
+
   .amount {
     flex-basis: 40%;
+    
   }
   .counterWrap {
     border: 1px solid #fbedd6;
@@ -204,7 +214,7 @@
     width: 100%;
     padding: 14px;
     border-radius: 8px;
-    font-size: 20px;
+    font-size: 24px;
     border: 1px solid #fbedd6;
     font-family: 'BasierSquareMono', sans-serif;
     transition: all 0.4s ease-in-out;
@@ -371,9 +381,7 @@
   }
   .amountpriceWrap {
     flex-direction: column;
-    .amount {
-      margin-bottom: 1rem;
-    }
+    
     .price {
       span {
         margin-top: 1rem;
@@ -406,8 +414,9 @@
   }
   .mintBtn {
     padding: 0px 10px;
+    
   }
-
+  
   .getHelpContainer {
     .mintNFTWarp {
       max-width: 335px;

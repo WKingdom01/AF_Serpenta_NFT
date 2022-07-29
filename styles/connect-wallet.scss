@@ -1,0 +1,41 @@
+.connect-wallet{
+    width: 100%;
+    border: 1px solid rgba($papaya-whip, 0.85);
+    border-radius: 8px;
+    padding: 50px;
+    background: $rich-black;
+    background-color: #0E141B;
+    &__top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 100px;
+      }
+    
+      &__title {
+        @include Heading-2;
+        font-size: 24px;
+        color: $papaya-whip;
+        text-transform: uppercase;
+      }
+    &__butsWrap{
+        display: flex;
+        flex-direction: column;
+        gap:30px;
+    }
+
+}
+@media  screen and (min-width:834px ) {
+    .connect-wallet{
+        width: 645px;
+        &__title {
+            @include Heading-2;
+            font-size: 32px;
+            color: $papaya-whip;
+            text-transform: uppercase;
+          }
+    }
+   
+    
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useAccount, useConnect } from 'wagmi';
 import useSwr from 'swr';
@@ -9,6 +10,8 @@ import getDiscordRole from '../utils/helpers/get-role-by-discordName';
 
 import styles from '/styles/profile.module.scss';
 
+import noConImg from '/public/profile.png'
+
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const PageSlot = dynamic(() => import('./components/PageSlot'));
@@ -16,6 +19,7 @@ const MintNavBar = dynamic(() => import('./components/MintNavBar'));
 const DiscordRoles = dynamic(() => import('./components/DiscordRoles'));
 const LaunchCountdown = dynamic(() => import('./components/LaunchCountDown'));
 const Footer = dynamic(() => import('./components/Footer'));
+const ConnectWallet = dynamic(() => import('./components/ConnectWallet'));
 
 export default function Profile() {
   const { isConnected } = useConnect();
@@ -29,6 +33,7 @@ export default function Profile() {
   const [userName, setUserName] = useState();
   const [discordRoleList, setDiscrodRoleList] = useState();
   const [distance, setDistance] = useState();
+  const [openmodal, setOpenmodal] = useState(false);
   const second = 1000;
   const minute = second * 60;
   const hour = minute * 60;
@@ -52,17 +57,6 @@ export default function Profile() {
       setDistance({ days: days, hours: hours, mins: mins, secs: seconds });
     }
   });
-  useEffect(() => {
-    if (address && data) {
-      setStatusCode(data.whitelisted);
-      const info = statusHelper(data.whitelisted);
-      setWalletStatus(info.status);
-      setAlertTxt(info.alert);
-      setPhaseTime(info.time);
-      setUserName(data.discord_username);
-      console.log('Ready for showing');
-    }
-  }, [address]);
 
   return (
     <div style={{ background: 'url("/starrybg.png")' }}>
@@ -209,20 +203,30 @@ export default function Profile() {
             </div>
           </div>
         ) : (
-          <main className={styles.main}>
-            <div className={styles.statusWarp}>
-              <p>
-                Connect your wallet to check your whitelist/waitlist status for
-                Serpenta. We will not ask you to pay any gas or complete an
-                transactions.It`&#39;`s just a connection to check you own the
-                wallet
-              </p>
+          <div className={styles.body}>
+            <div className={styles.img}>
+              <Image src={noConImg} alt="No connected Image"/>
             </div>
-          </main>
+            <div className={styles.title}>
+             LET’S MINT YOUR DRAGONS!
+            </div>
+            <div className={styles.content}>
+             Connect your wallet to check your mint phase, allocation and start time. No payment or transfer permissions will be requested, this is just a wallet check.
+            </div>
+            <div className={styles.mintbox}>
+             
+                <button  className={styles.link} onClick={()=>setOpenmodal(true)}>
+                  CONNECT WALLET
+                </button>
+             
+            </div>
+          
+          </div>
         )}
 
         <Footer />
       </PageSlot>
+      <ConnectWallet modalOpen={openmodal} setModalOpen={setOpenmodal} />
     </div>
   );
 }

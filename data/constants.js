@@ -10,3 +10,30 @@ export const MINT_QUANTITY_MODAL_POPUP_DUE_DATE = new Date(
   '00',
   '00'
 );
+export const WHITELIST_DATE = new Date(
+  '2022',
+  '7',
+  '17',
+  '00',
+  '00',
+  '00',
+  '00'
+);
+export const WAITLIST_DATE = new Date(
+  '2022',
+  '7',
+  '17',
+  '04',
+  '00',
+  '00',
+  '00'
+);
+export const PUBLIC_DATE = new Date(
+  '2022',
+  '7',
+  '17',
+  '06',
+  '00',
+  '00',
+  '00'
+);
