@@ -7,8 +7,8 @@ import HelpCenter from './HelpCenter';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
 import shortenAddress from '/utils/helpers/shortenAddress';
 import MintQuantityModal from './MintQuantityModal';
+import Button from './Button';
 
-const Button = dynamic(() => import('./Button'));
 const ConnectWallet = dynamic(() => import('./ConnectWallet'));
 
 const MintNavBar = () => {
@@ -86,7 +86,7 @@ const MintNavBar = () => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [address, isConnected, parentMintQuantity, insertedQuantity]);
+  }, [address, parentMintQuantity, insertedQuantity]);
 
   return (
     <div>

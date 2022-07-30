@@ -1,18 +1,15 @@
-import React, { useCallback, useEffect, useState, useRef } from 'react';
-import dynamic from 'next/dynamic';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { ethers } from 'ethers';
-import {
-  useAccount,
-  useConnect,
-  useContract,
-  useContractRead,
-  useProvider,
-  useSigner,
-} from 'wagmi';
+import { useAccount, useConnect, useContract, useContractRead, useProvider, useSigner } from 'wagmi';
+
+import Footer from './components/Footer';
+import MintNavBar from './components/MintNavBar';
+import PageSlot from './components/PageSlot';
+import SwiperDragon from './components/SwiperDragon';
 
 import { getWhitelistedAddresses } from '/utils/helpers/get-exported-addresses';
 import getCurrentPhase from '/utils/helpers/get-current-phase';
@@ -22,18 +19,12 @@ import rectIcon from '../static/rectIcon.png';
 import nftImage from '../static/01.png';
 
 import styles from '../styles/mint.module.scss';
-import { createRouteLoader } from 'next/dist/client/route-loader';
-
-const Footer = dynamic(() => import('./components/Footer'));
-const MintNavBar = dynamic(() => import('./components/MintNavBar'));
-const PageSlot = dynamic(() => import('./components/PageSlot'));
-const SwiperDragon = dynamic(() => import('./components/SwiperDragon'));
 
 //MerkleTree
 const { MerkleTree } = require('merkletreejs');
 const keccak256 = require('keccak256');
 
-export default function Mint(callback, deps) {
+export default function Mint() {
   const { t } = useTranslation('common');
 
   const [authorizedError, setAuthorizedError] = useState(false);

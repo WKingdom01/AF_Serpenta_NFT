@@ -190,6 +190,33 @@
     "etherScan": "Ether Scan",
     "mintAuthor": "Mint Author"
   },
+  "profile": {
+    "disconnectedWalletTitle": "LET’S MINT YOUR DRAGONS!",
+    "disconnectedWalletDescription": "Connect your wallet to check your mint phase, allocation and start time. No payment or transfer permissions will be requested, this is just a wallet check.",
+    "disconnectedWalletButton": "Connect Wallet",
+    "phases": [
+      {
+        "name": "whitelist",
+        "description": "Mint 3 max"
+      },
+      {
+        "name": "reserve",
+        "description": "Mint 3 max"
+      },
+      {
+        "name": "public",
+        "description": "Unlimited"
+      }
+    ],
+    "mintPhaseTitle": "mint phase date/time",
+    "discordNameTitle": "your discord id",
+    "discordRoleTitle": "discord role",
+    "walletAddressTitle": "wallet address",
+    "statusTitle": "status",
+    "lootBoxesTitle": "Lootboxes gifted with each dragon minted",
+    "countdownTitle": "Countdown to mint",
+    "countdownButtonText": "Go to mint"
+  },
   "stake": {
     "staking": "staking",
     "firstExp": "Rawr! Log in and explore the dimensions that your dragons have visited. Collect artefacts and uncover the dimension images over time; unveil the lore and dive deep into the world of Serpenta.",

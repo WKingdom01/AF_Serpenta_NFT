@@ -96,7 +96,7 @@ const Button = ({
               </div>
             )}
             {address && (
-              <div className={'button__textaddress__address'}>{address}</div>
+              <div className="button__textaddress__address">{address}</div>
             )}
             {dropdown && (
               <div>

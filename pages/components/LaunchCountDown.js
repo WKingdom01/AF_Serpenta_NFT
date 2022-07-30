@@ -1,5 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
-const LaunchCountDown = ({ days, hours, minutes, seconds }) => {
+
+const LaunchCountDown = ({
+  days,
+  hours,
+  minutes,
+  seconds,
+  countDownPrefix,
+}) => {
   const [time, setTime] = useState(
     days * 24 * 3600 + hours * 3600 + minutes * 60 + seconds
   );
@@ -29,7 +36,7 @@ const LaunchCountDown = ({ days, hours, minutes, seconds }) => {
   return (
     <span>
       {' '}
-      Countdown to mint: {remainTime.days}d {remainTime.hours}h{' '}
+      {countDownPrefix}: {remainTime.days}d {remainTime.hours}h{' '}
       {remainTime.minutes}m {remainTime.seconds}s
     </span>
   );

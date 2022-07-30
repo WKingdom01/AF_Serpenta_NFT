@@ -3,60 +3,53 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 import { useAccount, useConnect } from 'wagmi';
 import useSwr from 'swr';
+import ConnectWallet from './components/ConnectWallet';
+import Footer from './components/Footer';
+import MintNavBar from './components/MintNavBar';
+import PageSlot from './components/PageSlot';
 import { statusHelper } from '../utils/helpers/status-helper';
-import getDiscordRole from '../utils/helpers/get-role-by-discordName';
+import { getCountdownVariables } from '../utils/helpers/time-module';
+import noConImg from '/public/profile.png';
 
 import styles from '/styles/profile.module.scss';
 
-import noConImg from '/public/profile.png'
-
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const PageSlot = dynamic(() => import('./components/PageSlot'));
-const MintNavBar = dynamic(() => import('./components/MintNavBar'));
 const DiscordRoles = dynamic(() => import('./components/DiscordRoles'));
 const LaunchCountdown = dynamic(() => import('./components/LaunchCountDown'));
-const Footer = dynamic(() => import('./components/Footer'));
-const ConnectWallet = dynamic(() => import('./components/ConnectWallet'));
 
 export default function Profile() {
+  const { t } = useTranslation('common');
   const { isConnected } = useConnect();
   const { data: accountData } = useAccount();
+
   const address = accountData?.address;
-  const { data, error } = useSwr(`/api/proof/${address}`, fetcher);
-  const [status, setWalletStatus] = useState('');
-  const [alertTxt, setAlertTxt] = useState('');
-  const [phaseTime, setPhaseTime] = useState('');
-  const [statusCode, setStatusCode] = useState('');
-  const [userName, setUserName] = useState();
-  const [discordRoleList, setDiscrodRoleList] = useState();
-  const [distance, setDistance] = useState();
+  const { data } = useSwr(`/api/proof/${address}`, fetcher);
+
   const [openmodal, setOpenmodal] = useState(false);
-  const second = 1000;
-  const minute = second * 60;
-  const hour = minute * 60;
-  const day = hour * 24;
-  const current = new Date();
+  const [distance, setDistance] = useState();
+  const [userData, setUserData] = useState(null);
+
+  const { whitelisted, roles, discord_username } = userData || {};
+  const { status, time, alert, code } = statusHelper(whitelisted);
+
+  const isWhitelisted = code === 1;
+  const isWaitlisted = code === 2;
+  const isPublic = code === 3;
 
   useEffect(() => {
     if (address && data) {
-      setStatusCode(data.whitelisted);
-      const info = statusHelper(data.whitelisted);
-      setWalletStatus(info.status);
-      setAlertTxt(info.alert);
-      setPhaseTime(info.time);
-      setUserName(data.discord_username);
-      setDiscrodRoleList(getDiscordRole(data.discord_username));
-      const distance = phaseTime - current;
-      const days = Math.floor(distance / day);
-      const hours = Math.floor((distance % day) / hour);
-      const mins = Math.floor((distance % hour) / minute);
-      const seconds = Math.floor((distance % minute) / second);
-      setDistance({ days: days, hours: hours, mins: mins, secs: seconds });
+      const { time } = statusHelper(whitelisted);
+      const { days, hours, minutes, seconds } = getCountdownVariables(time);
+
+      setDistance({ days, hours, minutes, seconds });
+      setUserData(data);
     }
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [address, data]);
 
   return (
     <div style={{ background: 'url("/starrybg.png")' }}>
@@ -66,17 +59,16 @@ export default function Profile() {
           <div className={styles.body}>
             <div className={styles.stages}>
               <div className={styles.stageTxts}>
-                <div
-                  className={statusCode == '1' ? styles.current : styles.passed}
-                >
+                <div className={isWhitelisted ? styles.current : styles.passed}>
                   <span className={styles.list}>whitelist</span>
                   <span className={styles.amount}>Mint 3 max</span>
                 </div>
+
                 <div
                   className={
-                    statusCode == '1'
+                    isWhitelisted
                       ? styles.upcoming
-                      : statusCode == '2'
+                      : isWaitlisted
                       ? styles.current
                       : styles.passed
                   }
@@ -89,13 +81,7 @@ export default function Profile() {
                   </span>
                 </div>
 
-                <div
-                  className={
-                    statusCode != '1' && statusCode != '2'
-                      ? styles.current
-                      : styles.upcoming
-                  }
-                >
+                <div className={isPublic ? styles.current : styles.upcoming}>
                   <span className={styles.list}>
                     <span className={styles.rightTxt}>public</span>
                   </span>
@@ -105,77 +91,69 @@ export default function Profile() {
                 </div>
               </div>
               <div className={styles.stageGraph}>
-                <div
-                  className={statusCode == '1' ? styles.current : styles.passed}
-                >
-                  {statusCode != '1' ? <div className={styles.check}></div> : 1}
+                <div className={isWhitelisted ? styles.current : styles.passed}>
+                  {!isWhitelisted ? <div className={styles.check}></div> : 1}
                 </div>
                 <div
-                  className={
-                    statusCode != '1' ? styles.passline : styles.timeline
-                  }
+                  className={!isWhitelisted ? styles.passline : styles.timeline}
                 ></div>
                 <div
                   className={
-                    statusCode == '1'
+                    isWhitelisted
                       ? styles.upcoming
-                      : statusCode == '2'
+                      : isWaitlisted
                       ? styles.current
                       : styles.passed
                   }
                 >
-                  {statusCode != '1' && statusCode != '2' ? (
-                    <div className={styles.check}></div>
-                  ) : (
-                    2
-                  )}
+                  {isPublic ? <div className={styles.check}></div> : 2}
                 </div>
                 <div
-                  className={
-                    statusCode != '1' && statusCode != '2'
-                      ? styles.passline
-                      : styles.timeline
-                  }
+                  className={isPublic ? styles.passline : styles.timeline}
                 ></div>
-                <div
-                  className={
-                    statusCode != '1' && statusCode != '2'
-                      ? styles.current
-                      : styles.upcoming
-                  }
-                >
+                <div className={isPublic ? styles.current : styles.upcoming}>
                   3
                 </div>
               </div>
             </div>
-            <div className={styles.status}>{alertTxt}</div>
+
+            <div className={styles.status}>{alert}</div>
+
             <div className={styles.infoBox}>
               <div className={styles.info}>
-                <span className={styles.title}>mint phase date/time</span>
-                <span className={styles.content}>{phaseTime.toString()}</span>
+                <span className={styles.title}>
+                  {t('profile.mintPhaseTitle')}
+                </span>
+                <span className={styles.content}>{time.toString()}</span>
               </div>
               <div className={styles.info}>
-                <span className={styles.title}>your discord id</span>
-                <span className={styles.content}>{userName}</span>
+                <span className={styles.title}>
+                  {t('profile.discordNameTitle')}
+                </span>
+                <span className={styles.content}>{discord_username}</span>
               </div>
               <div className={styles.info}>
-                <span className={styles.title}>discord role</span>
+                <span className={styles.title}>
+                  {t('profile.discordRoleTitle')}
+                </span>
                 <div className={styles.roles}>
-                  {discordRoleList && <DiscordRoles roles={discordRoleList} />}
+                  {data.roles && <DiscordRoles roles={roles} />}
                 </div>
               </div>
               <div className={styles.info}>
-                <span className={styles.title}>wallet address</span>
+                <span className={styles.title}>
+                  {t('profile.walletAddressTitle')}
+                </span>
                 <span className={styles.content}>{address}</span>
               </div>
               <div className={styles.info}>
-                <span className={styles.title}>status</span>
+                <span className={styles.title}>{t('profile.statusTitle')}</span>
                 <span className={styles.content}>{status}</span>
               </div>
             </div>
             <div className={styles.lootboxes}>
               <span className={styles.title}>
-                Lootboxes gifted with each dragon minted
+                {t('profile.lootBoxesTitle')}
               </span>
               <div className={styles.content}>
                 <i className={styles.number}>2</i>
@@ -184,20 +162,17 @@ export default function Profile() {
             <div className={styles.mintbox}>
               {distance && (
                 <LaunchCountdown
+                  countDownPrefix={t('profile.countdownTitle')}
                   days={distance.days}
                   hours={distance.hours}
-                  minutes={distance.mins}
-                  seconds={distance.secs}
+                  minutes={distance.minutes}
+                  seconds={distance.seconds}
                 />
               )}
 
               <Link href="/mint">
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.link}
-                >
-                  go to mint
+                <a className={styles.link}>
+                  {t('profile.countdownButtonText')}
                 </a>
               </Link>
             </div>
@@ -205,22 +180,22 @@ export default function Profile() {
         ) : (
           <div className={styles.body}>
             <div className={styles.img}>
-              <Image src={noConImg} alt="No connected Image"/>
+              <Image src={noConImg} alt="No connected Image" />
             </div>
             <div className={styles.title}>
-             LET’S MINT YOUR DRAGONS!
+              {t('profile.disconnectedWalletTitle')}
             </div>
             <div className={styles.content}>
-             Connect your wallet to check your mint phase, allocation and start time. No payment or transfer permissions will be requested, this is just a wallet check.
+              {t('profile.disconnectedWalletDescription')}
             </div>
             <div className={styles.mintbox}>
-             
-                <button  className={styles.link} onClick={()=>setOpenmodal(true)}>
-                  CONNECT WALLET
-                </button>
-             
+              <button
+                className={styles.link}
+                onClick={() => setOpenmodal(true)}
+              >
+                {t('profile.disconnectedWalletButton')}
+              </button>
             </div>
-          
           </div>
         )}
 

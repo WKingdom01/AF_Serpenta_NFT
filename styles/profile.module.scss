@@ -21,21 +21,25 @@
     }
   }
 }
+
 .main {
   padding: 0px 20%;
 }
+
 .statusWarp {
   display: flex;
   color: #fbedd6;
   letter-spacing: 1px;
   margin-bottom: 2em;
   font-family: 'BasierSquareMono';
+
   p {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
   }
 }
+
 .body {
   display: flex;
   flex-direction: column;
@@ -48,6 +52,7 @@
   margin-top: 20px;
   padding: 50px;
   margin: 5px;
+
   .status {
     padding: 20px;
     background: #554367;
@@ -61,16 +66,19 @@
     align-items: center;
     color: #ffffff;
   }
+
   .stages {
     display: flex;
     flex-direction: row;
     flex-flow: row-reverse;
     width: fit-content;
     gap: 10px;
+
     .stageTxts {
       display: flex;
       flex-direction: column;
       gap: 80px;
+
       .passed {
         .list {
           font-family: 'BasierSquareMono';
@@ -83,6 +91,7 @@
           text-transform: uppercase;
           color: #fbedd6;
         }
+
         .amount {
           font-family: 'BasierSquareMono';
           font-style: normal;
@@ -94,6 +103,7 @@
           color: #fbedd6;
         }
       }
+
       .current {
         .list {
           font-family: 'BasierSquareMono';
@@ -108,6 +118,7 @@
           color: #fbedd6;
           text-shadow: 0px 0px 8px #fbedd6;
         }
+
         .amount {
           font-family: 'BasierSquareMono';
           font-style: normal;
@@ -119,6 +130,7 @@
           color: #fbedd6;
         }
       }
+
       .upcoming {
         .list {
           font-family: 'BasierSquareMono';
@@ -132,6 +144,7 @@
           text-transform: uppercase;
           color: #8f8f8f;
         }
+
         .amount {
           font-family: 'BasierSquareMono';
           font-style: normal;
@@ -145,18 +158,21 @@
         }
       }
     }
+
     .stageGraph {
       width: fit-content;
       display: flex;
       flex-direction: column;
       gap: 10px;
       align-items: center;
+
       .passed {
         width: 30px;
         height: 30px;
         border-radius: 50%;
         background: #fbedd6;
         border: 2px solid #fbedd6;
+
         .check {
           width: 16px;
           height: 10px;
@@ -167,6 +183,7 @@
           margin-top: 5px;
         }
       }
+
       .current {
         width: 30px;
         height: 30px;
@@ -183,6 +200,7 @@
         justify-content: center;
         text-shadow: 0px 0px 8px #fbedd6;
       }
+
       .upcoming {
         width: 30px;
         height: 30px;
@@ -200,10 +218,12 @@
       }
     }
   }
+
   .infoBox {
     display: flex;
     flex-direction: column;
     gap: 40px;
+
     .info {
       .title {
         font-family: 'BasierSquareMono';
@@ -219,6 +239,7 @@
         order: 0;
         flex-grow: 0;
       }
+
       .content {
         font-family: 'BasierSquareMono';
         font-style: normal;
@@ -233,12 +254,14 @@
         flex-grow: 0;
         overflow-wrap: anywhere;
       }
+
       .roles {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 2px 5px;
+        //padding: 2px 5px;
         gap: 10px;
+
         .role {
           font-family: 'BasierSquareMono';
           font-style: normal;
@@ -249,6 +272,7 @@
           padding: 2px 5px;
           color: white;
         }
+
         .verify {
           font-family: 'BasierSquareMono';
           font-style: normal;
@@ -260,6 +284,7 @@
           background: #2ecc71;
           color: black;
         }
+
         .status {
           font-family: 'BasierSquareMono';
           font-style: normal;
@@ -274,10 +299,12 @@
       }
     }
   }
+
   .lootboxes {
     display: flex;
     flex-direction: column;
     gap: 40px;
+
     .title {
       width: fit-content;
       margin: auto;
@@ -292,6 +319,7 @@
       text-transform: uppercase;
       color: #fbedd6;
     }
+
     .content {
       margin: auto;
       width: 263px;
@@ -301,6 +329,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
       .number {
         justify-content: center;
         width: 64px;
@@ -321,11 +350,13 @@
       }
     }
   }
+
   .mintbox {
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin: auto;
+
     span {
       margin: auto;
       font-family: 'BasierSquareMono';
@@ -339,6 +370,7 @@
       color: #ffffff;
       letter-spacing: -1px;
     }
+
     .link {
       background: #fbedd6;
       border-radius: 8px;
@@ -356,20 +388,23 @@
       margin: auto;
     }
   }
-  .img{
-    width:100%;
+
+  .img {
+    width: 100%;
   }
-  .title{
-  font-family: 'BasierSquareMono';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 39px;
-  display: flex;
-  align-items: center;
-  text-transform: uppercase;
+
+  .title {
+    font-family: 'BasierSquareMono';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
   }
-  .content{
+
+  .content {
     font-family: 'BasierSquareMono';
     font-style: normal;
     font-weight: 400;
@@ -378,20 +413,24 @@
     color: #FBEDD6;
   }
 }
+
 .centerTxt {
   width: 100%;
   text-align: left;
 }
+
 .rightTxt {
   width: 100%;
   text-align: left;
 }
+
 .timeline {
   width: 0px;
   height: 75px;
   background: #8f8f8f;
   border: 1px solid #8f8f8f;
 }
+
 .passline {
   width: 0px;
   height: 75px;
@@ -399,22 +438,27 @@
   box-shadow: 0px 0px 8px #fbedd6;
   background-color: #fbedd6;
 }
+
 .list {
   width: 115px;
 }
+
 @media screen and (min-width: 834px) {
   .body {
     max-width: 645px;
     margin: auto;
+
     .stages {
       flex-direction: column;
       flex-flow: column;
       width: 100%;
+
       .stageTxts {
         flex-direction: row;
         justify-content: space-between;
         gap: 0px;
       }
+
       .stageGraph {
         width: 100%;
         flex-direction: row;
@@ -423,6 +467,7 @@
         gap: 0px;
       }
     }
+
     .infoBox {
       .info {
         .roles {
@@ -448,5 +493,6 @@
     height: 0px;
   }
 }
+
 @media screen and (min-width: 375px) {
 }
