@@ -35,7 +35,6 @@
 
   &__prompt {
     @include Heading-3;
-    text-transform: uppercase;
     color: $light-blue-sky;
   }
 
@@ -48,9 +47,24 @@
     }
   }
 
-  &__input {
+  &__label {
+    margin-top: 40px;
     width: 100%;
-    margin-top: 30px;
+  }
+
+  &__input-description {
+    margin-top: 20px;
+  }
+
+  &__required {
+    color: red;
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 20px;
     padding: 10px 20px;
     font-size: 1.2rem;
     background-color: transparent;

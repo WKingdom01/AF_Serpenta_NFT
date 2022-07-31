@@ -7,3 +7,13 @@
     }
   }
 }
+
+.modal-serpenta {
+  max-width: 645px !important;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 645px !important;
+  }
+}
+
+

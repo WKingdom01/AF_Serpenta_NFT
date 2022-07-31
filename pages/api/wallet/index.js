@@ -8,7 +8,8 @@ export default async function handler(req, res) {
 
     const { data, error } = await supabase.from('connected-wallets').upsert({
       wallet_address: req.body.address,
-      mint_quantity: req.body.mint_quantity ?? 0,
+      mint_quantity: req.body.mint_quantity,
+      email: req.body.email,
     });
 
     if (error) {

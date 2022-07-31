@@ -104,28 +104,40 @@ const ConnectedWalletInfo = ({
 
   return (
     <div className={styles.infoBox}>
-      <div className={styles.info}>
-        <span className={styles.title}>{t('profile.mintPhaseTitle')}</span>
-        <span className={styles.content}>{time.toString()}</span>
-      </div>
-      <div className={styles.info}>
-        <span className={styles.title}>{t('profile.discordNameTitle')}</span>
-        <span className={styles.content}>{discord_username}</span>
-      </div>
-      <div className={styles.info}>
-        <span className={styles.title}>{t('profile.discordRoleTitle')}</span>
-        <div className={styles.roles}>
-          <DiscordRoles roles={roles} />
+      {time && (
+        <div className={styles.info}>
+          <span className={styles.title}>{t('profile.mintPhaseTitle')}</span>
+          <span className={styles.content}>{time.toString()}</span>
         </div>
-      </div>
-      <div className={styles.info}>
-        <span className={styles.title}>{t('profile.walletAddressTitle')}</span>
-        <span className={styles.content}>{address}</span>
-      </div>
-      <div className={styles.info}>
-        <span className={styles.title}>{t('profile.statusTitle')}</span>
-        <span className={styles.content}>{status}</span>
-      </div>
+      )}
+      {discord_username && (
+        <div className={styles.info}>
+          <span className={styles.title}>{t('profile.discordNameTitle')}</span>
+          <span className={styles.content}>{discord_username}</span>
+        </div>
+      )}
+      {roles && (
+        <div className={styles.info}>
+          <span className={styles.title}>{t('profile.discordRoleTitle')}</span>
+          <div className={styles.roles}>
+            <DiscordRoles roles={roles} />
+          </div>
+        </div>
+      )}
+      {address && (
+        <div className={styles.info}>
+          <span className={styles.title}>
+            {t('profile.walletAddressTitle')}
+          </span>
+          <span className={styles.content}>{address}</span>
+        </div>
+      )}
+      {status && (
+        <div className={styles.info}>
+          <span className={styles.title}>{t('profile.statusTitle')}</span>
+          <span className={styles.content}>{status}</span>
+        </div>
+      )}
     </div>
   );
 };
@@ -154,7 +166,7 @@ const LootBoxes = ({ lootbox_quantity, t }) => {
     <div className={styles.lootboxes}>
       <span className={styles.title}>{t('profile.lootBoxesTitle')}</span>
       <div className={styles.content}>
-        <i className={styles.number}>{lootbox_quantity}</i>
+        <i className={styles.number}>{lootbox_quantity ?? 0}</i>
       </div>
     </div>
   );

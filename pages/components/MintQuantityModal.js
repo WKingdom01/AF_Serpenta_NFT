@@ -11,10 +11,13 @@ const MintQuantityModal = ({
   setModalOpen,
   maxMintQuantity = 0,
   setParentMintQuantity,
+  setParentEmail,
 }) => {
   const { t, i18n, ready } = useTranslation('common', { useSuspense: false });
 
-  const [mintQuantity, setMintQuantity] = useState(maxMintQuantity);
+  const [mintQuantity, setMintQuantity] = useState('');
+  const [email, setEmail] = useState('');
+
   const { pathname } = useRouter();
 
   const currentDate = new Date();
@@ -32,16 +35,35 @@ const MintQuantityModal = ({
     }
   }
 
+  function emailHandler(value) {
+    setEmail(value);
+  }
+
   function setParentMintQuantityHandler() {
     setParentMintQuantity(mintQuantity);
   }
 
+  function setParentEmailHandler() {
+    setParentEmail(email);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setParentMintQuantityHandler();
+    setParentEmailHandler();
+    setModalOpen(false);
+  }
+
   return (
-    <Modal centered show={modalOpen && !hideModal}>
+    <Modal
+      centered
+      show={modalOpen && !hideModal}
+      dialogClassName="modal-serpenta"
+    >
       <div className="mint-quantity-modal">
         <div className="mint-quantity-modal__top">
           <div className="mint-quantity-modal__title">
-            {t('mint.mintQuantityModal.title')}
+            {t('profile.mintQuantityModal.title')}
           </div>
           <button
             onClick={() => {
@@ -63,29 +85,67 @@ const MintQuantityModal = ({
         <div className="mint-quantity-modal__questions">
           <div className="mint-quantity-modal__question">
             <div className="mint-quantity-modal__prompt">
-              {t('mint.mintQuantityModal.description')}
+              {t('profile.mintQuantityModal.description')}
             </div>
             <div className="mint-quantity-modal__answer">
-              <input
-                type="number"
-                className="mint-quantity-modal__input"
-                min="0"
-                max={maxMintQuantity}
-                value={mintQuantity}
-                onChange={(e) => {
-                  mintQuantityHandler(e.target.value);
-                }}
-              />
-
-              <Button
-                title={`Submit Mint Quantity`}
-                style="short"
-                clickHandler={() => {
-                  setParentMintQuantityHandler();
-                }}
+              <form
+                className="mint-quantity-modal__form"
+                onSubmit={handleSubmit}
               >
-                {t('mint.mintQuantityModal.button')}
-              </Button>
+                <label
+                  htmlFor="mint-quantity"
+                  className="mint-quantity-modal__label"
+                >
+                  {t('profile.mintQuantityModal.mintQuantityLabel')}
+                  <span className="mint-quantity-modal__required">*</span>
+                  <input
+                    type="number"
+                    id="mint-quantity"
+                    className="mint-quantity-modal__input"
+                    min="0"
+                    max={maxMintQuantity}
+                    value={mintQuantity}
+                    onChange={(e) => {
+                      mintQuantityHandler(e.target.value);
+                    }}
+                    placeholder={t(
+                      'profile.mintQuantityModal.mintQuantityPlaceHolder'
+                    )}
+                    required
+                  />
+                </label>
+
+                <label
+                  htmlFor="mint-quantity-email"
+                  className="mint-quantity-modal__label"
+                >
+                  {t('profile.mintQuantityModal.mintEmailLabel')}
+                  <input
+                    type="email"
+                    id="mint-quantity-email"
+                    className="mint-quantity-modal__input"
+                    value={email}
+                    onChange={(e) => {
+                      emailHandler(e.target.value);
+                    }}
+                    placeholder={t(
+                      'profile.mintQuantityModal.mintEmailPlaceHolder'
+                    )}
+                  />
+                </label>
+
+                <p className="mint-quantity-modal__input-description">
+                  {t('profile.mintQuantityModal.mintEmailDescription')}
+                </p>
+
+                <Button
+                  title={`Submit Mint Quantity`}
+                  style="short"
+                  type="submit"
+                >
+                  {t('profile.mintQuantityModal.button')}
+                </Button>
+              </form>
             </div>
           </div>
         </div>

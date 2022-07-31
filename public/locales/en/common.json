@@ -178,11 +178,6 @@
         }
       ]
     },
-    "mintQuantityModal": {
-      "title": "Mint Quantity",
-      "description": "We would like to know how many Serpenta NFT you might mint. \nThis has no effect on your actual allocation, but please try to guess as accurately as possible.",
-      "button": "Submit"
-    },
     "minted": "RAWR! You JUST minted",
     "1minted": "A SERPENTA NFT!",
     "mminted": "SERPENTA NFTS!",
@@ -215,7 +210,17 @@
     "statusTitle": "status",
     "lootBoxesTitle": "Lootboxes gifted with each dragon minted",
     "countdownTitle": "Countdown to mint",
-    "countdownButtonText": "Go to mint"
+    "countdownButtonText": "Go to mint",
+    "mintQuantityModal": {
+      "title": "Mint Quantity",
+      "description": "We would like to know how many Serpenta NFT you might mint. \nThis has no effect on your actual allocation, but please try to guess as accurately as possible.",
+      "mintQuantityLabel": "How many NFTs do you want to mint?",
+      "mintQuantityPlaceHolder": "3",
+      "mintEmailLabel": "Email:",
+      "mintEmailPlaceHolder": "example@serpenta.io",
+      "mintEmailDescription": "Get a reminder message before mint. No spam.",
+      "button": "Submit"
+    }
   },
   "stake": {
     "staking": "staking",

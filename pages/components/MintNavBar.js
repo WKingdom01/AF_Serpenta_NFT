@@ -20,6 +20,7 @@ const MintNavBar = () => {
   const [connectModalOpen, setConnectModalOpen] = useState(false);
   const [mintQuantityModalOpen, setMintQuantityModalOpen] = useState(false);
   const [parentMintQuantity, setParentMintQuantity] = useState(null);
+  const [parentEmail, setParentEmail] = useState(null);
 
   const { isConnected } = useConnect();
   const { disconnect } = useDisconnect();
@@ -36,6 +37,7 @@ const MintNavBar = () => {
       localStorage.removeItem('inserted_quantity');
     }
     setParentMintQuantity(null);
+    setParentEmail(null);
   }
 
   useEffect(() => {
@@ -69,6 +71,7 @@ const MintNavBar = () => {
       if (parentMintQuantity) {
         if (typeof window !== 'undefined') {
           localStorage.setItem('inserted_quantity', parentMintQuantity);
+          localStorage.setItem('inserted_email', parentEmail);
         }
 
         fetch('/api/wallet', {
@@ -79,6 +82,7 @@ const MintNavBar = () => {
           body: JSON.stringify({
             address,
             mint_quantity: parentMintQuantity,
+            email: parentEmail,
           }),
         }).then(() => {
           setMintQuantityModalOpen(false);
@@ -86,7 +90,7 @@ const MintNavBar = () => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [address, parentMintQuantity, insertedQuantity]);
+  }, [address, parentMintQuantity, parentEmail, insertedQuantity]);
 
   return (
     <div>
@@ -152,6 +156,7 @@ const MintNavBar = () => {
         modalOpen={mintQuantityModalOpen}
         setModalOpen={setMintQuantityModalOpen}
         setParentMintQuantity={setParentMintQuantity}
+        setParentEmail={setParentEmail}
         maxMintQuantity={3}
       />
     </div>
