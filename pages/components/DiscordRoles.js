@@ -11,7 +11,9 @@ const DiscordRoles = ({ roles }) => {
     <div className="discord-roles">
       {roles &&
         roles.map((role, index) => {
-          return <DiscordRole key={index} role={role} />;
+          return role === '@everyone' ? null : (
+            <DiscordRole key={index} role={role} />
+          );
         })}
     </div>
   );

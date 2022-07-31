@@ -3,14 +3,13 @@
   flex-direction: column;
   margin-right: 10px;
   margin-top: 10px;
-  padding: 5px;
+  padding: 2px 5px;
   border-radius: 3px;
   background-color: #2f3136;
-  color: #fff;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
+  color: #0D1116;
   width: fit-content;
+  @include Small-Body;
+  line-height: 160%;
 
   &--red {
     background-color: #ff0000;
@@ -26,6 +25,7 @@
 
   &--purple {
     background-color: #9B55FD;
+    color: #fff;
   }
 
   &--yellow {
@@ -58,26 +58,32 @@
 
   &--pink1 {
     background-color: #EB0369;
+    color: #fff;
   }
 
   &--pink2 {
     background-color: #DF2974;
+    color: #fff;
   }
 
   &--pink3 {
     background-color: #DF4786;
+    color: #fff;
   }
 
   &--pink4 {
     background-color: #D5759C;
+    color: #fff;
   }
 
   &--pink5 {
     background-color: #DA95B2;
+    color: #fff;
   }
 
   &--pink6 {
     background-color: #D8B3C9;
+    color: #fff;
   }
 
   &--grey {
