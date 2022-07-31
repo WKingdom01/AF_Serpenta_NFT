@@ -23,6 +23,7 @@ const Button = ({
   icon = '',
   isCon,
   nextLink,
+  lowerCase = false,
 }) => {
   const [clicked, setClick] = useState(false);
 
@@ -87,7 +88,13 @@ const Button = ({
           title={title ?? text}
           disabled={disabled}
         >
-          <div className={isCon ? 'button__textaddress' : 'button__text'}>
+          <div
+            className={
+              isCon
+                ? 'button__textaddress'
+                : `button__text ${lowerCase ? 'button__text--lowercase' : ''}`
+            }
+          >
             {icon ? (
               <ConnectWalletButton icon={icon} />
             ) : (
@@ -120,7 +127,11 @@ const Button = ({
           }}
           title={title ?? text}
         >
-          <div className="button__text">
+          <div
+            className={`button__text ${
+              lowerCase ? 'button__text--lowercase' : ''
+            }`}
+          >
             {text} {children}
             {symbol && (
               <div>
@@ -134,7 +145,11 @@ const Button = ({
         <Link href={nextLink} passHref>
           <a href={nextLink}>
             <div className={`button button--${clicked ? 'clicked' : ''}`}>
-              <div className="button__text">
+              <div
+                className={`button__text ${
+                  lowerCase ? 'button__text--lowercase' : ''
+                }`}
+              >
                 {text} {children}
                 {symbol && (
                   <div>

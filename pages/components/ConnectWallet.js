@@ -23,7 +23,6 @@ const ConnectWallet = ({ modalOpen, setModalOpen }) => {
               setModalOpen(false);
             }}
           >
-            {' '}
             <Image
               alt="help"
               src="/close.svg"
@@ -46,6 +45,7 @@ const ConnectWallet = ({ modalOpen, setModalOpen }) => {
               clickHandler={() => connect(option)}
               text={option.name}
               icon={option.name}
+              lowerCase
             >
               {!option.ready && ' (unsupported)'}
             </Button>

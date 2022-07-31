@@ -48,6 +48,9 @@
     align-items: center;
     justify-content: center;
 
+    &--lowercase {
+      text-transform: none;
+    }
 
     .icon {
       margin-left: 10px;
