@@ -149,12 +149,12 @@ const DisconnectWalletInfo = ({ setOpenmodal, t }) => {
   );
 };
 
-const LootBoxes = ({ t }) => {
+const LootBoxes = ({ lootbox_quantity, t }) => {
   return (
     <div className={styles.lootboxes}>
       <span className={styles.title}>{t('profile.lootBoxesTitle')}</span>
       <div className={styles.content}>
-        <i className={styles.number}>2</i>
+        <i className={styles.number}>{lootbox_quantity}</i>
       </div>
     </div>
   );
@@ -192,7 +192,8 @@ export default function Profile() {
   const [distance, setDistance] = useState();
   const [userData, setUserData] = useState(null);
 
-  const { whitelisted, roles, discord_username } = userData || {};
+  const { whitelisted, roles, discord_username, lootbox_quantity } =
+    userData || {};
   const { status, time, alert, code } = statusHelper(whitelisted);
 
   const isWhitelisted = code === 1;
@@ -233,7 +234,7 @@ export default function Profile() {
               t={t}
             />
 
-            <LootBoxes t={t} />
+            <LootBoxes lootbox_quantity={lootbox_quantity} t={t} />
 
             <MintBox distance={distance} t={t} />
           </div>
