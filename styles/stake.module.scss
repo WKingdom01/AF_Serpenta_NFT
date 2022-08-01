@@ -18,6 +18,7 @@
   padding: 2rem 12px 4rem 12px;
   h3 {
     font-size: 24px;
+    font-family: 'BasierSquareMono', sans-serif;
   }
 }
 
@@ -28,6 +29,7 @@
   h3 {
     line-height: 1;
     margin-left: 8px;
+    font-family: 'BasierSquareMono', sans-serif;
   }
 }
 
@@ -337,6 +339,7 @@
     padding: 2rem 0px 4rem 0px;
     h3 {
       font-size: 16px;
+      font-family: 'BasierSquareMono';
     }
   }
   .connectBtnWrap {
@@ -376,6 +379,7 @@
   display: flex;
   align-items: center;
   line-height: 160%;
+  font-family: 'BasierSquareMono';
 }
 .lblWarp {
   display: flex;
@@ -420,6 +424,7 @@
   h1 {
     color: white;
     margin-bottom: 30px;
+    font-family: "BasierSquareMono";
   }
 }
 .row1 {
@@ -453,12 +458,14 @@
   h1 {
     color: white;
     margin-bottom: 40px;
+    font-family: 'BasierSquareMono';
   }
 }
 .artefactsWarp {
   h2 {
     color: white;
     margin-bottom: 20px;
+    font-family: 'BasierSquareMono';
   }
 }
 .efactArrayWarp {
@@ -475,6 +482,7 @@
   h2 {
     color: white;
     margin-bottom: 20px;
+    font-family: 'BasierSquareMono';
   }
 }
 .box {
@@ -530,6 +538,7 @@
   overflow: hidden;
   background: transparent;
   border: 1px solid #fbedd6;
+  font-family: 'BasierSquareMono';
 }
 .bar {
   position: relative;
@@ -545,6 +554,7 @@
   font-size: 15px;
   line-height: 24px;
   color: white;
+  font-family: 'BasierSquareMono';
 }
 .drgExplainTxt {
   display: flex;
@@ -555,27 +565,33 @@
   border: 4px solid #f9c302;
   border-radius: 20px;
   color: #f9c302;
+  font-family: 'BasierSquareMono';
   p {
     font-weight: 500;
     font-style: italic;
     font-size: 16px;
+    font-family: 'BasierSquareMono';
   }
   span {
     font-weight: 600;
     font-size: 20px;
+    font-family: 'BasierSquareMono';
   }
 }
 
 .revealTxt {
   width: 100%;
+  font-family: 'BasierSquareMono';
 }
 .leftTxt {
   color: rgb(255, 255, 255);
   float: left;
+  font-family: 'BasierSquareMono';
 }
 .rightTxt {
   color: #8f8f8f;
   float: right;
+  font-family: 'BasierSquareMono';
 }
 .timeline {
   padding: 0;
@@ -609,6 +625,7 @@
     font-size: 16px;
     line-height: 140%;
     color: #8f8f8f;
+    font-family: 'BasierSquareMono';
   }
   margin-bottom: 20px;
 }
@@ -686,6 +703,7 @@
         font-size: 24px;
         min-width: 206px;
         color: #93d3ff;
+        font-family: 'BasierSquareMono';
       }
     }
   }
