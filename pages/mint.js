@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { ethers } from 'ethers';
-import { useAccount, useConnect, useContract, useContractRead, useProvider, useSigner } from 'wagmi';
+import { useAccount, useConnect, useContract, useContractRead, useProvider, useSigner, useWaitForTransaction } from 'wagmi';
 
 import Footer from './components/Footer';
 import MintNavBar from './components/MintNavBar';
@@ -54,7 +54,7 @@ export default function Mint() {
   const contract = useContract({
     addressOrName: process.env.NEXT_PUBLIC_ANALYTICS_CONTRACT_ADDRESS,
     contractInterface: mintABI,
-    signerOrProvider: provider,
+    signerOrProvider: signer,
   });
 
   const publicTimeStamp = useContractRead({
@@ -93,12 +93,9 @@ export default function Mint() {
     } else {
       try {
         const currentTime = Math.floor(Date.now() / 1000);
-        let contract = new ethers.Contract(
-          process.env.NEXT_PUBLIC_ANALYTICS_CONTRACT_ADDRESS,
-          mintABI,
-          signer
-        );
+        
         const currentBalance = await contract.balanceOf(address);
+        setMaxWallet(await contract.MAX_WALLET());
         if (Number(currentBalance) + mintNum < max_wallet) {
           if (currentTime < priveTime || priveTime === 0 || publicTime === 0) {
             console.log('sale has not started');
@@ -121,7 +118,6 @@ export default function Mint() {
             });
             let receipt = await tx.wait();
             if (receipt !== null) {
-              await getInfo();
               setIsMinted(true);
               setEtherScanLink(
                 process.env.NEXT_PUBLIC_URL_ETHERSCAN_TX +
@@ -160,7 +156,7 @@ export default function Mint() {
       const maxWallet = await contract.MAX_WALLET();
       //public time stamp
       const publictimestamp = await contract.publicTimestamp();
-      const prvtimestamp = await contract.privateTimestamp();
+      const prvtimestamp = await contract.privateTimestamp();      
       setPublicTime(publictimestamp);
       setPrivateTime(prvtimestamp);
       setMintPrice(ethers.utils.formatEther(Number(price)));
@@ -168,24 +164,24 @@ export default function Mint() {
       setMintedNFT(Number(mintedNFT));
       setMaxTx(Number(maxTx));
       setMaxWallet(Number(maxWallet));
-      console.log('price', price);
-
+     
       if (Number(mintedNFT) === Number(totalNTFCount)) {
         setSoldOut(true);
       }
     } catch (error) {
       console.log('Getinfo_ERROR:', error);
-      window.location.reload(false);
     }
   }, [address, contract, publicTimeStamp, privateTimeStamp]);
 
+
   useEffect(() => {
-    if (isConnected) {
+    
+    if (isConnected) {      
       getInfo();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isConnected]);
-
+  }, [isConnected, isMinted, signer]);
+ 
   return (
     <div style={{ background: `url('/starrybg.png')` }}>
       <PageSlot title="mint">
@@ -257,16 +253,13 @@ export default function Mint() {
                   <i className="fa fa-spinner fa-spin" />
                   ING
                 </button>
-              ) : getCurrentPhase().includes('soon') ? (
+              ) : getCurrentPhase().includes('soon') && process.env.NEXT_PUBLIC_DEVELOPMENT=='0' ? (
                 <button
-                  onClick={() => mint()}
-                  disabled
-                  style={{ cursor: 'not-allowed' }}
-                >
+                  onClick={() => mint()} className={isConnected&&styles.connected} disabled>
                   MINT
                 </button>
               ) : (
-                <button onClick={() => mint()}>MINT</button>
+                <button onClick={() => mint()}className={isConnected&&styles.connected}>MINT</button>
               )}
             </div>
           </div>

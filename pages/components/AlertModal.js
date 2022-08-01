@@ -1,24 +1,17 @@
 import Modal from 'react-bootstrap/Modal';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { useConnect } from 'wagmi';
 
 const Button = dynamic(() => import('./Button'));
 
-const ConnectWallet = ({ modalOpen, setModalOpen }) => {
-  const { isConnecting, pendingConnector, connectors, error, connect } =
-    useConnect({
-      onConnect(data) {
-        setModalOpen(false);
-      },
-    });
+const AlertModal = ({ modalOpen, setModalOpen }) => {
  
 
   return (
     <Modal centered show={modalOpen} dialogClassName="modal-serpenta">
       <div className="connect-wallet">
         <div className="connect-wallet__top">
-          <div className="connect-wallet__title">CONNECT WALLET</div>
+          <div className="connect-wallet__title">Change The Network</div>
           <button
             onClick={() => {
               setModalOpen(false);
@@ -37,24 +30,11 @@ const ConnectWallet = ({ modalOpen, setModalOpen }) => {
           </button>
         </div>
         <div className="connect-wallet__butsWrap">
-          {connectors.map((option) => (
-            <Button
-              title={`Connect Your Wallet With ${option.name}`}
-              style="lightBlue"
-              disabled={!option.ready}
-              key={option.name}
-              clickHandler={() => connect(option)}
-              text={option.name}
-              icon={option.name}
-              lowerCase
-            >
-              {!option.ready && ' (unsupported)'}
-            </Button>
-          ))}
+         Change the network to Rinkeby test net!
         </div>
       </div>
     </Modal>
   );
 };
 
-export default ConnectWallet;
+export default AlertModal;

@@ -19,6 +19,7 @@
   padding: 2rem 12px 4rem 12px;
   h3 {
     font-size: 24px;
+    font-weight: 500;
   }
 }
 
@@ -29,6 +30,7 @@
   h3 {
     line-height: 1;
     margin-left: 8px;
+    font-weight: 500;
   }
 }
 
@@ -197,6 +199,7 @@
   margin: 0.5rem auto 0 auto;
   h3 {
     color: #ff7070;
+    font-weight: 500;
   }
   span a {
     color: #fbedd6;
@@ -215,9 +218,13 @@
     padding: 14px;
     border-radius: 8px;
     font-size: 24px;
+    font-weight: 400;
     border: 1px solid #fbedd6;
     font-family: 'BasierSquareMono', sans-serif;
     transition: all 0.4s ease-in-out;
+   
+  } 
+  .connected{
     &:hover {
       background-color: transparent;
       color: #fbedd6;
@@ -330,6 +337,7 @@
 
       h3 {
         text-transform: uppercase;
+        font-weight: 500;
       }
       a {
         text-decoration: underline;
@@ -403,6 +411,7 @@
     padding: 2rem 0px 4rem 0px;
     h3 {
       font-size: 16px;
+      font-weight: 500;
     }
   }
   .connectBtnWrap {

@@ -41,7 +41,7 @@ const Button = ({
                 layout="fixed"
               />
             </div>
-            <div className="wallettext">MetaMask</div>
+            <div className="wallettext">MetaMask Wallet</div>
           </>
         );
       case 'WalletConnect':
@@ -75,7 +75,20 @@ const Button = ({
           </>
         );
       default:
-        return null;
+        return  (
+          <>
+            <div className="iconwallet">
+              <Image
+                src={metamask}
+                alt="icon"
+                width="32px"
+                height="32px"
+                layout="fixed"
+              />
+            </div>
+            <div className="wallettext">Please install Metamask</div>
+          </>
+        );
     }
   };
 

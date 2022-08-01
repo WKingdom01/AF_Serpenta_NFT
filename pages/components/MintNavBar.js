@@ -4,10 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import HelpCenter from './HelpCenter';
-import { useAccount, useConnect, useDisconnect } from 'wagmi';
+import { useAccount, useConnect, useDisconnect, useProvider } from 'wagmi';
 import shortenAddress from '/utils/helpers/shortenAddress';
 import MintQuantityModal from './MintQuantityModal';
 import Button from './Button';
+import AlertModal  from './AlertModal';
 
 const ConnectWallet = dynamic(() => import('./ConnectWallet'));
 
@@ -18,6 +19,7 @@ const MintNavBar = () => {
   const { t } = useTranslation('common');
   const [modalOpen, setModalOpen] = useState(false);
   const [connectModalOpen, setConnectModalOpen] = useState(false);
+  const [alertModalOpen, setAlertModalOpen] = useState(false);
   const [mintQuantityModalOpen, setMintQuantityModalOpen] = useState(false);
   const [parentMintQuantity, setParentMintQuantity] = useState(null);
   const [parentEmail, setParentEmail] = useState(null);
@@ -26,6 +28,7 @@ const MintNavBar = () => {
   const { disconnect } = useDisconnect();
   const { data: accountData } = useAccount();
   const address = accountData?.address;
+  const provider = useProvider();
 
   if (typeof window !== 'undefined') {
     insertedWallet = localStorage.getItem('inserted_wallet');
@@ -91,7 +94,11 @@ const MintNavBar = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address, parentMintQuantity, parentEmail, insertedQuantity]);
-
+  useEffect(()=>{
+    if(provider._network.chainId!=process.env.NEXT_PUBLIC_NETWORK_ID){
+       setAlertModalOpen(true);
+    }
+  },[provider])
   return (
     <div>
       <div className="mint-navbar">
@@ -159,6 +166,7 @@ const MintNavBar = () => {
         setParentEmail={setParentEmail}
         maxMintQuantity={3}
       />
+      <AlertModal  modalOpen={alertModalOpen}  setModalOpen={setAlertModalOpen}/>
     </div>
   );
 };
