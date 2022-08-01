@@ -94,6 +94,7 @@ const MintNavBar = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address, parentMintQuantity, parentEmail, insertedQuantity]);
+  
   useEffect(()=>{
     if(provider._network.chainId!=process.env.NEXT_PUBLIC_NETWORK_ID){
        setAlertModalOpen(true);
