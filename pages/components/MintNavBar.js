@@ -157,8 +157,8 @@ const MintNavBar = () => {
         setModalOpen={setModalOpen}
       ></HelpCenter>
       <ConnectWallet
-         modalOpen={connectModalOpen}
-         setModalOpen={setConnectModalOpen}
+        modalOpen={connectModalOpen}
+        setModalOpen={setConnectModalOpen}
       ></ConnectWallet>
       <MintQuantityModal
         modalOpen={mintQuantityModalOpen}
