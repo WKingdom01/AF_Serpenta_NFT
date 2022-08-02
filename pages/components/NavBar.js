@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next';
 import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { OPENSEA_URL } from '../../data/constants';
+import { useFeatureToggle } from '../../hooks/useFeatureToggle';
 
 const Button = dynamic(() => import('./Button'));
 const LanguageSelect = dynamic(() => import('./LanguageSelect'));
@@ -11,6 +12,7 @@ const LanguageSelect = dynamic(() => import('./LanguageSelect'));
 let lastScrollTop = 0;
 
 const NavBar = () => {
+  const [isEnabled] = useFeatureToggle();
   const [open, setOpen] = useState(false);
   const [fixed, setFixed] = useState(false);
   const [hide, setHide] = useState(false);
@@ -81,20 +83,24 @@ const NavBar = () => {
               text={t('navbar.linkOneText')}
             ></Button>
           </li>
-          <li className="navbar__button-item">
-            <Button
-              style="ThreeD"
-              nextLink="/profile"
-              text={t('navbar.linkCheckText')}
-            ></Button>
-          </li>
-          <li className="navbar__button-item">
-            <Button
-              style="ThreeD"
-              nextLink="/mint"
-              text={t('navbar.linkMintText')}
-            ></Button>
-          </li>
+          {isEnabled('profile') && (
+            <li className="navbar__button-item">
+              <Button
+                style="ThreeD"
+                nextLink="/profile"
+                text={t('navbar.linkCheckText')}
+              ></Button>
+            </li>
+          )}
+          {isEnabled('mint') && (
+            <li className="navbar__button-item">
+              <Button
+                style="ThreeD"
+                nextLink="/mint"
+                text={t('navbar.linkMintText')}
+              ></Button>
+            </li>
+          )}
           {/* <li><Button text="connect" style="gold"></Button></li> */}
           <li className="navbar__button-item">
             <LanguageSelect></LanguageSelect>

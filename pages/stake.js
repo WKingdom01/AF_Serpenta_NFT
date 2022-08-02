@@ -11,6 +11,7 @@ import Arrow from '../static/stake/arrow.png';
 
 //wagmi react hook
 import { useConnect } from 'wagmi';
+import { useFeatureToggle } from '../hooks/useFeatureToggle';
 
 //Components
 const Dashboard = dynamic(() => import('./components/StakeDashboard'));
@@ -21,9 +22,13 @@ const ConnectWallet = dynamic(() => import('./components/ConnectWallet'));
 
 export default function Stake() {
   const { t } = useTranslation('common');
+  const [isEnabled] = useFeatureToggle();
   const { isConnected } = useConnect();
   const [isDashboard, setDashboard] = useState(true);
   const [openmodal, setOpenmodal] = useState(false);
+
+  if (!isEnabled('stake')) return null;
+
   return (
     <div>
       <PageSlot title="stake">

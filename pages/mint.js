@@ -1,10 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { ethers } from 'ethers';
-import { useAccount, useConnect, useContract, useContractRead, useProvider, useSigner, useWaitForTransaction } from 'wagmi';
+import { useAccount, useConnect, useContract, useContractRead, useProvider, useSigner } from 'wagmi';
 
 import Footer from './components/Footer';
 import MintNavBar from './components/MintNavBar';
@@ -12,6 +10,7 @@ import PageSlot from './components/PageSlot';
 import SwiperDragon from './components/SwiperDragon';
 import Confirmed from './components/Confirmed';
 
+import { useFeatureToggle } from '../hooks/useFeatureToggle';
 import { getWhitelistedAddresses } from '/utils/helpers/get-exported-addresses';
 import getCurrentPhase from '/utils/helpers/get-current-phase';
 
@@ -25,6 +24,7 @@ const keccak256 = require('keccak256');
 export default function Mint() {
   const { t } = useTranslation('common');
 
+  const [isEnabled] = useFeatureToggle();
   const [authorizedError, setAuthorizedError] = useState(false);
   const [etherscanLink, setEtherScanLink] = useState('');
   const [isMinted, setIsMinted] = useState(false);
@@ -107,7 +107,7 @@ export default function Mint() {
               setIsMinted(true);
               setEtherScanLink(
                 process.env.NEXT_PUBLIC_URL_ETHERSCAN_TX +
-                receipt['transactionHash']
+                  receipt['transactionHash']
               );
             }
           } else if (currentTime >= publicTime) {
@@ -117,9 +117,7 @@ export default function Mint() {
             let receipt = await tx.wait();
             if (receipt !== null) {
               setIsMinted(true);
-              setEtherScanLink(
-                         receipt['transactionHash']
-              );
+              setEtherScanLink(receipt['transactionHash']);
             }
           } else throw new Error('Unreachable');
         } else {
@@ -165,111 +163,119 @@ export default function Mint() {
       if (Number(mintedNFT) === Number(totalNTFCount)) {
         setSoldOut(true);
       }
-    } catch (error) {
-
-    }
+    } catch (error) {}
   }, [address, contract, publicTimeStamp, privateTimeStamp]);
 
-
   useEffect(() => {
-
     if (isConnected) {
       getInfo();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isConnected, isMinted, signer]);
 
+  if (!isEnabled('mint')) return null;
+
   return (
     <div style={{ background: `url('/starrybg.png')` }}>
       <PageSlot title="mint">
         <MintNavBar />
-        {
-          !isMinted ?
-            <main>
-              <div className={styles.mintContainer}>
-                <div className={styles.sliderContainer}>
-                  <SwiperDragon />
-                </div>
-                <div className={styles.amountpriceWrap}>
-                  <div className={styles.amount}>
-                    <h3>{t('mint.amountLabel').toUpperCase()}</h3>
-                    <div className={styles.counterWrap}>
-                      <div className={styles.numfield}>{mintNum}</div>
-                      <div className={styles.Btnfield}>
-                        <button onClick={() => decrease()}>-</button>
-                        <button onClick={() => increase()}>+</button>
-                      </div>
+        {!isMinted ? (
+          <main>
+            <div className={styles.mintContainer}>
+              <div className={styles.sliderContainer}>
+                <SwiperDragon />
+              </div>
+              <div className={styles.amountpriceWrap}>
+                <div className={styles.amount}>
+                  <h3>{t('mint.amountLabel').toUpperCase()}</h3>
+                  <div className={styles.counterWrap}>
+                    <div className={styles.numfield}>{mintNum}</div>
+                    <div className={styles.Btnfield}>
+                      <button onClick={() => decrease()}>-</button>
+                      <button onClick={() => increase()}>+</button>
                     </div>
                   </div>
-                  <div className={styles.price}>
-                    <h3>{t('mint.totalPriceLabel').toUpperCase()}</h3>
-                    <span>{(mintPrice * mintNum).toFixed(3)} ETH</span>
-                  </div>
                 </div>
-                <div className={styles.mintProgress}>
-                  {soldout ? (
-                    <h3>{t('mint.mintingLabel').toUpperCase()}</h3>
-                  ) : (
-                    <h3>{getCurrentPhase().toUpperCase()}</h3>
-                  )}
-                  <div className={styles.progressWrap}>
-                    <div
-                      className={styles.progressBar}
-                      style={{ width: '8%' }}
-                    ></div>
-                    <span>
-                      {mintedNftID}/{totalNftID}
-                    </span>
-                  </div>
-                </div>
-                <div className={styles.errorMessage}>
-                  {authorizedError && (
-                    <span>{t('mint.errors.authorizeLabel')}</span>
-                  )}
-                </div>
-                <div className={styles.soldErrorMessage}>
-                  {soldout && (
-                    <div>
-                      <h3>{t('mint.soldOut').toUpperCase()}</h3>
-                      <span>
-                        {t('mint.opensea.first')}
-                        <a
-                          href={process.env.NEXT_PUBLIC_URL_OPENSEA_COLLECTION}
-                          rel="noreferrer"
-                          target="_blank"
-                        >
-                          opensea.io
-                        </a>
-                        {t('mint.opensea.second')}
-                      </span>
-                    </div>
-                  )}
-                </div>
-                <div className={styles.mintBtn}>
-                  {isMinting ? (
-                    <button disabled>
-                      MINT
-                      <i className="fa fa-spinner fa-spin" />
-                      ING
-                    </button>
-                  ) : getCurrentPhase().includes('soon') && process.env.NEXT_PUBLIC_DEVELOPMENT == '0' ? (
-                    <button
-                      onClick={() => mint()} className={isConnected && styles.connected} disabled>
-                      MINT
-                    </button>
-                  ) : (
-                    <button onClick={() => mint()} className={isConnected && styles.connected}>MINT</button>
-                  )}
+                <div className={styles.price}>
+                  <h3>{t('mint.totalPriceLabel').toUpperCase()}</h3>
+                  <span>{(mintPrice * mintNum).toFixed(3)} ETH</span>
                 </div>
               </div>
-            </main>
-            :
-            <Confirmed mintNum={mintNum} etherscanLink={etherscanLink} setIsMinted={setIsMinted} />
-        }
+              <div className={styles.mintProgress}>
+                {soldout ? (
+                  <h3>{t('mint.mintingLabel').toUpperCase()}</h3>
+                ) : (
+                  <h3>{getCurrentPhase().toUpperCase()}</h3>
+                )}
+                <div className={styles.progressWrap}>
+                  <div
+                    className={styles.progressBar}
+                    style={{ width: '8%' }}
+                  ></div>
+                  <span>
+                    {mintedNftID}/{totalNftID}
+                  </span>
+                </div>
+              </div>
+              <div className={styles.errorMessage}>
+                {authorizedError && (
+                  <span>{t('mint.errors.authorizeLabel')}</span>
+                )}
+              </div>
+              <div className={styles.soldErrorMessage}>
+                {soldout && (
+                  <div>
+                    <h3>{t('mint.soldOut').toUpperCase()}</h3>
+                    <span>
+                      {t('mint.opensea.first')}
+                      <a
+                        href={process.env.NEXT_PUBLIC_URL_OPENSEA_COLLECTION}
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        opensea.io
+                      </a>
+                      {t('mint.opensea.second')}
+                    </span>
+                  </div>
+                )}
+              </div>
+              <div className={styles.mintBtn}>
+                {isMinting ? (
+                  <button disabled>
+                    MINT
+                    <i className="fa fa-spinner fa-spin" />
+                    ING
+                  </button>
+                ) : getCurrentPhase().includes('soon') &&
+                  process.env.NEXT_PUBLIC_DEVELOPMENT == '0' ? (
+                  <button
+                    onClick={() => mint()}
+                    className={isConnected && styles.connected}
+                    disabled
+                  >
+                    MINT
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => mint()}
+                    className={isConnected && styles.connected}
+                  >
+                    MINT
+                  </button>
+                )}
+              </div>
+            </div>
+          </main>
+        ) : (
+          <Confirmed
+            mintNum={mintNum}
+            etherscanLink={etherscanLink}
+            setIsMinted={setIsMinted}
+          />
+        )}
 
         <Footer />
-
-
       </PageSlot>
     </div>
   );

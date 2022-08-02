@@ -10,6 +10,7 @@ import ConnectWallet from './components/ConnectWallet';
 import Footer from './components/Footer';
 import MintNavBar from './components/MintNavBar';
 import PageSlot from './components/PageSlot';
+import { useFeatureToggle } from '../hooks/useFeatureToggle';
 import { statusHelper } from '../utils/helpers/status-helper';
 import { getCountdownVariables } from '../utils/helpers/time-module';
 import noConImg from '/public/profile.png';
@@ -194,6 +195,7 @@ const MintBox = ({ distance, t }) => {
 
 export default function Profile() {
   const { t } = useTranslation('common');
+  const [isEnabled] = useFeatureToggle();
   const { isConnected } = useConnect();
   const { data: accountData } = useAccount();
 
@@ -221,6 +223,8 @@ export default function Profile() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address, data]);
+
+  if (!isEnabled('profile')) return null;
 
   return (
     <div style={{ background: 'url("/starrybg.png")' }}>

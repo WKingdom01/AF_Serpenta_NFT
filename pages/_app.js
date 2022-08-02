@@ -13,6 +13,7 @@ import * as gtag from '../utils/gtag';
 import '../styles/globals.scss';
 import '../styles/reset.scss';
 import '../styles/main.scss';
+import { FeatureToggle } from './components/FeatureToggle';
 
 const chains = defaultChains;
 const defaultChain = chain.mainnet;
@@ -87,6 +88,13 @@ const client = createClient({
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+
+  const enabledFeatures = [
+    process.env.NEXT_PUBLIC_FEATURE_PROFILE === 'true' ? 'profile' : '',
+    process.env.NEXT_PUBLIC_FEATURE_MINT === 'true' ? 'mint' : '',
+    process.env.NEXT_PUBLIC_FEATURE_STAKE === 'true' ? 'stake' : '',
+  ].filter(Boolean);
+
   useEffect(() => {
     const handleRouteChange = (url) => {
       gtag.pageview(url);
@@ -118,7 +126,9 @@ function MyApp({ Component, pageProps }) {
         }}
       />
       <WagmiConfig client={client}>
-        <Component {...pageProps} />
+        <FeatureToggle enabledFeatures={enabledFeatures}>
+          <Component {...pageProps} />
+        </FeatureToggle>
       </WagmiConfig>
     </>
   );
