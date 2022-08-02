@@ -1,27 +1,31 @@
 import fse from 'fs-extra';
 import snapshot from '../data/snapshot.json' assert { type: 'json' };
 
+const { snapshot: snapshotData } = snapshot;
+
 let allNewUsers = [];
 
-const snapshotArray = Object.keys(snapshot).map((key) => snapshot[key]);
+const snapshotArray = Object.keys(snapshotData)
+  .map((key) => snapshotData[key])
+  .filter(Boolean);
 
-const { users: everyoneUsers } = snapshotArray.reduce((acc, curr) => {
+const { members: everyoneUsers } = snapshotArray.reduce((acc, curr) => {
   if (curr.name === '@everyone') {
-    return acc.concat(curr.users);
+    return acc.concat(curr.members);
   }
   return acc;
 });
 
-everyoneUsers.forEach((everyoneUser) => {
+everyoneUsers.forEach((member) => {
   let newUser = {
-    discord_id: everyoneUser.id,
-    discord_username: everyoneUser.tag,
+    discord_id: member.id,
+    discord_username: member.tag,
     roles: [],
   };
 
   snapshotArray.forEach((snapshotTemp) => {
-    snapshotTemp.users.forEach((user) => {
-      if (user.id === everyoneUser.id) {
+    snapshotTemp.members.forEach((user) => {
+      if (user.id === member.id) {
         newUser.roles.push(snapshotTemp.name);
       }
     });
