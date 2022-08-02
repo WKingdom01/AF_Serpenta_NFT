@@ -33,6 +33,10 @@
 
   @media screen and (min-width: $desktop) {
     flex-direction: row;
+    &__title,
+    &__answer {
+      flex: 50%;
+    }
 
     &__answer {
       width: 50%;
