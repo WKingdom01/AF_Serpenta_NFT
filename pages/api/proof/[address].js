@@ -18,7 +18,7 @@ export default function handler(req, res) {
     );
 
     const waitlistedWallets = readFileSync(
-      join(staticDirectory, 'whitelisted-wallets.json'),
+      join(staticDirectory, 'waitlisted-wallets.json'),
       'utf8'
     );
 
@@ -31,7 +31,9 @@ export default function handler(req, res) {
     const waitlistedWalletsArray = JSON.parse(waitlistedWallets);
     const discordUserRolesArray = JSON.parse(discordUserRoles);
 
-    const allWallets = [...whitelistedWalletsArray, ...waitlistedWalletsArray];
+    const allWallets = [
+      ...new Set([...waitlistedWalletsArray, ...whitelistedWalletsArray]),
+    ];
 
     const mergedWalletsWithDiscordUsername = allWallets.map((wallet) => {
       const discordUser = discordUserRolesArray.find(
@@ -48,10 +50,12 @@ export default function handler(req, res) {
       return wallet;
     });
 
-    const wallet = mergedWalletsWithDiscordUsername.find(
-      (mergedWallet) =>
-        mergedWallet.wallet_address.toLowerCase() === address.toLowerCase()
-    );
+    const [wallet] = mergedWalletsWithDiscordUsername
+      .filter(
+        (mergedWallet) =>
+          mergedWallet.wallet_address.toLowerCase() === address.toLowerCase()
+      )
+      .sort((a, b) => a.whitelisted - b.whitelisted);
 
     if (wallet) {
       return res.json(wallet);
