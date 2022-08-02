@@ -8,3 +8,5 @@ export const FeatureToggle = ({ children, enabledFeatures }) => {
     </FeatureToggleContext.Provider>
   );
 };
+
+export default FeatureToggle;
