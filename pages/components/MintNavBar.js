@@ -9,8 +9,25 @@ import shortenAddress from '/utils/helpers/shortenAddress';
 import MintQuantityModal from './MintQuantityModal';
 import Button from './Button';
 import AlertModal  from './AlertModal';
-
+import {networks} from '/data/constants';
 const ConnectWallet = dynamic(() => import('./ConnectWallet'));
+
+const changeNetwork = async (networkName) => {
+  try {
+   
+    if (!window.ethereum) throw new Error("No crypto wallet found");
+    await window.ethereum.request({
+      method: "wallet_switchEthereumChain",
+      params: [
+        {
+          ...networks[networkName]
+        }
+      ]
+    });
+  } catch (err) {
+    console.log(err.message);
+  }
+};
 
 const MintNavBar = () => {
   let insertedWallet;
@@ -97,11 +114,10 @@ const MintNavBar = () => {
  
   useEffect(()=>{
     if(!isConnected) return;
-    console.log("provider", provider._network.chainId);
-    console.log('networkIUD',process.env.NEXT_PUBLIC_NETWORK_ID);
     if(provider._network.chainId!=process.env.NEXT_PUBLIC_NETWORK_ID){
-       setAlertModalOpen(true);
+      changeNetwork("rinkeby");
     }
+    
   },[provider])
   return (
     <div>

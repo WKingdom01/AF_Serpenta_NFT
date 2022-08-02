@@ -232,3 +232,22 @@ export const dragonDetailItems = [
   },
 ];
 //End Serpenta
+
+export const  DragonArray = [
+  {
+    src:Img1,
+    alt:'Dragon Img'
+  },
+  {
+    src:Img2,
+    alt:'Dragon Img'
+  },
+  {
+    src:Img3,
+    alt:'Dragon Img'
+  },
+  {
+    src:Img4,
+    alt:'Dragon Img'
+  },
+]

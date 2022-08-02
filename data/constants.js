@@ -37,3 +37,18 @@ export const PUBLIC_DATE = new Date(
   '00',
   '00'
 );
+export const networks = 
+{
+  polygon: {
+      chainId: `0x${Number(137).toString(16)}`      
+  },
+  rinkeby: {
+    chainId: `0x${Number(4).toString(16)}`
+    },
+  mainnet: {
+    chainId: `0x${Number(1).toString(16)}`
+  },
+  bsc: {
+    chainId: `0x${Number(56).toString(16)}`,    
+    },    
+}
