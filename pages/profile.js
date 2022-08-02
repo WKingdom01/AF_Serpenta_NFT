@@ -107,7 +107,7 @@ const ConnectedWalletInfo = ({
       {time && (
         <div className={styles.info}>
           <span className={styles.title}>{t('profile.mintPhaseTitle')}</span>
-          <span className={styles.content}>{time.toUTCString()}</span>
+          <span className={styles.content}>{time.toString()}</span>
         </div>
       )}
       {discord_username && (
@@ -235,7 +235,9 @@ export default function Profile() {
               t={t}
             />
 
-            <div className={styles.status}>{alert}</div>
+            <div className={styles.status}>
+              {alert} {time.toString()}
+            </div>
 
             <ConnectedWalletInfo
               discord_username={discord_username}
