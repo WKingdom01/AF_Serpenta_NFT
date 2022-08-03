@@ -88,7 +88,6 @@ const client = createClient({
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-
   const enabledFeatures = [
     process.env.NEXT_PUBLIC_FEATURE_PROFILE === 'true' ? 'profile' : '',
     process.env.NEXT_PUBLIC_FEATURE_MINT === 'true' ? 'mint' : '',

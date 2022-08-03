@@ -56,7 +56,7 @@ const Button = ({
                 layout="fixed"
               />
             </div>
-            <div className="wallettext">WalletConnect</div>
+            <div className="wallettext">Wallet Connect</div>
           </>
         );
       case 'Coinbase Wallet':

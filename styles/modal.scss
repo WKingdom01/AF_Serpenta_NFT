@@ -9,9 +9,9 @@
 }
 
 .modal-serpenta {
-  max-width: 645px !important;
+  max-width: 500px !important;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: '834px') {
     max-width: 645px !important;
   }
 }

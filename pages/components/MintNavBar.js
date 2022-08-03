@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import HelpCenter from './HelpCenter';
-import { useAccount, useConnect, useDisconnect, useProvider } from 'wagmi';
+import { useAccount, useConnect, useDisconnect, useProvider} from 'wagmi';
 import shortenAddress from '/utils/helpers/shortenAddress';
 import MintQuantityModal from './MintQuantityModal';
 import Button from './Button';
@@ -111,7 +111,7 @@ const MintNavBar = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address, parentMintQuantity, parentEmail, insertedQuantity]);
- 
+
   useEffect(()=>{
     if(!isConnected) return;
     if(provider._network.chainId!=process.env.NEXT_PUBLIC_NETWORK_ID){

@@ -68,15 +68,33 @@
     }
 
     .wallettext {
-      span {
+      
         font-family: 'BasierSquareMono';
         font-size: 24px;
         font-weight: 400;
         line-height: 29px;
         letter-spacing: 0em;
         text-align: center;
-        text-transform: none;
+        text-transform: none;      
 
+      
+    }
+    @media screen and (max-width: '500px') {
+      .iconwallet {
+        position: fixed;
+        left: 10px;
+      }
+  
+      .wallettext {        
+          font-family: 'BasierSquareMono';
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 29px;
+          letter-spacing: 0em;
+          text-align: center;
+          text-transform: none;     
+  
+        
       }
     }
 
@@ -103,6 +121,7 @@
   @media screen and (min-width: $desktop) {
     margin-bottom: 0px;
   }
+ 
 }
 
 .button-container {
