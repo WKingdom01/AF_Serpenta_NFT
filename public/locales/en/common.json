@@ -149,6 +149,7 @@
     "totalPriceLabel": "Total Price",
     "mintingLabel": "Minting Now",
     "mintLabel": "Mint",
+    "mintingLavel":"Minting",
     "errors": {
       "authorizeLabel": "You will need to authorise your wallet to buy NFTs"
     },
@@ -178,12 +179,31 @@
         }
       ]
     },
-    "minted": "RAWR! You JUST minted",
-    "1minted": "A SERPENTA NFT!",
+    
     "mminted": "SERPENTA NFTS!",
     "transactionConfirm": "transaction confirmation",
-    "etherScan": "Ether Scan",
-    "mintAuthor": "Mint Author"
+    "etherScan": "EtherScan",
+    "mintAuthor": "Mint Another",
+    "confirm":{
+      "congratulation":"Congratulations!",
+      "minted": "RAWR! You JUST minted",
+      "1minted": "A SERPENTA NFT!",
+      "buymore":"buy more",
+      "share":"share",
+      "check":"checkout",
+      "yfund":"your funds",
+      "fund":"funds",
+      "quantity":"quantity",
+      "subtotal":"subtotal",
+      "egf":"estimated gas fee",
+      "total":"total",
+      "value":"value",
+      "confirmReq":"Final confirmation from your wallet is required",
+      "tomint":"click to mint"
+
+
+
+    }
   },
   "profile": {
     "disconnectedWalletTitle": "LET’S MINT YOUR DRAGONS!",

@@ -439,7 +439,7 @@
 
       .img {
         width: 400px;
-        height: 398px;
+        height: 396px;
         margin: auto;
       }
 
@@ -449,7 +449,7 @@
     .controlButtons {
       display: flex;
       justify-content: space-between;
-      width: 130px;
+      // width: 130px;
       margin: auto;
       align-items: center;
 
@@ -459,12 +459,11 @@
       }
 
       .numbers {
-        font-family: 'Basier Square Mono';
+        font-family: 'BasierSquareMono';
         font-style: normal;
         font-weight: 600;
-        font-size: 24px;
+        font-size: 44px;
         line-height: 140%;
-        text-transform: uppercase;
         color: #93D3FF;
       }
     }
@@ -493,10 +492,15 @@
       font-size: 20px;
 
       .mintTrade {
+        
         flex-basis: 50%;
 
         .mintHead {
-          display: flex;
+          display:flex;
+          align-items: center;
+          h3{
+            margin: 0;
+          }
 
           .mintRectIcon {
             width: 10%;
@@ -508,7 +512,11 @@
         flex-basis: 40%;
 
         .mintHead {
-          display: flex;
+          display:flex;
+          align-items: center;
+          h3{
+            margin: 0;
+          }
 
           .mintRectIcon {
             width: 10%;
@@ -521,7 +529,11 @@
         margin-top: 30px;
 
         .mintHead {
-          display: flex;
+          display:flex;
+          align-items: center;
+          h3{
+            margin: 0;
+          }
 
           .mintRectIcon {
             width: 5%;
@@ -713,7 +725,7 @@
         height: 172px;
         .img{
           width:172px;
-          height: 172px;
+          height: 168px;
         }
       }
     }

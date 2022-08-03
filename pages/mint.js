@@ -27,7 +27,7 @@ export default function Mint() {
   const [isEnabled] = useFeatureToggle();
   const [authorizedError, setAuthorizedError] = useState(false);
   const [etherscanLink, setEtherScanLink] = useState('');
-  const [isMinted, setIsMinted] = useState(false);
+  const [isMinted, setIsMinted] = useState(true);
   const [isMinting, setIsMinting] = useState(false);
   const [max_tx, setMaxTx] = useState(5);
   const [max_wallet, setMaxWallet] = useState(0);
@@ -243,9 +243,8 @@ export default function Mint() {
               <div className={styles.mintBtn}>
                 {isMinting ? (
                   <button disabled>
-                    MINT
-                    <i className="fa fa-spinner fa-spin" />
-                    ING
+                    {t('mint.mintingLabel').toUpperCase()}                               
+                    
                   </button>
                 ) : getCurrentPhase().includes('soon') &&
                   process.env.NEXT_PUBLIC_DEVELOPMENT == '0' ? (
@@ -254,14 +253,14 @@ export default function Mint() {
                     className={isConnected && styles.connected}
                     disabled
                   >
-                    MINT
+                   {t('mint.mintLabel').toUpperCase()}
                   </button>
                 ) : (
                   <button
                     onClick={() => mint()}
                     className={isConnected && styles.connected}
                   >
-                    MINT
+                   {t('mint.mintLabel').toUpperCase()}
                   </button>
                 )}
               </div>
